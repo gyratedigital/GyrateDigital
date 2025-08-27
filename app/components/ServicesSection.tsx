@@ -21,7 +21,7 @@ export default function ServicesSection() {
                     //     </h3>
                     //     <p className="text-card-dark text-sm line-clamp-5">{service.description}</p>
                     // </div>
-                    <div key={service.id} className="card relative group bg-primary p-[30px] rounded-xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
+                    <div key={service.id} className="card relative group bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-primary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
                         {/* Content */}

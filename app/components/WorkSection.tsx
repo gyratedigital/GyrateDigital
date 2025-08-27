@@ -10,13 +10,13 @@ export default function WorkSection() {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {workSection.map((work) => (
-                    <div key={work.id} className="card relative group bg-secondary p-[30px] rounded-xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
+                    <div key={work.id} className="card relative group bg-secondary rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
                         {/* Content */}
-                        <div className="relative z-10">
+                        <div className="relative z-10 p-[30px]">
                             <p className="text-card-light text-xs mb-5">{work.category}</p>
-                            <h3 className="text-card-light text-2xl font-semibold mb-5">
+                            <h3 className="text-card-light text-2xl font-semibold mb-0">
                             {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, i) => (
                                 <p key={i} className="outfit-text text-card-light text-2xl font-semibold mb-0">
                                 {ti}
@@ -24,13 +24,12 @@ export default function WorkSection() {
                             ))}
                             </h3>
                              {/* 👇 Add image after title */}
-                            <img 
-                                src={work.image} 
-                                alt={Array.isArray(work.title) ? work.title.join(" ") : work.title} 
-                                className="w-full h-auto rounded-lg" 
-                            />
-
                         </div>
+                        <img 
+                            src={work.image} 
+                            alt={Array.isArray(work.title) ? work.title.join(" ") : work.title} 
+                            className="w-full h-auto rounded-lg p-4 pt-0" 
+                        />
                         {/* Hover Text (extra layer) */}
                         <div className="absolute inset-0 flex items-center justify-center text-card-light text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
                             Learn More →

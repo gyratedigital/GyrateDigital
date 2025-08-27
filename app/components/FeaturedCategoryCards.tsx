@@ -8,7 +8,7 @@ export default function FeaturedCategories() {
         <div className="container px-4 mx-auto">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {featuredCategories.map((cat) => (
-                    <div key={cat.id} className="card bg-primary p-[30px] rounded-xl shadow-md bg-[url('/card-bg.svg')] bg-[60%] bg-top-right bg-no-repeat">
+                    <div key={cat.id} className="card bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[60%] bg-top-right bg-no-repeat">
                         <p className="text-card-dark text-xs mb-5">{cat.number}</p>
                          <h3 className="text-card-dark text-2xl font-semibold mb-5">
                             {(Array.isArray(cat.title) ? cat.title : [cat.title]).map((ti, i) => (
