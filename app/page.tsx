@@ -1,10 +1,12 @@
 'use client'
 
+import { useEffect, useState } from "react";
 import AboutSection from "./components/AboutSection";
 import FeaturedCategories from "./components/FeaturedCategoryCards";
-// import { Button } from "@/components/ui/button";
 import NavigationMenuDemo from "./components/Header";
 import HeroSection from "./components/HomeBanner";
+import ServicesSection from "./components/ServicesSection";
+// import { Button } from "@/components/ui/button";
 // import { PortfolioCard } from "./components/PortfolioCard";
 // import Link from "next/link";
 // import { services } from "./lib/services";
@@ -12,6 +14,24 @@ import HeroSection from "./components/HomeBanner";
 // import Image from "next/image";
 
 export default function Home() {
+
+  const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if(window.scrollY > 70) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.addEventListener('scroll', handleScroll);
+      }
+    }, 
+  []);
+
   return (
     // <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
     //   <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
@@ -110,13 +130,14 @@ export default function Home() {
     //     </a>
     //   </footer>
     // </div>
-    <div className="bg-background w-full min-h-screen">
+    <div className={`${scrolled ? "mt-[60px]" : ""} bg-background w-full min-h-screen mt[50px]`}>
       <div className="header-banner bg-[url('/spiral-bg.png')] bg-cover bg-center bg-no-repeat">
         <NavigationMenuDemo />
         <HeroSection />
       </div>
       <FeaturedCategories />
       <AboutSection />
+      <ServicesSection />
     </div>
   );
 }

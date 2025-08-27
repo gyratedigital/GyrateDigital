@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
     return(
-        <div className="container mx-auto my-[100px]">
+        <div className="container px-4 mx-auto my-[100px]">
             <h2 className="max-w-4xl font-semibold mx-auto mb-12 text-4xl text-foreground text-center">About Us</h2>
             <div className="max-w-4xl mx-auto flex items-center md:flex-row flex-col md:gap-10 gap-4">
                 <Image 

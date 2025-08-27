@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Roboto_Flex } from "next/font/google";
 import "./globals.css";
+import LenisProvider from "./components/LenisProvider";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -24,10 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${outfit.variable} ${roboto.variable} antialiased`}
-      >
-        {children}
+      <body className={`${outfit.variable} ${roboto.variable} antialiased`}>
+        <LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );

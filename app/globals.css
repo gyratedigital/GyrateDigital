@@ -165,12 +165,13 @@
 }
 
 
-/* Body text (p, span, etc.) uses Roboto Flex */
+
 body, p, span, li, input, button, a {
   font-family: var(--font-roboto-flex), sans-serif;
 }
-
-/* Headings use Outfit */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), sans-serif;
+}
+.outfit-text {
   font-family: var(--font-outfit), sans-serif;
 }

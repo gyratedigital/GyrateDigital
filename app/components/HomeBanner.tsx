@@ -9,7 +9,7 @@ export default function HeroSection() {
 
     return(
         <div className="w-full flex items-center justify-between">
-            <div className="container relative flex sm:flex-row flex-col justify-center items-center py-12 md:py-16 lg:py-20 mx-auto px-4 gap-12 animate__animated animate__bounce">
+            <div className="container px-4 relative flex sm:flex-row flex-col justify-center items-center py-12 md:py-16 lg:py-20 mx-auto px-4 gap-12 animate__animated animate__bounce">
                 <div className="hero-content flex flex-col gap-2 sm:w-4xl w-full items-center text-center">
                     <div className="absolute z-0 w-[300px] h-[300px] blur-[50px] right-0 top-0 rounded-full bg-[radial-gradient(circle,rgba(225,126,244,0.6)_0%,rgba(9,9,17,0)_60%)]"></div>
                     <div className="banner-text relative z-1">

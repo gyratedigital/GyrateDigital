@@ -22,7 +22,7 @@ export default function NavigationMenuDemo() {
 
     useEffect(() => {
       const handleScroll = () => {
-        if(window.scrollY > 68) {
+        if(window.scrollY > 70) {
           setScrolled(true);
         } else {
           setScrolled(false);
@@ -36,17 +36,16 @@ export default function NavigationMenuDemo() {
   []);
 
   return (
-    // <header className="w-full sticky top-0 bg-background/70 backdrop-blur-sm">
-    <header className={`w-full transition-all duration-900 ease-in-out z-9 ${scrolled ? "sticky top-0 bg-background/70 backdrop-blur-sm" : " "}`}>
-      <div className="container flex items-center justify-between gap-2 py-3 md:py-4 lg:py-7 mx-auto px-4 xl:gap-4">
+    <header className={`w-full transition-all duration-900 ease-in-out z-999 ${scrolled ? "fixed top-0 bg-background/70 backdrop-blur-sm" : " "}`}>
+      <div className={`container px-4 transition-all duration-500 flex items-center justify-between gap-2 mx-auto py-2 xl:gap-4 ${scrolled ? "h-[60px]" : "h-[80px]"}`}>
 
         <Link href="/" className="text-xl font-bold text-primary">
           <Image
-            className="md:h-[36px] h-[25px] block dark:invert"
+            className="md:h-[40px] md:w-[147px] h-[36px] w-[132px] block dark:invert"
             src="/gy-logo.svg"
             alt="logo"
-            width={120}
-            height={36}
+            width={147}
+            height={40}
             priority
           />
         </Link>
@@ -66,7 +65,7 @@ export default function NavigationMenuDemo() {
         <a
           href="#"
           data-slot="button"
-          className="!hidden md:!inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+          className="!hidden md:!inline-flex h-[40px] items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
           >
           Contact
         </a>
@@ -77,7 +76,7 @@ export default function NavigationMenuDemo() {
               <a
                 href="#"
                 data-slot="button"
-                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+                className="inline-flex h-[36px] items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
                 >
                 Contact
               </a>
