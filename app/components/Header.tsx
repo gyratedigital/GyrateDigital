@@ -36,7 +36,7 @@ export default function NavigationMenuDemo() {
   []);
 
   return (
-    <header className={`w-full transition-all duration-900 ease-in-out z-999 ${scrolled ? "fixed top-0 bg-background/70 backdrop-blur-sm" : " "}`}>
+    <header className={`w-full transition-all duration-900 ease-in-out z-999 ${scrolled ? "fixed top-0 bg-background/70 backdrop-blur-sm" : "absolute"}`}>
       <div className={`container px-4 transition-all duration-500 flex items-center justify-between gap-2 mx-auto py-2 xl:gap-4 ${scrolled ? "h-[60px]" : "h-[80px]"}`}>
 
         <Link href="/" className="text-xl font-bold text-primary">

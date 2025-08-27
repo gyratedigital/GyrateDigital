@@ -23,7 +23,7 @@ export default function ServicesSection() {
                     // </div>
                     <div key={service.id} className="card relative group bg-primary p-[30px] rounded-xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
                         {/* Overlay */}
-                        <div className="absolute inset-0 bg-primary/70 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
+                        <div className="absolute inset-0 bg-primary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
                         {/* Content */}
                         <div className="relative z-10">
                             <p className="text-card-dark text-xs mb-5">{service.number}</p>
@@ -37,7 +37,7 @@ export default function ServicesSection() {
                             <p className="text-card-dark text-sm line-clamp-5">{service.description}</p>
                         </div>
                         {/* Hover Text (extra layer) */}
-                        <div className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
+                        <div className="absolute inset-0 flex items-center justify-center text-card-dark text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
                             Learn More →
                         </div>
                     </div>
