@@ -14,7 +14,7 @@ export default function WorkSection() {
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
                         {/* Content */}
-                        <div className="relative z-10 p-[30px]">
+                        <div className="relative z-10 p-7 pb-4">
                             <p className="text-card-light text-xs mb-5">{work.category}</p>
                             <h3 className="text-card-light text-2xl font-semibold mb-0">
                             {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, i) => (
