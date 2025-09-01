@@ -74,7 +74,7 @@ export default function WorkSection() {
           {workSection.map((work) => (
             <div
               key={work.id}
-              className="work-card flex sm:flex-row flex-col items-center absolute w-full max-w-[80%] min-h-[60vh] card bg-secondary rounded-2xl shadow-md overflow-hidden"
+              className="work-card flex sm:flex-row flex-col items-center absolute w-full sm:max-w-[80%] max-w-full min-h-[60vh] card bg-secondary rounded-2xl shadow-md overflow-hidden"
             >
               {/* Overlay */}
               <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl"></div>
