@@ -48,12 +48,14 @@
 
 :root {
   --radius: 0.375rem;
-  --background: #E6E2FF;
+  --background: #F0FFF5;
   --foreground: #000;
-  --primary: #e17ef4;
-  --secondary: #29273F;
-  --primary-foreground: #15141b;
-  --light: #71717b;
+  /* --primary: #e17ef4; */
+  --primary: #68BA7F;
+  /* --secondary: #29273F; */
+  --secondary: #233E2B;
+  --primary-foreground: #020a04;
+  --light: #F0FFF5;
   --muted-foreground: #71717b;
   --card-dark: #000;
   --card-light: #fff;
@@ -85,11 +87,14 @@
 }
 
 .dark {
-  --background: #090911;
+  --background: #070e09;
   --foreground: #fff;
-  --primary: #e17ef4;
-  --secondary: #29273F;
-  --primary-foreground: #15141b;
+  /* --primary: #e17ef4; */
+  --primary: #68BA7F;
+  /* --secondary: #29273F; */
+  --secondary: #233E2B;
+  --primary-foreground: #020a04;
+   --light: #F0FFF5;
   --card-dark: #000;
   --card-light: #fff;
   /* --card: #e17ef4; */
@@ -121,12 +126,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #090911;
+    --background: #070e09;
     --foreground: #fff;
-    --primary: #e17ef4;
-    --secondary: #29273F;
-    --primary-foreground: #15141b;
-    --light: #71717b;
+    /* --primary: #e17ef4; */
+    --primary: #68BA7F;
+    /* --secondary: #29273F; */
+    --secondary: #233E2B;
+    --primary-foreground: #020a04;
+    --light: #F0FFF5;
     --card-dark: #000;
     --card-light: #fff;
     /* --card: #e17ef4; */

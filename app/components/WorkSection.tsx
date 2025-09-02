@@ -24,8 +24,8 @@ export default function WorkSection() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
-            start: () => `top+=${i * window.innerHeight * 0.5 - 100} top`, // trigger a bit earlier
-            end: () => `+=${window.innerHeight * 0.5}`,
+            start: () => `top+=${i * window.innerHeight * 0.7} top`, // trigger a bit earlier
+            end: () => `+=${window.innerHeight * 0.7}`,
             scrub: true,
           },
         })
@@ -46,7 +46,7 @@ export default function WorkSection() {
             {
               yPercent: -10 * (i - j),
               scale: 0.9 - (i - j) * 0.05,
-              opacity: 0.3,
+              opacity: 0.1,
               zIndex: 5 - (i - j),
               duration: 0.5,
             },
@@ -69,12 +69,12 @@ export default function WorkSection() {
       </div>
 
       {/* Cards stacked */}
-      <div className="relative h-[300vh]"> {/* enough scroll space */}
+      <div className="relative h-[400vh]"> {/* enough scroll space */}
         <div className="sticky top-24 flex flex-col items-center">
           {workSection.map((work) => (
             <div
               key={work.id}
-              className="work-card flex sm:flex-row flex-col items-center absolute w-full max-w-[80%] min-h-[60vh] card bg-secondary rounded-2xl shadow-md overflow-hidden"
+              className="work-card border-16 border-secondary flex sm:flex-row flex-col items-center absolute w-full sm:max-w-[80%] max-w-full max-h-[60vh] card bg-secondary rounded-2xl shadow-md overflow-hidden"
             >
               {/* Overlay */}
               <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl"></div>
@@ -95,7 +95,7 @@ export default function WorkSection() {
               <img
                 src={work.image}
                 alt={Array.isArray(work.title) ? work.title.join(' ') : work.title}
-                className="sm:w-3/5 w-full h-auto object-cover rounded-lg p-4"
+                className="sm:w-3/5 w-full h-auto object-cover rounded-lg"
               />
 
               {/* Hover Text */}

@@ -22,7 +22,7 @@ export default function NavigationMenuDemo() {
 
     useEffect(() => {
       const handleScroll = () => {
-        if(window.scrollY > 70) {
+        if(window.scrollY > 0) {
           setScrolled(true);
         } else {
           setScrolled(false);

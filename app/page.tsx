@@ -1,9 +1,11 @@
 'use client'
 
 import AboutSection from "./components/AboutSection";
+import BrandsSection from "./components/BrandsSection";
 import FeaturedCategories from "./components/FeaturedCategoryCards";
 import NavigationMenuDemo from "./components/Header";
 import HeroSection from "./components/HomeBanner";
+import QualitySection from "./components/QualitySection";
 import ServicesSection from "./components/ServicesSection";
 import WorkSection from "./components/WorkSection";
 
@@ -19,6 +21,8 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <WorkSection />
+      <QualitySection />
+      <BrandsSection />
     </div>
   );
 }
