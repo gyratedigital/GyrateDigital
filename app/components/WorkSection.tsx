@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { workSection } from '../data/workSection'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Image from 'next/image'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -92,9 +93,11 @@ export default function WorkSection() {
                 <p className="text-card-light text-md font-normal">{work.description}</p>
               </div>
 
-              <img
+              <Image
                 src={work.image}
-                alt={Array.isArray(work.title) ? work.title.join(' ') : work.title}
+                alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
+                width={800} // pick a good default width
+                height={600} // pick a good default height
                 className="sm:w-3/5 w-full h-auto object-cover rounded-lg"
               />
 
