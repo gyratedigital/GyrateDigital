@@ -11,7 +11,7 @@ export default function HeroSection() {
         <div className="w-full flex items-center justify-between pt-[80px] h-screen">
             <div className="container px-4 relative flex sm:flex-row flex-col justify-center items-center pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-20 lg:pb-24 mx-auto px-4 gap-12 animate__animated animate__bounce">
                 <div className="hero-content flex flex-col gap-2 sm:w-4xl w-full items-center text-center">
-                    <div className="absolute z-0 w-[300px] h-[300px] blur-[50px] right-0 top-0 rounded-full bg-[radial-gradient(circle,rgba(225,126,244,0.6)_0%,rgba(9,9,17,0)_60%)]"></div>
+                    <div className="absolute z-0 w-[300px] h-[300px] blur-[50px] right-0 top-0 rounded-full bg-[radial-gradient(circle,#CDFFDC,rgba(9,9,17,0)_60%)]"></div>
                     <div className="banner-text relative z-1">
                         <a
                             href="/docs/components/calendar"
@@ -44,7 +44,7 @@ export default function HeroSection() {
                             </a>
                         </div>
                     </div>
-                    <div className="absolute z-0 w-[300px] h-[300px] blur-[50px] left-0 bottom-0 rounded-full bg-[radial-gradient(circle,rgba(225,126,244,0.6)_0%,rgba(9,9,17,0)_60%)]"></div>
+                    <div className="absolute z-0 w-[300px] h-[300px] blur-[50px] left-0 bottom-0 rounded-full bg-[radial-gradient(circle,#CDFFDC,rgba(9,9,17,0)_60%)]"></div>
                 </div>
             </div>
         </div>
