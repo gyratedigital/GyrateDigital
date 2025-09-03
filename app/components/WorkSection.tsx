@@ -96,8 +96,8 @@ export default function WorkSection() {
               <Image
                 src={work.image}
                 alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
-                width={800} // pick a good default width
-                height={600} // pick a good default height
+                width={800}
+                height={600}
                 className="sm:w-3/5 w-full h-auto object-cover rounded-lg"
               />
 

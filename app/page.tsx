@@ -1,6 +1,7 @@
 'use client'
 
 import AboutSection from "./components/AboutSection";
+import BlogSection from "./components/BlogSection";
 import BrandsSection from "./components/BrandsSection";
 import FeaturedCategories from "./components/FeaturedCategoryCards";
 import NavigationMenuDemo from "./components/Header";
@@ -23,6 +24,7 @@ export default function Home() {
       <WorkSection />
       <QualitySection />
       <BrandsSection />
+      <BlogSection />
     </div>
   );
 }
