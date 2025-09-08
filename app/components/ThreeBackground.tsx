@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-// @ts-expect-error vanta has no types
 import HALO from "vanta/dist/vanta.halo.min.js";
 
 export default function HaloBackground() {
