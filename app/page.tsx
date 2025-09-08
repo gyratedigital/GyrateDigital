@@ -3,17 +3,22 @@
 import AboutSection from "./components/AboutSection";
 import BlogSection from "./components/BlogSection";
 import BrandsSection from "./components/BrandsSection";
+import CtaSection from "./components/CtaSection";
 import FeaturedCategories from "./components/FeaturedCategoryCards";
+import FooterSection from "./components/FooterSection";
 import NavigationMenuDemo from "./components/Header";
 import HeroSection from "./components/HomeBanner";
 import QualitySection from "./components/QualitySection";
 import ServicesSection from "./components/ServicesSection";
 import WorkSection from "./components/WorkSection";
+import ThreeBackground from "./components/ThreeBackground";
+
 
 export default function Home() {
 
   return (
-    <div className="bg-background w-full min-h-screen">
+    <div className="bg-background/90 w-full min-h-screen">
+      <ThreeBackground />
       <div className="header-banner bg-[url('/spiral-bg.png')] bg-cover bg-center bg-no-repeat">
         <NavigationMenuDemo />
         <HeroSection />
@@ -25,6 +30,8 @@ export default function Home() {
       <QualitySection />
       <BrandsSection />
       <BlogSection />
+      <CtaSection />
+      <FooterSection />
     </div>
   );
 }
