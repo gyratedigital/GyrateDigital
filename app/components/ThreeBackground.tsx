@@ -2,12 +2,13 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-// @ts-ignore
-import HALO from "vanta/src/vanta.halo";
+
+// @ts-expect-error vanta has no types
+import HALO from "vanta/dist/vanta.halo.min.js";
 
 export default function HaloBackground() {
   const vantaRef = useRef<HTMLDivElement>(null);
-  const vantaEffect = useRef<any>(null);
+  const vantaEffect = useRef<unknown>(null);
 
   useEffect(() => {
     if (!vantaRef.current) return;
@@ -41,9 +42,7 @@ export default function HaloBackground() {
     }
 
     return () => {
-      if (vantaEffect.current) {
-        vantaEffect.current.destroy();
-      }
+      (vantaEffect.current as { destroy: () => void })?.destroy();
     };
   }, []);
 
