@@ -16,7 +16,7 @@ export default function HeroSection() {
                         <a
                             href="/docs/components/calendar"
                             data-slot="badge"
-                            className="w-max inline-flex items-center justify-center gap-1 rounded-full border border-transparent bg-input px-2 py-0.5 text-xs font-medium text-secondary-foreground transition-colors hover:bg-input/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 mb-2"
+                            className="w-max inline-flex items-center justify-center gap-1 rounded-full border border-transparent bg-input px-2 py-0.5 text-xs font-medium text-card-dark transition-colors hover:bg-input/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 mb-2"
                         >
                             Go Digital with Gyrate
                             <ArrowRight className="size-3 pointer-events-none" />

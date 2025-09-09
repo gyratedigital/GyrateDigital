@@ -12,17 +12,39 @@ export default function BrandsSection () {
       <p className="text-center text-sm text-foreground mb-12">Proud to work with these leaders.</p>
       <Swiper
         modules={[Autoplay]}
-        spaceBetween={30}      
-        slidesPerView={6}      
-        loop={true}            
-        speed={1000}           
+        spaceBetween={30}
+        slidesPerView={6}   // default for large screens
+        loop={true}
+        speed={1000}
         autoplay={{
-          delay: 1000,            
+          delay: 1000,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true
+          pauseOnMouseEnter: true,
         }}
-        allowTouchMove={false} 
-        freeMode={true}        
+        allowTouchMove={false}
+        freeMode={true}
+        breakpoints={{
+          320: {
+            slidesPerView: 2, // small phones
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 3, // tablets
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 4, // small laptops
+            spaceBetween: 20,
+          },
+          1280: {
+            slidesPerView: 5, // desktops
+            spaceBetween: 25,
+          },
+          1536: {
+            slidesPerView: 6, // large desktops
+            spaceBetween: 30,
+          },
+        }}
       >
         <SwiperSlide>
           <Image
