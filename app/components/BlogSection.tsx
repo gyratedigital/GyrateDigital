@@ -14,11 +14,11 @@ export default function BlogSection() {
                 </div>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {blogSection.map((blog) => (
-                        <div key={blog.id} className="card relative group bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
+                        <div key={blog.id} className="card relative group bg-primary rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
                             {/* Overlay */}
                             <div className="absolute inset-0 bg-primary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
                             {/* Content */}
-                            <div className="relative z-10 mb-5">
+                            <div className="relative z-10 mb-5 p-[30px] pb-0">
                                 <p className="text-card-dark text-xs mb-5">{blog.category}</p>
                                 <h3 className="text-card-dark text-2xl font-semibold mb-5">
                                 {(Array.isArray(blog.title) ? blog.title : [blog.title]).map((ti, i) => (
@@ -38,7 +38,7 @@ export default function BlogSection() {
                                 alt={Array.isArray(blog.title) ? blog.title.join(" ") : blog.title}
                                 width={800}
                                 height={600}
-                                className="w-full h-auto object-cover rounded-lg"
+                                className="w-full h-auto object-cover rounded-lg p-[15px]"
                             />
                         </div>
     
