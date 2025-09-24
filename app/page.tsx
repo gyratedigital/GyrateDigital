@@ -17,7 +17,7 @@ import ThreeBackground from "./components/ThreeBackground";
 export default function Home() {
 
   return (
-    <div className="bg-background/90 w-full min-h-screen">
+    <div className="w-full min-h-screen bg-background/50">
       <ThreeBackground />
       <div className="header-banner bg-[url('/spiral-bg.png')] bg-cover bg-center bg-no-repeat">
         <NavigationMenuDemo />
