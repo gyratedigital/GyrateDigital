@@ -23,7 +23,7 @@ export default function GreenBanner() {
         innovators and creators of remarkable design solutions. As a leading
         Digital Marketing Agency, we go beyond design to offer comprehensive
         solutions. From impactful social media campaigns to search engine
-        optimization (SEO) strategies, we are committed to driving your brand's
+        optimization SEO strategies, we are committed to driving your brands
         success in the digital realm.
       </p>
     </section>
