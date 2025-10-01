@@ -24,7 +24,7 @@ export default function PortfolioPage() {
                 <div
                     key={work.id}
                     className={`group work-card flex justify-center flex-col-reverse items-center relative w-full sm:max-w-[80%] max-w-full overflow-hidden mb-24
-                    ${index % 2 === 0 ? "sm:flex-row gap-x-8 gap-y-4" : "sm:flex-row-reverse gap-x-8 gap-y-4"}`}
+                    ${index % 2 === 0 ? "sm:flex-row gap-x-10 gap-y-4" : "sm:flex-row-reverse gap-x-10 gap-y-4"}`}
                 >
                     {/* <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out rounded-xl"></div> */}
                     <div className="relative z-10 sm:1/2 w-full max-w-1/2">
