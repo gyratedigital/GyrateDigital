@@ -14,7 +14,7 @@ export default function PortfolioBanner() {
             Who we are
           {/* </Badge> */}
 
-          <h1 className="text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
+          <h1 className="text-4xl font-semibold leading-tight text-foreground md:text-5xl">
             Digital Marketing Agency
           </h1>
 
