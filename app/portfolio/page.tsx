@@ -6,6 +6,8 @@ import NavigationMenuDemo from "../components/Header";
 import PortfolioBanner from "../components/portfolio/Banner";
 import GreenBanner from "../components/portfolio/GreenBanner";
 import FooterSection from "../components/FooterSection";
+import Icon from "../components/Icon";
+import Link from "next/link";
 
 export default function PortfolioPage() {
 
@@ -21,27 +23,30 @@ export default function PortfolioPage() {
                 workSection.map((work, index) => (
                 <div
                     key={work.id}
-                    className={`group work-card flex justify-center flex-col-reverse items-center relative w-full sm:max-w-[80%] max-w-full overflow-hidden mb-10
+                    className={`group work-card flex justify-center flex-col-reverse items-center relative w-full sm:max-w-[80%] max-w-full overflow-hidden mb-24
                     ${index % 2 === 0 ? "sm:flex-row gap-x-8 gap-y-4" : "sm:flex-row-reverse gap-x-8 gap-y-4"}`}
                 >
                     {/* <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out rounded-xl"></div> */}
                     <div className="relative z-10 sm:1/2 w-full max-w-1/2">
                         <p className="text-card-light text-xs mb-5">{work.category}</p>
                         <h3 className="text-card-light text-2xl font-semibold mb-3">
+                            <p>
                             {(Array.isArray(work.title) ? work.title : [work.title]).map(
                                 (ti, i) => (
-                                    <p
+                                    <span
                                         key={i}
                                         className="outfit-text text-card-light text-2xl font-semibold mb-0"
-                                        >
+                                    >
                                         {ti}
-                                    </p>
-                                )
-                            )}
+                                    </span>
+                                    )
+                                )}
+                            </p>
                         </h3>
                         <p className="text-card-light text-md font-normal">
                             {work.description}
                         </p>
+                        <Link href={work.liveUrl ?? "#"} >Visit Live Website</Link>
                     </div>
                     <div className="w-full max-w-1/2 h-1/2 rounded-lg">
                         <Image
@@ -60,7 +65,10 @@ export default function PortfolioPage() {
                 </div>
                 ))
             ) : (
-            <p>No portfolio items found.</p>
+                <div className="w-full h-full pb-[80px] flex flex-col items-center justify-center gap-4">
+                    <Icon name="notFound" />
+                    <p>No portfolio items found.</p>
+                </div>
             )}
         </div>
         <FooterSection />
