@@ -39,7 +39,6 @@ export default function AnimatedNav() {
             scrolled ? "h-[60px]" : "h-[80px]"
           }`}
         >
-          {/* Logo */}
           <Link href="/" className="text-xl font-bold text-primary">
             <Image
               className="md:h-[40px] md:w-[147px] h-[36px] w-[132px] block dark:invert"
@@ -51,39 +50,44 @@ export default function AnimatedNav() {
             />
           </Link>
 
-          {/* Hamburger button - Always visible - 2 bars that transform to cross */}
-          <button
-            className="relative cursor-pointer w-8 h-8 flex items-center justify-center group z-51"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle navigation menu"
-          >
-            <div className="relative w-6 h-6 flex flex-col items-center justify-center">
-              {/* Top bar */}
-              <motion.span
-                className={`${open ? "bg-background" : "bg-foreground"} absolute h-0.5 w-6 rounded-full`}
-                animate={{
-                  rotate: open ? 45 : 0,
-                  y: open ? 0 : -4,
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
-              {/* Bottom bar */}
-              <motion.span
-                className={`${open ? "bg-background" : "bg-foreground"} absolute h-0.5 w-6 rounded-full`}
-                animate={{
-                  rotate: open ? -45 : 0,
-                  y: open ? 0 : 4,
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
-            </div>
-          </button>
+          <div className="flex items-center gap-4">
+            <Link
+              href="#"
+              data-slot="button"
+              className="!hidden md:!inline-flex h-[40px] items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+              >
+              Contact
+            </Link>
 
-          {/* Navigation Card - Top Right Positioned */}
+            <button
+              className={`${open ? "border-background" : "border-foreground"} relative cursor-pointer w-[40px] h-[40px] rounded-full border border-2 flex items-center justify-center group z-51`}
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle navigation menu"
+            >
+              <div className="relative w-6 h-6 flex flex-col items-center justify-center">
+                <motion.span
+                  className={`${open ? "bg-background" : "bg-foreground"} absolute h-0.5 w-5 rounded-full`}
+                  animate={{
+                    rotate: open ? 45 : 0,
+                    y: open ? 0 : -4,
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+                <motion.span
+                  className={`${open ? "bg-background" : "bg-foreground"} absolute h-0.5 w-5 rounded-full`}
+                  animate={{
+                    rotate: open ? -45 : 0,
+                    y: open ? 0 : 4,
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+              </div>
+            </button>
+          </div>
+
           <AnimatePresence>
             {open && (
               <>
-                {/* Backdrop */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -93,7 +97,6 @@ export default function AnimatedNav() {
                   onClick={() => setOpen(false)}
                 />
                 
-                {/* Navigation Card - Positioned top-right, animates to bottom-left */}
                 <motion.div
                   initial={{ 
                     opacity: 0,
@@ -114,17 +117,15 @@ export default function AnimatedNav() {
                     duration: 0.5,
                     ease: [0.32, 0.72, 0, 1]
                   }}
-                  className="absolute top-[calc(100vh-100vh+14px+6px)] right-[calc(6px+6px)] z-50 origin-top-right"
+                  className="absolute top-[calc(100vh-100vh+14px+6px)] right-[calc(6px+4px)] z-50 origin-top-right"
                   style={{
-                    top: scrolled ? 'calc(6px + 6px)' : 'calc(14px + 6px)',
-                    right: 'calc(6px + 6px)',
+                    top: scrolled ? 'calc(3px + 2px)' : 'calc(10px + 4px)',
+                    right: 'calc(6px + 4px)',
                     transformOrigin: 'top right'
                   }}
                 >
-                  <div className="bg-white rounded-2xl shadow-2xl w-80 p-[40px] relative">
-                    {/* Navigation Content */}
+                  <div className="bg-white rounded-2xl shadow-2xl w-64 p-[40px] relative">
                     <div className="flex flex-col items-center gap-4 pt-4">
-                      {/* Navigation Links */}
                       <nav className="flex flex-col items-center w-full">
                         {navLinks.map((link, i) => (
                           <motion.div
@@ -149,7 +150,6 @@ export default function AnimatedNav() {
                         ))}
                       </nav>
 
-                      {/* Start your project button */}
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ export default function AnimatedNav() {
                           className="flex items-center gap-2 px-6 py-3 border-2 border-black rounded-full text-black font-medium hover:bg-black hover:text-white transition-all duration-300"
                           onClick={() => setOpen(false)}
                         >
-                          Start your project
+                          Hire us
                           <ArrowRight className="w-4 h-4" />
                         </Link>
                       </motion.div>
