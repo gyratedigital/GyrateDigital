@@ -60,13 +60,13 @@ export default function AnimatedNav() {
             </Link>
 
             <button
-              className={`${open ? "border-background" : "border-foreground"} relative cursor-pointer w-[40px] h-[40px] rounded-full border border-2 flex items-center justify-center group z-51`}
+              className={`${open ? "border-foreground" : "border-foreground"} relative cursor-pointer w-[40px] h-[40px] rounded-full border border-2 flex items-center justify-center group z-51`}
               onClick={() => setOpen(!open)}
               aria-label="Toggle navigation menu"
             >
               <div className="relative w-6 h-6 flex flex-col items-center justify-center">
                 <motion.span
-                  className={`${open ? "bg-background" : "bg-foreground"} absolute h-0.5 w-5 rounded-full`}
+                  className="bg-foreground absolute h-0.5 w-5 rounded-full"
                   animate={{
                     rotate: open ? 45 : 0,
                     y: open ? 0 : -4,
@@ -74,7 +74,7 @@ export default function AnimatedNav() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
                 <motion.span
-                  className={`${open ? "bg-background" : "bg-foreground"} absolute h-0.5 w-5 rounded-full`}
+                  className="bg-foreground absolute h-0.5 w-5 rounded-full"
                   animate={{
                     rotate: open ? -45 : 0,
                     y: open ? 0 : 4,
@@ -124,7 +124,7 @@ export default function AnimatedNav() {
                     transformOrigin: 'top right'
                   }}
                 >
-                  <div className="bg-white rounded-2xl shadow-2xl w-64 p-[40px] relative">
+                  <div className="bg-background rounded-2xl shadow-2xl w-64 p-[40px] relative">
                     <div className="flex flex-col items-center gap-4 pt-4">
                       <nav className="flex flex-col items-center w-full">
                         {navLinks.map((link, i) => (
@@ -141,7 +141,7 @@ export default function AnimatedNav() {
                           >
                             <Link
                               href={link.href}
-                              className="text-xl font-medium text-black hover:text-gray-600 transition-colors block py-2"
+                              className="text-xl font-medium text-foreground hover:text-gray-600 transition-colors block py-2"
                               onClick={() => setOpen(false)}
                             >
                               {link.label}
@@ -162,7 +162,7 @@ export default function AnimatedNav() {
                       >
                         <Link
                           href="/contact"
-                          className="flex items-center gap-2 px-6 py-3 border-2 border-black rounded-full text-black font-medium hover:bg-black hover:text-white transition-all duration-300"
+                          className="flex items-center gap-2 px-6 py-3 border-2 border-foreground rounded-full text-foreground font-medium hover:bg-black hover:text-white transition-all duration-300"
                           onClick={() => setOpen(false)}
                         >
                           Hire us
