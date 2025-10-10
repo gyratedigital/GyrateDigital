@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -41,7 +42,7 @@ export default function AnimatedNav() {
         >
           <Link href="/" className="text-xl font-bold text-primary">
             <Image
-              className="md:h-[40px] md:w-[147px] h-[36px] w-[132px] block dark:invert"
+              className="md:h-[40px] md:w-[147px] h-[36px] w-[132px] block dark:invert transition-all duration-300"
               src="/gy-logo.svg"
               alt="logo"
               width={147}
@@ -58,6 +59,8 @@ export default function AnimatedNav() {
               >
               Contact
             </Link>
+
+            <ThemeToggle />
 
             <button
               className={`${open ? "border-foreground" : "border-foreground"} relative cursor-pointer w-[40px] h-[40px] rounded-full border border-2 flex items-center justify-center group z-51`}

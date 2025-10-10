@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "./components/LenisProvider";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -24,11 +25,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning className="dark">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('gyrate-theme') || 'dark';
+                document.documentElement.classList.add(theme);
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className={`${outfit.variable} ${roboto.variable} antialiased`}>
-        <LenisProvider>
-          {children}
-        </LenisProvider>
+        <ThemeProvider>
+          <LenisProvider>
+            {children}
+          </LenisProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
