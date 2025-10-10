@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -41,14 +41,7 @@ export default function AnimatedNav() {
           }`}
         >
           <Link href="/" className="text-xl font-bold text-primary">
-            <Image
-              className="md:h-[40px] md:w-[147px] h-[36px] w-[132px] block dark:invert transition-all duration-300"
-              src="/gy-logo.svg"
-              alt="logo"
-              width={147}
-              height={40}
-              priority
-            />
+            <Logo />
           </Link>
 
           <div className="flex items-center gap-4">
