@@ -77,10 +77,10 @@ export default function ContactPage() {
             <div className="mb-8">
               <p className="text-foreground text-xs mb-5 uppercase tracking-wider">Get In Touch</p>
               <h1 className="outfit-text text-foreground text-4xl font-semibold mb-6">
-                Let's Create Something Amazing Together
+                Let&apos;s Create Something Amazing Together
               </h1>
               <p className="text-foreground/80 text-md font-normal leading-relaxed">
-                Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                Have a project in mind? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
               </p>
             </div>
 

@@ -6,7 +6,7 @@ import Image from "next/image"
 export default function PortfolioBanner() {
   return (
     <section className="relative overflow-hidden pt-16 pb-0">
-      <div className="container mx-auto flex md:items-center items-start md:flex-row flex-col jusify-between gap-12 px-4 pt-20">
+      <div className="container mx-auto flex md:items-center items-start md:flex-row flex-col jusify-between gap-12 px-4 pt-10">
         
         {/* Left Content */}
         <div className="space-y-6">
@@ -32,8 +32,8 @@ export default function PortfolioBanner() {
             <Image
               src="/portfolio-banner.svg" // <-- put your image in public folder
               alt="Team celebrating"
-              width={382}
-              height={392}
+              width={312}
+              height={322}
               className="object-cover"
               priority
             />
