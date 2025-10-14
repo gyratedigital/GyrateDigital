@@ -17,7 +17,7 @@ export default function ContactBanner() {
           {/* </Badge> */}
 
           <h1 className="text-4xl font-semibold leading-tight text-foreground md:text-5xl">
-            Let's Contact
+            Let&apos;s Contact
           </h1>
 
           <p className="text-lg text-gray-600 leading-relaxed text-muted-foreground">
