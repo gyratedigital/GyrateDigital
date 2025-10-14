@@ -1,5 +1,5 @@
 // app/components/Banner.tsx
-import Image from "next/image"
+// import Image from "next/image"
 import Icon from "../Icon"
 // import { Badge } from "@/components/ui/badge"
 // import { Card, CardContent } from "@/components/ui/card"
