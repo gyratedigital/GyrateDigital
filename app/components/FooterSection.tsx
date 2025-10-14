@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin, Mail, Twitter } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import * as React from 'react'
 
 export default function FooterSection() {
@@ -50,10 +51,26 @@ export default function FooterSection() {
                     <div>
                         <h3 className="font-bold text-xl mb-6 text-card-dark">Quick Links</h3>
                         <ul className="space-y-4 text-sm">
-                            <li><a className="text-card-dark hover:opacity-70" href="#">Blog</a></li>
-                            <li><a className="text-card-dark hover:opacity-70" href="#">Services</a></li>
-                            <li><a className="text-card-dark hover:opacity-70" href="#">Our Work</a></li>
-                            <li><a className="text-card-dark hover:opacity-70" href="#">Contact</a></li>
+                            <li>
+                                <Link href="/blog" className="text-card-dark hover:opacity-70">
+                                Blog
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services" className="text-card-dark hover:opacity-70">
+                                Services
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/portfolio" className="text-card-dark hover:opacity-70">
+                                Our Work
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/contact" className="text-card-dark hover:opacity-70">
+                                Contact
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -89,8 +106,12 @@ export default function FooterSection() {
                 <div className="max-w-full mx-auto py-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                     <p className="text-sm text-card-dark">© 2025 Gyrate Digital</p>
                     <div className="flex items-center gap-6 text-sm">
-                        <a href="#" className="text-card-dark hover:opacity-70">Privacy policy</a>
-                        <a href="#" className="text-card-dark hover:opacity-70">Cookie policy</a>
+                        <Link href="/privacy-policy" className="text-card-dark hover:opacity-70">
+                            Privacy Policy
+                        </Link>
+                        <Link href="/cookie-policy" className="text-card-dark hover:opacity-70">
+                            Cookie Policy
+                        </Link>
                     </div>
                     <div className="flex items-center gap-3">
                         <IconCircle>

@@ -39,6 +39,7 @@ export default function NotFound() {
               </Button>
             </Link>
             <Button
+              type="button"
               variant="outline"
               className="gap-2 px-6 py-6 text-base cursor-pointer"
               onClick={() => window.history.back()}
