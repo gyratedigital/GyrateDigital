@@ -11,7 +11,8 @@ import HeroSection from "./components/HomeBanner";
 import QualitySection from "./components/QualitySection";
 import ServicesSection from "./components/ServicesSection";
 import WorkSection from "./components/WorkSection";
-import BackgroundVideo from "./components/BackgroundVideo";
+import HaloBackground from "./components/ThreeBackground";
+// import BackgroundVideo from "./components/BackgroundVideo";
 // import ThreeBackground from "./components/ThreeBackground";
 
 
@@ -20,7 +21,8 @@ export default function Home() {
   return (
     <div className="w-full min-h-screen bg-background/50">
       {/* Background Video */}
-      <BackgroundVideo />
+      {/* <BackgroundVideo /> */}
+      <HaloBackground />
       {/* <ThreeBackground /> */}
       <div className="header-banner bg-[url('/spiral-bg.png')] bg-cover bg-center bg-no-repeat">
         <NavigationMenuDemo />

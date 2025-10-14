@@ -5,7 +5,7 @@ import * as React from 'react'
 export default function FooterSection() {
 
     return (
-        <div className="w-full bg-primary">
+        <div className="w-full bg-primary relative z-0">
             <div className="container px-4 mx-auto">
                 {/* Top bar with logo */}
                 <div className="max-w-full mx-auto pt-20 pb-6">

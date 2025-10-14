@@ -52,3 +52,208 @@
 //     />
 //   );
 // }
+
+
+// components/AlienBlob.tsx
+'use client';
+
+import { useEffect, useRef } from 'react';
+import * as THREE from 'three';
+
+export default function AlienBlob() {
+  const mountRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<number>();
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    mountRef.current.appendChild(renderer.domElement);
+
+    // Custom shader material for the alien blob
+    const vertexShader = `
+      uniform float uTime;
+      uniform float uAmplitude;
+      uniform float uFrequency;
+      
+      varying vec3 vNormal;
+      varying vec3 vPosition;
+      varying vec2 vUv;
+      
+      void main() {
+        vNormal = normal;
+        vPosition = position;
+        vUv = uv;
+        
+        // Create organic movement using noise-like functions
+        float displacement = sin(position.x * uFrequency + uTime) * 
+                            cos(position.y * uFrequency + uTime) * 
+                            sin(position.z * uFrequency + uTime) * uAmplitude;
+        
+        vec3 newPosition = position + normal * displacement;
+        
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+      }
+    `;
+
+    const fragmentShader = `
+      uniform float uTime;
+      uniform vec3 uColor1;
+      uniform vec3 uColor2;
+      
+      varying vec3 vNormal;
+      varying vec3 vPosition;
+      varying vec2 vUv;
+      
+      void main() {
+        // Create pulsating color effect
+        float pulse = sin(uTime * 2.0) * 0.5 + 0.5;
+        vec3 baseColor = mix(uColor1, uColor2, pulse);
+        
+        // Add normal-based lighting
+        vec3 light = vec3(0.0, 1.0, 1.0);
+        float diffuse = max(dot(normalize(vNormal), normalize(light)), 0.0);
+        
+        // Create organic patterns using UV coordinates
+        float pattern = sin(vUv.x * 20.0 + uTime) * cos(vUv.y * 15.0 + uTime);
+        
+        // Combine everything
+        vec3 finalColor = baseColor * (0.7 + 0.3 * diffuse) + pattern * 0.1;
+        
+        // Add some transparency at the edges
+        float alpha = 1.0 - smoothstep(0.0, 0.3, length(vUv - 0.5));
+        
+        gl_FragColor = vec4(finalColor, 0.9 + alpha * 0.1);
+      }
+    `;
+
+    // Create blob geometry (icosphere for smooth deformation)
+    const geometry = new THREE.IcosahedronGeometry(2, 64);
+    
+    // Shader uniforms
+    const uniforms = {
+      uTime: { value: 0 },
+      uAmplitude: { value: 0.3 },
+      uFrequency: { value: 2.0 },
+      uColor1: { value: new THREE.Color(0.2, 0.8, 0.3) }, // Alien green
+      uColor2: { value: new THREE.Color(0.1, 0.4, 0.8) }  // Blue accent
+    };
+
+    const material = new THREE.ShaderMaterial({
+      vertexShader,
+      fragmentShader,
+      uniforms,
+      transparent: true,
+      side: THREE.DoubleSide,
+    });
+
+    const blob = new THREE.Mesh(geometry, material);
+    scene.add(blob);
+
+    // Add some ambient light
+    const ambientLight = new THREE.AmbientLight(0x404040, 1);
+    scene.add(ambientLight);
+
+    // Add directional light for better depth
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    // Camera position
+    camera.position.z = 5;
+
+    // Mouse interaction
+    const mouse = new THREE.Vector2();
+    const targetRotation = new THREE.Vector2();
+    const currentRotation = new THREE.Vector2();
+
+    const handleMouseMove = (event: MouseEvent) => {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      
+      targetRotation.x = mouse.y * 0.5;
+      targetRotation.y = mouse.x * 0.5;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Animation loop
+    const clock = new THREE.Clock();
+
+    const animate = () => {
+      frameRef.current = requestAnimationFrame(animate);
+
+      const elapsedTime = clock.getElapsedTime();
+
+      // Update shader uniforms
+      uniforms.uTime.value = elapsedTime;
+
+      // Smooth rotation towards mouse target
+      currentRotation.x += (targetRotation.x - currentRotation.x) * 0.05;
+      currentRotation.y += (targetRotation.y - currentRotation.y) * 0.05;
+
+      blob.rotation.x = currentRotation.x;
+      blob.rotation.y = currentRotation.y;
+
+      // Additional gentle floating animation
+      blob.position.y = Math.sin(elapsedTime) * 0.2;
+
+      // Pulsating amplitude for more dynamic movement
+      uniforms.uAmplitude.value = 0.2 + Math.sin(elapsedTime * 0.5) * 0.1;
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
+
+    // Handle resize
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => {
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+      }
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
+      
+      if (mountRef.current) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
+      
+      geometry.dispose();
+      material.dispose();
+      renderer.dispose();
+    };
+  }, []);
+
+  return (
+    <div className="fixed w-full h-screen bg-background overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+      
+      {/* Three.js canvas container */}
+      <div 
+        ref={mountRef} 
+        className="absolute inset-0 z-0 cursor-auto"
+      />
+    </div>
+  );
+};
+
+// export default AlienBlob;
