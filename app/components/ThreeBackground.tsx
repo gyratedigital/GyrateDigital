@@ -103,35 +103,44 @@ export default function AlienBlob() {
     `;
 
     const fragmentShader = `
-      uniform float uTime;
-      uniform vec3 uColor1;
-      uniform vec3 uColor2;
-      
-      varying vec3 vNormal;
-      varying vec3 vPosition;
-      varying vec2 vUv;
-      
-      void main() {
-        // Create pulsating color effect
-        float pulse = sin(uTime * 2.0) * 0.5 + 0.5;
-        vec3 baseColor = mix(uColor1, uColor2, pulse);
-        
-        // Add normal-based lighting
-        vec3 light = vec3(0.0, 1.0, 1.0);
-        float diffuse = max(dot(normalize(vNormal), normalize(light)), 0.0);
-        
-        // Create organic patterns using UV coordinates
-        float pattern = sin(vUv.x * 20.0 + uTime) * cos(vUv.y * 15.0 + uTime);
-        
-        // Combine everything
-        vec3 finalColor = baseColor * (0.7 + 0.3 * diffuse) + pattern * 0.1;
-        
-        // Add some transparency at the edges
-        float alpha = 1.0 - smoothstep(0.0, 0.3, length(vUv - 0.5));
-        
-        gl_FragColor = vec4(finalColor, 0.9 + alpha * 0.1);
-      }
-    `;
+  uniform float uTime;
+  uniform vec3 uColor1;
+  uniform vec3 uColor2;
+
+  varying vec3 vNormal;
+  varying vec3 vPosition;
+  varying vec2 vUv;
+
+  void main() {
+    // Normal-based shading for smooth 3D depth
+    vec3 normal = normalize(vNormal);
+    vec3 lightDir = normalize(vec3(0.3, 0.5, 1.0));
+    float diffuse = dot(normal, lightDir) * 0.5 + 0.5;
+
+    // Add soft environment reflection tint
+    vec3 viewDir = normalize(-vPosition);
+    float fresnel = pow(1.0 - max(dot(viewDir, normal), 0.0), 2.0);
+
+    // Iridescent gradient shimmer
+    float hueShift = sin(uTime * 0.5 + vUv.y * 4.0) * 0.5 + 0.5;
+    vec3 gradient = mix(uColor1, uColor2, hueShift);
+
+    // Soft metallic tone using fresnel and diffuse blending
+    vec3 color = mix(gradient, vec3(1.0), fresnel * 0.6);
+    color *= 0.7 + 0.3 * diffuse;
+
+    // Add a pastel iridescent overlay
+    color += vec3(
+      sin(vUv.x * 6.0 + uTime) * 0.05,
+      cos(vUv.y * 6.0 + uTime * 0.8) * 0.05,
+      sin(vUv.x * 4.0 + vUv.y * 4.0 + uTime * 0.6) * 0.05
+    );
+
+    gl_FragColor = vec4(color, 1.0);
+  }
+`;
+
+
 
     // Create blob geometry (icosphere for smooth deformation)
     const geometry = new THREE.IcosahedronGeometry(2, 64);
