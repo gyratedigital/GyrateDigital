@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { servicesSection } from "../data/servicesSection";
 import NavigationMenuDemo from "../components/Header";
-import PortfolioBanner from "../components/portfolio/Banner";
+import ServicesBanner from "../components/services/Banner";
 import GreenBanner from "../components/portfolio/GreenBanner";
 import FooterSection from "../components/FooterSection";
 import Icon from "../components/Icon";
@@ -14,7 +14,7 @@ export default function ServicesPage() {
   return (
     <div className="w-full">
         <NavigationMenuDemo />
-        <PortfolioBanner />
+        <ServicesBanner />
         <GreenBanner />
         <div className="container mx-auto px-4 flex flex-col items-center pt-[80px]">
         {/* <h1 className="text-3xl font-bold mb-6">Portfolio Page</h1> */}
