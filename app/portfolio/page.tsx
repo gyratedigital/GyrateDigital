@@ -23,11 +23,11 @@ export default function PortfolioPage() {
                 workSection.map((work, index) => (
                 <div
                     key={work.id}
-                    className={`group work-card flex justify-center flex-col-reverse items-center relative w-full sm:max-w-[80%] max-w-full overflow-hidden mb-24
+                    className={`group work-card flex justify-center flex-col-reverse items-center relative w-full lg:max-w-[80%] max-w-full overflow-hidden sm:mb-24 mb-12
                     ${index % 2 === 0 ? "sm:flex-row gap-x-10 gap-y-4" : "sm:flex-row-reverse gap-x-10 gap-y-4"}`}
                 >
                     {/* <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out rounded-xl"></div> */}
-                    <div className="relative z-10 sm:1/2 w-full max-w-1/2">
+                    <div className="relative z-10 sm:1/2 w-full sm:max-w-1/2 max-w-full">
                         <p className="text-foreground text-xs mb-5">{work.category}</p>
                         <h3 className="text-foreground text-2xl font-semibold mb-3">
                             <p>
@@ -48,7 +48,7 @@ export default function PortfolioPage() {
                         </p>
                         <Link href={work.liveUrl ?? "#"} >Visit Live Website</Link>
                     </div>
-                    <div className="w-full max-w-1/2 h-1/2 rounded-lg">
+                    <div className="w-full sm:max-w-1/2 h-1/2 rounded-lg">
                         <Image
                             src={work.image}
                             alt={
