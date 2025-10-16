@@ -7,10 +7,10 @@ import Icon from "../Icon"
 export default function ContactBanner() {
   return (
     <section className="relative overflow-hidden pt-16 pb-0">
-      <div className="container mx-auto flex md:items-center items-start md:flex-row flex-col jusify-between gap-12 px-4 pt-10">
+      <div className="container mx-auto flex md:items-center items-start md:flex-row flex-col jusify-between gap-12 px-4 pt-16">
         
         {/* Left Content */}
-        <div className="space-y-6 sm:pb-8 pb-0">
+        <div className="space-y-6 sm:pb-12 pb-0">
 
           {/* <Badge variant="secondary" className="rounded-full px-4 py-1 text-sm"> */}
             Meet us
