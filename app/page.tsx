@@ -18,7 +18,7 @@ import WorkSection from "./components/WorkSection";
 export default function Home() {
 
   return (
-    <div className="w-full min-h-screen bg-background/50 overflow-x-hidden">
+    <div className="w-full min-h-screen bg-background/50">
       {/* Background Video */}
       {/* <BackgroundVideo /> */}
       {/* <HaloBackground /> */}

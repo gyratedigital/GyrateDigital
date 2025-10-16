@@ -71,7 +71,7 @@ export default function ContactPage() {
       <GreenBanner />
       
       <div className="container mx-auto px-4 pt-[80px] pb-[80px]">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 max-w-[90%] mx-auto">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 lg:max-w-[90%] mx-auto">
           {/* Left Side - Contact Details */}
           <div className="lg:w-1/2 w-full">
             <div className="mb-8">

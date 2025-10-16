@@ -29,7 +29,7 @@ export default function AnimatedNav() {
   return (
     <>
       <header
-        className={`w-full transition-all duration-700 z-50 ${
+        className={`w-full transition-all duration-700 z-999 ${
           scrolled
             ? "fixed top-0 bg-background/70 backdrop-blur-sm shadow-md"
             : "absolute"
