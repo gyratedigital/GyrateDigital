@@ -1,11 +1,23 @@
+"use client";
 
 import * as React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function BrandsSection () {
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = theme || resolvedTheme;
+  const isDark = currentTheme === "dark";
   return (
     <div className="container px-4 mx-auto mb-[100px]">
       <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center">Our Clients</h2>
@@ -52,7 +64,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className="w-full h-auto object-cover rounded-lg dark:invert"
+            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -61,7 +73,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className="w-full h-auto object-cover rounded-lg dark:invert"
+            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -70,7 +82,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className="w-full h-auto object-cover rounded-lg dark:invert"
+            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -79,7 +91,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className="w-full h-auto object-cover rounded-lg dark:invert"
+            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -88,7 +100,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className="w-full h-auto object-cover rounded-lg dark:invert"
+            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -97,7 +109,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className="w-full h-auto object-cover rounded-lg dark:invert"
+            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -106,7 +118,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className="w-full h-auto object-cover rounded-lg dark:invert"
+            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
       </Swiper>
