@@ -113,8 +113,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-foreground text-lg font-semibold mb-1">Visit Us</h3>
-                  <p className="text-foreground/70">33 Copgrove Rd</p>
-                  <p className="text-foreground/70">Roundhay, Leeds LS8 2SP, UK</p>
+                  <p className="text-foreground/70">687 Chester Rd, Old Trafford</p>
+                  <p className="text-foreground/70">Stretford, Manchester M32 0QW, UK</p>
                 </div>
               </div>
             </div>
@@ -122,16 +122,15 @@ export default function ContactPage() {
             <div className="mt-12 p-6 rounded-lg bg-primary/5 border border-primary/10">
               <h3 className="text-foreground text-lg font-semibold mb-2">Business Hours</h3>
               <div className="space-y-1 text-sm text-foreground/70">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
+                <p>Monday - Friday: 11:00 AM - 8:00 PM</p>
+                <p>Saturday & Sunday: Closed</p>
               </div>
             </div>
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="lg:w-1/2 w-full">
-            <div className="bg-card rounded-lg p-8 border border-border shadow-sm">
+          <div className="lg:w-1/2 w-full sticky top-[100px] h-max">
+            <div className="bg-card rounded-lg p-8 shadow-[0_10px_50px_rgba(0,0,0,0.05)]">
               <h2 className="text-foreground text-2xl font-semibold mb-6">Send Us a Message</h2>
               
               <Form {...form}>
@@ -225,7 +224,7 @@ export default function ContactPage() {
       </div>
 
       {/* Map Section */}
-      <div className="w-full bg-secondary/20 py-16">
+      <div className="w-full pt-8 pb-24">
         <div className="container mx-auto px-4">
           <div className="max-w-[90%] mx-auto">
             <div className="text-center mb-8">
@@ -239,7 +238,7 @@ export default function ContactPage() {
             <div className="relative w-full h-[450px] rounded-lg overflow-hidden shadow-lg border border-border">
               {/* Google Maps Embed */}
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2356.8756789!2d-1.5123456!3d53.8267890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795c1b9e0b9b0b%3A0x1234567890abcdef!2s33%20Copgrove%20Rd%2C%20Roundhay%2C%20Leeds%20LS8%202SP%2C%20UK!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2374.8556789!2d-2.3013456!3d53.4547890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bae7a4e8a9b0b%3A0x1234567890abcdef!2s687%20Chester%20Rd%2C%20Old%20Trafford%2C%20Stretford%2C%20Manchester%20M32%200QW%2C%20UK!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -257,11 +256,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-foreground text-lg font-semibold mb-2">Our Office</h3>
-                    <p className="text-foreground/80 text-sm font-medium">33 Copgrove Rd</p>
-                    <p className="text-foreground/70 text-sm">Roundhay, Leeds LS8 2SP</p>
+                    <p className="text-foreground/80 text-sm font-medium">687 Chester Rd, Old Trafford</p>
+                    <p className="text-foreground/70 text-sm">Stretford, Manchester M32 0QW</p>
                     <p className="text-foreground/70 text-sm">United Kingdom</p>
                     <a
-                      href="https://www.google.com/maps/dir//33+Copgrove+Rd,+Roundhay,+Leeds+LS8+2SP,+UK"
+                      href="https://www.google.com/maps/dir//687+Chester+Rd,+Old+Trafford,+Stretford,+Manchester+M32+0QW,+UK"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 mt-3 text-primary text-sm font-medium hover:underline"
