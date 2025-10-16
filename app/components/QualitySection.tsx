@@ -13,7 +13,7 @@ export default function QualitySection() {
                     {qualitySection.map((quality) => (
                         <div key={quality.id} className="card relative group bg-light-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
                             {/* Overlay */}
-                            <div className="absolute inset-0 bg-light/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
+                            <div className="absolute inset-0 bg-light-primary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
                             {/* Content */}
                             <div className="relative z-10">
                                 <p className="text-card-dark text-xs mb-5">{quality.number}</p>
