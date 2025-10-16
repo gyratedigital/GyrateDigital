@@ -39,7 +39,7 @@ export default function ContactBanner() {
               className="object-cover"
               priority
             /> */}
-            <Icon name="contact" className="w-full max-w-md mx-auto" />
+            <Icon name="contact" className="w-[394px] h-[364px] max-w-md mx-auto" />
           {/* </CardContent> */}
         {/* </Card> */}
       </div>
