@@ -14,15 +14,12 @@ export default function WorkSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>('.work-card')
-      // const images = gsap.utils.toArray<HTMLElement>('.work-image')
 
       // initial state
       gsap.set(cards, { yPercent: 50, opacity: 0, scale: 0.9 })
-      // gsap.set(images, { y: 0 })
 
       cards.forEach((card, i) => {
         const prevCards = cards.slice(0, i)
-        // const image = images[i] as HTMLElement
 
         // timeline for each card
         const tl = gsap.timeline({
@@ -42,15 +39,6 @@ export default function WorkSection() {
           zIndex: 10,
           duration: 0.5,
         })
-
-        // bounce animation for image
-        // if (image) {
-        //   tl.to(image, {
-        //     y: -10,
-        //     duration: 0.3,
-        //     ease: "bounce.out",
-        //   }, "-=0.2")
-        // }
 
         // previous cards stacked behind
         prevCards.forEach((prevCard, j) => {
