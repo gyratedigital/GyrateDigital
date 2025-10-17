@@ -14,12 +14,15 @@ export default function WorkSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>('.work-card')
+      // const images = gsap.utils.toArray<HTMLElement>('.work-image')
 
       // initial state
       gsap.set(cards, { yPercent: 50, opacity: 0, scale: 0.9 })
+      // gsap.set(images, { y: 0 })
 
       cards.forEach((card, i) => {
         const prevCards = cards.slice(0, i)
+        // const image = images[i] as HTMLElement
 
         // timeline for each card
         const tl = gsap.timeline({
@@ -39,6 +42,15 @@ export default function WorkSection() {
           zIndex: 10,
           duration: 0.5,
         })
+
+        // bounce animation for image
+        // if (image) {
+        //   tl.to(image, {
+        //     y: -10,
+        //     duration: 0.3,
+        //     ease: "bounce.out",
+        //   }, "-=0.2")
+        // }
 
         // previous cards stacked behind
         prevCards.forEach((prevCard, j) => {
@@ -75,35 +87,46 @@ export default function WorkSection() {
           {workSection.map((work) => (
             <div
               key={work.id}
-              className="work-card border-16 border-secondary flex sm:flex-row flex-col items-center absolute w-full sm:max-w-[80%] max-w-full max-h-[60vh] card bg-secondary rounded-2xl shadow-md overflow-hidden"
+              className="work-card group bg-white flex sm:flex-row flex-col items-center absolute w-full sm:max-w-[90%] max-w-full max-h-[90vh] rounded-2xl shadow-lg overflow-hidden border border-gray-100"
             >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl"></div>
-
               {/* Content */}
-              <div className="relative z-10 p-7 pb-4 sm:w-2/5 w-full">
-                <p className="text-card-light text-xs mb-5">{work.category}</p>
-                <h3 className="text-card-light text-2xl font-semibold mb-3">
+              <div className="relative z-10 p-8 sm:w-[60%] w-full max-h-[90vh]">
+                <h3 className="text-gray-900 text-4xl font-bold mb-4">
                   {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, i) => (
-                    <p key={i} className="outfit-text text-card-light text-2xl font-semibold mb-0">
+                    <span key={i} className="block">
                       {ti}
-                    </p>
+                    </span>
                   ))}
                 </h3>
-                <p className="text-card-light text-md font-normal">{work.description}</p>
+                
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {work.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full border border-gray-200"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="text-gray-600 text-base leading-relaxed mb-6">{work.description}</p>
+                
+                <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                  Find out more →
+                </button>
               </div>
 
-              <Image
-                src={work.image}
-                alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
-                width={800}
-                height={600}
-                className="sm:w-3/5 w-full h-auto object-cover rounded-lg"
-              />
-
-              {/* Hover Text */}
-              <div className="absolute inset-0 flex items-center justify-center text-card-light text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
-                Learn More →
+              {/* Image Container */}
+              <div className="sm:w-[40%] w-full h-full relative overflow-hidden p-8 pl-0">
+                <Image
+                  src={work.image}
+                  alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
+                  width={400}
+                  height={300}
+                  className="work-image w-full h-full object-cover rounded-2xl rounded-tr-[70px]"
+                />
               </div>
             </div>
           ))}
