@@ -283,16 +283,16 @@ export default function BlogPage() {
         <div className="max-w-6xl mx-auto">
           {currentPosts.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              <div className="grid grid-cols-1 gap-8 mb-12">
                 {currentPosts.map((post) => (
                 <article
                   key={post.id}
                   className="group cursor-pointer"
                 >
                   <Link href={`/blog/${post.slug}`}>
-                    <div className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-all duration-300 group-hover:scale-[1.02]">
+                    <div className="flex sm:flex-row flex-col sm:h-64 h-auto bg-card sm:rounded-none rounded-lg overflow-hidden sm:border-none border border-border hover:shadow-lg transition-all duration-300">
                       {/* Image */}
-                      <div className="relative h-48 overflow-hidden">
+                      <div className="relative sm:h-full h-48 overflow-hidden sm:w-[300px] w-full sm:rounded-2xl">
                         <Image
                           src={post.image}
                           alt={post.title}
@@ -302,7 +302,7 @@ export default function BlogPage() {
                       </div>
 
                       {/* Content */}
-                      <div className="p-6">
+                      <div className="flex flex-col justify-center p-6">
                         {/* Categories */}
                         <div className="flex flex-wrap gap-2 mb-4">
                           {post.categories.map((category, index) => (
@@ -326,7 +326,7 @@ export default function BlogPage() {
                         </p>
 
                         {/* Author and Date */}
-                        <div className="flex items-center justify-between">
+                        <div className="flex sm:flex-row flex-col sm:items-center items-start gap-4 justify-between">
                           <div className="flex items-center gap-3">
                             <div className="w-8 h-8 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
                               <Image
