@@ -87,11 +87,11 @@ export default function WorkSection() {
           {workSection.map((work) => (
             <div
               key={work.id}
-              className="work-card group bg-white flex sm:flex-row flex-col items-stretch absolute w-full sm:max-w-[90%] max-w-full h-auto sm:h-[70vh] max-h-[70vh] sm:max-h-[80vh] rounded-2xl shadow-lg border border-gray-100"
+              className="work-card group bg-background flex sm:flex-row flex-col items-stretch absolute w-full sm:max-w-[90%] max-w-full h-auto sm:h-[70vh] max-h-[70vh] sm:max-h-[80vh] rounded-2xl shadow-lg border border-border"
             >
               {/* Content */}
               <div className="relative z-10 p-6 sm:p-8 sm:w-[60%] w-full flex flex-col justify-center overflow-y-auto">
-                <h3 className="text-gray-900 text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">
+                <h3 className="text-foreground text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">
                   {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, i) => (
                     <span key={i} className="block">
                       {ti}
@@ -104,16 +104,16 @@ export default function WorkSection() {
                   {work.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-xs sm:text-sm rounded-full border border-gray-200"
+                      className="px-3 py-1 bg-background text-foreground/70 text-xs sm:text-sm rounded-full border border-gray-200"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">{work.description}</p>
+                <p className="text-foreground/60 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">{work.description}</p>
                 
-                <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-full text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors duration-200 w-fit">
+                <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-full text-xs sm:text-sm font-medium text-foreground/70 hover:bg-gray-50 transition-colors duration-200 w-fit">
                   Find out more →
                 </button>
               </div>
