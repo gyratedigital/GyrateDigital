@@ -3,7 +3,7 @@ import { qualitySection } from '../data/qualitySection'
 
 export default function QualitySection() {
     return(
-        <div className="bg-gradient-to-r from-[#233E2B] to-[#68BA7F] py-20 mt-[500px] mb-[100px]">
+        <div className="bg-gradient-to-r from-[#233E2B] to-[#68BA7F] py-20 sm:mt-[100px] mt-0 mb-[100px]">
             <div className="container px-4 mx-auto">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="font-semibold mb-2 text-4xl text-card-light text-center">Reasons you should choose Gyrate</h2>

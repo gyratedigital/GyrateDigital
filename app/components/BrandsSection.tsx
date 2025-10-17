@@ -16,8 +16,20 @@ export default function BrandsSection () {
     setMounted(true);
   }, []);
 
+  // Prevent rendering until mounted to avoid theme mismatch
+  if (!mounted) {
+    return (
+      <div className="container px-4 mx-auto mb-[100px]">
+        <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center">Our Clients</h2>
+        <p className="text-center text-sm text-foreground mb-12">Proud to work with these leaders.</p>
+        <div className="h-[80px]"></div> {/* Placeholder to prevent layout shift */}
+      </div>
+    );
+  }
+
   const currentTheme = theme || resolvedTheme;
   const isDark = currentTheme === "dark";
+  
   return (
     <div className="container px-4 mx-auto mb-[100px]">
       <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center">Our Clients</h2>
