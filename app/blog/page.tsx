@@ -255,7 +255,7 @@ export default function BlogPage() {
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <div className="flex items-end gap-4 w-full">
 
-              <div>
+              <div className="flex flex-col gap-2">
                 <label className="text-foreground text-sm font-medium whitespace-nowrap">
                   Filter Posts:
                 </label>
@@ -280,7 +280,7 @@ export default function BlogPage() {
                   placeholder="Search for a topic..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 focus:ring-offset-2 focus-visible:ring-primary !focus-visible:ring-primary"
                 />
               </div>
             </div>
