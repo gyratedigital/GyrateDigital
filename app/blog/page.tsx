@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import NavigationMenuDemo from "../components/Header";
 import FooterSection from "../components/FooterSection";
-import { blogPosts, categories, getPostsByCategory, searchPosts } from "../data/blog";
+import { categories, getPostsByCategory, searchPosts } from "../data/blog";
 
 const POSTS_PER_PAGE = 6;
 
