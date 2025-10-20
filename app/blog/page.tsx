@@ -115,7 +115,7 @@ export default function BlogPage() {
             className="w-10 h-10 rounded-full hover:bg-primary/10 hover:text-primary"
           >
             {totalPages}
-          </Button>
+          </Button> 
         );
       } else if (currentPage >= totalPages - 2) {
         // Show first page, ellipsis, and last 3 pages
