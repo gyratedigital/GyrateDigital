@@ -24,7 +24,7 @@ export default function PortfolioPage() {
             {Array.isArray(aboutSection) && aboutSection.length > 0 ? (
                 aboutSection.map((about, index) => (
                 <div
-                    // key={about.id}
+                    key={index}
                     className={`group work-card flex justify-center flex-col-reverse items-center relative w-full lg:max-w-[80%] max-w-full overflow-hidden sm:mb-24 mb-12
                     ${index % 2 === 0 ? "sm:flex-row gap-x-10 gap-y-4" : "sm:flex-row-reverse gap-x-10 gap-y-4"}`}
                 >

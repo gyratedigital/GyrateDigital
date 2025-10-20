@@ -18,13 +18,10 @@ interface BlogPostPageProps {
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
-  const [slug, setSlug] = useState<string>("");
 
   useEffect(() => {
     // Unwrap the params promise
     params.then((resolvedParams) => {
-      setSlug(resolvedParams.slug);
-      
       // Find the post by slug
       const foundPost = blogPosts.find(p => p.slug === resolvedParams.slug);
       setPost(foundPost || null);
