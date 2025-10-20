@@ -56,7 +56,6 @@ export default function BlogPage() {
     if (blogSection) {
       blogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      // Fallback to scrolling to top if section not found
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -66,7 +65,6 @@ export default function BlogPage() {
     const maxVisiblePages = 5;
 
     if (totalPages <= maxVisiblePages) {
-      // Show all pages if total pages is less than max visible
       for (let i = 1; i <= totalPages; i++) {
         buttons.push(
           <Button
@@ -85,9 +83,7 @@ export default function BlogPage() {
         );
       }
     } else {
-      // Show ellipsis for large page counts
       if (currentPage <= 3) {
-        // Show first 3 pages, ellipsis, and last page
         for (let i = 1; i <= 3; i++) {
           buttons.push(
             <Button
