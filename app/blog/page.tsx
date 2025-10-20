@@ -6,6 +6,13 @@ import Link from "next/link";
 import { Calendar, Clock, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import NavigationMenuDemo from "../components/Header";
 import FooterSection from "../components/FooterSection";
 import { blogPosts, categories, getPostsByCategory, searchPosts } from "../data/blog";
@@ -244,26 +251,29 @@ export default function BlogPage() {
 
       {/* Filter Section */}
       <div className="container mx-auto px-4 mb-12">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <div className="flex items-center gap-4 w-full">
-              <label className="text-foreground text-sm font-medium whitespace-nowrap">
-                Filter Posts:
-              </label>
-              
-              <select 
-                value={selectedCategory} 
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-[200px] h-10 px-3 py-2 text-sm border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-              >
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
+            <div className="flex items-end gap-4 w-full">
 
-              <div className="relative flex-1 max-w-md">
+              <div>
+                <label className="text-foreground text-sm font-medium whitespace-nowrap">
+                  Filter Posts:
+                </label>
+                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                  <SelectTrigger className="w-[200px]">
+                    <SelectValue placeholder="Select category..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {categories.map((category) => (
+                      <SelectItem key={category} value={category}>
+                        {category}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="relative flex-1 w-full">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50 w-4 h-4" />
                 <Input
                   type="text"
