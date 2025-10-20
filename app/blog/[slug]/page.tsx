@@ -10,29 +10,35 @@ import FooterSection from "../../components/FooterSection";
 import { blogPosts, BlogPost } from "../../data/blog";
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [slug, setSlug] = useState<string>("");
 
   useEffect(() => {
-    // Find the post by slug
-    const foundPost = blogPosts.find(p => p.slug === params.slug);
-    setPost(foundPost || null);
+    // Unwrap the params promise
+    params.then((resolvedParams) => {
+      setSlug(resolvedParams.slug);
+      
+      // Find the post by slug
+      const foundPost = blogPosts.find(p => p.slug === resolvedParams.slug);
+      setPost(foundPost || null);
 
-    // Find related posts (same categories, excluding current post)
-    if (foundPost) {
-      const related = blogPosts
-        .filter(p => p.id !== foundPost.id && 
-          p.categories.some(cat => foundPost.categories.includes(cat)))
-        .slice(0, 3);
-      setRelatedPosts(related);
-    }
-  }, [params.slug]);
+      // Find related posts (same categories, excluding current post)
+      if (foundPost) {
+        const related = blogPosts
+          .filter(p => p.id !== foundPost.id && 
+            p.categories.some(cat => foundPost.categories.includes(cat)))
+          .slice(0, 3);
+        setRelatedPosts(related);
+      }
+    });
+  }, [params]);
 
   if (!post) {
     return (
