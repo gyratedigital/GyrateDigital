@@ -41,7 +41,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="container mx-auto px-4 pt-[100px] pb-16">
           <div className="text-center py-16">
             <h1 className="text-2xl font-semibold text-foreground mb-4">Post Not Found</h1>
-            <p className="text-foreground/60 mb-6">The blog post you're looking for doesn't exist.</p>
+            <p className="text-foreground/60 mb-6">The blog post you&apos;re looking for doesn&apos;t exist.</p>
             <Link href="/blog">
               <Button variant="outline">
                 <ArrowLeft className="w-4 h-4 mr-2" />
