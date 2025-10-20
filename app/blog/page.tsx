@@ -249,9 +249,9 @@ export default function BlogPage() {
       <div className="container mx-auto px-4 mb-12">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <div className="flex items-end gap-4 w-full">
+            <div className="flex sm:flex-row flex-col items-end gap-4 w-full">
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-1 flex-col gap-2">
                 <label className="text-foreground text-sm font-medium whitespace-nowrap">
                   Filter Posts:
                 </label>
