@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, Clock, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { Calendar, Clock, Search, ChevronLeft, ChevronRight, Newspaper } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -231,6 +231,9 @@ export default function BlogPage() {
                 <div className="absolute inset-0 bg-background/10 z-[-1]" />
 
                 <div className="max-w-4xl mx-auto text-center relative z-1">
+                    <div className="flex items-center justify-center mb-4">
+                      <Newspaper className="w-12 h-12 text-primary" />
+                    </div>
                     <p className="text-foreground text-xs mb-4 uppercase tracking-wider">Our Blog</p>
                     <h1 className="outfit-text text-foreground text-4xl md:text-5xl font-semibold mb-6">
                         Insights & Stories

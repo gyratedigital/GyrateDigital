@@ -76,7 +76,7 @@ export default function WorkSection() {
           {workSection.map((work) => (
             <div
               key={work.id}
-              className="work-card group bg-background flex sm:flex-row flex-col items-stretch absolute w-full sm:max-w-[90%] max-w-full h-auto sm:h-[70vh] max-h-[70vh] sm:max-h-[80vh] rounded-2xl shadow-lg border border-border"
+              className="work-card group bg-background flex sm:flex-row flex-col items-stretch absolute w-full sm:max-w-[90%] max-w-full h-auto sm:h-[70vh] max-h-[70vh] sm:max-h-[80vh] rounded-2xl shadow-lg border border-foreground/20"
             >
               {/* Content */}
               <div className="relative z-10 p-6 sm:p-8 sm:w-[60%] w-full flex flex-col justify-center overflow-y-auto">
