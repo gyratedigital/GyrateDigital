@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import NavigationMenuDemo from "../../components/Header";
 import FooterSection from "../../components/FooterSection";
 import { blogPosts, BlogPost } from "../../data/blog";
+import { useRouter } from "next/navigation";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -18,6 +19,7 @@ interface BlogPostPageProps {
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     // Unwrap the params promise
@@ -39,18 +41,17 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) {
     return (
+
       <div className="w-full min-h-screen bg-background">
         <NavigationMenuDemo />
         <div className="container mx-auto px-4 pt-[100px] pb-16">
           <div className="text-center py-16">
             <h1 className="text-2xl font-semibold text-foreground mb-4">Post Not Found</h1>
             <p className="text-foreground/60 mb-6">The blog post you&apos;re looking for doesn&apos;t exist.</p>
-            <Link href="/blog">
-              <Button variant="outline">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
-              </Button>
-            </Link>
+            <Button variant="outline" onClick={() => router.back()}>
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back
+            </Button>
           </div>
         </div>
         <FooterSection />
@@ -66,12 +67,14 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       <div className="relative container mx-auto px-4 pt-[100px] pb-8">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
-          <Link href="/blog">
-            <Button variant="ghost" className="mb-6 text-foreground/60 hover:text-foreground">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Blog
-            </Button>
-          </Link>
+          <Button 
+            variant="ghost" 
+            className="mb-6 text-foreground/60 hover:text-foreground hover:!bg-primary/10 cursor-pointer"
+            onClick={() => router.back()}
+          >
+            <ArrowLeft className="w-4 h-4 mr-1" />
+            Back
+          </Button>
 
           {/* Categories */}
           <div className="flex flex-wrap gap-2 mb-4">
