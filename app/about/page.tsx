@@ -26,10 +26,10 @@ export default function PortfolioPage() {
                 <div
                     key={index}
                     className={`group work-card flex justify-center flex-col-reverse items-center relative w-full lg:max-w-[80%] max-w-full overflow-hidden sm:mb-24 mb-12
-                    ${index % 2 === 0 ? "sm:flex-row gap-x-10 gap-y-4" : "sm:flex-row-reverse gap-x-10 gap-y-4"}`}
+                    ${index % 2 === 0 ? "sm:flex-row gap-x-10 gap-y-8" : "sm:flex-row-reverse gap-x-10 gap-y-8"}`}
                 >
                     <div className="relative z-10 sm:1/2 w-full sm:max-w-1/2 max-w-full">
-                        <p className="text-foreground text-xs mb-5">{about.category}</p>
+                        <p className="text-foreground text-xs mb-4">{about.category}</p>
                         <h3 className="text-foreground text-2xl font-semibold mb-3">
                             <p>
                             {(Array.isArray(about.title) ? about.title : [about.title]).map(
@@ -51,7 +51,7 @@ export default function PortfolioPage() {
                         <Link
                             href="/contact"
                             data-slot="button"
-                            className="mt-5 md:inline-flex h-[40px] items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+                            className="mt-5 inline-flex h-[40px] items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
                             >
                             Discover more
                         </Link>
