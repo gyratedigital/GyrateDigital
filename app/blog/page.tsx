@@ -251,12 +251,12 @@ export default function BlogPage() {
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <div className="flex sm:flex-row flex-col items-end gap-4 w-full">
 
-              <div className="flex flex-1 flex-col gap-2">
+              <div className="flex sm:flex-none sm:w-auto w-full flex-1 flex-col gap-2">
                 <label className="text-foreground text-sm font-medium whitespace-nowrap">
                   Filter Posts:
                 </label>
                 <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                  <SelectTrigger className="w-[200px]">
+                  <SelectTrigger className="sm:w-[200px] w-full">
                     <SelectValue placeholder="Select category..." />
                   </SelectTrigger>
                   <SelectContent>
@@ -338,8 +338,8 @@ export default function BlogPage() {
                               <Image
                                 src={post.author.avatar}
                                 alt={post.author.name}
-                                width={32}
-                                height={32}
+                                width={128}
+                                height={128}
                                 className="w-full h-full object-cover"
                               />
                             </div>
