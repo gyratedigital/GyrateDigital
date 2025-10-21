@@ -168,7 +168,7 @@ These third parties are contractually obligated to protect your data and use it 
           <div className="bg-card rounded-lg p-6 md:p-8 border border-border mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Introduction</h2>
             <p className="text-foreground/70 leading-relaxed mb-4">
-              Welcome to Gyrate Digital's Privacy Policy. This policy describes how Gyrate Digital ("we," "us," or "our") collects, uses, and shares your personal information when you use our website and services.
+              Welcome to Gyrate Digital&apos;s Privacy Policy. This policy describes how Gyrate Digital (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares your personal information when you use our website and services.
             </p>
             <p className="text-foreground/70 leading-relaxed">
               We are committed to protecting your privacy and ensuring the security of your personal information. By using our services, you agree to the collection and use of information in accordance with this policy.
@@ -217,7 +217,7 @@ These third parties are contractually obligated to protect your data and use it 
           <div className="bg-card rounded-lg p-6 md:p-8 border border-border mt-6">
             <h2 className="text-xl font-bold text-foreground mb-4">Changes to This Privacy Policy</h2>
             <p className="text-foreground/70 leading-relaxed">
-              We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+              We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
             </p>
           </div>
         </div>

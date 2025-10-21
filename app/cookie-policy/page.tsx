@@ -198,7 +198,7 @@ export default function CookiePolicyPage() {
               Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work more efficiently, provide a better user experience, and provide information to the website owners.
             </p>
             <p className="text-foreground/70 leading-relaxed">
-              We use cookies and similar tracking technologies to track activity on our website and store certain information. These technologies help us analyze trends, administer the website, track users' movements around the site, and gather demographic information about our user base.
+              We use cookies and similar tracking technologies to track activity on our website and store certain information. These technologies help us analyze trends, administer the website, track users&apos; movements around the site, and gather demographic information about our user base.
             </p>
           </div>
 
