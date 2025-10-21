@@ -5,6 +5,7 @@ import { workSection } from '../data/workSection'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -101,8 +102,9 @@ export default function WorkSection() {
 
                 <p className="text-foreground/60 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">{work.description}</p>
                 
-                <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-full text-xs sm:text-sm font-medium text-foreground/70 hover:bg-gray-50 transition-colors duration-200 w-fit">
-                  Find out more →
+                <button className="inline-flex items-center px-4 py-2 border border-foreground rounded-full text-xs sm:text-sm font-medium text-foreground hover:text-card-dark hover:bg-primary hover:border-primary transition-colors duration-200 w-fit cursor-pointer">
+                  Visit live website
+                  <ArrowRight className="ml-1 w-4 h-4" />
                 </button>
               </div>
 
