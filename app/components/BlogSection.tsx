@@ -1,49 +1,68 @@
 'use client'
 import * as React from 'react'
-import { blogSection } from '../data/blogSection'
+import { blogPosts } from '../data/blog'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 export default function BlogSection() {
+  // Get 4 random blog posts
+  const getRandomPosts = () => {
+    const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 4);
+  };
+
+  const [randomPosts, setRandomPosts] = React.useState(() => getRandomPosts());
 
   return (
     <div className="container px-4 mx-auto mb-[100px]">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="font-semibold mb-2 text-4xl text-foreground text-center">Our Blog</h2>
-                    <p className="text-center text-sm text-foreground mb-12">Ideas that inspire, stories that matter.</p>
+      <div className="max-w-4xl mx-auto">
+        <h2 className="font-semibold mb-2 text-4xl text-foreground text-center">Our Blog</h2>
+        <p className="text-center text-sm text-foreground mb-12">Ideas that inspire, stories that matter.</p>
+      </div>
+      <div className="mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {randomPosts.map((post) => (
+            <article key={post.id} className="group cursor-pointer">
+              <Link href={`/blog/${post.slug}`}>
+                <div className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-all duration-300 h-full">
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {post.categories.slice(0, 2).map((category, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                        >
+                          {category}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-foreground font-semibold mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-foreground/70 text-sm line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center gap-2 mt-3 text-xs text-foreground/60">
+                      <span>{post.date}</span>
+                      <span>•</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {blogSection.map((blog) => (
-                        <div key={blog.id} className="card relative group bg-primary rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-primary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
-                            {/* Content */}
-                            <div className="relative z-10 mb-5 p-[30px] pb-0">
-                                <p className="text-card-dark text-xs mb-5">{blog.category}</p>
-                                <h3 className="text-card-dark text-2xl font-semibold mb-5">
-                                {(Array.isArray(blog.title) ? blog.title : [blog.title]).map((ti, i) => (
-                                    <p key={i} className="outfit-text text-card-dark text-2xl font-semibold mb-0">
-                                    {ti}
-                                    </p>
-                                ))}
-                                </h3>
-                                <p className="text-card-dark text-sm line-clamp-5">{blog.description}</p>
-                            </div>
-                            {/* Hover Text (extra layer) */}
-                            <div className="absolute inset-0 flex items-center justify-center text-card-dark text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
-                                Learn More →
-                            </div>
-                            <Image
-                                src={blog.image}
-                                alt={Array.isArray(blog.title) ? blog.title.join(" ") : blog.title}
-                                width={800}
-                                height={600}
-                                className="w-full h-auto object-cover rounded-lg p-[15px]"
-                            />
-                        </div>
-    
-                    ))}
-                </div>
-            </div>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
