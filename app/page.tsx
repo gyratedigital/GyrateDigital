@@ -26,7 +26,8 @@ export default function Home() {
       <div className="header-banner relative overflow-hidden bg-[url('/spiral-bg.png')] bg-cover bg-center bg-no-repeat">
         <LightRays
           raysOrigin="top-center-offset"
-          raysColor="#00ffff"
+        //  raysColor="#68BA7F"
+         raysColor="#89e9a4"
           raysSpeed={1.5}
           lightSpread={0.8}
           rayLength={1.2}
