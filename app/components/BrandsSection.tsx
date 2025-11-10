@@ -76,7 +76,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
+            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -85,7 +85,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
+            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -94,7 +94,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
+            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -103,7 +103,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
+            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -112,7 +112,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
+            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -121,7 +121,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
+            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -130,7 +130,7 @@ export default function BrandsSection () {
             alt="logo"
             width={150}
             height={50}
-            className={`w-full h-auto object-cover rounded-lg transition-all duration-300 ${isDark ? "invert" : ""}`}
+            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
         </SwiperSlide>
       </Swiper>

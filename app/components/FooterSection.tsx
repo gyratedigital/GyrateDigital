@@ -88,13 +88,13 @@ export default function FooterSection() {
                                 <input
                                     type="email"
                                     placeholder="Your email address"
-                                    className="text-card-light w-full h-12 px-4 rounded-lg border border-card-light/50 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary/60 placeholder-card-light"
+                                    className="text-card-light w-full h-12 px-4 rounded-xl border border-card-light/50 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary/60 placeholder-card-light"
                                     required
                                 />
                                 <a
                                     href="#"
                                     data-slot="button"
-                                    className="w-max inline-flex items-center justify-center gap-1.5 rounded-lg bg-card-light px-4 py-3 text-md font-medium text-card-dark shadow hover:bg-card-light/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+                                    className="w-max inline-flex items-center justify-center gap-1.5 rounded-xl bg-card-light px-4 py-3 text-md font-medium text-card-dark shadow hover:bg-card-light/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
                                     >
                                     Get Started
                                 </a>

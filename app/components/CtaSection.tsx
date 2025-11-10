@@ -20,7 +20,7 @@ export default function CtaSection() {
                 <Link
                     href="/contact"
                     data-slot="button"
-                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-card-dark px-4 py-2 text-md font-medium text-card-light shadow hover:bg-card-dark/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-card-dark px-4 py-2 text-md font-medium text-card-light shadow hover:bg-card-dark/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
                     >
                     Get in touch
                 </Link>

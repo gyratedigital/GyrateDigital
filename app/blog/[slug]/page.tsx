@@ -157,7 +157,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg max-w-none">
             {/* Excerpt */}
-            <div className="text-lg text-foreground/80 leading-relaxed mb-8 p-6 bg-card rounded-lg border border-border">
+            <div className="text-lg text-foreground/80 leading-relaxed mb-8 p-6 bg-card rounded-xl border border-border">
               <p className="font-medium text-foreground mb-2">Summary</p>
               <p>{post.excerpt}</p>
             </div>
@@ -174,7 +174,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Author Bio */}
       <div className="container mx-auto px-4 mb-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-card rounded-lg p-6 border border-border">
+          <div className="bg-card rounded-xl p-6 border border-border">
             <div className="flex items-start gap-4">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <Image
@@ -207,7 +207,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               {relatedPosts.map((relatedPost) => (
                 <article key={relatedPost.id} className="group cursor-pointer">
                   <Link href={`/blog/${relatedPost.slug}`}>
-                    <div className="bg-card rounded-lg overflow-hidden border border-border/60  hover:shadow-lg transition-all duration-300">
+                    <div className="bg-card rounded-xl overflow-hidden border border-border/60  hover:shadow-lg transition-all duration-300">
                       <div className="relative h-48 overflow-hidden">
                         <Image
                           src={relatedPost.image}

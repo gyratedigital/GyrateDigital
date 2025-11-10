@@ -50,7 +50,7 @@ export default function NotFound() {
           </div>
 
           {/* Additional Info */}
-          {/* <div className="mt-12 p-6 rounded-lg bg-primary/5 border border-primary/10 max-w-md w-full">
+          {/* <div className="mt-12 p-6 rounded-xl bg-primary/5 border border-primary/10 max-w-md w-full">
             <h3 className="text-foreground text-lg font-semibold mb-2">Need Help?</h3>
             <p className="text-foreground/70 text-sm mb-4">
               If you think this is a mistake, please contact us.
