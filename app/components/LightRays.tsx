@@ -445,7 +445,7 @@ void main() {
   return (
     <div
       ref={containerRef}
-      className={`pointer-events-none relative z-[3] h-full w-full overflow-hidden ${className}`.trim()}
+      className={`light-rays pointer-events-none fixed inset-0 z-[3] h-full w-full overflow-hidden ${className}`.trim()}
     />
   );
 };
