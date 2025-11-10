@@ -10,68 +10,77 @@ import Icon from "../components/Icon";
 import Link from "next/link";
 
 export default function PortfolioPage() {
-
   return (
-    <div className="w-full">
-        <NavigationMenuDemo />
-        <PortfolioBanner />
-        <GreenBanner />
-        <div className="container mx-auto px-4 flex flex-col items-center pt-[80px]">
-        {/* <h1 className="text-3xl font-bold mb-6">Portfolio Page</h1> */}
-
-            {Array.isArray(workSection) && workSection.length > 0 ? (
-                workSection.map((work, index) => (
-                <div
-                    key={work.id}
-                    className={`group work-card flex justify-center flex-col-reverse items-center relative w-full lg:max-w-[80%] max-w-full overflow-hidden sm:mb-24 mb-12
-                    ${index % 2 === 0 ? "sm:flex-row gap-x-10 gap-y-4" : "sm:flex-row-reverse gap-x-10 gap-y-4"}`}
-                >
-                    {/* <div className="absolute inset-0 bg-secondary/90 opacity-0 transition-opacity duration-500 ease-in-out rounded-xl"></div> */}
-                    <div className="relative z-10 sm:1/2 w-full sm:max-w-1/2 max-w-full">
-                        <p className="text-foreground text-xs mb-5">{work.category}</p>
-                        <h3 className="text-foreground text-2xl font-semibold mb-3">
-                            <p>
-                            {(Array.isArray(work.title) ? work.title : [work.title]).map(
-                                (ti, i) => (
-                                    <span
-                                        key={i}
-                                        className="outfit-text text-foreground text-2xl font-semibold mb-0"
-                                    >
-                                        {ti}
-                                    </span>
-                                    )
-                                )}
-                            </p>
-                        </h3>
-                        <p className="text-foreground text-md font-normal">
-                            {work.description}
-                        </p>
-                        <Link href={work.liveUrl ?? "#"} >Visit Live Website</Link>
+    <div className="w-full min-h-screen bg-background text-foreground">
+      <NavigationMenuDemo />
+      <PortfolioBanner />
+      <GreenBanner />
+      <div className="container mx-auto px-4 flex flex-col items-center gap-12 pt-[80px] pb-[120px]">
+        {Array.isArray(workSection) && workSection.length > 0 ? (
+          workSection.map((work) => (
+            <div
+              key={work.id}
+              className="w-full max-w-[1080px] rounded-[32px] border border-border/60 bg-card p-8 text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] transition-transform duration-300 hover:-translate-y-1"
+            >
+              <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
+                <div className="flex-1 space-y-6">
+                  <div className="space-y-4">
+                    <p className="text-sm uppercase tracking-[0.2em] text-secondary">
+                      {work.category}
+                    </p>
+                    <h3 className="text-3xl font-semibold text-card-foreground sm:text-[40px] sm:leading-[1.1]">
+                      {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, i) => (
+                        <span key={i} className="block">
+                          {ti.trim()}
+                        </span>
+                      ))}
+                    </h3>
+                    <p className="text-base leading-relaxed text-muted-foreground">
+                      {work.description}
+                    </p>
+                  </div>
+                  {Array.isArray(work.tags) && work.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-3">
+                      {work.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                    <div className="w-full sm:max-w-1/2 h-1/2 rounded-lg">
-                        <Image
-                            src={work.image}
-                            alt={
-                                Array.isArray(work.title) ? work.title.join(" ") : work.title
-                            }
-                            width={410}
-                            height={400}
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    {/* <div className="absolute inset-0 flex items-center justify-center text-foreground text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-20">
-                        Learn More →
-                    </div> */}
+                  )}
+                  <Link
+                    href={`/portfolio/${work.slug}`}
+                    className="inline-flex h-12 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-6 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/80"
+                  >
+                    Details
+                    <span aria-hidden="true">→</span>
+                  </Link>
                 </div>
-                ))
-            ) : (
-                <div className="w-full h-full pb-[80px] flex flex-col items-center justify-center gap-4">
-                    <Icon name="notFound" />
-                    <p>No portfolio items found.</p>
+                <div className="flex-1">
+                  <div className="relative h-full min-h-[240px] overflow-hidden rounded-[24px] border border-border/60 bg-muted/40">
+                    <Image
+                      src={work.image}
+                      alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
+                      width={520}
+                      height={400}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
-            )}
-        </div>
-        <FooterSection />
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-4 pb-[80px]">
+            <Icon name="notFound" />
+            <p className="text-muted-foreground">No portfolio items found.</p>
+          </div>
+        )}
+      </div>
+      <FooterSection />
     </div>
   );
 }

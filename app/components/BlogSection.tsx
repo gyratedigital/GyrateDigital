@@ -12,7 +12,7 @@ export default function BlogSection() {
     return shuffled.slice(0, 4);
   };
 
-  const [randomPosts, setRandomPosts] = React.useState(() => getRandomPosts());
+  const randomPosts = React.useMemo(() => getRandomPosts(), []);
 
   return (
     <div className="container px-4 mx-auto mb-[100px]">
@@ -25,7 +25,7 @@ export default function BlogSection() {
           {randomPosts.map((post) => (
             <article key={post.id} className="group cursor-pointer">
               <Link href={`/blog/${post.slug}`}>
-                <div className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-all duration-300 h-full">
+                <div className="bg-card rounded-lg overflow-hidden border border-border/60  hover:shadow-lg transition-all duration-300 h-full">
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={post.image}

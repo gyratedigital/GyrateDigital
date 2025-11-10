@@ -110,7 +110,7 @@ export default function CookiePolicyPage() {
       {showConsent && (
         <div className="sticky top-20 z-40 mx-4 mb-8">
           <div className="container mx-auto sm:px-4">
-            <div className="bg-primary/10 rounded-lg p-6 shadow-xl border border-border backdrop-blur-sm">
+            <div className="bg-primary/10 rounded-lg p-6 shadow-xl border border-border/60  backdrop-blur-sm">
               <div className="flex sm:flex-row flex-col items-start gap-4 mb-4">
                 <Cookie className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <div className="flex-1">
@@ -192,7 +192,7 @@ export default function CookiePolicyPage() {
       <div className="container mx-auto px-4 pb-16">
         <div className="max-w-4xl mx-auto">
           {/* Introduction */}
-          <div className="bg-card rounded-lg p-6 md:p-8 border border-border mb-8">
+          <div className="bg-card rounded-lg p-6 md:p-8 border border-border/60  mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">What Are Cookies?</h2>
             <p className="text-foreground/70 leading-relaxed mb-4">
               Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work more efficiently, provide a better user experience, and provide information to the website owners.
@@ -211,7 +211,7 @@ export default function CookiePolicyPage() {
                 return (
                   <div 
                     key={index}
-                    className="bg-card rounded-lg p-6 border border-border hover:shadow-lg transition-shadow duration-300"
+                    className="bg-card rounded-lg p-6 border border-border/60  hover:shadow-lg transition-shadow duration-300"
                   >
                     <div className="flex sm:flex-row flex-col items-start gap-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -256,7 +256,7 @@ export default function CookiePolicyPage() {
           </div>
 
           {/* Managing Cookies */}
-          <div className="bg-card rounded-lg p-6 md:p-8 border border-border mb-6">
+          <div className="bg-card rounded-lg p-6 md:p-8 border border-border/60  mb-6">
             <div className="flex sm:flex-row flex-col items-start gap-4">
               <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                 <Settings className="w-6 h-6 text-primary" />
@@ -280,7 +280,7 @@ export default function CookiePolicyPage() {
           </div>
 
           {/* Third-Party Cookies */}
-          <div className="bg-card rounded-lg p-6 md:p-8 border border-border mb-6">
+          <div className="bg-card rounded-lg p-6 md:p-8 border border-border/60  mb-6">
             <div className="flex sm:flex-row flex-col items-start gap-4">
               <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                 <Info className="w-6 h-6 text-primary" />

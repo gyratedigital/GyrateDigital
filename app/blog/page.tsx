@@ -299,7 +299,7 @@ export default function BlogPage() {
                   className="group cursor-pointer"
                 >
                   <Link href={`/blog/${post.slug}`}>
-                    <div className="flex sm:flex-row flex-col sm:h-64 h-auto bg-card sm:rounded-none rounded-lg overflow-hidden sm:border-none border border-border hover:shadow-lg transition-all duration-300">
+                    <div className="flex sm:flex-row flex-col sm:h-64 h-auto bg-card rounded-[20px] overflow-hidden sm:border-none border border-border/60 hover:shadow-lg transition-all duration-300">
                       {/* Image */}
                       <div className="relative sm:h-full h-48 overflow-hidden sm:w-[300px] w-full sm:rounded-2xl">
                         <Image
