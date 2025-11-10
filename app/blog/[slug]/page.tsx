@@ -207,7 +207,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               {relatedPosts.map((relatedPost) => (
                 <article key={relatedPost.id} className="group cursor-pointer">
                   <Link href={`/blog/${relatedPost.slug}`}>
-                    <div className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-all duration-300">
+                    <div className="bg-card rounded-lg overflow-hidden border border-border/60  hover:shadow-lg transition-all duration-300">
                       <div className="relative h-48 overflow-hidden">
                         <Image
                           src={relatedPost.image}

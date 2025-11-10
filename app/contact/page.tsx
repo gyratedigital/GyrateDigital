@@ -249,7 +249,7 @@ export default function ContactPage() {
               ></iframe>
               
               {/* Address Overlay Card */}
-              <div className="absolute bottom-6 left-6 bg-background/95 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-border max-w-sm">
+              <div className="absolute bottom-6 left-6 bg-background/95 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-border/60  max-w-sm">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mt-1">
                     <MapPin className="w-5 h-5 text-primary" />

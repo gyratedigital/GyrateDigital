@@ -20,22 +20,22 @@ export default function PortfolioPage() {
           workSection.map((work) => (
             <div
               key={work.id}
-              className="w-full max-w-[1080px] rounded-[32px] border border-border/60 bg-card-light p-8 text-foreground shadow-[0_20px_60px_rgba(8,16,12,0.08)] transition-transform duration-300 hover:-translate-y-1 dark:border-[#1C2A23] dark:bg-[#0B1410] dark:text-white dark:shadow-[0_32px_80px_rgba(5,10,8,0.35)]"
+              className="w-full max-w-[1080px] rounded-[32px] border border-border/60 bg-card p-8 text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
                 <div className="flex-1 space-y-6">
                   <div className="space-y-4">
-                    <p className="text-sm uppercase tracking-[0.2em] text-secondary dark:text-[#6F8178]">
+                    <p className="text-sm uppercase tracking-[0.2em] text-secondary">
                       {work.category}
                     </p>
-                    <h3 className="text-3xl font-semibold text-foreground sm:text-[40px] sm:leading-[1.1] dark:text-white">
+                    <h3 className="text-3xl font-semibold text-card-foreground sm:text-[40px] sm:leading-[1.1]">
                       {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, i) => (
                         <span key={i} className="block">
                           {ti.trim()}
                         </span>
                       ))}
                     </h3>
-                    <p className="text-base leading-relaxed text-muted-foreground dark:text-[#B1C0B8]">
+                    <p className="text-base leading-relaxed text-muted-foreground">
                       {work.description}
                     </p>
                   </div>
@@ -44,7 +44,7 @@ export default function PortfolioPage() {
                       {work.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground dark:border-[#1F2D25] dark:bg-[#101D17] dark:text-[#DCE7E1]"
+                          className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground"
                         >
                           {tag}
                         </span>
@@ -53,14 +53,14 @@ export default function PortfolioPage() {
                   )}
                   <Link
                     href={`/portfolio/${work.slug}`}
-                    className="inline-flex h-12 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-6 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/80 dark:border-[#1F2D25] dark:bg-white dark:text-[#0C130F] dark:hover:bg-[#E0EFE7]"
+                    className="inline-flex h-12 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-6 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/80"
                   >
                     Details
                     <span aria-hidden="true">→</span>
                   </Link>
                 </div>
                 <div className="flex-1">
-                  <div className="relative h-full min-h-[240px] overflow-hidden rounded-[24px] border border-border/60 bg-muted/40 dark:border-[#1C2A23] dark:bg-[#121C16]">
+                  <div className="relative h-full min-h-[240px] overflow-hidden rounded-[24px] border border-border/60 bg-muted/40">
                     <Image
                       src={work.image}
                       alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
