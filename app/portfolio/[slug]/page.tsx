@@ -7,18 +7,21 @@ import NavigationMenuDemo from "../../components/Header";
 import FooterSection from "../../components/FooterSection";
 import { workSection } from "../../data/workSection";
 
+type PortfolioRouteParams = {
+    slug: string;
+};
+
 type PortfolioDetailsPageProps = {
-    params: {
-        slug: string;
-    };
+    params: Promise<PortfolioRouteParams>;
 };
 
 export function generateStaticParams() {
     return workSection.map((work) => ({ slug: work.slug }));
 }
 
-export function generateMetadata({ params }: PortfolioDetailsPageProps): Metadata {
-    const project = workSection.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: PortfolioDetailsPageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const project = workSection.find((item) => item.slug === slug);
 
     if (!project) {
         return {
@@ -33,8 +36,9 @@ export function generateMetadata({ params }: PortfolioDetailsPageProps): Metadat
     };
 }
 
-export default function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
-    const project = workSection.find((item) => item.slug === params.slug);
+export default async function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
+    const { slug } = await params;
+    const project = workSection.find((item) => item.slug === slug);
 
     if (!project) {
         return notFound();

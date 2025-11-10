@@ -12,7 +12,7 @@ export default function BlogSection() {
     return shuffled.slice(0, 4);
   };
 
-  const [randomPosts, setRandomPosts] = React.useState(() => getRandomPosts());
+  const randomPosts = React.useMemo(() => getRandomPosts(), []);
 
   return (
     <div className="container px-4 mx-auto mb-[100px]">
