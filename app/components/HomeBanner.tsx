@@ -33,7 +33,7 @@ export default function HeroSection() {
                             {/* <a
                                 href=""
                                 data-slot="button"
-                                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+                                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
                                 >
                                 Get Started
                             </a> */}
@@ -45,7 +45,7 @@ export default function HeroSection() {
                             <Link
                                 href="/contact"
                                 // data-slot="button"
-                                className="inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-md font-medium transition-all hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 border border-light"
+                                className="inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2 text-md font-medium transition-all hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 border border-light"
                                 >
                                 Contact
                             </Link>

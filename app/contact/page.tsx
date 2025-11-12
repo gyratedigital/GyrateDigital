@@ -119,7 +119,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="mt-12 p-6 rounded-lg bg-primary/5 border border-primary/10">
+            <div className="mt-12 p-6 rounded-xl bg-primary/5 border border-primary/10">
               <h3 className="text-foreground text-lg font-semibold mb-2">Business Hours</h3>
               <div className="space-y-1 text-sm text-foreground/70">
                 <p>Monday - Friday: 11:00 AM - 8:00 PM</p>
@@ -130,7 +130,7 @@ export default function ContactPage() {
 
           {/* Right Side - Contact Form */}
           <div className="lg:w-1/2 w-full sticky top-[100px] h-max">
-            <div className="bg-card rounded-lg p-8 shadow-[0_10px_50px_rgba(0,0,0,0.05)]">
+            <div className="bg-card rounded-xl p-8 shadow-[0_10px_50px_rgba(0,0,0,0.05)]">
               <h2 className="text-foreground text-2xl font-semibold mb-6">Send Us a Message</h2>
               
               <Form {...form}>
@@ -235,7 +235,7 @@ export default function ContactPage() {
               <p className="text-foreground/70">Visit us at our office</p>
             </div>
 
-            <div className="relative w-full h-[450px] rounded-lg overflow-hidden shadow-lg border border-border">
+            <div className="relative w-full h-[450px] rounded-xl overflow-hidden shadow-lg border border-border">
               {/* Google Maps Embed */}
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2374.8556789!2d-2.3013456!3d53.4547890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bae7a4e8a9b0b%3A0x1234567890abcdef!2s687%20Chester%20Rd%2C%20Old%20Trafford%2C%20Stretford%2C%20Manchester%20M32%200QW%2C%20UK!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"

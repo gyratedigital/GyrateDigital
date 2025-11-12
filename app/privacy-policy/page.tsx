@@ -132,7 +132,7 @@ These third parties are contractually obligated to protect your data and use it 
       {showConsent && (
         <div className="sticky top-20 z-40 mx-4 mb-8">
           <div className="container mx-auto sm:px-4">
-            <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 shadow-lg backdrop-blur-sm">
+            <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 shadow-lg backdrop-blur-sm">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex-1">
                   <h3 className="text-foreground font-semibold mb-2">Privacy Notice</h3>
@@ -165,7 +165,7 @@ These third parties are contractually obligated to protect your data and use it 
       <div className="container mx-auto px-4 pb-16">
         <div className="max-w-4xl mx-auto">
           {/* Introduction */}
-          <div className="bg-card rounded-lg p-6 md:p-8 border border-border/60  mb-8">
+          <div className="bg-card rounded-xl p-6 md:p-8 border border-border/60  mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Introduction</h2>
             <p className="text-foreground/70 leading-relaxed mb-4">
               Welcome to Gyrate Digital&apos;s Privacy Policy. This policy describes how Gyrate Digital (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares your personal information when you use our website and services.
@@ -182,10 +182,10 @@ These third parties are contractually obligated to protect your data and use it 
               return (
                 <div 
                   key={index}
-                  className="bg-card rounded-lg p-6 md:p-8 border border-border/60  hover:shadow-lg transition-shadow duration-300"
+                  className="bg-card rounded-xl p-6 md:p-8 border border-border/60  hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="flex sm:flex-row flex-col items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
@@ -201,7 +201,7 @@ These third parties are contractually obligated to protect your data and use it 
           </div>
 
           {/* Contact Section */}
-          <div className="bg-primary/5 rounded-lg p-6 md:p-8 border border-primary/20 mt-8">
+          <div className="bg-primary/5 rounded-xl p-6 md:p-8 border border-primary/20 mt-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Contact Us</h2>
             <p className="text-foreground/70 leading-relaxed mb-4">
               If you have any questions about this Privacy Policy or how we handle your personal information, please contact us:
@@ -214,7 +214,7 @@ These third parties are contractually obligated to protect your data and use it 
           </div>
 
           {/* Changes to Policy */}
-          <div className="bg-card rounded-lg p-6 md:p-8 border border-border/60  mt-6">
+          <div className="bg-card rounded-xl p-6 md:p-8 border border-border/60  mt-6">
             <h2 className="text-xl font-bold text-foreground mb-4">Changes to This Privacy Policy</h2>
             <p className="text-foreground/70 leading-relaxed">
               We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
