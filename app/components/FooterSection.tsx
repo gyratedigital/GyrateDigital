@@ -9,9 +9,9 @@ import Image from 'next/image';
 export default function FooterSection() {
 
     return (
-        <div className="w-full bg-card-dark relative overflow-hidden z-0">
-            <div className="absolute z-0 w-[1000px] h-[1000px] blur-[150px] right-[-500px] top-[-500px] rounded-full bg-[radial-gradient(circle,#68BA7F,rgba(9,9,17,0)_50%)]"></div>
-            <div className="absolute z-0 w-[1000px] h-[1000px] blur-[150px] left-[-500px] bottom-[-500px] rounded-full bg-[radial-gradient(circle,#68BA7F,rgba(9,9,17,0)_50%)]"></div>
+        <div className="w-full bg-card-dark relative z-0">
+            <div className="absolute z-0 w-[800px] h-[800px] blur-[150px] right-0 top-[-400px] rounded-full bg-[radial-gradient(circle_at_right_center,#68BA7F,rgba(9,9,17,0)_50%)]"></div>
+            <div className="absolute z-0 w-[800px] h-[800px] blur-[150px] left-0 bottom-0 bg-[radial-gradient(circle_at_bottom_left,#68BA7F,rgba(9,9,17,0)_50%)]" />
             <div className="container px-4 mx-auto relative z-1">
                 {/* Top bar with logo */}
                 <div className="w-max pt-20 pb-6">
