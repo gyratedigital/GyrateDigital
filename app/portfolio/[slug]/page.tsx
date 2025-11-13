@@ -5,14 +5,17 @@ import type { Metadata } from "next";
 
 import NavigationMenuDemo from "../../components/Header";
 import FooterSection from "../../components/FooterSection";
+import BackButton from "@/components/BackButton";
 import { workSection } from "../../data/workSection";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 
 type PortfolioRouteParams = {
     slug: string;
 };
 
 type PortfolioDetailsPageProps = {
-    params: Promise<PortfolioRouteParams>;
+    params: PortfolioRouteParams;
 };
 
 export function generateStaticParams() {
@@ -20,7 +23,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PortfolioDetailsPageProps): Promise<Metadata> {
-    const { slug } = await params;
+    const { slug } = params;
     const project = workSection.find((item) => item.slug === slug);
 
     if (!project) {
@@ -36,8 +39,8 @@ export async function generateMetadata({ params }: PortfolioDetailsPageProps): P
     };
 }
 
-export default async function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
-    const { slug } = await params;
+export default function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
+    const { slug } = params;
     const project = workSection.find((item) => item.slug === slug);
 
     if (!project) {
@@ -78,13 +81,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
             <div className="relative overflow-hidden bg-card">
                 <div className="pointer-events-none absolute inset-x-0 top-[-320px] h-[520px] bg-gradient-to-b from-primary/30 via-transparent to-transparent opacity-70" />
                 <div className="container mx-auto px-4 pt-24 pb-20">
-                    <Link
-                        href="/portfolio"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                        <span aria-hidden="true">←</span>
-                        Back to portfolio
-                    </Link>
+                    <BackButton fallbackHref="/portfolio" />
 
                     <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr,0.9fr]">
                         <div className="flex flex-col justify-between gap-10">
