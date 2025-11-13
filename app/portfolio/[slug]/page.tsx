@@ -13,7 +13,7 @@ type PortfolioRouteParams = {
 };
 
 type PortfolioDetailsPageProps = {
-    params: PortfolioRouteParams;
+    params: Promise<PortfolioRouteParams>;
 };
 
 export function generateStaticParams() {
@@ -21,7 +21,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PortfolioDetailsPageProps): Promise<Metadata> {
-    const { slug } = params;
+    const { slug } = await params;
     const project = workSection.find((item) => item.slug === slug);
 
     if (!project) {
@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: PortfolioDetailsPageProps): P
     };
 }
 
-export default function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
-    const { slug } = params;
+export default async function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
+    const { slug } = await params;
     const project = workSection.find((item) => item.slug === slug);
 
     if (!project) {
