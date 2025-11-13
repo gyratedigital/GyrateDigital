@@ -7,8 +7,6 @@ import NavigationMenuDemo from "../../components/Header";
 import FooterSection from "../../components/FooterSection";
 import BackButton from "@/components/BackButton";
 import { workSection } from "../../data/workSection";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
 
 type PortfolioRouteParams = {
     slug: string;
