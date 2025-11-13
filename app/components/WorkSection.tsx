@@ -5,7 +5,7 @@ import { workSection } from '../data/workSection'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -76,46 +76,67 @@ export default function WorkSection() {
           {workSection.map((work) => (
             <div
               key={work.id}
-              className="work-card group bg-card flex sm:flex-row flex-col items-stretch absolute w-full sm:max-w-[90%] max-w-full h-auto sm:h-[70vh] max-h-[70vh] sm:max-h-[80vh] rounded-[32px] shadow-[0_24px_72px_rgba(8,16,12,0.12)] border border-border/60"
+              className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:h-[70vh] sm:max-h-[80vh] sm:max-w-[90%] sm:flex-row p-6 sm:p-8"
             >
-              {/* Content */}
-              <div className="relative z-10 p-6 sm:p-8 sm:w-[60%] w-full flex flex-col justify-center overflow-y-auto">
-                <h3 className="text-foreground text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">
-                  {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, i) => (
-                    <span key={i} className="block">
-                      {ti}
-                    </span>
-                  ))}
-                </h3>
-                
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                  {work.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-background text-foreground/70 text-xs sm:text-sm rounded-full border border-gray-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <div className="flex flex-1 flex-col justify-center gap-6">
+                <div className="space-y-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+                    {work.category}
+                  </p>
+                  <h3 className="text-3xl font-semibold leading-tight sm:text-[40px]">
+                    {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, index) => (
+                      <span key={index} className="block">
+                        {ti.trim()}
+                      </span>
+                    ))}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {work.description}
+                  </p>
                 </div>
 
-                <p className="text-foreground/60 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">{work.description}</p>
-                
-                <button className="inline-flex items-center px-4 py-2 border border-foreground rounded-full text-xs sm:text-sm font-medium text-foreground hover:text-card-dark hover:bg-primary hover:border-primary transition-colors duration-200 w-fit cursor-pointer">
-                  Visit live website
-                  <ArrowRight className="ml-1 w-4 h-4" />
-                </button>
+                {Array.isArray(work.tags) && work.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-3">
+                    {work.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground sm:text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    href={`/portfolio/${work.slug}`}
+                    className="inline-flex h-11 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-5 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/85"
+                  >
+                    Details
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                  {work.liveUrl && (
+                    <Link
+                      href={work.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex h-11 items-center gap-2 rounded-full border border-border/60 px-5 text-sm font-semibold text-card-foreground transition-colors hover:border-primary hover:text-primary"
+                    >
+                      Visit Site
+                      <span aria-hidden="true">↗</span>
+                    </Link>
+                  )}
+                </div>
               </div>
 
-              {/* Image Container */}
-              <div className="sm:w-[40%] w-full h-48 sm:h-auto relative overflow-hidden p-6 sm:p-8 sm:pl-0 pt-0 sm:pt-8">
+              <div className="relative w-full overflow-hidden rounded-b-[32px] border-t border-border/60 bg-muted/30 sm:h-full sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] sm:border-l sm:border-t-0">
                 <Image
                   src={work.image}
                   alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
-                  width={400}
-                  height={300}
-                  className="work-image w-full h-full object-cover rounded-2xl rounded-tr-[40px] sm:rounded-tr-[70px]"
+                  width={520}
+                  height={400}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
               </div>
             </div>

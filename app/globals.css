@@ -139,8 +139,8 @@ h1, h2, h3, h4, h5, h6 {
 .light-rays {
   position: fixed;
   inset: 0;
-  z-index: 3;
-  height: 200%;
+  z-index: 0;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -165,4 +165,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-bounce-slow {
   animation: bounce-slow 3s infinite;
+}
+
+.footer-glow {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  right: -500px;
+  top: -500px;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(150px);
+  background: radial-gradient(circle at left center, #68ba7f 0%, rgba(9, 9, 17, 0) 55%);
+  clip-path: circle(50% at 0% 50%);
+  pointer-events: none;
 }
