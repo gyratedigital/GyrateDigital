@@ -52,7 +52,7 @@ export default function AnimatedNav() {
               href="/contact"
               data-slot="button"
               onClick={addContactRipple}
-              className="!hidden md:!inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden"
+              className="!hidden md:!inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden button-wave"
               >
               <span className="relative z-10">Contact</span>
               {contactRipples.map((ripple) => (

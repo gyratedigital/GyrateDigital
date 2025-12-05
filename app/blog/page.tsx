@@ -429,7 +429,7 @@ export default function BlogPage() {
                   setSearchQuery("");
                   setSelectedCategory("All");
                 }}
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors relative overflow-hidden"
+                className="px-6 py-2 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors relative overflow-hidden button-wave"
               >
                 <span className="relative z-10">Clear Filters</span>
                 {clearRipples.map((ripple) => (

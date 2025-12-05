@@ -25,7 +25,7 @@ export default function AboutSection() {
                         href="/about"
                         data-slot="button"
                         onClick={addRipple}
-                        className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden"
+                        className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden button-wave"
                         >
                         <span className="relative z-10">Discover more</span>
                         {ripples.map((ripple) => (

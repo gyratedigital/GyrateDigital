@@ -81,7 +81,7 @@ function Button({
   if (asChild) {
     return (
       <Slot
-        className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden")}
+        className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden button-wave")}
         onClick={handleClick}
         {...props}
       />
@@ -91,7 +91,7 @@ function Button({
   return (
     <button
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden")}
+      className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden button-wave")}
       onClick={handleClick}
       {...props}
     >
