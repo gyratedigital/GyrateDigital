@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -40,19 +42,73 @@ function Button({
   variant,
   size,
   asChild = false,
+  onClick,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
   }) {
-  const Comp = asChild ? Slot : "button"
+  const rippleIdRef = React.useRef(0)
+  const [ripples, setRipples] = React.useState<Array<{ x: number; y: number; id: number }>>([])
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget
+    const rect = button.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const id = rippleIdRef.current++
+
+    // Add new ripple
+    setRipples((prev) => [...prev, { x, y, id }])
+
+    // Remove ripple after animation
+    setTimeout(() => {
+      setRipples((prev) => prev.filter((r) => r.id !== id))
+    }, 800)
+
+    onClick?.(e)
+  }
+
+  // Determine ripple color based on variant - make it more visible
+  const rippleColor = variant === "default" || variant === "destructive" 
+    ? "bg-white/50" 
+    : variant === "secondary"
+    ? "bg-white/40"
+    : variant === "outline"
+    ? "bg-primary/40"
+    : "bg-primary/40"
+
+  if (asChild) {
+    return (
+      <Slot
+        className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden")}
+        onClick={handleClick}
+        {...props}
+      />
+    )
+  }
 
   return (
-    <Comp
+    <button
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden")}
+      onClick={handleClick}
       {...props}
-    />
+    >
+      <span className="relative z-10">{props.children}</span>
+      {ripples.map((ripple) => (
+        <span
+          key={ripple.id}
+          className={cn("absolute rounded-full pointer-events-none animate-ripple", rippleColor)}
+          style={{
+            left: `${ripple.x}px`,
+            top: `${ripple.y}px`,
+            transform: "translate(-50%, -50%)",
+            zIndex: 1,
+          }}
+        />
+      ))}
+    </button>
   )
 }
 

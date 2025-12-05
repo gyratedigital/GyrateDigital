@@ -180,3 +180,24 @@ h1, h2, h3, h4, h5, h6 {
   clip-path: circle(50% at 0% 50%);
   pointer-events: none;
 }
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 800ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: width, height, opacity;
+}

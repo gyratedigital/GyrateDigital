@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
+import { useRippleEffect } from "@/hooks/useRippleEffect";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,6 +21,7 @@ const navLinks = [
 export default function AnimatedNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { ripples: contactRipples, addRipple: addContactRipple } = useRippleEffect();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 0);
@@ -49,9 +51,22 @@ export default function AnimatedNav() {
             <Link
               href="/contact"
               data-slot="button"
-              className="!hidden md:!inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+              onClick={addContactRipple}
+              className="!hidden md:!inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden"
               >
-              Contact
+              <span className="relative z-10">Contact</span>
+              {contactRipples.map((ripple) => (
+                <span
+                  key={ripple.id}
+                  className="absolute rounded-full bg-white/50 pointer-events-none animate-ripple"
+                  style={{
+                    left: `${ripple.x}px`,
+                    top: `${ripple.y}px`,
+                    transform: "translate(-50%, -50%)",
+                    zIndex: 1,
+                  }}
+                />
+              ))}
             </Link>
 
             <ThemeToggle />
