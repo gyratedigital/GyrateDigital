@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 
 interface RippleWrapperProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode
-  as?: keyof JSX.IntrinsicElements
+  as?: React.ElementType
   rippleColor?: string
 }
 
@@ -24,7 +24,7 @@ export function RippleWrapper({
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     if (elementRef.current) {
-      const newRipples = addRipple(e as any)
+      const newRipples = addRipple(e)
       setRipplesState([...newRipples])
     }
     onClick?.(e)

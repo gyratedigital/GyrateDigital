@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { aboutSection } from "../data/aboutSection";
 import AboutUsMessage from "../components/AboutUsMessage";
 import NavigationMenuDemo from "../components/Header";

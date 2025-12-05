@@ -20,7 +20,7 @@ export default function AboutSection() {
                 />
                 <div className="about-text md:text-left text-center">
                     <h2 className="mb-4 text-2xl text-foreground font-semibold">Digital Agency</h2>
-                    <p className="text-muted-foreground text-md mb-4">At <strong>Gyrate,</strong> your premier Digital Agency, we transcend the traditional role of designers; we are your dedicated problem solvers, innovators, and creators of remarkable design solutions. Our design expertise serves as your key to standing out in today's competitive world. As an expert Digital Agency, we understand that producing an exceptional user experience requires a deep understanding of your goals, inspiration, and vision. Through direct communication and thorough research, we transform your ideas into reality, ensuring your brand leaves a lasting impression in the dynamic landscape of visual communication.</p>
+                    <p className="text-muted-foreground text-md mb-4">At <strong>Gyrate,</strong> your premier Digital Agency, we transcend the traditional role of designers; we are your dedicated problem solvers, innovators, and creators of remarkable design solutions. Our design expertise serves as your key to standing out in today&apos;s competitive world. As an expert Digital Agency, we understand that producing an exceptional user experience requires a deep understanding of your goals, inspiration, and vision. Through direct communication and thorough research, we transform your ideas into reality, ensuring your brand leaves a lasting impression in the dynamic landscape of visual communication.</p>
                     <Link
                         href="/about"
                         data-slot="button"

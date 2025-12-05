@@ -255,11 +255,12 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
   will-change: transform, opacity;
 }
+
 .button-wave:hover::before {
-  animation: wave 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  opacity: 1;
+  animation: wave 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.button-wave:hover:active::before,
-.button-wave:hover:focus::before {
+
+.button-wave:active::before,
+.button-wave:focus::before {
   animation: none;
 }
