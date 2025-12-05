@@ -81,6 +81,9 @@
   --body: #0c130f;
   --success: oklch(0.5104 0.1654 142.67);
   --highlighted: #d9eee5;
+  --wave-color: rgba(255, 255, 255, 0.6);
+  --wave-color-bright: rgba(255, 255, 255, 0.75);
+  --wave-color-subtle: rgba(255, 255, 255, 0.4);
 }
 
 .dark {
@@ -113,6 +116,9 @@
   --disabled: oklch(0.7984 0 0);
   --body: #dce7e1;
   --highlighted: #14261e;
+  --wave-color: rgba(255, 255, 255, 0.5);
+  --wave-color-bright: rgba(255, 255, 255, 0.65);
+  --wave-color-subtle: rgba(255, 255, 255, 0.35);
 }
 
 
@@ -179,4 +185,82 @@ h1, h2, h3, h4, h5, h6 {
   background: radial-gradient(circle at left center, #68ba7f 0%, rgba(9, 9, 17, 0) 55%);
   clip-path: circle(50% at 0% 50%);
   pointer-events: none;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 800ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: width, height, opacity;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(calc(100% + 100%)) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+
+/* Button wave effect */
+.button-wave {
+  position: relative;
+  overflow: hidden;
+}
+.button-wave::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 10%,
+    var(--wave-color-subtle) 20%,
+    var(--wave-color) 35%,
+    var(--wave-color-bright) 40%,
+    var(--wave-color) 45%,
+    var(--wave-color-subtle) 60%,
+    transparent 90%,
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+.button-wave:hover::before {
+  animation: wave 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-wave:active::before,
+.button-wave:focus::before {
+  animation: none;
 }

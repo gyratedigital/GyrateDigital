@@ -11,8 +11,15 @@ import Icon from "../components/Icon";
 import Link from "next/link";
 import CtaSection from "../components/CtaSection";
 import BrandsSection from "../components/BrandsSection";
+import { useRippleEffect } from "@/hooks/useRippleEffect";
 
 export default function PortfolioPage() {
+  // Create ripple hooks for each button - hooks must be called unconditionally
+  const rippleHook1 = useRippleEffect();
+  const rippleHook2 = useRippleEffect();
+  const rippleHook3 = useRippleEffect();
+  
+  const rippleHooks = [rippleHook1, rippleHook2, rippleHook3].slice(0, aboutSection.length);
 
   return (
     <div className="w-full">
@@ -51,9 +58,22 @@ export default function PortfolioPage() {
                         <Link
                             href="/contact"
                             data-slot="button"
-                            className="mt-5 inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+                            onClick={rippleHooks[index]?.addRipple}
+                            className="mt-5 inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden button-wave"
                             >
-                            Discover more
+                            <span className="relative z-10">Discover more</span>
+                            {rippleHooks[index]?.ripples.map((ripple) => (
+                                <span
+                                    key={ripple.id}
+                                    className="absolute rounded-full bg-white/50 pointer-events-none animate-ripple"
+                                    style={{
+                                        left: `${ripple.x}px`,
+                                        top: `${ripple.y}px`,
+                                        transform: "translate(-50%, -50%)",
+                                        zIndex: 1,
+                                    }}
+                                />
+                            ))}
                         </Link>
                     </div>
                     <div className="w-full sm:w-[480px] sm:h-[400px] h-auto rounded-3xl overflow-hidden">

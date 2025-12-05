@@ -16,6 +16,7 @@ import {
 import NavigationMenuDemo from "../components/Header";
 import FooterSection from "../components/FooterSection";
 import { categories, getPostsByCategory, searchPosts } from "../data/blog";
+import { useRippleEffect } from "@/hooks/useRippleEffect";
 
 const POSTS_PER_PAGE = 6;
 
@@ -23,6 +24,7 @@ export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const { ripples: clearRipples, addRipple } = useRippleEffect();
 
   const filteredPosts = useMemo(() => {
     let posts = getPostsByCategory(selectedCategory);
@@ -422,13 +424,26 @@ export default function BlogPage() {
                 Try adjusting your search terms or category filter.
               </p>
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  addRipple(e);
                   setSearchQuery("");
                   setSelectedCategory("All");
                 }}
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors"
+                className="px-6 py-2 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors relative overflow-hidden button-wave"
               >
-                Clear Filters
+                <span className="relative z-10">Clear Filters</span>
+                {clearRipples.map((ripple) => (
+                  <span
+                    key={ripple.id}
+                    className="absolute rounded-full bg-white/50 pointer-events-none animate-ripple"
+                    style={{
+                      left: `${ripple.x}px`,
+                      top: `${ripple.y}px`,
+                      transform: "translate(-50%, -50%)",
+                      zIndex: 1,
+                    }}
+                  />
+                ))}
               </button>
             </div>
           )}
