@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { servicesSection } from '../data/servicesSection'
+import Link from 'next/link'
 
 export default function ServicesSection() {
     return(
@@ -21,7 +22,11 @@ export default function ServicesSection() {
                     //     </h3>
                     //     <p className="text-card-dark text-sm line-clamp-5">{service.description}</p>
                     // </div>
-                    <div key={service.id} className="card relative group bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden">
+                    <Link 
+                        key={service.id} 
+                        href="/services" 
+                        className="card relative group bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden block"
+                    >
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-primary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
                         {/* Content */}
@@ -40,7 +45,7 @@ export default function ServicesSection() {
                         <div className="absolute inset-0 flex items-center justify-center text-card-dark text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
                             Learn More →
                         </div>
-                    </div>
+                    </Link>
 
                 ))}
             </div>
