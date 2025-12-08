@@ -95,7 +95,7 @@ function Button({
       onClick={handleClick}
       {...props}
     >
-      <span className="relative z-10">{props.children}</span>
+      <span className="relative z-10 flex items-center gap-2">{props.children}</span>
       {ripples.map((ripple) => (
         <span
           key={ripple.id}

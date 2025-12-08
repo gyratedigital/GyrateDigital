@@ -48,7 +48,7 @@ export default function ServicesPage() {
                         </p>
                         {/* <Link href="#">Visit Live Website</Link> */}
                     </div>
-                    <div className="w-full sm:max-w-1/2 h-1/2 rounded-lg">
+                    <div className="w-full sm:max-w-1/2 h-1/2 rounded-lg overflow-hidden">
                         <Image
                             src={service.image}
                             alt={
