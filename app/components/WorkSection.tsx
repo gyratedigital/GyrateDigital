@@ -130,13 +130,13 @@ export default function WorkSection() {
                 </div>
               </div>
 
-              <div className="relative w-full overflow-hidden rounded-b-[32px] border-t border-border/60 bg-muted/30 sm:h-full sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] sm:border-l sm:border-t-0">
+              <div className="relative w-full overflow-hidden rounded-b-[32px] bg-foreground sm:h-full sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px]">
                 <Image
                   src={work.image}
                   alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
                   width={520}
                   height={400}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
                 />
               </div>
             </div>

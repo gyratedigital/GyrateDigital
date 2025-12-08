@@ -1,228 +1,172 @@
 export const workSection = [
     {
         id: "1",
-        slug: "darnleys-ossett-fisheries",
-        category: "A Wordpress Website",
-        title: ["Darnley's Ossett", " Fisheries"],
-        description:
-            "Modernising a beloved local fish & chips shop with an online ordering experience that feels warm, premium, and fast.",
-        image: "/work-1.png",
-        liveUrl: "https://gyrate-digital.vercel.app/",
-        tags: ["WordPress", "E-commerce", "Custom Design"],
+        slug: "lernen-einfachdeutsch",
+        category: "E-learning Platform",
+        title: ["Lernen", "Einfach Deutsch"],
+        description: "German language learning platform with adaptive lessons, quizzes, and progress tracking for adult learners.",
+        image: "/portfolio/einfatch.jpg",
+        liveUrl: "https://lernen.einfachdeutsch.de/",
+        tags: ["Next.js", "E-learning", "Gamification", "Localization"],
         caseStudy: {
-            summary:
-                "We transformed Darnley's Ossett Fisheries' legacy website into a conversion-ready experience focused on storytelling, menu transparency, and frictionless ordering.",
-            challenge:
-                "Customers loved the shop, but the website felt dated, slow, and made online ordering confusing. Staff needed something easy to update each week.",
+            summary: "Built a performant, multi-language learning experience with adaptive quizzes, streaks, and teacher-managed cohorts.",
+            challenge: "Needed a modern UX that keeps learners engaged while handling rich content, audio, and progress data across devices.",
             solution: [
-                "Created a modular WordPress build with WooCommerce to manage weekly specials and seasonal menus.",
-                "Refreshed the visual identity with bold typography, location photography, and layered textures inspired by the interior décor.",
-                "Designed a guided ordering flow that surfaces allergens, prep time, and pickup options without overwhelming the user."
+                "Architected a content model for lessons, exercises, and assessments with progress persistence.",
+                "Added streaks, badges, and spaced-repetition reminders to sustain learner motivation.",
+                "Optimized media delivery (audio/illustrations) and offline-friendly caching for commuters."
             ],
             results: [
-                "52% increase in online orders within the first quarter after launch.",
-                "36% reduction in support calls thanks to clearer information architecture and FAQs.",
-                "4.8⭐ average rating captured through integrated post-purchase surveys."
+                "38% increase in lesson completion rate after launch.",
+                "28% lift in weekly active learners through gamified nudges.",
+                "Sub-1s median page transitions via Next.js routing and caching."
             ],
             metrics: [
-                {
-                    label: "Online Orders",
-                    value: "+52%",
-                    description: "Growth in the first 90 days post-launch"
-                },
-                {
-                    label: "Page Speed",
-                    value: "1.8s",
-                    description: "Average load time across core pages"
-                },
-                {
-                    label: "Bounce Rate",
-                    value: "-28%",
-                    description: "Drop in bounce rate on menu pages"
-                }
+                { label: "Completion Rate", value: "+38%", description: "Lesson completions post-launch" },
+                { label: "WAU Growth", value: "+28%", description: "Weekly active learners increase" },
+                { label: "Page Speed", value: "<1s", description: "Median navigation time" }
             ],
-            services: [
-                "UX Research",
-                "Information Architecture",
-                "UI Design",
-                "WooCommerce Development",
-                "Performance Optimisation"
-            ],
-            timeline: "6-week sprint",
-            platform: "WordPress + WooCommerce",
-            deliverables: ["Responsive design system", "Menu management toolkit", "Analytics & automation setup"],
-            gallery: [
-                {
-                    src: "/work-1.png",
-                    caption: "Homepage hero featuring menu highlights and CTA for online orders"
-                },
-                {
-                    src: "/work-2.png",
-                    caption: "Menu detail screen with dietary filters and upsell carousel"
-                }
-            ]
+            timeline: "12 weeks",
+            platform: "Next.js, Node.js, Headless CMS",
+            services: ["Product Design", "Frontend", "CMS Architecture"],
+            deliverables: ["Design System", "Responsive Web App", "CMS Schema"],
+            gallery: [{ src: "/portfolio/einfatch.jpg", caption: "Lesson overview and progress" }]
         }
     },
     {
         id: "2",
-        slug: "tlc-careware-services",
-        category: "A Next JS Website",
-        title: ["TLC Careware", " Services"],
-        description:
-            "A modern SaaS-enabled website for a healthcare supplier showcasing product stories, support, and subscription plans.",
-        image: "/work-2.png",
-        tags: ["Next.js", "React", "Modern UI"],
+        slug: "banktracker",
+        category: "Fintech SaaS",
+        title: ["BankTracker"],
+        description: "Risk and exposure tracking for banks with dashboards, alerts, and audit-ready reports.",
+        image: "/portfolio/bank-track.jpg",
+        liveUrl: "https://banktracker.de/",
+        tags: ["SaaS", "Fintech", "Dashboards", "Access Control"],
         caseStudy: {
-            summary:
-                "TLC Careware needed a digital storefront that communicated trust, compliance, and care while supporting B2B leads.",
-            challenge:
-                "Their catalogue lived inside PDFs and sales decks. Prospects struggled to compare products, and the team couldn't measure demand.",
+            summary: "Delivered a secure analytics suite for banking teams to monitor portfolios, exposures, and compliance flags in real time.",
+            challenge: "Required enterprise-grade RBAC, audit trails, and performant charts over large datasets.",
             solution: [
-                "Architected a Next.js marketing site with dynamic product detail pages fed by a headless CMS.",
-                "Introduced interactive comparison tables and storytelling modules tailored to procurement managers.",
-                "Integrated HubSpot forms and gated resources to nurture leads and capture segment insights."
+                "Implemented role-based access and granular data scoping per institution and team.",
+                "Built high-density dashboards with drill-downs, saved views, and scheduled exports.",
+                "Hardened the app with encryption at rest, SSO, and full audit logging."
             ],
             results: [
-                "Generated 120 qualified leads in the first 60 days.",
-                "Raised dwell time on key pages by 64% thanks to improved content hierarchy.",
-                "Unlocked self-serve product education, reducing repetitive demo calls."
+                "Cut weekly reporting time by 45% via scheduled PDFs and CSV exports.",
+                "Improved anomaly response with real-time alerts and configurable thresholds.",
+                "Zero P1 incidents post go-live through observability and error budgets."
             ],
             metrics: [
-                {
-                    label: "Qualified Leads",
-                    value: "+120",
-                    description: "New marketing qualified leads in two months"
-                },
-                {
-                    label: "Session Duration",
-                    value: "+64%",
-                    description: "Increase in average time on product pages"
-                },
-                {
-                    label: "Accessibility",
-                    value: "AA",
-                    description: "Meets WCAG 2.1 AA compliance"
-                }
+                { label: "Reporting Time", value: "-45%", description: "Time saved on scheduled reports" },
+                { label: "Alert MTTR", value: "-32%", description: "Mean time to respond to alerts" },
+                { label: "Uptime", value: "99.95%", description: "Stability after launch" }
             ],
-            services: ["Content Strategy", "Component-driven UI", "Headless CMS", "Marketing Automation"],
-            timeline: "8-week roadmap",
-            platform: "Next.js + Sanity CMS",
-            deliverables: ["Design tokens library", "Lead-gen landing pages", "Analytics & dashboards"],
-            gallery: [
-                {
-                    src: "/work-2.png",
-                    caption: "Homepage hero with trust badges and call-to-action"
-                },
-                {
-                    src: "/work-3.png",
-                    caption: "Product comparison module highlighting subscription plans"
-                }
-            ]
+            timeline: "14 weeks",
+            platform: "Next.js, Node.js, PostgreSQL",
+            services: ["Product Design", "Frontend", "Backend", "Security"],
+            deliverables: ["Design System", "Dashboard Suite", "Audit Logging"],
+            gallery: [{ src: "/portfolio/bank-track.jpg", caption: "Portfolio risk dashboard" }]
         }
     },
     {
         id: "3",
-        slug: "empower-care",
-        category: "A Next Js Website",
-        title: ["Empower", " Care"],
-        description:
-            "Human-centred care platform that connects clinicians and families through secure collaboration tools.",
-        image: "/work-3.png",
-        tags: ["Healthcare", "Responsive", "Accessibility"],
+        slug: "nanoapp-studio",
+        category: "AI Builder",
+        title: ["NanoApp", "Studio"],
+        description: "AI-driven app builder for creating micro-apps with prompts, datasets, and instant previews.",
+        image: "/portfolio/nano-studio.jpg",
+        liveUrl: "https://nanoapp.nanostudio.ai/",
+        tags: ["AI", "No-code", "Multi-tenant", "Realtime Preview"],
         caseStudy: {
-            summary:
-                "Empower Care required a warm, inclusive experience that reassured families while supporting HIPAA-ready workflows.",
-            challenge:
-                "Existing materials centred on features, not feelings. Users needed reassurance about privacy, onboarding, and the people behind the platform.",
+            summary: "Created an AI-assisted builder with live preview, prompt chaining, and dataset management for rapid prototyping.",
+            challenge: "Needed to orchestrate AI calls, preview state, and user datasets with minimal latency.",
             solution: [
-                "Conducted empathy interviews to surface language and scenarios that resonated with caregivers.",
-                "Crafted a storytelling-led homepage with real patient journeys, modular FAQ, and trust signals.",
-                "Implemented a robust design system with accessible colour contrast and keyboard-friendly interactions."
+                "Built a live canvas that syncs prompt edits to previews with optimistic updates.",
+                "Added dataset ingestion, schema validation, and safe prompt templates.",
+                "Implemented usage metering, quotas, and billing-friendly event logs."
             ],
             results: [
-                "30% faster onboarding with clearer guided walkthroughs.",
-                "NPS jumped from 24 to 52 within one release cycle.",
-                "Customer support tickets related to access dropped by 41%."
+                "Users ship prototypes 2.3x faster on average.",
+                "Reduced failed generations by 31% through guardrails and validation.",
+                "Sub-800ms median preview refresh under typical loads."
             ],
             metrics: [
-                {
-                    label: "Onboarding Time",
-                    value: "-30%",
-                    description: "Reduction in time-to-value for new clinics"
-                },
-                {
-                    label: "Net Promoter Score",
-                    value: "+28",
-                    description: "Increase in NPS after relaunch"
-                },
-                {
-                    label: "Support Tickets",
-                    value: "-41%",
-                    description: "Drop in access-related support tickets"
-                }
+                { label: "Build Speed", value: "2.3x faster", description: "Prototype delivery speed" },
+                { label: "Error Rate", value: "-31%", description: "Reduction in failed generations" },
+                { label: "Preview Latency", value: "<800ms", description: "Median live preview refresh" }
             ],
-            services: ["Qualitative Research", "Content Design", "Design System", "Accessibility Compliance"],
-            timeline: "10-week engagement",
-            platform: "Next.js + Contentful",
-            deliverables: ["Inclusive style guide", "Persona playbooks", "Accessibility audit"],
-            gallery: [
-                {
-                    src: "/work-3.png",
-                    caption: "Caregiver dashboard preview with emotional storytelling"
-                }
-            ]
+            timeline: "10 weeks",
+            platform: "Next.js, Vercel, Vector Store",
+            services: ["Product Design", "Frontend", "AI Integration"],
+            deliverables: ["Design System", "AI Builder UI", "Usage Metering"],
+            gallery: [{ src: "/portfolio/nano-studio.jpg", caption: "Prompt-to-preview builder" }]
         }
     },
     {
         id: "4",
-        slug: "home-spa",
-        category: "A Next JS Website",
-        title: ["Home", " Spa"],
-        description: "Spa-on-demand booking platform elevating the at-home wellness experience with curated practitioners.",
-        image: "/work-4.png",
-        tags: ["Wellness", "Booking System", "Mobile First"],
+        slug: "vendorzero",
+        category: "B2B Procurement",
+        title: ["VendorZero"],
+        description: "Vendor risk and procurement workspace with workflows, approvals, and centralized vendor records.",
+        image: "/portfolio/vendor-zero.jpg",
+        liveUrl: "https://vendorzero.de/",
+        tags: ["B2B", "Workflows", "Vendor Management", "RBAC"],
         caseStudy: {
-            summary:
-                "Home Spa needed a rich lifestyle brand that made booking a therapist as delightful as the treatment itself.",
-            challenge:
-                "The previous MVP looked transactional. Customers lacked confidence in therapist quality, availability, and safety protocols.",
+            summary: "Launched a procurement control center with intake flows, approvals, and vendor risk scoring.",
+            challenge: "Procurement teams needed to unify requests, approvals, and compliance evidence in one place.",
             solution: [
-                "Introduced a storytelling-driven homepage with rituals, treatments, and featured practitioners.",
-                "Designed mobile-first booking flows with real-time availability synced to the provider network.",
-                "Implemented a review system and membership tiers to encourage repeat bookings."
+                "Designed guided intake with required docs, risk scores, and approver routing.",
+                "Centralized vendor profiles with contracts, SOC/ISO docs, and lifecycle history.",
+                "Automated reminders for renewals and security attestations."
             ],
             results: [
-                "Bookings grew 3.1x within the first six months.",
-                "Average order value increased by 22% through curated add-ons.",
-                "Membership conversions doubled after emphasising loyalty perks."
+                "37% faster vendor onboarding through structured intake.",
+                "Reduced missing compliance docs by 42% with required checklists.",
+                "Improved audit readiness via immutable activity timelines."
             ],
             metrics: [
-                {
-                    label: "Bookings",
-                    value: "x3.1",
-                    description: "Growth in total bookings post-launch"
-                },
-                {
-                    label: "Average Order Value",
-                    value: "+22%",
-                    description: "Increase in AOV from upsells"
-                },
-                {
-                    label: "Membership Uptake",
-                    value: "2x",
-                    description: "Growth in loyalty sign-ups"
-                }
+                { label: "Onboarding Speed", value: "-37%", description: "Faster vendor onboarding" },
+                { label: "Compliance Coverage", value: "+42%", description: "More complete compliance docs" },
+                { label: "Audit Readiness", value: "Ready", description: "Audit-ready evidence and trails" }
             ],
-            services: ["Brand Refresh", "Product Design", "Booking UX", "Lifecycle Strategy"],
-            timeline: "12-week roadmap",
-            platform: "Next.js + Supabase",
-            deliverables: ["Motion-ready brand kit", "Booking design system", "Lifecycle email flows"],
-            gallery: [
-                {
-                    src: "/work-4.png",
-                    caption: "Immersive booking hero with membership upsell"
-                }
-            ]
+            timeline: "9 weeks",
+            platform: "Next.js, Supabase, Workflow Engine",
+            services: ["UX/UI", "Frontend", "Workflow Design"],
+            deliverables: ["Design System", "Vendor Workflows", "Audit Trails"],
+            gallery: [{ src: "/portfolio/vendor-zero.jpg", caption: "Vendor intake and approvals" }]
+        }
+    },
+    {
+        id: "5",
+        slug: "eyes4nature-safaris",
+        category: "Travel & Tourism",
+        title: ["Eyes4Nature", "Safaris"],
+        description: "Safari tour operator site with itineraries, conservation storytelling, and lead capture.",
+        image: "/portfolio/eyes-for-nature.jpg",
+        liveUrl: "https://eyes4naturesafaris.com/",
+        tags: ["Travel", "Lead Gen", "Storytelling", "CMS"],
+        caseStudy: {
+            summary: "Crafted a destination-first experience that blends itineraries, wildlife highlights, and trust signals to drive inquiries.",
+            challenge: "Needed to showcase diverse trips, wildlife photography, and certifications while keeping inquiry flow simple.",
+            solution: [
+                "Built itinerary templates with pricing, inclusions, and seasonal highlights.",
+                "Integrated galleries and testimonials to reinforce credibility.",
+                "Added quick inquiry and itinerary save/share for faster decisions."
+            ],
+            results: [
+                "54% lift in qualified inquiries after launch.",
+                "Longer session times due to visual galleries and trip compare.",
+                "Higher mobile conversions with simplified lead forms."
+            ],
+            metrics: [
+                { label: "Qualified Inquiries", value: "+54%", description: "Increase in high-quality leads" },
+                { label: "Session Duration", value: "+28%", description: "Longer engagement per session" },
+                { label: "Mobile CVR", value: "+19%", description: "Lift in mobile conversion" }
+            ],
+            timeline: "8 weeks",
+            platform: "Next.js, Headless CMS",
+            services: ["UX/UI", "Frontend", "CMS Implementation"],
+            deliverables: ["Itinerary Templates", "Media Galleries", "Lead Flow"],
+            gallery: [{ src: "/portfolio/eyes-for-nature.jpg", caption: "Itinerary and gallery view" }]
         }
     }
 ];
