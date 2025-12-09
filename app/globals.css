@@ -264,3 +264,30 @@ h1, h2, h3, h4, h5, h6 {
 .button-wave:focus::before {
   animation: none;
 }
+
+/* Work image vertical scroller (card image only) */
+@keyframes work-image-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+.animate-work-image-scroll {
+  animation: work-image-scroll 4s linear infinite;
+  will-change: transform;
+}
+.animate-work-image-scroll.reverse {
+  animation-direction: reverse;
+}
+/* .work-image-scroller:hover .animate-work-image-scroll,
+.work-image-scroller:hover .animate-work-image-scroll-reverse {
+  animation-play-state: paused;
+} */
+@media (prefers-reduced-motion: reduce) {
+  .animate-work-image-scroll,
+  .animate-work-image-scroll-reverse {
+    animation: none !important;
+  }
+}

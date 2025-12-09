@@ -130,14 +130,75 @@ export default function WorkSection() {
                 </div>
               </div>
 
-              <div className="relative w-full overflow-hidden rounded-b-[32px] bg-foreground sm:h-full sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px]">
-                <Image
-                  src={work.image}
-                  alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
-                  width={520}
-                  height={400}
-                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
-                />
+              <div className="relative w-full overflow-hidden rounded-b-[32px] bg-background sm:h-full sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] p-2 sm:p-3">
+                {(() => {
+                  const baseImages = Array.from(
+                    new Set([
+                      work.image,
+                      ...(work.caseStudy?.gallery?.map((g) => g.src) ?? [])
+                    ])
+                  )
+
+                  const galleryImages =
+                    baseImages.length >= 2
+                      ? baseImages.slice(0, 4)
+                      : [...baseImages, work.image].slice(0, 4)
+
+                  if (galleryImages.length <= 1) {
+                    return (
+                      <Image
+                        src={galleryImages[0]}
+                        alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
+                        width={520}
+                        height={400}
+                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+                      />
+                    )
+                  }
+
+                  const duplicated = [...galleryImages, ...galleryImages]
+
+                  return (
+                    <div className="work-image-scroller h-full w-full overflow-hidden flex gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
+                      {/* First Row - Scrolls Up */}
+                      <div className="flex-1 flex flex-col gap-2 animate-work-image-scroll">
+                        {duplicated.map((src, idx) => (
+                          <div
+                            key={`${work.slug}-top-${idx}`}
+                            className="relative h-auto w-full overflow-hidden rounded-lg bg-card-light/20 border border-foreground/20 flex-shrink-0"
+                          >
+                            <Image
+                              src={src}
+                              alt={`${Array.isArray(work.title) ? work.title.join(" ") : work.title} - Image ${idx + 1}`}
+                              fill
+                              sizes="(min-width: 1024px) 20vw, 50vw"
+                              className="object-contain !relative"
+                            />
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Second Row - Scrolls Down */}
+                      <div className="flex-1 flex flex-col gap-2 animate-work-image-scroll reverse">
+                        {duplicated.map((src, idx) => (
+                          <div
+                            key={`${work.slug}-bottom-${idx}`}
+                            className="relative h-auto w-full overflow-hidden rounded-lg bg-card-light/20 border border-foreground/20 flex-shrink-0"
+                          >
+                            <Image
+                              src={src}
+                              alt={`${Array.isArray(work.title) ? work.title.join(" ") : work.title} - Image ${idx + 1}`}
+                              fill
+                              sizes="(min-width: 1024px) 20vw, 50vw"
+                              className="object-contain !relative"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })()}
+                
               </div>
             </div>
           ))}
