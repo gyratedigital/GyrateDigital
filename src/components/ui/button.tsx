@@ -91,7 +91,7 @@ function Button({
   return (
     <button
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden button-wave")}
+      className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden button-wave cursor-pointer")}
       onClick={handleClick}
       {...props}
     >
