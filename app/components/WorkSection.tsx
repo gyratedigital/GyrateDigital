@@ -112,7 +112,7 @@ export default function WorkSection() {
                 <div className="flex flex-wrap gap-3">
                   <Link
                     href={`/portfolio/${work.slug}`}
-                    className="inline-flex h-11 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-5 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/85"
+                    className="inline-flex h-11 items-center gap-2 rounded-full border border-primary bg-primary px-5 text-sm font-semibold text-card-dark transition-colors hover:bg-primary/80 wave-button"
                   >
                     Details
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -160,7 +160,8 @@ export default function WorkSection() {
                   const duplicated = [...galleryImages, ...galleryImages]
 
                   return (
-                    <div className="work-image-scroller h-full w-full overflow-hidden flex items-center gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
+                    <div className="work-image-scroller h-full w-[150%] overflow-hidden flex items-center gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
+                      
                       {/* First Row - Scrolls Up */}
                       <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll">
                         {duplicated.map((src, idx) => (
@@ -179,7 +180,7 @@ export default function WorkSection() {
                         ))}
                       </div>
 
-                      {/* Second Row - Scrolls Down */}
+                      {/* Third Row - Scrolls Down */}
                       <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll reverse">
                         {duplicated.map((src, idx) => (
                           <div
