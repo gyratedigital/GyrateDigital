@@ -275,7 +275,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .animate-work-image-scroll {
-  animation: work-image-scroll 4s linear infinite;
+  animation: work-image-scroll 6s linear infinite;
   will-change: transform;
 }
 .animate-work-image-scroll.reverse {
