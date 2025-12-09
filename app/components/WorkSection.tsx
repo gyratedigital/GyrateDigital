@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -114,7 +115,7 @@ export default function WorkSection() {
                     className="inline-flex h-11 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-5 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/85"
                   >
                     Details
-                    <span aria-hidden="true">→</span>
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                   {work.liveUrl && (
                     <Link
@@ -124,7 +125,7 @@ export default function WorkSection() {
                       className="inline-flex h-11 items-center gap-2 rounded-full border border-border/60 px-5 text-sm font-semibold text-card-foreground transition-colors hover:border-primary hover:text-primary"
                     >
                       Visit Site
-                      <span aria-hidden="true">↗</span>
+                      <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                   )}
                 </div>
@@ -159,9 +160,9 @@ export default function WorkSection() {
                   const duplicated = [...galleryImages, ...galleryImages]
 
                   return (
-                    <div className="work-image-scroller h-full w-full overflow-hidden flex gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
+                    <div className="work-image-scroller h-full w-full overflow-hidden flex items-center gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
                       {/* First Row - Scrolls Up */}
-                      <div className="flex-1 flex flex-col gap-2 animate-work-image-scroll">
+                      <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll">
                         {duplicated.map((src, idx) => (
                           <div
                             key={`${work.slug}-top-${idx}`}
@@ -179,11 +180,11 @@ export default function WorkSection() {
                       </div>
 
                       {/* Second Row - Scrolls Down */}
-                      <div className="flex-1 flex flex-col gap-2 animate-work-image-scroll reverse">
+                      <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll reverse">
                         {duplicated.map((src, idx) => (
                           <div
                             key={`${work.slug}-bottom-${idx}`}
-                            className="relative h-auto w-full overflow-hidden rounded-lg bg-card-light/20 border border-foreground/20 flex-shrink-0"
+                            className="relative h-auto w-full overflow-hidden rounded-lg bg-card-light/20 border border-foreground/5 flex-shrink-0"
                           >
                             <Image
                               src={src}

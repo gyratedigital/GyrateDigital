@@ -6,6 +6,12 @@ export const workSection = [
         title: ["Lernen", "Einfach Deutsch"],
         description: "German language learning platform with adaptive lessons, quizzes, and progress tracking for adult learners.",
         image: "/portfolio/einfatch.jpg",
+        imageGallery: [
+            "/portfolio/einfatch.jpg",
+            "/portfolio/visual-gallery/einfatch-2.jpg",
+            "/portfolio/visual-gallery/einfatch-3.jpg",
+            "/portfolio/visual-gallery/einfatch-4.jpg",
+        ],
         liveUrl: "https://lernen.einfachdeutsch.de/",
         tags: ["Next.js", "E-learning", "Gamification", "Localization"],
         caseStudy: {
@@ -40,6 +46,12 @@ export const workSection = [
         title: ["BankTracker"],
         description: "Risk and exposure tracking for banks with dashboards, alerts, and audit-ready reports.",
         image: "/portfolio/bank-track.jpg",
+        imageGallery: [
+            "/portfolio/bank-track.jpg",
+            "/portfolio/visual-gallery/bank-track-2.jpg",
+            "/portfolio/visual-gallery/bank-track-3.jpg",
+            "/portfolio/visual-gallery/bank-track-4.jpg",
+        ],
         liveUrl: "https://banktracker.de/",
         tags: ["SaaS", "Fintech", "Dashboards", "Access Control"],
         caseStudy: {
@@ -74,6 +86,12 @@ export const workSection = [
         title: ["NanoApp", "Studio"],
         description: "AI-driven app builder for creating micro-apps with prompts, datasets, and instant previews.",
         image: "/portfolio/nano-studio.jpg",
+        imageGallery: [
+            "/portfolio/nano-studio.jpg",
+            "/portfolio/visual-gallery/nano-studio-2.jpg",
+            "/portfolio/visual-gallery/nano-studio-3.jpg",
+            "/portfolio/visual-gallery/nano-studio-4.jpg",
+        ],
         liveUrl: "https://nanoapp.nanostudio.ai/",
         tags: ["AI", "No-code", "Multi-tenant", "Realtime Preview"],
         caseStudy: {
@@ -108,6 +126,12 @@ export const workSection = [
         title: ["VendorZero"],
         description: "Vendor risk and procurement workspace with workflows, approvals, and centralized vendor records.",
         image: "/portfolio/vendor-zero.jpg",
+        imageGallery: [
+            "/portfolio/vendor-zero.jpg",
+            "/portfolio/visual-gallery/vendor-zero-2.jpg",
+            "/portfolio/visual-gallery/vendor-zero-3.jpg",
+            "/portfolio/visual-gallery/vendor-zero-4.jpg",
+        ],
         liveUrl: "https://vendorzero.de/",
         tags: ["B2B", "Workflows", "Vendor Management", "RBAC"],
         caseStudy: {
@@ -142,6 +166,12 @@ export const workSection = [
         title: ["Eyes4Nature", "Safaris"],
         description: "Safari tour operator site with itineraries, conservation storytelling, and lead capture.",
         image: "/portfolio/eyes-for-nature.jpg",
+        imageGallery: [
+            "/portfolio/eyes-for-nature.jpg",
+            "/portfolio/visual-gallery/eyes-for-nature-2.jpg",
+            "/portfolio/visual-gallery/eyes-for-nature-3.jpg",
+            "/portfolio/visual-gallery/eyes-for-nature-4.jpg",
+        ],
         liveUrl: "https://eyes4naturesafaris.com/",
         tags: ["Travel", "Lead Gen", "Storytelling", "CMS"],
         caseStudy: {

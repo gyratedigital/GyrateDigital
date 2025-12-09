@@ -59,8 +59,8 @@ export default function ServicesPage() {
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    {/* <div className="absolute inset-0 flex items-center justify-center text-foreground text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-20">
-                        Learn More →
+                {/* <div className="absolute inset-0 flex items-center justify-center text-foreground text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-20">
+                        Learn More
                     </div> */}
                 </div>
                 ))

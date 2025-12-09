@@ -19,7 +19,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -265,7 +265,8 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 mt-3 text-primary text-sm font-medium hover:underline"
                     >
-                      Get Directions →
+                      Get Directions
+                      <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </a>
                   </div>
                 </div>
