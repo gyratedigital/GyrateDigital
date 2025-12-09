@@ -160,52 +160,54 @@ export default function WorkSection() {
                   const duplicated = [...galleryImages, ...galleryImages]
 
                   return (
-                    <div className="work-image-scroller h-full w-[150%] overflow-hidden flex items-center gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
-                      
-                      {/* First Row - Scrolls Up */}
-                      <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll">
-                        {duplicated.map((src, idx) => (
-                          <div
-                            key={`${work.slug}-top-${idx}`}
-                            className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/20 flex-shrink-0"
-                          >
-                            <div className="flex items-center justify-start bg-gray-200 px-2 py-2 gap-[3px]">
-                              <p className="w-[5px] h-[5px] rounded-full bg-[#EC6B60]"></p>
-                              <p className="w-[5px] h-[5px] rounded-full bg-[#F5BE4F]"></p>
-                              <p className="w-[5px] h-[5px] rounded-full bg-[#62C554]"></p>
+                    <div className="h-full w-full rounded-tr-[40px] overflow-hidden">
+                      <div className="work-image-scroller h-full w-[150%] overflow-hidden flex items-center gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
+                        
+                        {/* First Row - Scrolls Up */}
+                        <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll">
+                          {duplicated.map((src, idx) => (
+                            <div
+                              key={`${work.slug}-top-${idx}`}
+                              className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/20 flex-shrink-0"
+                            >
+                              <div className="flex items-center justify-start bg-gray-200 px-2 py-2 gap-[3px]">
+                                <p className="w-[5px] h-[5px] rounded-full bg-[#EC6B60]"></p>
+                                <p className="w-[5px] h-[5px] rounded-full bg-[#F5BE4F]"></p>
+                                <p className="w-[5px] h-[5px] rounded-full bg-[#62C554]"></p>
+                              </div>
+                              <Image
+                                src={src}
+                                alt={`${Array.isArray(work.title) ? work.title.join(" ") : work.title} - Image ${idx + 1}`}
+                                fill
+                                sizes="(min-width: 1024px) 20vw, 50vw"
+                                className="object-contain !relative"
+                              />
                             </div>
-                            <Image
-                              src={src}
-                              alt={`${Array.isArray(work.title) ? work.title.join(" ") : work.title} - Image ${idx + 1}`}
-                              fill
-                              sizes="(min-width: 1024px) 20vw, 50vw"
-                              className="object-contain !relative"
-                            />
-                          </div>
-                        ))}
-                      </div>
+                          ))}
+                        </div>
 
-                      {/* Third Row - Scrolls Down */}
-                      <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll reverse">
-                        {duplicated.map((src, idx) => (
-                          <div
-                            key={`${work.slug}-bottom-${idx}`}
-                            className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/5 flex-shrink-0"
-                          >
-                            <div className="flex items-center justify-start bg-gray-200 px-2 py-2 gap-[3px]">
-                              <p className="w-[5px] h-[5px] rounded-full bg-[#EC6B60]"></p>
-                              <p className="w-[5px] h-[5px] rounded-full bg-[#F5BE4F]"></p>
-                              <p className="w-[5px] h-[5px] rounded-full bg-[#62C554]"></p>
+                        {/* Third Row - Scrolls Down */}
+                        <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll reverse">
+                          {duplicated.map((src, idx) => (
+                            <div
+                              key={`${work.slug}-bottom-${idx}`}
+                              className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/5 flex-shrink-0"
+                            >
+                              <div className="flex items-center justify-start bg-gray-200 px-2 py-2 gap-[3px]">
+                                <p className="w-[5px] h-[5px] rounded-full bg-[#EC6B60]"></p>
+                                <p className="w-[5px] h-[5px] rounded-full bg-[#F5BE4F]"></p>
+                                <p className="w-[5px] h-[5px] rounded-full bg-[#62C554]"></p>
+                              </div>
+                              <Image
+                                src={src}
+                                alt={`${Array.isArray(work.title) ? work.title.join(" ") : work.title} - Image ${idx + 1}`}
+                                fill
+                                sizes="(min-width: 1024px) 20vw, 50vw"
+                                className="object-contain !relative"
+                              />
                             </div>
-                            <Image
-                              src={src}
-                              alt={`${Array.isArray(work.title) ? work.title.join(" ") : work.title} - Image ${idx + 1}`}
-                              fill
-                              sizes="(min-width: 1024px) 20vw, 50vw"
-                              className="object-contain !relative"
-                            />
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )
