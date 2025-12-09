@@ -231,8 +231,8 @@ export const blogPosts: BlogPost[] = [
       <p>Use AI for research, ideation, and optimization, but always maintain human oversight for quality and brand voice consistency.</p>
     `,
     author: {
-      name: "James Thompson",
-      avatar: "/authors/james-thompson.jpg",
+      name: "Lisa Park",
+      avatar: "/authors/lisa-park.jpg",
       bio: "Content marketing strategist and AI researcher focused on the intersection of technology and creative content."
     },
     date: "28th Sep 2025",
@@ -261,8 +261,8 @@ export const blogPosts: BlogPost[] = [
       <p>Consider server-side rendering, edge computing, and progressive web app features for optimal performance across all devices.</p>
     `,
     author: {
-      name: "Anna Kumar",
-      avatar: "/authors/anna-kumar.jpg",
+      name: "Lisa Park",
+      avatar: "/authors/lisa-park.jpg",
       bio: "Full-stack developer and performance optimization expert with deep knowledge of web technologies and scalability."
     },
     date: "25th Sep 2025",

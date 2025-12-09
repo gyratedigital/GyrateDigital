@@ -82,14 +82,14 @@ export default function PortfolioPage() {
                   )}
                   <Link
                     href={`/portfolio/${work.slug}`}
-                    className="inline-flex h-12 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-6 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/80"
+                    className="inline-flex h-12 items-center gap-2 rounded-full border border-primary bg-primary px-6 text-sm font-semibold text-card-dark transition-colors hover:bg-primary/80"
                   >
                     Details
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
                 <div className="flex-1">
-                  <div className="relative h-full min-h-[240px] overflow-hidden rounded-[24px] border border-border/60 bg-muted/40">
+                  <div className="relative h-full min-h-full aspect-[16/7.5] overflow-hidden rounded-[24px] border border-border/60 bg-muted/40">
                     <Image
                       src={work.image}
                       alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
