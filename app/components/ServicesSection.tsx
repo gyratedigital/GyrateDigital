@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { servicesSection } from '../data/servicesSection'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export default function ServicesSection() {
     return(
@@ -42,8 +43,9 @@ export default function ServicesSection() {
                             <p className="text-card-dark text-sm line-clamp-5">{service.description}</p>
                         </div>
                         {/* Hover Text (extra layer) */}
-                        <div className="absolute inset-0 flex items-center justify-center text-card-dark text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
-                            Learn More →
+                        <div className="absolute inset-0 flex items-center justify-center gap-2 text-card-dark text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
+                            <span>Learn More</span>
+                            <ArrowRight className="h-5 w-5" aria-hidden="true" />
                         </div>
                     </Link>
 

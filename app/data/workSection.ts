@@ -6,6 +6,12 @@ export const workSection = [
         title: ["Lernen", "Einfach Deutsch"],
         description: "German language learning platform with adaptive lessons, quizzes, and progress tracking for adult learners.",
         image: "/portfolio/einfatch.jpg",
+        imageGallery: [
+            "/portfolio/visual-gallery/einfatch.jpg",
+            "/portfolio/visual-gallery/einfatch-2.jpg",
+            "/portfolio/visual-gallery/einfatch-3.jpg",
+            "/portfolio/visual-gallery/einfatch-4.jpg",
+        ],
         liveUrl: "https://lernen.einfachdeutsch.de/",
         tags: ["Next.js", "E-learning", "Gamification", "Localization"],
         caseStudy: {

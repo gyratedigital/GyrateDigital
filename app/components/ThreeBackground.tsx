@@ -16,7 +16,7 @@
 //     const style = getComputedStyle(vantaRef.current);
 //     const bgColor = style.backgroundColor;
 
-//     // Convert "rgb(r, g, b)" → hex number for Vanta
+//     // Convert "rgb(r, g, b)" -> hex number for Vanta
 //     const rgbToHex = (rgb: string) => {
 //       const result = rgb.match(/\d+/g)?.map(Number) || [0, 0, 0];
 //       return (result[0] << 16) + (result[1] << 8) + result[2];

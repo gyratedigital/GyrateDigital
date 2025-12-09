@@ -56,8 +56,9 @@ export default function NotFound() {
               If you think this is a mistake, please contact us.
             </p>
             <Link href="/contact">
-              <Button variant="link" className="p-0 h-auto text-primary">
-                Contact Support →
+              <Button variant="link" className="p-0 h-auto text-primary gap-2">
+                Contact Support
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Button>
             </Link>
           </div> */}

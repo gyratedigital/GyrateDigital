@@ -7,6 +7,7 @@ import NavigationMenuDemo from "../../components/Header";
 import FooterSection from "../../components/FooterSection";
 import BackButton from "@/components/BackButton";
 import { workSection } from "../../data/workSection";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 type PortfolioRouteParams = {
     slug: string;
@@ -116,7 +117,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                                         className="inline-flex h-12 w-fit items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-6 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/80"
                                     >
                                         Visit Live Website
-                                        <span aria-hidden="true">↗</span>
+                                        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                                     </Link>
                                 )}
                                 {services.length > 0 && (
@@ -134,7 +135,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                             </div>
                         </div>
 
-                        <div className="relative flex items-center justify-center">
+                        <div className="relative flex items-center justify-start">
                             <div className="absolute inset-0 translate-y-[18%] rounded-full bg-primary/20 blur-[120px] opacity-40" />
                             <div className="relative overflow-hidden rounded-[32px] border border-border/60 bg-card shadow-[0_24px_96px_rgba(8,16,12,0.1)]">
                                 <Image
@@ -253,7 +254,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                                             className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-card-light"
                                         >
                                             Visit live experience
-                                            <span aria-hidden="true">↗</span>
+                                            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                                         </Link>
                                     </div>
                                 )}
@@ -264,7 +265,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                     {gallery.length > 0 && (
                         <div className="mt-20">
                             <h3 className="text-sm uppercase tracking-[0.28em] text-secondary">
-                                Visual Gallery
+                                Visual Galleryv
                             </h3>
                             <div className="mt-6 grid gap-6 sm:grid-cols-2">
                                 {gallery.map((item) => (
@@ -311,7 +312,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                                         </p>
                                         <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:text-card-foreground">
                                             View Case Study
-                                            <span aria-hidden="true">→</span>
+                                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
                                         </span>
                                     </Link>
                                 ))}

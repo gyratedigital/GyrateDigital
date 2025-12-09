@@ -8,6 +8,7 @@ import GreenBanner from "../components/portfolio/GreenBanner";
 import FooterSection from "../components/FooterSection";
 import Icon from "../components/Icon";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function PortfolioPage() {
   return (
@@ -56,7 +57,7 @@ export default function PortfolioPage() {
                     className="inline-flex h-12 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-6 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/80"
                   >
                     Details
-                    <span aria-hidden="true">→</span>
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
                 <div className="flex-1">
