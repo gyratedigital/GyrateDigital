@@ -12,6 +12,7 @@ import Link from "next/link";
 import CtaSection from "../components/CtaSection";
 import BrandsSection from "../components/BrandsSection";
 import { useRippleEffect } from "@/hooks/useRippleEffect";
+import { Users } from "lucide-react";
 
 export default function PortfolioPage() {
   // Create ripple hooks for each button - hooks must be called unconditionally
@@ -24,7 +25,36 @@ export default function PortfolioPage() {
   return (
     <div className="w-full">
         <NavigationMenuDemo />
-        <AboutBanner />
+        
+        {/* Header Section */}
+        <div className="relative container mx-auto px-4 pt-[100px] pb-16">
+          <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
+            {/* Background Image */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
+              style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
+              }}
+            />
+            
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-background/10 z-[-1]" />
+
+            <div className="max-w-4xl mx-auto text-center relative z-1">
+              <div className="flex items-center justify-center mb-4">
+                <Users className="w-12 h-12 text-primary" />
+              </div>
+              <p className="text-foreground text-xs mb-4 uppercase tracking-wider">About Us</p>
+              <h1 className="outfit-text text-foreground text-4xl md:text-5xl font-semibold mb-6">
+                Who We Are
+              </h1>
+              <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl mx-auto">
+                We are a team of passionate designers and developers dedicated to creating digital experiences that make a difference.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <GreenBanner />
         <div className="container mx-auto px-4 flex flex-col items-center pt-[80px]">
 
