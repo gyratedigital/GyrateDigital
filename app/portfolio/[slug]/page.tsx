@@ -57,6 +57,18 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
     const services = caseStudy?.services ?? project.tags ?? [];
     const deliverables = caseStudy?.deliverables ?? [];
     const gallery = caseStudy?.gallery ?? [];
+
+    // Build visual gallery: prefer project.imageGallery, then case study gallery, then fallback to main image
+    const galleryFromProject = (project as { imageGallery?: string[] })?.imageGallery ?? [];
+    const galleryFromCaseStudy = gallery.map((item) => item.src).filter(Boolean);
+
+    const combinedGallery = [...galleryFromProject, ...galleryFromCaseStudy].filter(Boolean);
+    const filledGallery =
+        combinedGallery.length >= 4
+            ? combinedGallery.slice(0, 4)
+            : [...combinedGallery, ...Array(4 - combinedGallery.length).fill(project.image)].slice(0, 4);
+
+    const visualGallery = filledGallery.map((src) => ({ src, caption: formattedTitle }));
     const infoHighlights = [
         {
             label: "Timeline",
@@ -137,7 +149,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
 
                         <div className="relative flex items-center justify-start">
                             <div className="absolute inset-0 translate-y-[18%] rounded-full bg-primary/20 blur-[120px] opacity-40" />
-                            <div className="relative overflow-hidden rounded-[32px] border border-border/60 bg-card shadow-[0_24px_96px_rgba(8,16,12,0.1)]">
+                            <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-[0_24px_96px_rgba(8,16,12,0.1)]">
                                 <Image
                                     src={project.image}
                                     alt={formattedTitle}
@@ -262,16 +274,16 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                         )}
                     </div>
 
-                    {gallery.length > 0 && (
+                    {visualGallery.length > 0 && (
                         <div className="mt-20">
                             <h3 className="text-sm uppercase tracking-[0.28em] text-secondary">
-                                Visual Galleryv
+                                Visual Gallery
                             </h3>
                             <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                                {gallery.map((item) => (
+                                {visualGallery.map((item, idx) => (
                                     <div
-                                        key={item.src}
-                                        className="overflow-hidden rounded-[28px] border border-border/60 bg-card"
+                                        key={`${item.src}-${idx}`}
+                                        className="overflow-hidden rounded-xl border border-border/60 bg-card aspect-[16/7.5]"
                                     >
                                         <Image
                                             src={item.src}
