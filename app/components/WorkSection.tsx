@@ -167,8 +167,13 @@ export default function WorkSection() {
                         {duplicated.map((src, idx) => (
                           <div
                             key={`${work.slug}-top-${idx}`}
-                            className="relative h-auto w-full overflow-hidden rounded-lg bg-card-light/20 border border-foreground/20 flex-shrink-0"
+                            className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/20 flex-shrink-0"
                           >
+                            <div className="flex items-center justify-start bg-gray-200 px-2 py-2 gap-[3px]">
+                              <p className="w-[5px] h-[5px] rounded-full bg-[#EC6B60]"></p>
+                              <p className="w-[5px] h-[5px] rounded-full bg-[#F5BE4F]"></p>
+                              <p className="w-[5px] h-[5px] rounded-full bg-[#62C554]"></p>
+                            </div>
                             <Image
                               src={src}
                               alt={`${Array.isArray(work.title) ? work.title.join(" ") : work.title} - Image ${idx + 1}`}
@@ -185,8 +190,13 @@ export default function WorkSection() {
                         {duplicated.map((src, idx) => (
                           <div
                             key={`${work.slug}-bottom-${idx}`}
-                            className="relative h-auto w-full overflow-hidden rounded-lg bg-card-light/20 border border-foreground/5 flex-shrink-0"
+                            className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/5 flex-shrink-0"
                           >
+                            <div className="flex items-center justify-start bg-gray-200 px-2 py-2 gap-[3px]">
+                              <p className="w-[5px] h-[5px] rounded-full bg-[#EC6B60]"></p>
+                              <p className="w-[5px] h-[5px] rounded-full bg-[#F5BE4F]"></p>
+                              <p className="w-[5px] h-[5px] rounded-full bg-[#62C554]"></p>
+                            </div>
                             <Image
                               src={src}
                               alt={`${Array.isArray(work.title) ? work.title.join(" ") : work.title} - Image ${idx + 1}`}
