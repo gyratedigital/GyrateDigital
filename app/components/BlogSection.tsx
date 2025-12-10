@@ -25,7 +25,7 @@ export default function BlogSection() {
           {randomPosts.map((post) => (
             <article key={post.id} className="group cursor-pointer">
               <Link href={`/blog/${post.slug}`}>
-                <div className="bg-card rounded-xl overflow-hidden border border-border/60  hover:shadow-lg transition-all duration-300 h-full">
+                <div className="bg-card rounded-2xl overflow-hidden border border-border/60  hover:shadow-lg transition-all duration-300 h-full">
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={post.image}

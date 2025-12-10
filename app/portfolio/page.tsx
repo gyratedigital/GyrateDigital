@@ -3,18 +3,46 @@
 import Image from "next/image";
 import { workSection } from "../data/workSection";
 import NavigationMenuDemo from "../components/Header";
-import PortfolioBanner from "../components/portfolio/Banner";
 import GreenBanner from "../components/portfolio/GreenBanner";
 import FooterSection from "../components/FooterSection";
 import Icon from "../components/Icon";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FolderKanban } from "lucide-react";
 
 export default function PortfolioPage() {
   return (
     <div className="w-full min-h-screen bg-background text-foreground">
       <NavigationMenuDemo />
-      <PortfolioBanner />
+      
+      {/* Header Section */}
+      <div className="relative container mx-auto px-4 pt-[100px] pb-16">
+        <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80')"
+            }}
+          />
+          
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-background/10 z-[-1]" />
+
+          <div className="max-w-4xl mx-auto text-center relative z-1">
+            <div className="flex items-center justify-center mb-4">
+              <FolderKanban className="w-12 h-12 text-primary" />
+            </div>
+            <p className="text-foreground text-xs mb-4 uppercase tracking-wider">Our Work</p>
+            <h1 className="outfit-text text-foreground text-4xl md:text-5xl font-semibold mb-6">
+              Portfolio
+            </h1>
+            <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl mx-auto">
+              Explore our collection of successful projects and innovative solutions that have transformed businesses across industries.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <GreenBanner />
       <div className="container mx-auto px-4 flex flex-col items-center gap-12 pt-[80px] pb-[120px]">
         {Array.isArray(workSection) && workSection.length > 0 ? (
@@ -54,14 +82,14 @@ export default function PortfolioPage() {
                   )}
                   <Link
                     href={`/portfolio/${work.slug}`}
-                    className="inline-flex h-12 items-center gap-2 rounded-full border border-secondary/30 bg-card-dark px-6 text-sm font-semibold text-card-light transition-colors hover:bg-card-dark/80"
+                    className="inline-flex h-12 items-center gap-2 rounded-full border border-primary bg-primary px-6 text-sm font-semibold text-card-dark transition-colors hover:bg-primary/80"
                   >
                     Details
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
                 <div className="flex-1">
-                  <div className="relative h-full min-h-[240px] overflow-hidden rounded-[24px] border border-border/60 bg-muted/40">
+                  <div className="relative h-full min-h-full aspect-[16/7.5] overflow-hidden rounded-[24px] border border-border/60 bg-muted/40">
                     <Image
                       src={work.image}
                       alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}

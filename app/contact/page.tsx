@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import NavigationMenuDemo from "../components/Header";
-import PortfolioBanner from "../components/contact/Banner";
 import GreenBanner from "../components/contact/GreenBanner";
 import FooterSection from "../components/FooterSection";
 import { Button } from "@/components/ui/button";
@@ -19,7 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, MessageSquare } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -67,7 +66,36 @@ export default function ContactPage() {
   return (
     <div className="w-full">
       <NavigationMenuDemo />
-      <PortfolioBanner />
+      
+      {/* Header Section */}
+      <div className="relative container mx-auto px-4 pt-[100px] pb-16">
+        <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80')"
+            }}
+          />
+          
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-background/10 z-[-1]" />
+
+          <div className="max-w-4xl mx-auto text-center relative z-1">
+            <div className="flex items-center justify-center mb-4">
+              <MessageSquare className="w-12 h-12 text-primary" />
+            </div>
+            <p className="text-foreground text-xs mb-4 uppercase tracking-wider">Get In Touch</p>
+            <h1 className="outfit-text text-foreground text-4xl md:text-5xl font-semibold mb-6">
+              Contact Us
+            </h1>
+            <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl mx-auto">
+              Have a project in mind? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <GreenBanner />
       
       <div className="container mx-auto px-4 pt-[80px] pb-[80px]">

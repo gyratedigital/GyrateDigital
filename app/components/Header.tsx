@@ -105,7 +105,7 @@ export default function AnimatedNav() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="fixed inset-0 bg-black/20 z-40 h-screen top-0 bottom-0 left-0"
+                  className="fixed inset-0 bg-foreground/10 z-40 h-screen top-0 bottom-0 left-0"
                   onClick={() => setOpen(false)}
                 />
                 
@@ -153,7 +153,7 @@ export default function AnimatedNav() {
                           >
                             <Link
                               href={link.href}
-                              className="text-xl font-medium text-foreground hover:text-gray-600 transition-colors block py-2"
+                              className="text-xl font-medium text-foreground hover:text-primary transition-colors block py-2"
                               onClick={() => setOpen(false)}
                             >
                               {link.label}
@@ -174,7 +174,7 @@ export default function AnimatedNav() {
                       >
                         <Link
                           href="/contact"
-                          className="flex items-center gap-2 px-6 py-3 border-2 border-foreground rounded-full text-foreground font-medium hover:bg-black hover:text-white transition-all duration-300"
+                          className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-foreground rounded-full text-foreground font-medium hover:bg-black hover:text-primary transition-all duration-300"
                           onClick={() => setOpen(false)}
                         >
                           Hire us
