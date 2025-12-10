@@ -30,12 +30,7 @@ export default function PortfolioPage() {
         <div className="relative container mx-auto px-4 pt-[100px] pb-16">
           <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
             {/* Background Image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
-              style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
-              }}
-            />
+            <div className="absolute inset-0 bg-[url('/about-banner.avif')] bg-cover bg-center bg-no-repeat opacity-10" />
             
             {/* Overlay */}
             <div className="absolute inset-0 bg-background/10 z-[-1]" />
@@ -84,27 +79,6 @@ export default function PortfolioPage() {
                         <p className="text-foreground text-md font-normal">
                             {about.description}
                         </p>
-                        {/* <Link href="">Discover more</Link> */}
-                        <Link
-                            href="/contact"
-                            data-slot="button"
-                            onClick={rippleHooks[index]?.addRipple}
-                            className="mt-5 inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden button-wave"
-                            >
-                            <span className="relative z-10">Discover more</span>
-                            {rippleHooks[index]?.ripples.map((ripple) => (
-                                <span
-                                    key={ripple.id}
-                                    className="absolute rounded-full bg-white/50 pointer-events-none animate-ripple"
-                                    style={{
-                                        left: `${ripple.x}px`,
-                                        top: `${ripple.y}px`,
-                                        transform: "translate(-50%, -50%)",
-                                        zIndex: 1,
-                                    }}
-                                />
-                            ))}
-                        </Link>
                     </div>
                     <div className="w-full sm:w-[480px] sm:h-[400px] h-auto rounded-3xl overflow-hidden">
                         <Image

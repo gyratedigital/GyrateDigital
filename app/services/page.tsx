@@ -19,12 +19,7 @@ export default function ServicesPage() {
         <div className="relative container mx-auto px-4 pt-[100px] pb-16">
           <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
             {/* Background Image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
-              style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
-              }}
-            />
+            <div className="absolute inset-0 bg-[url('/services-banner.avif')] bg-cover bg-center bg-no-repeat opacity-10" />
             
             {/* Overlay */}
             <div className="absolute inset-0 bg-background/10 z-[-1]" />
