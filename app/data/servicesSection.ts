@@ -20,7 +20,7 @@ export const servicesSection: Service[] = [
         id: 1,
         number: "01",
         category: "Websites & eCommerce",
-        title: ["Website, WordPress &", " eCommerce Development"],
+        title: ["Website, WordPress & eCommerce", " Development"],
         description:
             "Conversion-focused websites and storefronts built on WordPress, WooCommerce, Shopify, or fully custom stacks with performance, security, and maintainability baked in.",
         image: "/services/web-development.jpg",
