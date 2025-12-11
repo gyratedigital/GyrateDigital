@@ -14,11 +14,7 @@ export default function ServicesSection() {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {servicesSection.slice(0, 4).map((service) => (
-                    <div 
-                        // key={service.id}
-                        // href={`/services/${service.slug}`} 
-                        className="card relative group bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden block"
-                    >
+                    <div className="card relative group bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden block">
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-primary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>
                         {/* Content */}
@@ -34,7 +30,7 @@ export default function ServicesSection() {
                             <p className="text-card-dark text-sm line-clamp-4">{service.description}</p>
                         </div>
                         {/* Hover Text (extra layer) */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-card-dark text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer z-99">
+                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-card-dark text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 z-99">
                             <Link
                                 href="/services"
                                 data-slot="button"
