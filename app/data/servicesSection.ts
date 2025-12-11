@@ -57,7 +57,7 @@ export const servicesSection: Service[] = [
         id: 2,
         number: "02",
         category: "Mobile Apps",
-        title: ["Ai powered ", " Mobile applications"],
+        title: ["Mobile Applications ", " Development"],
         description:
             "iOS, Android, and cross-platform apps with intuitive UX, offline-first flows, and rock-solid API integrations.",
         image: "/services/mobile-development.jpg",
@@ -99,7 +99,7 @@ export const servicesSection: Service[] = [
         id: 3,
         number: "03",
         category: "Websites & eCommerce",
-        title: ["Web applications", " Development"],
+        title: ["Web Applications", " Development"],
         description:
             "Conversion-focused websites and storefronts built on WordPress, WooCommerce, Shopify, or fully custom stacks with performance, security, and maintainability baked in.",
         image: "/services/web-development.jpg",
@@ -231,22 +231,7 @@ export const servicesSection: Service[] = [
                 image: "/services/backend.jpg",
             },
         ],
-    },
-    // {
-    //     id: 2,
-    //     number: "02",
-    //     category: "Full-Stack / MERN",
-    //     title: ["Full-Stack / MERN", " Development"],
-    //     description:
-    //         "Production-grade full-stack applications with robust APIs, secure auth, admin tooling, and analytics baked in from day one.",
-    //     image: "/services/backend.jpg",
-    //     slug: "full-stack-mern-development",
-    //     nestedServices: [
-            
-    //     ],
-    // },
-    
-    
+    },    
     {
         id: 4,
         number: "04",
