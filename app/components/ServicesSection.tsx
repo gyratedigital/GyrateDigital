@@ -40,6 +40,9 @@ export default function ServicesSection() {
 
                 ))}
             </div>
+            {/* <div className="flex justify-center relative mt-8">
+               <Link href="/services" className="bg-primary px-4 py-2 rounded-xl text-card-dark">All Services</Link>
+            </div> */}
         </div>
     )
 }

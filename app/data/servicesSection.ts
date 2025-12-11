@@ -19,8 +19,87 @@ export const servicesSection: Service[] = [
     {
         id: 1,
         number: "01",
+        category: "AI Automation",
+        title: ["AI", " Automation"],
+        description:
+            "Applied AI that augments your products with chatbots, recommendations, and workflow automation grounded in real data.",
+        image: "/services/2150061955.jpg",
+        slug: "ai-automation",
+        nestedServices: [
+            {
+                title: "AI Chatbot Integration",
+                description: "Domain-trained assistants embedded in sites, apps, and support flows.",
+                image: "/services/2150061955.jpg",
+            },
+            {
+                title: "AI-Based Image/Video Analysis",
+                description: "Vision pipelines for moderation, tagging, quality checks, and insights.",
+                image: "/services/2150061955.jpg",
+            },
+            {
+                title: "Workflow Automation Tools",
+                description: "LLM-augmented processes that reduce manual steps and increase throughput.",
+                image: "/services/2150061955.jpg",
+            },
+            {
+                title: "Recommendation Systems",
+                description: "Personalized content, product, and offer recommendations using behavioral data.",
+                image: "/services/2150061955.jpg",
+            },
+            {
+                title: "AI-Powered Web Applications",
+                description: "End-to-end products combining AI inference, UX, and secure data handling.",
+                image: "/services/2150061955.jpg",
+            },
+        ],
+    },
+    {
+        id: 2,
+        number: "02",
+        category: "Mobile Apps",
+        title: ["Ai powered ", " Mobile applications"],
+        description:
+            "iOS, Android, and cross-platform apps with intuitive UX, offline-first flows, and rock-solid API integrations.",
+        image: "/services/mobile-development.jpg",
+        slug: "mobile-app-development",
+        nestedServices: [
+            {
+                title: "Android & iOS Apps",
+                description: "Native-feeling experiences with performant navigation and device integrations.",
+                image: "/services/mobile-development.jpg",
+            },
+            {
+                title: "React Native Apps",
+                description: "Shared codebases, platform-specific polish, and OTA update support.",
+                image: "/services/mobile-development.jpg",
+            },
+            {
+                title: "Cross-Platform Mobile Apps",
+                description: "Consistent UX, unified design systems, and efficient delivery across stores.",
+                image: "/services/mobile-development.jpg",
+            },
+            {
+                title: "API Integration for Apps",
+                description: "Reliable API orchestration, caching, and error handling for mobile clients.",
+                image: "/services/backend.jpg",
+            },
+            {
+                title: "App UI/UX Design",
+                description: "Gesture-friendly flows, accessibility, and microcopy that improves retention.",
+                image: "/services/ui-ux.jpg",
+            },
+            {
+                title: "App Publishing & Maintenance",
+                description: "Store readiness, release channels, monitoring, and iterative optimizations.",
+                image: "/services/mobile-development.jpg",
+            },
+        ],
+    },
+    {
+        id: 3,
+        number: "03",
         category: "Websites & eCommerce",
-        title: ["Website, WordPress & eCommerce", " Development"],
+        title: ["Web applications", " Development"],
         description:
             "Conversion-focused websites and storefronts built on WordPress, WooCommerce, Shopify, or fully custom stacks with performance, security, and maintainability baked in.",
         image: "/services/web-development.jpg",
@@ -116,18 +195,6 @@ export const servicesSection: Service[] = [
                 description: "Catalog tooling, inventory sync, and merchandising workflows for teams.",
                 image: "/services/backend.jpg",
             },
-        ],
-    },
-    {
-        id: 2,
-        number: "02",
-        category: "Full-Stack / MERN",
-        title: ["Full-Stack / MERN", " Development"],
-        description:
-            "Production-grade full-stack applications with robust APIs, secure auth, admin tooling, and analytics baked in from day one.",
-        image: "/services/backend.jpg",
-        slug: "full-stack-mern-development",
-        nestedServices: [
             {
                 title: "MERN Web Applications",
                 description: "MongoDB, Express, React, and Node builds optimized for scalability and DX.",
@@ -165,53 +232,63 @@ export const servicesSection: Service[] = [
             },
         ],
     },
+    // {
+    //     id: 2,
+    //     number: "02",
+    //     category: "Full-Stack / MERN",
+    //     title: ["Full-Stack / MERN", " Development"],
+    //     description:
+    //         "Production-grade full-stack applications with robust APIs, secure auth, admin tooling, and analytics baked in from day one.",
+    //     image: "/services/backend.jpg",
+    //     slug: "full-stack-mern-development",
+    //     nestedServices: [
+            
+    //     ],
+    // },
+    
+    
     {
-        id: 3,
-        number: "03",
-        category: "Mobile Apps",
-        title: ["Mobile App", " Development"],
+        id: 4,
+        number: "04",
+        category: "Cloud & DevOps",
+        title: ["Cloud, Development", " & Maintenance"],
         description:
-            "iOS, Android, and cross-platform apps with intuitive UX, offline-first flows, and rock-solid API integrations.",
-        image: "/services/mobile-development.jpg",
-        slug: "mobile-app-development",
+            "Reliable infrastructure, CI/CD, and observability so your web and mobile products stay fast, secure, and up to date.",
+        image: "/services/seo.jpg",
+        slug: "cloud-deployment-maintenance",
         nestedServices: [
             {
-                title: "Android & iOS Apps",
-                description: "Native-feeling experiences with performant navigation and device integrations.",
-                image: "/services/mobile-development.jpg",
+                title: "Hosting & Deployment",
+                description: "Cloud-native deployments on Vercel, AWS, Azure, or GCP with IaC.",
+                image: "/services/seo.jpg",
             },
             {
-                title: "React Native Apps",
-                description: "Shared codebases, platform-specific polish, and OTA update support.",
-                image: "/services/mobile-development.jpg",
-            },
-            {
-                title: "Cross-Platform Mobile Apps",
-                description: "Consistent UX, unified design systems, and efficient delivery across stores.",
-                image: "/services/mobile-development.jpg",
-            },
-            {
-                title: "API Integration for Apps",
-                description: "Reliable API orchestration, caching, and error handling for mobile clients.",
+                title: "Server Setup & Management",
+                description: "Hardened servers, scaling plans, and cost-efficient environments.",
                 image: "/services/backend.jpg",
             },
             {
-                title: "App UI/UX Design",
-                description: "Gesture-friendly flows, accessibility, and microcopy that improves retention.",
-                image: "/services/ui-ux.jpg",
+                title: "CI/CD Integration",
+                description: "Automated testing, preview environments, and safe rollouts with rollbacks.",
+                image: "/services/seo.jpg",
             },
             {
-                title: "App Publishing & Maintenance",
-                description: "Store readiness, release channels, monitoring, and iterative optimizations.",
-                image: "/services/mobile-development.jpg",
+                title: "Website/App Maintenance",
+                description: "Patching, dependency hygiene, uptime monitoring, and incident response.",
+                image: "/services/seo.jpg",
+            },
+            {
+                title: "Bug Fixing & Updates",
+                description: "Root-cause analysis, regression tests, and stable releases.",
+                image: "/services/backend.jpg",
             },
         ],
     },
     {
-        id: 4,
-        number: "04",
+        id: 5,
+        number: "05",
         category: "Software & UX",
-        title: ["Software & UI/UX", " Design"],
+        title: ["UI/UX", " Design"],
         description:
             "Product strategy, UX architecture, and high-fidelity interfaces that translate complex workflows into simple user journeys.",
         image: "/services/ui-ux.jpg",
@@ -269,78 +346,5 @@ export const servicesSection: Service[] = [
             },
         ],
     },
-    {
-        id: 5,
-        number: "05",
-        category: "Cloud & DevOps",
-        title: ["Cloud, Deployment &", " Maintenance"],
-        description:
-            "Reliable infrastructure, CI/CD, and observability so your web and mobile products stay fast, secure, and up to date.",
-        image: "/services/seo.jpg",
-        slug: "cloud-deployment-maintenance",
-        nestedServices: [
-            {
-                title: "Hosting & Deployment",
-                description: "Cloud-native deployments on Vercel, AWS, Azure, or GCP with IaC.",
-                image: "/services/seo.jpg",
-            },
-            {
-                title: "Server Setup & Management",
-                description: "Hardened servers, scaling plans, and cost-efficient environments.",
-                image: "/services/backend.jpg",
-            },
-            {
-                title: "CI/CD Integration",
-                description: "Automated testing, preview environments, and safe rollouts with rollbacks.",
-                image: "/services/seo.jpg",
-            },
-            {
-                title: "Website/App Maintenance",
-                description: "Patching, dependency hygiene, uptime monitoring, and incident response.",
-                image: "/services/seo.jpg",
-            },
-            {
-                title: "Bug Fixing & Updates",
-                description: "Root-cause analysis, regression tests, and stable releases.",
-                image: "/services/backend.jpg",
-            },
-        ],
-    },
-    {
-        id: 6,
-        number: "06",
-        category: "AI Automation",
-        title: ["AI Automation", " Solutions"],
-        description:
-            "Applied AI that augments your products with chatbots, recommendations, and workflow automation grounded in real data.",
-        image: "/services/2150061955.jpg",
-        slug: "ai-automation",
-        nestedServices: [
-            {
-                title: "AI Chatbot Integration",
-                description: "Domain-trained assistants embedded in sites, apps, and support flows.",
-                image: "/services/2150061955.jpg",
-            },
-            {
-                title: "AI-Based Image/Video Analysis",
-                description: "Vision pipelines for moderation, tagging, quality checks, and insights.",
-                image: "/services/2150061955.jpg",
-            },
-            {
-                title: "Workflow Automation Tools",
-                description: "LLM-augmented processes that reduce manual steps and increase throughput.",
-                image: "/services/2150061955.jpg",
-            },
-            {
-                title: "Recommendation Systems",
-                description: "Personalized content, product, and offer recommendations using behavioral data.",
-                image: "/services/2150061955.jpg",
-            },
-            {
-                title: "AI-Powered Web Applications",
-                description: "End-to-end products combining AI inference, UX, and secure data handling.",
-                image: "/services/2150061955.jpg",
-            },
-        ],
-    },
+    
 ];
