@@ -17,7 +17,7 @@ export default function BlogSection() {
   return (
     <div className="container px-4 mx-auto mb-[100px]">
       <div className="max-w-4xl mx-auto">
-        <h2 className="font-semibold mb-2 text-4xl text-foreground text-center">Our Blog</h2>
+        <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Our Blog</h2>
         <p className="text-center text-sm text-foreground mb-12">Ideas that inspire, stories that matter.</p>
       </div>
       <div className="mx-auto">

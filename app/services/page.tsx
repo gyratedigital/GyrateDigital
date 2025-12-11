@@ -6,8 +6,8 @@ import NavigationMenuDemo from "../components/Header";
 import GreenBanner from "../components/portfolio/GreenBanner";
 import FooterSection from "../components/FooterSection";
 import Icon from "../components/Icon";
-import { Briefcase } from "lucide-react";
-// import Link from "next/link";
+import { Briefcase, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function ServicesPage() {
 
@@ -70,7 +70,13 @@ export default function ServicesPage() {
                         <p className="text-foreground text-md font-normal">
                             {service.description}
                         </p>
-                        {/* <Link href="#">Visit Live Website</Link> */}
+                        <Link
+                          href={`/services/${service.slug}`}
+                          className="inline-flex items-center gap-2 mt-6 text-primary font-semibold hover:underline"
+                        >
+                          View service
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
                     </div>
                     <div className="w-full sm:max-w-1/2 h-1/2 rounded-lg overflow-hidden">
                         <Image

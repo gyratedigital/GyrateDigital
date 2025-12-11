@@ -65,7 +65,7 @@ export default function WorkSection() {
   return (
     <div ref={containerRef} className="container px-4 mx-auto mb-[100px] relative">
       <div className="max-w-4xl mx-auto">
-        <h2 className="font-semibold mb-2 text-4xl text-foreground text-center">Our Work</h2>
+        <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Our Work</h2>
         <p className="text-center text-sm text-foreground mb-12">
           Designs that speak, results that last.
         </p>

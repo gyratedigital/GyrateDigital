@@ -105,7 +105,7 @@ export default function AnimatedNav() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="fixed inset-0 bg-foreground/10 z-40 h-screen top-0 bottom-0 left-0"
+                  className="fixed inset-0 dark:bg-foreground/10 bg-foreground/50 backdrop-blur-[2px] z-40 h-screen top-0 bottom-0 left-0"
                   onClick={() => setOpen(false)}
                 />
                 

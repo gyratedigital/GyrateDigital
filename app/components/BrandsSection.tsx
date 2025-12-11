@@ -20,7 +20,7 @@ export default function BrandsSection () {
   if (!mounted) {
     return (
       <div className="container px-4 mx-auto mb-[100px]">
-        <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center">Our Clients</h2>
+        <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center relative">Our Clients</h2>
         <p className="text-center text-sm text-foreground mb-12">Proud to work with these leaders.</p>
         <div className="h-[80px]"></div> {/* Placeholder to prevent layout shift */}
       </div>
@@ -32,7 +32,7 @@ export default function BrandsSection () {
   
   return (
     <div className="container px-4 mx-auto mb-[100px]">
-      <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center">Our Clients</h2>
+      <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center relative">Our Clients</h2>
       <p className="text-center text-sm text-foreground mb-12">Proud to work with these leaders.</p>
       <Swiper
         modules={[Autoplay]}

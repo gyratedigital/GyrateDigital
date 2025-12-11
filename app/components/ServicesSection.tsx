@@ -7,7 +7,7 @@ export default function ServicesSection() {
     return(
         <div className="container px-4 mx-auto mb-[100px]">
             <div className="max-w-4xl mx-auto">
-                <h2 className="font-semibold mb-2 text-4xl text-foreground text-center">Services</h2>
+                <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Services</h2>
                 <p className="text-center text-sm text-foreground mb-12">Comprehensive services, lasting impact.</p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -25,7 +25,7 @@ export default function ServicesSection() {
                     // </div>
                     <Link 
                         key={service.id} 
-                        href="/services" 
+                        href={`/services/${service.slug}`} 
                         className="card relative group bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden block"
                     >
                         {/* Overlay */}
