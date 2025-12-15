@@ -23,33 +23,33 @@ export const servicesSection: Service[] = [
         title: ["AI", " Automation"],
         description:
             "Applied AI that augments your products with chatbots, recommendations, and workflow automation grounded in real data.",
-        image: "/services/2150061955.jpg",
+        image: "/services/ai-automation.jpg",
         slug: "ai-automation",
         nestedServices: [
             {
                 title: "AI Chatbot Integration",
                 description: "Domain-trained assistants embedded in sites, apps, and support flows.",
-                image: "/services/2150061955.jpg",
+                image: "/services/ai-automation.jpg",
             },
             {
                 title: "AI-Based Image/Video Analysis",
                 description: "Vision pipelines for moderation, tagging, quality checks, and insights.",
-                image: "/services/2150061955.jpg",
+                image: "/services/ai-automation.jpg",
             },
             {
                 title: "Workflow Automation Tools",
                 description: "LLM-augmented processes that reduce manual steps and increase throughput.",
-                image: "/services/2150061955.jpg",
+                image: "/services/ai-automation.jpg",
             },
             {
                 title: "Recommendation Systems",
                 description: "Personalized content, product, and offer recommendations using behavioral data.",
-                image: "/services/2150061955.jpg",
+                image: "/services/ai-automation.jpg",
             },
             {
                 title: "AI-Powered Web Applications",
                 description: "End-to-end products combining AI inference, UX, and secure data handling.",
-                image: "/services/2150061955.jpg",
+                image: "/services/ai-automation.jpg",
             },
         ],
     },
