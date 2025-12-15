@@ -43,7 +43,7 @@ export const workSection = [
         id: "2",
         slug: "banktracker",
         category: "Fintech SaaS",
-        title: ["BankTracker"],
+        title: ["Bank Tracker"],
         description: "Risk and exposure tracking for banks with dashboards, alerts, and audit-ready reports.",
         image: "/portfolio/bank-track.jpg",
         imageGallery: [
@@ -83,7 +83,7 @@ export const workSection = [
         id: "3",
         slug: "nanoapp-studio",
         category: "AI Builder",
-        title: ["NanoApp", "Studio"],
+        title: ["Nano App", "Studio"],
         description: "AI-driven app builder for creating micro-apps with prompts, datasets, and instant previews.",
         image: "/portfolio/nano-studio.jpg",
         imageGallery: [
@@ -123,7 +123,7 @@ export const workSection = [
         id: "4",
         slug: "vendorzero",
         category: "B2B Procurement",
-        title: ["VendorZero"],
+        title: ["Vendor Zero"],
         description: "Vendor risk and procurement workspace with workflows, approvals, and centralized vendor records.",
         image: "/portfolio/vendor-zero.jpg",
         imageGallery: [
@@ -163,7 +163,7 @@ export const workSection = [
         id: "5",
         slug: "eyes4nature-safaris",
         category: "Travel & Tourism",
-        title: ["Eyes4Nature", "Safaris"],
+        title: ["Eyes 4 Nature", "Safaris"],
         description: "Safari tour operator site with itineraries, conservation storytelling, and lead capture.",
         image: "/portfolio/eyes-for-nature.jpg",
         imageGallery: [
