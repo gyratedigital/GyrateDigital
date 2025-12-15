@@ -170,10 +170,10 @@ export default function WorkSection() {
                               key={`${work.slug}-top-${idx}`}
                               className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/20 flex-shrink-0"
                             >
-                              <div className="flex items-center justify-start bg-gray-200 px-2 py-2 gap-[3px]">
-                                <p className="w-[5px] h-[5px] rounded-full bg-[#EC6B60]"></p>
-                                <p className="w-[5px] h-[5px] rounded-full bg-[#F5BE4F]"></p>
-                                <p className="w-[5px] h-[5px] rounded-full bg-[#62C554]"></p>
+                              <div className="flex items-center justify-start bg-card px-2 py-[5px] gap-[3px] border border-b border-foreground/20">
+                                <p className="w-[4px] h-[4px] rounded-full bg-[#EC6B60]"></p>
+                                <p className="w-[4px] h-[4px] rounded-full bg-[#F5BE4F]"></p>
+                                <p className="w-[4px] h-[4px] rounded-full bg-[#62C554]"></p>
                               </div>
                               <Image
                                 src={src}
@@ -193,10 +193,10 @@ export default function WorkSection() {
                               key={`${work.slug}-bottom-${idx}`}
                               className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/5 flex-shrink-0"
                             >
-                              <div className="flex items-center justify-start bg-gray-200 px-2 py-2 gap-[3px]">
-                                <p className="w-[5px] h-[5px] rounded-full bg-[#EC6B60]"></p>
-                                <p className="w-[5px] h-[5px] rounded-full bg-[#F5BE4F]"></p>
-                                <p className="w-[5px] h-[5px] rounded-full bg-[#62C554]"></p>
+                              <div className="flex items-center justify-start bg-card px-2 py-[6px] gap-[3px]">
+                                <p className="w-[4px] h-[4px] rounded-full bg-[#EC6B60]"></p>
+                                <p className="w-[4px] h-[4px] rounded-full bg-[#F5BE4F]"></p>
+                                <p className="w-[4px] h-[4px] rounded-full bg-[#62C554]"></p>
                               </div>
                               <Image
                                 src={src}
