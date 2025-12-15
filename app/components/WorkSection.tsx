@@ -131,7 +131,7 @@ export default function WorkSection() {
                 </div>
               </div>
 
-              <div className="relative w-full overflow-hidden rounded-b-[32px] bg-background sm:h-full sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] p-2 sm:p-3">
+              <div className="relative w-full overflow-hidden rounded-b-[32px] bg-background sm:h-full sm:max-h-full max-h-[300px] sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] p-2 sm:p-3 sm:mt-0 mt-6">
                 {(() => {
                   const baseImages = Array.from(
                     new Set([
@@ -160,7 +160,7 @@ export default function WorkSection() {
                   const duplicated = [...galleryImages, ...galleryImages]
 
                   return (
-                    <div className="h-full w-full rounded-tr-[40px] overflow-hidden">
+                    <div className="h-full w-full sm:max-h-full max-h-[283px] sm:rounded-tr-[40px] rounded-b-[32px] sm:rounded-b-none overflow-hidden">
                       <div className="work-image-scroller h-full w-[150%] overflow-hidden flex items-center gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
                         
                         {/* First Row - Scrolls Up */}
