@@ -30,18 +30,18 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
       <NavigationMenuDemo />
 
       <div className="relative container mx-auto px-4 pt-[100px] pb-12">
-        <div className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-background/40 backdrop-blur">
-          <div
+        <div className="relative overflow-hidden bg-background/40 backdrop-blur">
+          {/* <div
             className="absolute inset-0 opacity-15"
             style={{
               backgroundImage: `url(${service.image})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/92 to-background/90" />
+          /> */}
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/92 to-background/90" /> */}
 
-          <div className="relative z-10 grid gap-8 lg:grid-cols-[1.3fr,1fr] items-center px-6 py-10 md:px-10 md:py-14">
+          <div className="relative z-10 grid gap-8 lg:grid-cols-[1.3fr,1fr] items-center pt-14 pb-10">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary">
                 {service.category}
@@ -49,7 +49,7 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
               <h1 className="outfit-text text-4xl md:text-5xl font-semibold text-foreground">
                 {fullTitle}
               </h1>
-              <p className="text-foreground/70 text-lg leading-relaxed">
+              <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl">
                 {service.description}
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -70,7 +70,7 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
               </div>
             </div>
 
-            <div className="relative h-96 w-full overflow-hidden rounded-xl border border-foreground/10 bg-foreground/5">
+            <div className="relative h-80 w-2/3 aspect-[16/9] overflow-hidden rounded-xl border border-foreground/10 bg-foreground/5">
               <Image
                 src={service.image}
                 alt={fullTitle}
@@ -100,7 +100,7 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
               key={item.title}
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-background/80 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative h-40 w-full overflow-hidden">
+              <div className="relative h-64 w-full overflow-hidden">
                 <Image
                   src={item.image || service.image}
                   alt={item.title}
