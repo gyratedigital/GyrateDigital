@@ -29,27 +29,27 @@ export const servicesSection: Service[] = [
             {
                 title: "AI Chatbot Integration",
                 description: "Domain-trained assistants embedded in sites, apps, and support flows.",
-                image: "/services/ai-automation.jpg",
+                image: "/services/ai-automation/ai-chatboat.png",
             },
             {
                 title: "AI-Based Image/Video Analysis",
                 description: "Vision pipelines for moderation, tagging, quality checks, and insights.",
-                image: "/services/ai-automation.jpg",
+                image: "/services/ai-automation/ai-video-analysis.jpg",
             },
             {
                 title: "Workflow Automation Tools",
                 description: "LLM-augmented processes that reduce manual steps and increase throughput.",
-                image: "/services/ai-automation.jpg",
+                image: "/services/ai-automation/ai-workflow-automation.jpg",
             },
             {
                 title: "Recommendation Systems",
                 description: "Personalized content, product, and offer recommendations using behavioral data.",
-                image: "/services/recommendation-system.jpg",
+                image: "/services/ai-automation/ai-recommendation-system.jpg",
             },
             {
                 title: "AI-Powered Web Applications",
                 description: "End-to-end products combining AI inference, UX, and secure data handling.",
-                image: "/services/ai-automation.jpg",
+                image: "/services/ai-automation/ai-web-development.jpg",
             },
         ],
     },
