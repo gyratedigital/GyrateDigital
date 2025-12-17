@@ -133,31 +133,33 @@ export default function WorkSection() {
 
               <div className="relative w-full overflow-hidden rounded-b-[32px] bg-background sm:h-full sm:max-h-full max-h-[300px] sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] p-2 sm:p-3 sm:mt-0 mt-6">
                 {(() => {
-                  const baseImages = Array.from(
-                    new Set([
-                      work.image,
-                      ...(work.caseStudy?.gallery?.map((g) => g.src) ?? [])
-                    ])
-                  )
+                  // const baseImages = Array.from(
+                  //   new Set([
+                  //     work.image,
+                  //     ...(work.caseStudy?.gallery?.map((g) => g.src) ?? [])
+                  //   ])
+                  // )
 
-                  const galleryImages =
-                    baseImages.length >= 2
-                      ? baseImages.slice(0, 4)
-                      : [...baseImages, work.image].slice(0, 4)
+                  // const galleryImages =
+                  //   baseImages.length >= 2
+                  //     ? baseImages.slice(0, 4)
+                  //     : [...baseImages, work.image].slice(0, 4)
 
-                  if (galleryImages.length <= 1) {
-                    return (
-                      <Image
-                        src={galleryImages[0]}
-                        alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
-                        width={520}
-                        height={400}
-                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
-                      />
-                    )
-                  }
+                  // if (galleryImages.length <= 1) {
+                  //   return (
+                  //     <Image
+                  //       src={galleryImages[0]}
+                  //       alt={Array.isArray(work.title) ? work.title.join(" ") : work.title}
+                  //       width={520}
+                  //       height={400}
+                  //       className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+                  //     />
+                  //   )
+                  // }
 
-                  const duplicated = [...galleryImages, ...galleryImages]
+                  // const duplicated = [...galleryImages, ...galleryImages]
+
+                  const duplicated = [...work.imageGallery, ...work.imageGallery]
 
                   return (
                     <div className="h-full w-full sm:max-h-full max-h-[283px] sm:rounded-tr-[40px] rounded-b-[32px] sm:rounded-b-none overflow-hidden">
@@ -170,6 +172,7 @@ export default function WorkSection() {
                               key={`${work.slug}-top-${idx}`}
                               className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/20 flex-shrink-0"
                             >
+                              {/* MAC style three dots indicator */}
                               <div className="flex items-center justify-start bg-card px-2 py-[5px] gap-[3px] border border-b border-foreground/20">
                                 <p className="w-[4px] h-[4px] rounded-full bg-[#EC6B60]"></p>
                                 <p className="w-[4px] h-[4px] rounded-full bg-[#F5BE4F]"></p>
@@ -186,7 +189,7 @@ export default function WorkSection() {
                           ))}
                         </div>
 
-                        {/* Third Row - Scrolls Down */}
+                        {/* Second Row - Scrolls Down */}
                         <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll reverse">
                           {duplicated.map((src, idx) => (
                             <div

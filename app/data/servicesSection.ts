@@ -23,7 +23,7 @@ export const servicesSection: Service[] = [
         title: ["AI", " Automation"],
         description:
             "Applied AI that augments your products with chatbots, recommendations, and workflow automation grounded in real data.",
-        image: "/services/ai-automation.jpg",
+        image: "/services/ai-automations.jpg",
         slug: "ai-automation",
         nestedServices: [
             {
@@ -44,7 +44,7 @@ export const servicesSection: Service[] = [
             {
                 title: "Recommendation Systems",
                 description: "Personalized content, product, and offer recommendations using behavioral data.",
-                image: "/services/ai-automation.jpg",
+                image: "/services/recommendation-system.jpg",
             },
             {
                 title: "AI-Powered Web Applications",
@@ -239,7 +239,7 @@ export const servicesSection: Service[] = [
         title: ["Cloud, Development", " & Maintenance"],
         description:
             "Reliable infrastructure, CI/CD, and observability so your web and mobile products stay fast, secure, and up to date.",
-        image: "/services/seo.jpg",
+        image: "/services/cloud-development.jpg",
         slug: "cloud-deployment-maintenance",
         nestedServices: [
             {
