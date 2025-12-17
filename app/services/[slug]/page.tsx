@@ -30,7 +30,7 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
       <NavigationMenuDemo />
 
       <div className="relative container mx-auto px-4 pt-[100px] pb-12">
-        <div className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-background/60 backdrop-blur">
+        <div className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-background/40 backdrop-blur">
           <div
             className="absolute inset-0 opacity-15"
             style={{
@@ -70,7 +70,7 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
               </div>
             </div>
 
-            <div className="relative h-72 w-full overflow-hidden rounded-xl border border-foreground/10 bg-foreground/5">
+            <div className="relative h-96 w-full overflow-hidden rounded-xl border border-foreground/10 bg-foreground/5">
               <Image
                 src={service.image}
                 alt={fullTitle}
