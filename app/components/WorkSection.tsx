@@ -18,7 +18,7 @@ export default function WorkSection() {
       const cards = gsap.utils.toArray<HTMLElement>('.work-card')
 
       // initial state
-      gsap.set(cards, { yPercent: 10, opacity: 0, scale: 0.9 })
+      gsap.set(cards, { yPercent: 10, opacity: 0, scale: 0.7 })
 
       cards.forEach((card, i) => {
         const prevCards = cards.slice(0, i)
