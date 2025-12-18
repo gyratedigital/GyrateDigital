@@ -3,6 +3,7 @@ import { Outfit, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "./components/LenisProvider";
 import { ThemeProvider } from "./components/ThemeProvider";
+// Remove PageTransitionProvider import from here
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -38,7 +39,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.variable} ${roboto.variable} antialiased`}>
+      <body className={`${outfit.variable} ${roboto.variable} antialiased bg-background`}>
         <ThemeProvider>
           <LenisProvider>
             {children}
