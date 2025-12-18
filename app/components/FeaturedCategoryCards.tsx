@@ -14,7 +14,7 @@ export default function FeaturedCategories() {
                     {featuredCategories.map((cat) => (
                         <div 
                             key={cat.id} 
-                            className="min-w-[350px] lg:min-w-[400px] card bg-primary p-[30px] rounded-2xl shadow-md 
+                            className="min-w-[350px] lg:min-w-[400px] card bg-primary p-[30px] rounded-2xl shadow-md w-full 
                                        bg-[url('/card-bg.svg')] bg-[60%] bg-top-right bg-no-repeat"
                         >
                             <p className="text-card-dark text-xs mb-5">{cat.number}</p>

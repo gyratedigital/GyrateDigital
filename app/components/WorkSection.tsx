@@ -18,7 +18,7 @@ export default function WorkSection() {
       const cards = gsap.utils.toArray<HTMLElement>('.work-card')
 
       // initial state
-      gsap.set(cards, { yPercent: 50, opacity: 0, scale: 0.9 })
+      gsap.set(cards, { yPercent: 10, opacity: 0, scale: 0.9 })
 
       cards.forEach((card, i) => {
         const prevCards = cards.slice(0, i)
@@ -27,7 +27,7 @@ export default function WorkSection() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
-            start: () => `top+=${i * window.innerHeight * 0.7} top`, // trigger a bit earlier
+            start: () => `top+=${i * window.innerHeight-300 * 0.7} top`, // trigger a bit earlier
             end: () => `+=${window.innerHeight * 0.7}`,
             scrub: true,
           },
@@ -39,7 +39,7 @@ export default function WorkSection() {
           scale: 1,
           opacity: 1,
           zIndex: 10,
-          duration: 0.5,
+          duration: 0.7,
         })
 
         // previous cards stacked behind
@@ -51,7 +51,7 @@ export default function WorkSection() {
               scale: 0.9 - (i - j) * 0.05,
               opacity: 0.1,
               zIndex: 5 - (i - j),
-              duration: 0.5,
+              duration: 0.7,
             },
             '<' // run at same time
           )
@@ -72,7 +72,7 @@ export default function WorkSection() {
       </div>
 
       {/* Cards stacked */}
-      <div className="relative h-[400vh]"> {/* enough scroll space */}
+      <div className="relative h-[500vh]"> {/* enough scroll space */}
         <div className="sticky top-24 flex flex-col items-center h-[70vh] sm:h-[80vh]">
           {workSection.map((work) => (
             <div
