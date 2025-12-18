@@ -20,7 +20,7 @@ export default function PageTransitionProvider({
     const timeout = setTimeout(() => {
       // End transition → show content
       setIsTransitioning(false);
-    }, 700); // curtain duration
+    }, 100); // curtain duration
 
     return () => clearTimeout(timeout);
   }, [pathname]);
