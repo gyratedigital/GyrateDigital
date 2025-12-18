@@ -1,8 +1,8 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function PageTransitionProvider({
   children,
@@ -10,42 +10,49 @@ export default function PageTransitionProvider({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isFirstLoad = useRef(true);
 
-  const [showContent, setShowContent] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    if (isFirstLoad.current) {
-      // First load: show content immediately
-      isFirstLoad.current = false;
-      setShowContent(true);
-      return;
-    }
-
-    // On route change: hide content briefly to avoid flash
-    setShowContent(false);
+    // Trigger curtain immediately
+    setIsTransitioning(true);
 
     const timeout = setTimeout(() => {
-      setShowContent(true);
-    }, 10); // tiny delay to trigger animation cleanly
+      // End transition → show content
+      setIsTransitioning(false);
+    }, 700); // curtain duration
 
     return () => clearTimeout(timeout);
   }, [pathname]);
 
   return (
-    <AnimatePresence mode="wait">
-      {showContent && (
+    <>
+      {/* CURTAIN — ALWAYS RENDERS FIRST */}
+      {isTransitioning && (
         <motion.div
-          key={pathname} // triggers animation on route change
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{
+            duration: 0.7,
+            ease: [0.76, 0, 0.24, 1],
+          }}
+          style={{ transformOrigin: "bottom" }}
+          className="fixed inset-0 z-[9999] bg-primary"
+        />
+      )}
+
+      {/* CONTENT — RENDER ONLY AFTER CURTAIN */}
+      {!isTransitioning && (
+        <motion.div
+          key={pathname}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="min-h-screen bg-background"
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="min-h-screen"
         >
           {children}
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 }
