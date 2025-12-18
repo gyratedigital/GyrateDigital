@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function PageTransitionProvider({
   children,
@@ -12,40 +12,40 @@ export default function PageTransitionProvider({
   const pathname = usePathname();
   const isFirstLoad = useRef(true);
 
-  const [displayChildren, setDisplayChildren] = useState(children);
-  const [animating, setAnimating] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     if (isFirstLoad.current) {
-      // First load: render page immediately
+      // First load: show content immediately
       isFirstLoad.current = false;
-      setDisplayChildren(children);
+      setShowContent(true);
       return;
     }
 
-    // Start transition
-    setAnimating(true);
+    // On route change: hide content briefly to avoid flash
+    setShowContent(false);
 
     const timeout = setTimeout(() => {
-      setDisplayChildren(children);
-      setAnimating(false);
-    }, 800); // match animation duration
+      setShowContent(true);
+    }, 10); // tiny delay to trigger animation cleanly
 
     return () => clearTimeout(timeout);
-  }, [pathname, children]);
+  }, [pathname]);
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname} // triggers animation on route change
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-        className="min-h-screen bg-background"
-      >
-        {displayChildren}
-      </motion.div>
+      {showContent && (
+        <motion.div
+          key={pathname} // triggers animation on route change
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          className="min-h-screen bg-background"
+        >
+          {children}
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }
