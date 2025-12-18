@@ -3,7 +3,6 @@ import { Outfit, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "./components/LenisProvider";
 import { ThemeProvider } from "./components/ThemeProvider";
-// Remove PageTransitionProvider import from here
 
 const outfit = Outfit({
   variable: "--font-outfit",
