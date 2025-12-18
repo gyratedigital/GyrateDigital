@@ -28,7 +28,7 @@ export default function PageTransitionProvider({
   return (
     <>
       {/* CURTAIN — ALWAYS RENDERS FIRST */}
-      {isTransitioning && (
+      {/* {isTransitioning && (
         <motion.div
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 1 }}
@@ -37,9 +37,9 @@ export default function PageTransitionProvider({
             ease: [0.76, 0, 0.24, 1],
           }}
           style={{ transformOrigin: "bottom" }}
-          className="fixed inset-0 z-[9999] bg-primary"
+          className="fixed inset-0 z-[9999] bg-background"
         />
-      )}
+      )} */}
 
       {/* CONTENT — RENDER ONLY AFTER CURTAIN */}
       {!isTransitioning && (
