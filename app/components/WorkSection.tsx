@@ -28,7 +28,7 @@ export default function WorkSection() {
           scrollTrigger: {
             trigger: containerRef.current,
             start: () => `top+=${i * window.innerHeight-300 * 0.7} top`, // trigger a bit earlier
-            end: () => `+=${window.innerHeight * 0.7}`,
+            end: () => `+=${window.innerHeight-200 * 0.7}`,
             scrub: true,
           },
         })
@@ -39,7 +39,7 @@ export default function WorkSection() {
           scale: 1,
           opacity: 1,
           zIndex: 10,
-          duration: 0.7,
+          duration: 0.4,
         })
 
         // previous cards stacked behind
@@ -51,7 +51,7 @@ export default function WorkSection() {
               scale: 0.9 - (i - j) * 0.05,
               opacity: 0.1,
               zIndex: 5 - (i - j),
-              duration: 0.7,
+              duration: 0.4,
             },
             '<' // run at same time
           )
@@ -63,7 +63,7 @@ export default function WorkSection() {
   }, [])
 
   return (
-    <div ref={containerRef} className="container px-4 mx-auto mb-[100px] relative">
+    <div ref={containerRef} className="container px-4 mx-auto sm:mb-[100px] mb-[200px] relative">
       <div className="max-w-4xl mx-auto">
         <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Our Work</h2>
         <p className="text-center text-sm text-foreground mb-12">
@@ -72,7 +72,7 @@ export default function WorkSection() {
       </div>
 
       {/* Cards stacked */}
-      <div className="relative h-[500vh]"> {/* enough scroll space */}
+      <div className="relative sm:h-[500vh] h-[510vh]"> {/* enough scroll space */}
         <div className="sticky top-24 flex flex-col items-center h-[70vh] sm:h-[80vh]">
           {workSection.map((work) => (
             <div
