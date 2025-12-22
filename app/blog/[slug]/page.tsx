@@ -39,6 +39,20 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     });
   }, [params]);
 
+  const [copied, setCopied] = useState(false);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 1500);
+    } catch (err) {
+      console.error("Failed to copy", err);
+    }
+  };
+
   if (!post) {
     return (
 
@@ -128,12 +142,20 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </div>
 
-            <div className="ml-auto">
-              <Button variant="outline" size="sm">
+            <div className="ml-auto relative">
+              <Button variant="outline" size="sm" onClick={handleCopy}>
                 <Share2 className="w-4 h-4 mr-2" />
                 Share
               </Button>
+
+              {copied && (
+                <span className="absolute -top-8 right-0 text-xs bg-black text-white px-2 py-1 rounded">
+                  Copied!
+                </span>
+              )}
             </div>
+            
+
           </div>
         </div>
       </div>
