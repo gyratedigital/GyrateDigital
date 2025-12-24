@@ -8,6 +8,8 @@ import FooterSection from "../components/FooterSection";
 import Icon from "../components/Icon";
 import { Briefcase, ArrowRight } from "lucide-react";
 import Link from "next/link";
+// import Augmentation from "../components/services/Augmentation";
+import { augmentation } from "../data/augmentation";
 
 export default function ServicesPage() {
 
@@ -100,6 +102,21 @@ export default function ServicesPage() {
                     <p>No portfolio items found.</p>
                 </div>
             )}
+        </div>
+        {/* <Augmentation /> */}
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl font-semibold text-center mb-8">Our Staff Augmentation Models</h2>
+          <div className="flex flex-col md:flex-row gap-6 items-stretch pb-[80px]">
+            {augmentation.map((item) => (
+              <div
+                key={item.id}
+                className="augmentation-card group flex flex-col w-full rounded-2xl border border-border/60 bg-card p-10 shadow-sm text-center"
+              >
+                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
         <FooterSection />
     </div>
