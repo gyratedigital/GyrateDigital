@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -11,7 +12,7 @@ import { useRippleEffect } from "@/hooks/useRippleEffect";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio"},
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   // { href: "/culture", label: "Culture" },
@@ -19,6 +20,7 @@ const navLinks = [
 ];
 
 export default function AnimatedNav() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { ripples: contactRipples, addRipple: addContactRipple } = useRippleEffect();
@@ -32,16 +34,14 @@ export default function AnimatedNav() {
   return (
     <>
       <header
-        className={`w-full transition-all duration-700 z-999 ${
-          scrolled
+        className={`w-full transition-all duration-700 z-999 ${scrolled
             ? "fixed top-0 bg-background/70 backdrop-blur-sm shadow-md"
             : "absolute"
-        }`}
+          }`}
       >
         <div
-          className={`relative container px-4 transition-all duration-500 flex items-center justify-between mx-auto ${
-            scrolled ? "h-[60px]" : "h-[80px]"
-          }`}
+          className={`relative container px-4 transition-all duration-500 flex items-center justify-between mx-auto ${scrolled ? "h-[60px]" : "h-[80px]"
+            }`}
         >
           <Link href="/" className="text-xl font-bold text-primary">
             <Logo />
@@ -53,7 +53,7 @@ export default function AnimatedNav() {
               data-slot="button"
               onClick={addContactRipple}
               className="!hidden md:!inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-1 text-md font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden button-wave"
-              >
+            >
               <span className="relative z-10">Contact</span>
               {contactRipples.map((ripple) => (
                 <span
@@ -108,24 +108,24 @@ export default function AnimatedNav() {
                   className="fixed inset-0 dark:bg-foreground/10 bg-foreground/50 z-40 h-screen top-0 bottom-0 left-0"
                   onClick={() => setOpen(false)}
                 />
-                
+
                 <motion.div
-                  initial={{ 
+                  initial={{
                     opacity: 0,
                     scaleX: 0,
                     scaleY: 0,
                   }}
-                  animate={{ 
+                  animate={{
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
                   }}
-                  exit={{ 
+                  exit={{
                     opacity: 0,
                     scaleX: 0,
                     scaleY: 0,
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 0.5,
                     ease: [0.32, 0.72, 0, 1]
                   }}
@@ -144,8 +144,8 @@ export default function AnimatedNav() {
                             key={link.href}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ 
-                              delay: 0.4 + (i * 0.1), 
+                            transition={{
+                              delay: 0.4 + (i * 0.1),
                               duration: 0.5,
                               ease: "easeOut"
                             }}
@@ -153,7 +153,10 @@ export default function AnimatedNav() {
                           >
                             <Link
                               href={link.href}
-                              className="text-xl font-medium text-foreground hover:text-primary transition-colors block py-2"
+                              className={`text-xl font-medium transition-colors block py-2 ${pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
+                                  ? "text-primary"
+                                  : "text-foreground hover:text-primary"
+                                }`}
                               onClick={() => setOpen(false)}
                             >
                               {link.label}
@@ -165,8 +168,8 @@ export default function AnimatedNav() {
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                          delay: 0.8 + (navLinks.length * 0.1), 
+                        transition={{
+                          delay: 0.8 + (navLinks.length * 0.1),
                           duration: 0.5,
                           ease: "easeOut"
                         }}
@@ -191,7 +194,7 @@ export default function AnimatedNav() {
         </div>
       </header>
 
-      
+
     </>
   );
 }

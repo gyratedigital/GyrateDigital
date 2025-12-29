@@ -38,7 +38,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.variable} ${roboto.variable} antialiased bg-background`}>
+      <body className={`${outfit.variable} ${roboto.variable} antialiased bg-background`} suppressHydrationWarning>
         <ThemeProvider>
           <LenisProvider>
             {children}

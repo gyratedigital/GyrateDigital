@@ -6,13 +6,32 @@ import Link from 'next/link'
 
 
 export default function BlogSection() {
-  // Get 4 random blog posts
-  const getRandomPosts = () => {
-    const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 4);
-  };
+  const [randomPosts, setRandomPosts] = React.useState<typeof blogPosts>([])
 
-  const randomPosts = React.useMemo(() => getRandomPosts(), []);
+  React.useEffect(() => {
+    // Randomize posts only on the client after mount to avoid hydration mismatch
+    const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
+    setRandomPosts(shuffled.slice(0, 4));
+  }, []);
+
+  if (randomPosts.length === 0) {
+    return (
+      <div className="container px-4 mx-auto mb-[100px]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Our Blog</h2>
+          <p className="text-center text-sm text-foreground mb-12">Ideas that inspire, stories that matter.</p>
+        </div>
+        <div className="mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="bg-card/50 rounded-2xl h-[400px] animate-pulse border border-border/60" />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 
   return (
     <div className="container px-4 mx-auto mb-[100px]">

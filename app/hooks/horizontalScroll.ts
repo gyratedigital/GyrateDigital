@@ -11,19 +11,27 @@ export default function useHorizontalScroll() {
     const track = document.querySelector<HTMLElement>("#horizontal-track");
     const section = document.querySelector<HTMLElement>("#horizontal-scroll");
 
-    if (track && section) {
+    if (!track || !section) return;
+
+    const ctx = gsap.context(() => {
       const totalScroll = track.scrollWidth - window.innerWidth;
 
+      if (totalScroll <= 0) return;
+
       gsap.to(track, {
-        x: () => -totalScroll,
+        x: -totalScroll,
         ease: "none",
         scrollTrigger: {
           trigger: section,
           pin: true,
-          scrub: 1,
+          scrub: 0.5, // Smoother response
+          start: "top top",
           end: () => `+=${totalScroll}`,
+          invalidateOnRefresh: true,
         },
       });
-    }
+    });
+
+    return () => ctx.revert();
   }, []);
 }

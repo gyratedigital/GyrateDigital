@@ -4,7 +4,7 @@ import { Facebook, Instagram, Linkedin, Mail, Twitter } from 'lucide-react';
 import Link from 'next/link';
 import * as React from 'react'
 import Image from 'next/image';
-// import Logo from './Logo';
+import { servicesSection } from '../data/servicesSection';
 
 export default function FooterSection() {
 
@@ -23,16 +23,16 @@ export default function FooterSection() {
                             width={147}
                             height={40}
                             priority
-                        /> 
+                        />
                         {/* <Logo /> */}
                     </Link>
                 </div>
 
                 {/* Main grid */}
-                <div className="max-w-full mx-auto py-10 grid gap-12 md:gap-16 lg:gap-24 md:grid-cols-2 lg:grid-cols-3">
+                <div className="max-w-full mx-auto py-10 grid gap-12 md:gap-16 lg:gap-24 md:grid-cols-2 lg:grid-cols-4">
                     {/* Contact */}
                     <div>
-                        <h3 className="font-bold text-xl mb-6 text-card-light">Contact</h3>
+                        <h3 className="font-bold text-xl mb-6 text-card-light uppercase tracking-wider text-sm">Contact</h3>
                         <div className="space-y-6 text-sm leading-6">
                             <div>
                                 <h4 className="font-semibold text-card-light text-lg">United Kingdom Office</h4>
@@ -47,7 +47,7 @@ export default function FooterSection() {
                             <div>
                                 <h4 className="font-semibold text-card-light text-lg">Email Us</h4>
                                 <a href="mailto:info@gyratedigital.com" className="inline-flex items-center gap-2 underline hover:no-underline text-card-light">
-                                <Mail className="h-4 w-4" /> info@gyratedigital.com
+                                    <Mail className="h-4 w-4" /> info@gyratedigital.com
                                 </a>
                             </div>
                         </div>
@@ -55,34 +55,49 @@ export default function FooterSection() {
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="font-bold text-xl mb-6 text-card-light">Quick Links</h3>
+                        <h3 className="font-bold text-xl mb-6 text-card-light uppercase tracking-wider text-sm">Quick Links</h3>
                         <ul className="space-y-4 text-sm">
                             <li>
                                 <Link href="/blog" className="text-card-light hover:opacity-70">
-                                Blog
+                                    Blog
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/services" className="text-card-light hover:opacity-70">
-                                Services
+                                    Services
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/portfolio" className="text-card-light hover:opacity-70">
-                                Our Work
+                                    Our Work
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/contact" className="text-card-light hover:opacity-70">
-                                Contact
+                                    Contact
                                 </Link>
                             </li>
                         </ul>
                     </div>
 
+                    {/* Expertise */}
+                    <div>
+                        <h3 className="font-bold text-xl mb-6 text-card-light uppercase tracking-wider text-sm">Expertise</h3>
+                        <ul className="space-y-4 text-sm">
+                            {servicesSection.map((service) => (
+                                <li key={service.id}>
+                                    <Link href={`/services/${service.slug}`} className="text-card-light hover:opacity-70">
+                                        {service.category}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                     {/* Newsletter */}
                     <div>
-                        <h3 className="font-bold text-xl mb-6 text-card-light">Subscribe to our Newsletter</h3>
+                        <h3 className="font-bold text-xl mb-6 text-card-light uppercase tracking-wider text-sm">Subscribe</h3>
+                        <p className="text-card-light text-sm mb-6">Subscribe to our newsletter for the latest updates.</p>
                         <form onSubmit={(e) => e.preventDefault()} className="max-w-md">
                             <div className="flex flex-col items-stretch gap-3">
                                 <input
@@ -91,13 +106,12 @@ export default function FooterSection() {
                                     className="text-card-light w-full h-12 px-4 rounded-xl border border-card-light/50 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary/60 placeholder-card-light"
                                     required
                                 />
-                                <a
-                                    href="#"
-                                    data-slot="button"
-                                    className="w-max inline-flex items-center justify-center gap-1.5 rounded-xl bg-card-light px-4 py-3 text-md font-medium text-card-dark shadow hover:bg-card-light/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
-                                    >
+                                <button
+                                    type="submit"
+                                    className="w-max inline-flex items-center justify-center gap-1.5 rounded-xl bg-card-light px-6 py-3 text-md font-medium text-card-dark shadow hover:bg-card-light/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+                                >
                                     Get Started
-                                </a>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -121,16 +135,16 @@ export default function FooterSection() {
                     </div>
                     <div className="flex items-center gap-3">
                         <IconCircle>
-                        <Linkedin className="h-4 w-4" />
+                            <Linkedin className="h-4 w-4" />
                         </IconCircle>
                         <IconCircle>
-                        <Facebook className="h-4 w-4" />
+                            <Facebook className="h-4 w-4" />
                         </IconCircle>
                         <IconCircle>
-                        <Twitter className="h-4 w-4" />
+                            <Twitter className="h-4 w-4" />
                         </IconCircle>
                         <IconCircle>
-                        <Instagram className="h-4 w-4" />
+                            <Instagram className="h-4 w-4" />
                         </IconCircle>
                     </div>
                 </div>
