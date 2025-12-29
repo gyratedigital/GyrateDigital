@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
       <p>Before implementing AI, you need a solid brand voice framework. Here's a comprehensive template:</p>
 
       <h3>Brand Voice Guidelines Template</h3>
-      <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>🎯 Core Personality Traits</h4>
         <ul>
           <li><strong>Primary Traits:</strong> Professional, approachable, innovative</li>
@@ -69,7 +69,7 @@ export const blogPosts: BlogPost[] = [
       <h3>Step 2: Craft Specific, Brand-Aware Prompts</h3>
       <p>Instead of generic prompts, use detailed instructions that incorporate your brand voice:</p>
 
-      <div style="background: #e8f4fd; padding: 15px; border-left: 4px solid #2196f3; margin: 15px 0;">
+      <div class="blog-info-box">
         <p><strong>❌ Bad Prompt:</strong> "Write a Facebook ad for our software"</p>
         <p><strong>✅ Good Prompt:</strong> "Write a Facebook ad in the voice of a friendly tech expert who explains complex software solutions to small business owners. Use conversational language, focus on solving real problems, and end with a clear call-to-action. Reference our brand values of simplicity and reliability."</p>
       </div>
@@ -103,20 +103,20 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Tools and Platforms for AI-Powered Brand Voice</h2>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+      <div class="blog-grid-container">
+        <div class="blog-content-box">
           <h4>🤖 Jasper</h4>
           <p>Best for: Long-form content and brand voice training</p>
           <p>Key Feature: Custom voice models based on your content</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>✍️ Copy.ai</h4>
           <p>Best for: Marketing copy and social media content</p>
           <p>Key Feature: Brand voice presets and collaboration tools</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🎨 Writesonic</h4>
           <p>Best for: SEO-focused content with brand voice</p>
           <p>Key Feature: Multiple language support and tone options</p>
@@ -136,14 +136,14 @@ export const blogPosts: BlogPost[] = [
       <h2>The Future of Brand Voice in the AI Era</h2>
       <p>AI can actually enhance brand voice when used correctly. It can help maintain consistency across all touchpoints, generate variations for A/B testing, and scale personalized messaging while staying true to your brand's unique personality.</p>
 
-      <blockquote style="background: #fff8e1; padding: 20px; border-left: 4px solid #ffc107; margin: 20px 0;">
+      <blockquote class="blog-quote-box">
         <p style="margin: 0; font-style: italic;">"The key is not to replace human creativity with AI, but to augment it. Use AI as your creative partner, not your replacement. The best results come from human-AI collaboration where AI handles the heavy lifting while humans provide the strategic direction and creative oversight."</p>
         <cite style="display: block; margin-top: 10px; font-weight: bold;">— Sarah Chen, Head of Brand at TechFlow</cite>
       </blockquote>
 
       <h2>Implementation Roadmap</h2>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <h3 style="color: white; margin-top: 0;">Week 1-2: Foundation</h3>
         <ul style="color: white;">
           <li>Create comprehensive brand voice guidelines</li>
@@ -192,16 +192,16 @@ export const blogPosts: BlogPost[] = [
       <h2>The Perfect Storm: Technology Driving Design Evolution</h2>
       <p>Three major technological advancements are converging to create unprecedented design possibilities:</p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; text-align: center;">
+      <div class="blog-grid-container">
+        <div class="blog-gradient-card" style="text-align: center;">
           <h3 style="color: white; margin: 0 0 15px 0;">🤖 AI & Machine Learning</h3>
           <p style="margin: 0; font-size: 14px;">Real-time personalization and predictive design</p>
         </div>
-        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 25px; border-radius: 12px; text-align: center;">
+        <div class="blog-gradient-card" style="text-align: center; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
           <h3 style="color: white; margin: 0 0 15px 0;">🎨 Advanced CSS & WebGL</h3>
           <p style="margin: 0; font-size: 14px;">3D experiences and fluid animations</p>
         </div>
-        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 25px; border-radius: 12px; text-align: center;">
+        <div class="blog-gradient-card" style="text-align: center; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
           <h3 style="color: white; margin: 0 0 15px 0;">📱 Progressive Web Apps</h3>
           <p style="margin: 0; font-size: 14px;">App-like experiences in browsers</p>
         </div>
@@ -449,26 +449,26 @@ className="bg-card" style="padding: 20px; border-radius: 8px; overflow-x: auto; 
 
       <h2>Tools & Frameworks for Modern Web Design</h2>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 25px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+      <div class="blog-grid-container">
+        <div class="blog-content-box">
           <h4>🎨 Framer Motion</h4>
           <p><strong>For:</strong> Complex animations and micro-interactions</p>
           <p><strong>Why:</strong> Production-ready, gesture-based animations</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🌈 Tailwind CSS</h4>
           <p><strong>For:</strong> Rapid prototyping and consistent design systems</p>
           <p><strong>Why:</strong> Utility-first approach with design tokens</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🎯 Three.js</h4>
           <p><strong>For:</strong> 3D experiences and WebGL applications</p>
           <p><strong>Why:</strong> Powerful 3D graphics in the browser</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🤖 Vercel AI</h4>
           <p><strong>For:</strong> AI-powered personalization</p>
           <p><strong>Why:</strong> Edge computing for real-time adaptation</p>
@@ -487,7 +487,7 @@ className="bg-card" style="padding: 20px; border-radius: 8px; overflow-x: auto; 
 
       <h2>Measuring Success: Design Metrics That Matter</h2>
 
-      <div style="background: #f0f8ff; padding: 20px; border-radius: 8px; border-left: 4px solid #2196f3; margin: 20px 0;">
+      <div class="blog-info-box">
         <h3 style="margin-top: 0;">📊 Key Performance Indicators</h3>
         <ul style="margin-bottom: 0;">
           <li><strong>Core Web Vitals:</strong> LCP, FID, CLS scores</li>
@@ -500,14 +500,14 @@ className="bg-card" style="padding: 20px; border-radius: 8px; overflow-x: auto; 
       <h2>The Impact on User Experience</h2>
       <p>These trends aren't just about aesthetics—they're fundamentally changing how users interact with digital content, making experiences more intuitive, engaging, and memorable.</p>
 
-      <blockquote style="background: #fff8e1; padding: 20px; border-left: 4px solid #ffc107; margin: 25px 0;">
+      <blockquote class="blog-quote-box">
         <p style="margin: 0; font-style: italic;">"The future of web design isn't about following trends—it's about creating experiences that feel natural, responsive, and deeply connected to human needs. Technology should enhance humanity, not complicate it."</p>
         <cite style="display: block; margin-top: 10px; font-weight: bold;">— Maria Gonzalez, Design Director at FutureWeb</cite>
       </blockquote>
 
       <h2>Getting Started: Implementation Roadmap</h2>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <h3 style="color: white; margin-top: 0;">Phase 1: Foundation (Weeks 1-2)</h3>
         <ul style="color: white; margin-bottom: 20px;">
           <li>Assess current design system and performance baseline</li>
@@ -716,19 +716,19 @@ const TabPanel = ({ index, children }) => {
 
       <h3>Progressive State Management</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📱 Local State</h4>
           <p><strong>When to use:</strong> Component-specific state</p>
           <p><strong>Tools:</strong> useState, useReducer</p>
           <p><strong>Best for:</strong> Form inputs, UI state, simple interactions</p>
         </div>
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🔄 Global State</h4>
           <p><strong>When to use:</strong> App-wide state, complex interactions</p>
           <p><strong>Tools:</strong> Context API, Zustand, Redux Toolkit</p>
           <p><strong>Best for:</strong> User auth, app settings, complex workflows</p>
         </div>
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>☁️ Server State</h4>
           <p><strong>When to use:</strong> API data, real-time updates</p>
           <p><strong>Tools:</strong> React Query, SWR, Apollo Client</p>
@@ -1172,7 +1172,7 @@ const App = () => (
 
       <h2>Scaling Checklist</h2>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <h3 style="color: white; margin-top: 0;">🏗️ Architecture & Structure</h3>
         <ul style="color: white; margin-bottom: 20px;">
           <li>✅ Feature-based folder structure implemented</li>
@@ -1209,7 +1209,7 @@ const App = () => (
       <h2>Final Thoughts</h2>
       <p>Building scalable React applications is an ongoing process that requires attention to architecture, performance, and maintainability from day one. By following these patterns and best practices, you'll create applications that can grow with your business needs while maintaining code quality and developer productivity.</p>
 
-      <blockquote style="background: #fff8e1; padding: 20px; border-left: 4px solid #ffc107; margin: 25px 0;">
+      <blockquote class="blog-quote-box">
         <p style="margin: 0; font-style: italic;">"Scalability isn't just about handling more users—it's about maintaining code quality, developer velocity, and user experience as your application grows. Invest in good architecture early, and your future self will thank you."</p>
         <cite style="display: block; margin-top: 10px; font-weight: bold;">— Sarah Chen, Senior React Architect</cite>
       </blockquote>
@@ -1235,7 +1235,7 @@ const App = () => (
       <h2>The SEO Pyramid: Foundation to Excellence</h2>
       <p>Successful SEO requires a structured approach, starting with technical fundamentals and building up to advanced strategies.</p>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
           <span style="font-size: 24px; margin-right: 15px;">🏗️</span>
           <div>
@@ -1276,19 +1276,19 @@ const App = () => (
       <p>Google's Core Web Vitals are now a ranking factor. Here's how to optimize each:</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>⚡ LCP (Largest Contentful Paint)</h4>
           <p><strong>Target:</strong> < 2.5 seconds</p>
           <p><strong>Optimization:</strong> Optimize images, use CDN, minimize render-blocking resources</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📱 FID (First Input Delay)</h4>
           <p><strong>Target:</strong> < 100 milliseconds</p>
           <p><strong>Optimization:</strong> Reduce JavaScript execution, use web workers</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🔄 CLS (Cumulative Layout Shift)</h4>
           <p><strong>Target:</strong> < 0.1</p>
           <p><strong>Optimization:</strong> Set dimensions for images/videos, avoid inserting content above existing content</p>
@@ -1388,7 +1388,7 @@ className="bg-card" style="padding: 20px; border-radius: 8px; overflow-x: auto; 
       <p>Content is still king, but it must be strategically aligned with user intent and search engine expectations.</p>
 
       <h3>Search Intent Analysis Framework</h3>
-      <div style="background: #f0f8ff; padding: 20px; border-radius: 8px; border-left: 4px solid #2196f3; margin: 20px 0;">
+      <div class="blog-info-box">
         <h4>🔍 Understanding Search Intent</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>Navigational:</strong> Users looking for a specific website/page (e.g., "Facebook login")</li>
@@ -1514,7 +1514,7 @@ const linkQualityScore = (backlink) => {
       <p>Data-driven SEO requires the right metrics and tools.</p>
 
       <h3>SEO KPI Dashboard</h3>
-      <div style="background: #fff8e1; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 20px 0;">
+      <div class="blog-warning-box">
         <h4>📊 Key Performance Indicators</h4>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
@@ -1553,7 +1553,7 @@ const linkQualityScore = (backlink) => {
       <h3>SEO Tools Ecosystem</h3>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🔍 Research & Analysis</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Ahrefs - Backlink analysis</li>
@@ -1563,7 +1563,7 @@ const linkQualityScore = (backlink) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📊 Monitoring & Tracking</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Google Search Console</li>
@@ -1573,7 +1573,7 @@ const linkQualityScore = (backlink) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>⚡ Performance & Speed</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Google PageSpeed Insights</li>
@@ -1583,7 +1583,7 @@ const linkQualityScore = (backlink) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🤖 Automation & AI</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>SurferSEO - Content optimization</li>
@@ -1595,7 +1595,7 @@ const linkQualityScore = (backlink) => {
       </div>
 
       <h3>Monthly SEO Workflow</h3>
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <h4 style="color: white; margin-top: 0;">Week 1: Analysis & Planning</h4>
         <ul style="color: white; margin-bottom: 20px;">
           <li>Review Google Analytics and Search Console data</li>
@@ -1623,7 +1623,7 @@ const linkQualityScore = (backlink) => {
 
       <h2>Common SEO Mistakes to Avoid</h2>
 
-      <div style="background: #ffebee; padding: 20px; border-radius: 8px; border-left: 4px solid #f44336; margin: 20px 0;">
+      <div class="blog-danger-box">
         <h4>🚫 SEO Pitfalls</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>Keyword stuffing:</strong> Overusing keywords unnaturally</li>
@@ -1637,7 +1637,7 @@ const linkQualityScore = (backlink) => {
       <h2>SEO Success Stories</h2>
 
       <h3>Case Study: SaaS Company Growth</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Project management software company struggling with organic traffic growth.</p>
 
@@ -1654,7 +1654,7 @@ const linkQualityScore = (backlink) => {
       </div>
 
       <h3>Case Study: E-commerce Recovery</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Online retailer hit by Google algorithm updates, losing 60% of organic traffic.</p>
 
@@ -1682,14 +1682,14 @@ const linkQualityScore = (backlink) => {
         <li><strong>Privacy-First Tracking:</strong> Adapting to cookie restrictions</li>
       </ul>
 
-      <blockquote style="background: #fff8e1; padding: 20px; border-left: 4px solid #ffc107; margin: 25px 0;">
+      <blockquote class="blog-quote-box">
         <p style="margin: 0; font-style: italic;">"SEO is not about gaming the system—it's about creating the best possible experience for users. When you focus on genuine value and technical excellence, the rankings follow naturally."</p>
         <cite style="display: block; margin-top: 10px; font-weight: bold;">— Rand Fishkin, Founder of SparkToro</cite>
       </blockquote>
 
       <h2>Getting Started: Your 90-Day SEO Action Plan</h2>
 
-      <div style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">
         <h3 style="color: white; margin-top: 0;">Days 1-30: Foundation Building</h3>
         <ul style="color: white; margin-bottom: 20px;">
           <li>Complete technical SEO audit using Screaming Frog or Sitebulb</li>
@@ -1749,7 +1749,7 @@ const linkQualityScore = (backlink) => {
 
       <h2>Universal Color Psychology: What Each Hue Means</h2>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
+      <div class="blog-grid-container">
         <div style="border: 2px solid #e74c3c; padding: 20px; border-radius: 12px; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white;">
           <h3 style="color: white; margin: 0 0 10px 0;">🔴 Red</h3>
           <p style="margin: 0; font-size: 14px;"><strong>Psychology:</strong> Energy, passion, urgency, danger</p>
@@ -1796,7 +1796,7 @@ const linkQualityScore = (backlink) => {
       <h2>Color Theory: Beyond Basic Psychology</h2>
 
       <h3>Color Temperature & Context</h3>
-      <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Warm Colors (Red, Orange, Yellow)</h4>
         <ul>
           <li>Advance toward the viewer</li>
@@ -1826,21 +1826,21 @@ const linkQualityScore = (backlink) => {
       <p>Color meanings vary significantly across cultures. What works in one market may fail in another.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🌏 Western Cultures</h4>
           <p><strong>Red:</strong> Danger, passion, love</p>
           <p><strong>White:</strong> Purity, cleanliness</p>
           <p><strong>Black:</strong> Elegance, sophistication</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🌅 Eastern Cultures</h4>
           <p><strong>Red:</strong> Good fortune, prosperity</p>
           <p><strong>White:</strong> Death, mourning</p>
           <p><strong>Yellow:</strong> Royalty, courage</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🌍 Middle Eastern</h4>
           <p><strong>Green:</strong> Paradise, fertility</p>
           <p><strong>Blue:</strong> Protection, heaven</p>
@@ -1851,7 +1851,7 @@ const linkQualityScore = (backlink) => {
       <h2>Brand Color Palettes: Real-World Examples</h2>
 
       <h3>Tech & Trust: Blue-Dominant Brands</h3>
-      <div style="background: #f0f8ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-info-box">
         <h4>Facebook (#1877F2)</h4>
         <p><strong>Why it works:</strong> Conveys trust, communication, and global connectivity</p>
         <p><strong>Psychology:</strong> Blue reduces stress and promotes productivity</p>
@@ -1863,7 +1863,7 @@ const linkQualityScore = (backlink) => {
       </div>
 
       <h3>Luxury & Status: Black & Gold</h3>
-      <div style="background: #fff8e1; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-warning-box">
         <h4>Louis Vuitton</h4>
         <p><strong>Color Strategy:</strong> Monochrome luxury with gold accents</p>
         <p><strong>Psychology:</strong> Black conveys sophistication, gold suggests wealth</p>
@@ -1875,7 +1875,7 @@ const linkQualityScore = (backlink) => {
       </div>
 
       <h3>Energy & Youth: Red & Bright Colors</h3>
-      <div style="background: #ffebee; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-danger-box">
         <h4>Coca-Cola (#ED1C24)</h4>
         <p><strong>Why it works:</strong> Red stimulates appetite and creates excitement</p>
         <p><strong>Psychology:</strong> Increases heart rate and creates urgency</p>
@@ -1887,7 +1887,7 @@ const linkQualityScore = (backlink) => {
       </div>
 
       <h3>Nature & Health: Green Variations</h3>
-      <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-success-box">
         <h4>Whole Foods (#7EB852)</h4>
         <p><strong>Why it works:</strong> Green represents natural, organic, healthy</p>
         <p><strong>Psychology:</strong> Associated with growth and environmental consciousness</p>
@@ -1948,7 +1948,7 @@ const generateBrandPalette = (primaryHue, brandType) => {
 };</code></pre>
 
       <h3>Accessibility Considerations</h3>
-      <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; border-left: 4px solid #2196f3; margin: 20px 0;">
+      <div class="blog-info-box">
         <h4>WCAG Color Contrast Requirements</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>Normal Text:</strong> 4.5:1 contrast ratio minimum</li>
@@ -2013,25 +2013,25 @@ const calculateSignificance = (control, variation, sampleSize) => {
 
       <h3>Website Color Psychology</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>Header Colors</h4>
           <p><strong>Function:</strong> Brand recognition</p>
           <p><strong>Psychology:</strong> Should match brand personality</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>CTA Colors</h4>
           <p><strong>Function:</strong> Drive action</p>
           <p><strong>Psychology:</strong> Red/orange for urgency, green for trust</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>Background Colors</h4>
           <p><strong>Function:</strong> User comfort</p>
           <p><strong>Psychology:</strong> Light colors reduce eye strain</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>Link Colors</h4>
           <p><strong>Function:</strong> Navigation</p>
           <p><strong>Psychology:</strong> Blue for trust, contrast for visibility</p>
@@ -2049,7 +2049,7 @@ const calculateSignificance = (control, variation, sampleSize) => {
       <h2>Measuring Color Psychology Impact</h2>
 
       <h3>Key Metrics to Track</h3>
-      <div style="background: #fff8e1; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 20px 0;">
+      <div class="blog-warning-box">
         <h4>📊 Color Performance Metrics</h4>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
@@ -2088,7 +2088,7 @@ const calculateSignificance = (control, variation, sampleSize) => {
       <h2>Tools for Color Psychology Research</h2>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🎨 Color Research</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Adobe Color - Color wheel and palettes</li>
@@ -2098,7 +2098,7 @@ const calculateSignificance = (control, variation, sampleSize) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📊 Testing & Analysis</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Google Optimize - A/B testing</li>
@@ -2108,7 +2108,7 @@ const calculateSignificance = (control, variation, sampleSize) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>♿ Accessibility</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Contrast Checker</li>
@@ -2122,7 +2122,7 @@ const calculateSignificance = (control, variation, sampleSize) => {
       <h2>Case Studies: Color Psychology Success Stories</h2>
 
       <h3>Case Study: Hallmark Cards</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Hallmark wanted to increase online card purchases during testing periods.</p>
 
@@ -2138,7 +2138,7 @@ const calculateSignificance = (control, variation, sampleSize) => {
       </div>
 
       <h3>Case Study: Financial Services</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Bank wanted to increase trust and reduce customer anxiety about online banking.</p>
 
@@ -2163,14 +2163,14 @@ const calculateSignificance = (control, variation, sampleSize) => {
         <li><strong>Neuro-marketing Integration:</strong> Brain response measurement for color effectiveness</li>
       </ul>
 
-      <blockquote style="background: #fff8e1; padding: 20px; border-left: 4px solid #ffc107; margin: 25px 0;">
+      <blockquote class="blog-quote-box">
         <p style="margin: 0; font-style: italic;">"Color is a power which directly influences the soul. Color is the keyboard, the eyes are the hammers, the soul is the piano with many strings."</p>
         <cite style="display: block; margin-top: 10px; font-weight: bold;">— Wassily Kandinsky, Artist and Art Theorist</cite>
       </blockquote>
 
       <h2>Implementation Roadmap</h2>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <h3 style="color: white; margin-top: 0;">Phase 1: Research & Analysis (Weeks 1-2)</h3>
         <ul style="color: white; margin-bottom: 20px;">
           <li>Define your brand personality and target audience</li>
@@ -2218,7 +2218,7 @@ const calculateSignificance = (control, variation, sampleSize) => {
 
       <h2>The Mobile-First Imperative: Why It Matters Now More Than Ever</h2>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
           <span style="font-size: 24px; margin-right: 15px;">📱</span>
           <div>
@@ -2324,7 +2324,7 @@ const ProgressiveContent = () => {
       <p>Mobile interfaces require fundamentally different interaction patterns than desktop.</p>
 
       <h4>Touch Target Guidelines</h4>
-      <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; border-left: 4px solid #2196f3; margin: 20px 0;">
+      <div class="blog-info-box">
         <h4>iOS & Android Touch Guidelines</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>Minimum Size:</strong> 44px × 44px (Apple), 48px × 48px (Google)</li>
@@ -2386,25 +2386,25 @@ const MobileMenu = ({ isOpen, onClose }) => {
 
       <h4>Mobile Performance Checklist</h4>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>⚡ Loading Speed</h4>
           <p><strong>Target:</strong> < 3 seconds</p>
           <p><strong>Techniques:</strong> Code splitting, lazy loading, CDN</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📱 Bundle Size</h4>
           <p><strong>Target:</strong> < 170KB gzipped</p>
           <p><strong>Techniques:</strong> Tree shaking, compression</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🔋 Battery Impact</h4>
           <p><strong>Target:</strong> Minimal drain</p>
           <p><strong>Techniques:</strong> Efficient animations, dark mode</p>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📶 Network Efficiency</h4>
           <p><strong>Target:</strong> Offline-capable</p>
           <p><strong>Techniques:</strong> Service workers, caching</p>
@@ -2558,7 +2558,7 @@ className="bg-card" style="padding: 20px; border-radius: 8px; overflow-x: auto; 
       <h2>Mobile-Specific UX Patterns</h2>
 
       <h3>Thumb-Friendly Design</h3>
-      <div style="background: #fff8e1; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 20px 0;">
+      <div class="blog-warning-box">
         <h4>📱 Thumb Zone Optimization</h4>
         <p>Mobile users primarily interact with one thumb. Design accordingly:</p>
         <ul style="margin-bottom: 0;">
@@ -2846,7 +2846,7 @@ self.addEventListener('fetch', (event) => {
 
       <h3>Mobile Testing Checklist</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📱 Device Testing</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>iPhone SE (smallest screen)</li>
@@ -2856,7 +2856,7 @@ self.addEventListener('fetch', (event) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🌐 Browser Testing</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Safari (iOS)</li>
@@ -2866,7 +2866,7 @@ self.addEventListener('fetch', (event) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>⚡ Performance Testing</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Lighthouse Mobile Score</li>
@@ -2876,7 +2876,7 @@ self.addEventListener('fetch', (event) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>👆 Interaction Testing</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Touch target sizes</li>
@@ -2969,7 +2969,7 @@ describe('MobileButton', () => {
       <h2>Mobile Analytics & Measurement</h2>
 
       <h3>Mobile-Specific KPIs</h3>
-      <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; border-left: 4px solid #2196f3; margin: 20px 0;">
+      <div class="blog-info-box">
         <h4>📊 Mobile Performance Metrics</h4>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
@@ -3007,7 +3007,7 @@ describe('MobileButton', () => {
       <h2>Tools for Mobile Development</h2>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🎨 Design & Prototyping</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Figma - Collaborative design</li>
@@ -3017,7 +3017,7 @@ describe('MobileButton', () => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>⚡ Development</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>React Native - Cross-platform apps</li>
@@ -3027,7 +3027,7 @@ describe('MobileButton', () => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🧪 Testing</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>BrowserStack - Device testing</li>
@@ -3037,7 +3037,7 @@ describe('MobileButton', () => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📊 Analytics</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Google Analytics - Web analytics</li>
@@ -3051,7 +3051,7 @@ describe('MobileButton', () => {
       <h2>Case Studies: Mobile-First Success Stories</h2>
 
       <h3>Case Study: E-commerce Mobile Optimization</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Major retailer struggling with mobile conversion rates below 1%.</p>
 
@@ -3068,7 +3068,7 @@ describe('MobileButton', () => {
       </div>
 
       <h3>Case Study: SaaS Mobile App</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Project management tool with poor mobile experience leading to user churn.</p>
 
@@ -3084,14 +3084,14 @@ describe('MobileButton', () => {
         </ul>
       </div>
 
-      <blockquote style="background: #fff8e1; padding: 20px; border-left: 4px solid #ffc107; margin: 25px 0;">
+      <blockquote class="blog-quote-box">
         <p style="margin: 0; font-style: italic;">"Mobile-first design isn't about making things smaller—it's about starting with constraints that force you to focus on what truly matters. The result is better experiences for everyone, regardless of device."</p>
         <cite style="display: block; margin-top: 10px; font-weight: bold;">— Luke Wroblewski, Author of "Mobile First"</cite>
       </blockquote>
 
       <h2>Implementation Roadmap</h2>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <h3 style="color: white; margin-top: 0;">Phase 1: Foundation (Weeks 1-3)</h3>
         <ul style="color: white; margin-bottom: 20px;">
           <li>Audit current mobile performance and user experience</li>
@@ -3140,7 +3140,7 @@ describe('MobileButton', () => {
       <h2>The AI Content Marketing Revolution</h2>
       <p>We're witnessing the most significant transformation in content marketing since the advent of social media. AI isn't just a tool—it's reshaping the entire content ecosystem.</p>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
           <span style="font-size: 24px; margin-right: 15px;">📊</span>
           <div>
@@ -3518,7 +3518,7 @@ const optimizeContentAutomatically = async (contentId) => {
       <h2>AI Tools Ecosystem for Content Marketing</h2>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🤖 Content Creation</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Jasper - Long-form content</li>
@@ -3528,7 +3528,7 @@ const optimizeContentAutomatically = async (contentId) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📊 Research & Analysis</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>SEMrush - Keyword research</li>
@@ -3538,7 +3538,7 @@ const optimizeContentAutomatically = async (contentId) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🎯 Personalization</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Dynamic Yield - Real-time personalization</li>
@@ -3548,7 +3548,7 @@ const optimizeContentAutomatically = async (contentId) => {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📈 Analytics & Optimization</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Google Analytics - Performance tracking</li>
@@ -3562,7 +3562,7 @@ const optimizeContentAutomatically = async (contentId) => {
       <h2>Measuring AI-Enhanced Content Success</h2>
 
       <h3>AI-Specific KPIs</h3>
-      <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; border-left: 4px solid #2196f3; margin: 20px 0;">
+      <div class="blog-info-box">
         <h4>📊 AI Content Marketing Metrics</h4>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
@@ -3660,7 +3660,7 @@ console.log('Campaign ROI:', campaignROI.overallROI.roiPercentage + '%');</code>
       <h2>Best Practices for AI Content Marketing</h2>
 
       <h3>The Human-AI Balance Framework</h3>
-      <div style="background: #fff8e1; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 20px 0;">
+      <div class="blog-warning-box">
         <h4>🤝 Human + AI Collaboration Model</h4>
         <ul style="margin-bottom: 0;">
           <li><strong>AI Strengths:</strong> Speed, scale, data analysis, pattern recognition</li>
@@ -3682,7 +3682,7 @@ console.log('Campaign ROI:', campaignROI.overallROI.roiPercentage + '%');</code>
       <h2>Case Studies: AI Content Marketing Success</h2>
 
       <h3>Case Study: B2B SaaS Company</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Content marketing team struggling to keep up with demand for blog posts, social content, and email newsletters.</p>
 
@@ -3700,7 +3700,7 @@ console.log('Campaign ROI:', campaignROI.overallROI.roiPercentage + '%');</code>
       </div>
 
       <h3>Case Study: E-commerce Personalization</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Online retailer with generic product descriptions and email marketing showing poor engagement.</p>
 
@@ -3718,7 +3718,7 @@ console.log('Campaign ROI:', campaignROI.overallROI.roiPercentage + '%');</code>
       </div>
 
       <h3>Case Study: SEO Content Scale</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Company needed to create 200+ SEO-optimized pages to compete in a crowded niche.</p>
 
@@ -3734,14 +3734,14 @@ console.log('Campaign ROI:', campaignROI.overallROI.roiPercentage + '%');</code>
         </ul>
       </div>
 
-      <blockquote style="background: #fff8e1; padding: 20px; border-left: 4px solid #ffc107; margin: 25px 0;">
+      <blockquote class="blog-quote-box">
         <p style="margin: 0; font-style: italic;">"AI doesn't replace creativity—it amplifies it. The most successful content marketers use AI as their superpower, not their crutch. The future belongs to those who can blend human insight with artificial intelligence."</p>
         <cite style="display: block; margin-top: 10px; font-weight: bold;">— Sarah Mitchell, CMO at ContentTech Solutions</cite>
       </blockquote>
 
       <h2>Implementation Roadmap</h2>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <h3 style="color: white; margin-top: 0;">Phase 1: Foundation (Weeks 1-4)</h3>
         <ul style="color: white; margin-bottom: 20px;">
           <li>Assess current content marketing capabilities and gaps</li>
@@ -3801,7 +3801,7 @@ console.log('Campaign ROI:', campaignROI.overallROI.roiPercentage + '%');</code>
       <h2>The Performance Imperative</h2>
       <p>In today's digital landscape, performance isn't a luxury—it's a business requirement. Every second of delay impacts user experience, conversion rates, and revenue.</p>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
           <span style="font-size: 24px; margin-right: 15px;">⚡</span>
           <div>
@@ -3830,7 +3830,7 @@ console.log('Campaign ROI:', campaignROI.overallROI.roiPercentage + '%');</code>
       <h2>Core Web Vitals: The Performance Trinity</h2>
       <p>Google's Core Web Vitals are the most important performance metrics to focus on. They measure real-world user experience.</p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
+      <div class="blog-grid-container">
         <div style="border: 2px solid #4CAF50; padding: 20px; border-radius: 12px; background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white;">
           <h3 style="color: white; margin: 0 0 10px 0;">🖼️ LCP (Largest Contentful Paint)</h3>
           <p style="margin: 0; font-size: 14px;"><strong>Target:</strong> < 2.5 seconds</p>
@@ -4582,7 +4582,7 @@ module.exports = {
       <h2>Tools & Automation</h2>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🔍 Auditing & Testing</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Lighthouse - Comprehensive audits</li>
@@ -4592,7 +4592,7 @@ module.exports = {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>📊 Monitoring</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Google Analytics - User timing</li>
@@ -4602,7 +4602,7 @@ module.exports = {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>⚡ Optimization</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Webpack Bundle Analyzer</li>
@@ -4612,7 +4612,7 @@ module.exports = {
           </ul>
         </div>
 
-        <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+        <div class="blog-content-box">
           <h4>🚀 Build Tools</h4>
           <ul style="margin: 0; padding-left: 20px;">
             <li>Vite - Fast development builds</li>
@@ -4741,7 +4741,7 @@ self.addEventListener('push', (event) => {
       <h2>Performance Success Stories</h2>
 
       <h3>Case Study: E-commerce Performance Overhaul</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>Online retailer experiencing 40% bounce rate due to slow loading times (8+ seconds).</p>
 
@@ -4758,7 +4758,7 @@ self.addEventListener('push', (event) => {
       </div>
 
       <h3>Case Study: SaaS Application Scaling</h3>
-      <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div class="blog-content-box">
         <h4>Challenge:</h4>
         <p>SaaS platform with 500KB+ JavaScript bundles causing poor performance on mobile devices.</p>
 
@@ -4774,14 +4774,14 @@ self.addEventListener('push', (event) => {
         </ul>
       </div>
 
-      <blockquote style="background: #fff8e1; padding: 20px; border-left: 4px solid #ffc107; margin: 25px 0;">
+      <blockquote class="blog-quote-box">
         <p style="margin: 0; font-style: italic;">"Performance is not a feature. It's the most important feature. Users expect web applications to be fast, and when they're not, they leave. Invest in performance early, and your users will reward you with their attention and loyalty."</p>
         <cite style="display: block; margin-top: 10px; font-weight: bold;">— Lara Hogan, Author of "Designing for Performance"</cite>
       </blockquote>
 
       <h2>Implementation Roadmap</h2>
 
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin: 20px 0;">
+      <div class="blog-gradient-card">
         <h3 style="color: white; margin-top: 0;">Phase 1: Foundation (Weeks 1-2)</h3>
         <ul style="color: white; margin-bottom: 20px;">
           <li>Establish performance budgets and Core Web Vitals targets</li>
@@ -4845,7 +4845,7 @@ export const getPostsByCategory = (category: string) => {
 
 export const searchPosts = (query: string) => {
   const lowercaseQuery = query.toLowerCase();
-  return blogPosts.filter(post => 
+  return blogPosts.filter(post =>
     post.title.toLowerCase().includes(lowercaseQuery) ||
     post.excerpt.toLowerCase().includes(lowercaseQuery) ||
     post.author.name.toLowerCase().includes(lowercaseQuery) ||
