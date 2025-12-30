@@ -3,6 +3,8 @@ import { Outfit, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "./components/LenisProvider";
 import { ThemeProvider } from "./components/ThemeProvider";
+import JsonLd from "./components/JsonLd";
+import { organizationSchema } from "./data/schemas";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <head>
+        <JsonLd data={organizationSchema} />
         <script
           dangerouslySetInnerHTML={{
             __html: `
