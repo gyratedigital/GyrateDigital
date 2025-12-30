@@ -50,6 +50,7 @@ export default function BlogSection() {
                       src={post.image}
                       alt={post.title}
                       fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

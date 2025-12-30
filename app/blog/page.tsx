@@ -28,7 +28,7 @@ export default function BlogPage() {
 
   const filteredPosts = useMemo(() => {
     let posts = getPostsByCategory(selectedCategory);
-    
+
     if (searchQuery.trim()) {
       posts = searchPosts(searchQuery);
       // If searching, show posts from all categories that match the search
@@ -36,7 +36,7 @@ export default function BlogPage() {
         posts = posts.filter(post => post.categories.includes(selectedCategory));
       }
     }
-    
+
     return posts;
   }, [selectedCategory, searchQuery]);
 
@@ -53,13 +53,15 @@ export default function BlogPage() {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    // Scroll to the blog posts section instead of the very top
-    const blogSection = document.getElementById('blog-posts-section');
-    if (blogSection) {
-      blogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Use setTimeout to ensure scroll happens after React re-renders with new content
+    setTimeout(() => {
+      const blogSection = document.getElementById('blog-posts-section');
+      if (blogSection) {
+        blogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 0);
   };
 
   const renderPaginationButtons = () => {
@@ -74,11 +76,10 @@ export default function BlogPage() {
             variant={i === currentPage ? "default" : "outline"}
             size="sm"
             onClick={() => handlePageChange(i)}
-            className={`w-10 h-10 rounded-full ${
-              i === currentPage 
-                ? "bg-primary text-primary-foreground" 
-                : "hover:bg-primary/10 hover:text-primary"
-            }`}
+            className={`w-10 h-10 rounded-full ${i === currentPage
+              ? "bg-primary text-primary-foreground"
+              : "hover:bg-primary/10 hover:text-primary"
+              }`}
           >
             {i}
           </Button>
@@ -93,11 +94,10 @@ export default function BlogPage() {
               variant={i === currentPage ? "default" : "outline"}
               size="sm"
               onClick={() => handlePageChange(i)}
-              className={`w-10 h-10 rounded-full ${
-                i === currentPage 
-                  ? "bg-primary text-primary-foreground" 
-                  : "hover:bg-primary/10 hover:text-primary"
-              }`}
+              className={`w-10 h-10 rounded-full ${i === currentPage
+                ? "bg-primary text-primary-foreground"
+                : "hover:bg-primary/10 hover:text-primary"
+                }`}
             >
               {i}
             </Button>
@@ -117,7 +117,7 @@ export default function BlogPage() {
             className="w-10 h-10 rounded-full hover:bg-primary/10 hover:text-primary"
           >
             {totalPages}
-          </Button> 
+          </Button>
         );
       } else if (currentPage >= totalPages - 2) {
         // Show first page, ellipsis, and last 3 pages
@@ -144,11 +144,10 @@ export default function BlogPage() {
               variant={i === currentPage ? "default" : "outline"}
               size="sm"
               onClick={() => handlePageChange(i)}
-              className={`w-10 h-10 rounded-full ${
-                i === currentPage 
-                  ? "bg-primary text-primary-foreground" 
-                  : "hover:bg-primary/10 hover:text-primary"
-              }`}
+              className={`w-10 h-10 rounded-full ${i === currentPage
+                ? "bg-primary text-primary-foreground"
+                : "hover:bg-primary/10 hover:text-primary"
+                }`}
             >
               {i}
             </Button>
@@ -179,11 +178,10 @@ export default function BlogPage() {
               variant={i === currentPage ? "default" : "outline"}
               size="sm"
               onClick={() => handlePageChange(i)}
-              className={`w-10 h-10 rounded-full ${
-                i === currentPage 
-                  ? "bg-primary text-primary-foreground" 
-                  : "hover:bg-primary/10 hover:text-primary"
-              }`}
+              className={`w-10 h-10 rounded-full ${i === currentPage
+                ? "bg-primary text-primary-foreground"
+                : "hover:bg-primary/10 hover:text-primary"
+                }`}
             >
               {i}
             </Button>
@@ -214,40 +212,40 @@ export default function BlogPage() {
   return (
     <div className="w-full min-h-screen bg-background">
       <NavigationMenuDemo />
-      
+
       {/* Header Section */}
       <div className="relative container mx-auto px-4 pt-[100px] pb-16">
         {/* Content */}
         <div>
-            <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 overflow-hidden py-12 px-4">
-                
-                {/* Background Image */}
-                <div 
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
-                    style={{
-                        backgroundImage: "url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"
-                    }}
-                />
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-background/10 z-[-1]" />
+          <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 overflow-hidden py-12 px-4">
 
-                <div className="max-w-4xl mx-auto text-center relative z-1">
-                    <div className="flex items-center justify-center mb-4">
-                      <Newspaper className="w-12 h-12 text-primary" />
-                    </div>
-                    <p className="text-foreground text-xs mb-4 uppercase tracking-wider">Our Blog</p>
-                    <h1 className="outfit-text text-foreground text-4xl md:text-5xl font-semibold mb-6">
-                        Insights & Stories
-                    </h1>
-                    <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl mx-auto">
-                        Discover the latest trends, insights, and stories from the world of digital innovation and design.
-                    </p>
-                </div>
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
+              style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"
+              }}
+            />
 
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-background/10 z-[-1]" />
+
+            <div className="max-w-4xl mx-auto text-center relative z-1">
+              <div className="flex items-center justify-center mb-4">
+                <Newspaper className="w-12 h-12 text-primary" />
+              </div>
+              <p className="text-foreground text-xs mb-4 uppercase tracking-wider">Our Blog</p>
+              <h1 className="outfit-text text-foreground text-4xl md:text-5xl font-semibold mb-6">
+                Insights & Stories
+              </h1>
+              <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl mx-auto">
+                Discover the latest trends, insights, and stories from the world of digital innovation and design.
+              </p>
             </div>
+
+          </div>
         </div>
-        
+
       </div>
 
       {/* Filter Section */}
@@ -296,81 +294,82 @@ export default function BlogPage() {
             <>
               <div className="grid grid-cols-1 gap-8 mb-12">
                 {currentPosts.map((post) => (
-                <article
-                  key={post.id}
-                  className="group cursor-pointer"
-                >
-                  <Link href={`/blog/${post.slug}`}>
-                    <div className="flex sm:flex-row flex-col sm:h-64 h-auto bg-card rounded-[20px] overflow-hidden sm:border-none border border-border/60 hover:shadow-lg transition-all duration-300">
-                      {/* Image */}
-                      <div className="relative sm:h-full h-48 overflow-hidden sm:w-[300px] w-full sm:rounded-2xl">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex flex-col justify-center p-6">
-                        {/* Categories */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {post.categories.map((category, index) => (
-                            <span
-                              key={index}
-                              className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
-                            >
-                              {category}
-                            </span>
-                          ))}
+                  <article
+                    key={post.id}
+                    className="group cursor-pointer"
+                  >
+                    <Link href={`/blog/${post.slug}`}>
+                      <div className="flex sm:flex-row flex-col sm:h-64 h-auto bg-card rounded-[20px] overflow-hidden sm:border-none border border-border/60 hover:shadow-lg transition-all duration-300">
+                        {/* Image */}
+                        <div className="relative sm:h-full h-48 overflow-hidden sm:w-[300px] w-full sm:rounded-2xl">
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            fill
+                            sizes="(min-width: 640px) 300px, 100vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
                         </div>
 
-                        {/* Title */}
-                        <h2 className="text-foreground text-xl font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors">
-                          {post.title}
-                        </h2>
-
-                        {/* Excerpt */}
-                        <p className="text-foreground/70 text-sm mb-4 line-clamp-3 leading-relaxed">
-                          {post.excerpt}
-                        </p>
-
-                        {/* Author and Date */}
-                        <div className="flex sm:flex-row flex-col sm:items-center items-start gap-4 justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
-                              <Image
-                                src={post.author.avatar}
-                                alt={post.author.name}
-                                width={128}
-                                height={128}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                            <div>
-                              <p className="text-foreground text-sm font-medium">
-                                {post.author.name}
-                              </p>
-                            </div>
+                        {/* Content */}
+                        <div className="flex flex-col justify-center p-6">
+                          {/* Categories */}
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {post.categories.map((category, index) => (
+                              <span
+                                key={index}
+                                className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
+                              >
+                                {category}
+                              </span>
+                            ))}
                           </div>
 
-                          <div className="flex items-center gap-4 text-xs text-foreground/60">
-                            <div className="flex items-center gap-1">
-                              <Calendar className="w-3 h-3" />
-                              <span>{post.date}</span>
+                          {/* Title */}
+                          <h2 className="text-foreground text-xl font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                            {post.title}
+                          </h2>
+
+                          {/* Excerpt */}
+                          <p className="text-foreground/70 text-sm mb-4 line-clamp-3 leading-relaxed">
+                            {post.excerpt}
+                          </p>
+
+                          {/* Author and Date */}
+                          <div className="flex sm:flex-row flex-col sm:items-center items-start gap-4 justify-between">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
+                                <Image
+                                  src={post.author.avatar}
+                                  alt={post.author.name}
+                                  width={128}
+                                  height={128}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <div>
+                                <p className="text-foreground text-sm font-medium">
+                                  {post.author.name}
+                                </p>
+                              </div>
                             </div>
-                            <div className="flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
-                              <span>{post.readTime}</span>
+
+                            <div className="flex items-center gap-4 text-xs text-foreground/60">
+                              <div className="flex items-center gap-1">
+                                <Calendar className="w-3 h-3" />
+                                <span>{post.date}</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Clock className="w-3 h-3" />
+                                <span>{post.readTime}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                </article>
-              ))}
+                    </Link>
+                  </article>
+                ))}
               </div>
 
               {/* Pagination */}
