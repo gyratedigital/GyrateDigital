@@ -296,7 +296,7 @@ export default function BlogPage() {
           {currentPosts.length > 0 ? (
             <>
               <div className="grid grid-cols-1 gap-8 mb-12">
-                {currentPosts.map((post) => (
+                {currentPosts.map((post, index) => (
                   <article
                     key={post.id}
                     className="group cursor-pointer"
@@ -311,6 +311,7 @@ export default function BlogPage() {
                             fill
                             sizes="(min-width: 640px) 300px, 100vw"
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            priority={index === 0}
                           />
                         </div>
 

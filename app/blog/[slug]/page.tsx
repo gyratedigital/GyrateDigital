@@ -31,7 +31,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       // Find related posts (same categories, excluding current post)
       if (foundPost) {
         const related = blogPosts
-          .filter(p => p.id !== foundPost.id && 
+          .filter(p => p.id !== foundPost.id &&
             p.categories.some(cat => foundPost.categories.includes(cat)))
           .slice(0, 3);
         setRelatedPosts(related);
@@ -76,13 +76,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <div className="w-full min-h-screen bg-background">
       <NavigationMenuDemo />
-      
+
       {/* Header Section */}
       <div className="relative container mx-auto px-4 pt-[100px] pb-8">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             className="mb-6 text-foreground/60 hover:text-foreground hover:!bg-primary/10 cursor-pointer"
             onClick={() => router.back()}
           >
@@ -154,7 +154,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 </span>
               )}
             </div>
-            
+
 
           </div>
         </div>
@@ -169,6 +169,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               alt={post.title}
               fill
               className="object-cover"
+              priority={true}
             />
           </div>
         </div>
@@ -185,7 +186,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             {/* Main Content */}
-            <div 
+            <div
               className="prose prose-lg max-w-none text-foreground/90 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />

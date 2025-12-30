@@ -12,6 +12,7 @@ import { contactPageSchema } from "../data/schemas";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { showToast } from "@/lib/toast-utils";
 import {
   Form,
   FormControl,
@@ -59,7 +60,9 @@ export default function ContactPage() {
     // Simulate form submission
     setTimeout(() => {
       console.log(values);
-      alert("Form submitted successfully!");
+      showToast("Message sent successfully!", "success", {
+        description: "We'll get back to you soon.",
+      });
       form.reset();
       setIsSubmitting(false);
     }, 1000);

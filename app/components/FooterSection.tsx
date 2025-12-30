@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Mail } from 'lucide-react';
 import { servicesSection } from '../data/servicesSection';
+import { showToast } from '@/lib/toast-utils';
 
 // Custom Brand Icons to replace deprecated Lucide icons
 const BrandIcons = {
@@ -35,6 +36,28 @@ const BrandIcons = {
 };
 
 export default function FooterSection() {
+
+    const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const emailInput = form.elements.namedItem('email') as HTMLInputElement;
+        const email = emailInput.value;
+
+        if (!email) {
+            showToast("Please enter your email address.", "error");
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showToast("Please enter a valid email address.", "error");
+            return;
+        }
+
+        // success case
+        showToast("Thank you for subscribing!", "success");
+        emailInput.value = '';
+    };
 
     return (
         <div className="w-full bg-card-dark relative z-0">
@@ -126,13 +149,18 @@ export default function FooterSection() {
                     <div>
                         <h3 className="font-bold text-xl mb-6 text-card-light uppercase tracking-wider text-sm">Subscribe</h3>
                         <p className="text-card-light text-sm mb-6">Subscribe to our newsletter for the latest updates.</p>
-                        <form onSubmit={(e) => e.preventDefault()} className="max-w-md">
+
+                        <form
+                            noValidate
+                            onSubmit={handleSubscribe}
+                            className="max-w-md"
+                        >
                             <div className="flex flex-col items-stretch gap-3">
                                 <input
+                                    name="email"
                                     type="email"
                                     placeholder="Your email address"
                                     className="text-card-light w-full h-12 px-4 rounded-xl border border-card-light/50 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary/60 placeholder-card-light"
-                                    required
                                 />
                                 <button
                                     type="submit"
@@ -185,7 +213,7 @@ export default function FooterSection() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
