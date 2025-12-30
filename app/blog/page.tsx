@@ -17,6 +17,8 @@ import NavigationMenuDemo from "../components/Header";
 import FooterSection from "../components/FooterSection";
 import { categories, getPostsByCategory, searchPosts } from "../data/blog";
 import { useRippleEffect } from "@/hooks/useRippleEffect";
+import JsonLd from "../components/JsonLd";
+import { blogPageSchema } from "../data/schemas";
 
 const POSTS_PER_PAGE = 6;
 
@@ -211,6 +213,7 @@ export default function BlogPage() {
 
   return (
     <div className="w-full min-h-screen bg-background">
+      <JsonLd data={blogPageSchema} />
       <NavigationMenuDemo />
 
       {/* Header Section */}

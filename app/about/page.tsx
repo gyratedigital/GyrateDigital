@@ -10,10 +10,13 @@ import Icon from "../components/Icon";
 import CtaSection from "../components/CtaSection";
 import BrandsSection from "../components/BrandsSection";
 import { Users } from "lucide-react";
+import JsonLd from "../components/JsonLd";
+import { aboutPageSchema } from "../data/schemas";
 
 export default function PortfolioPage() {
     return (
         <div className="w-full">
+            <JsonLd data={aboutPageSchema} />
             <NavigationMenuDemo />
 
             {/* Header Section */}

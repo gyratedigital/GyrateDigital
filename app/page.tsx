@@ -16,10 +16,15 @@ import WorkSection from "./components/WorkSection";
 // import BackgroundVideo from "./components/BackgroundVideo";
 
 
+import JsonLd from "./components/JsonLd";
+import { homePageSchema } from "./data/schemas";
+
+
 export default function Home() {
 
   return (
     <div className="w-full min-h-screen bg-background/50">
+      <JsonLd data={homePageSchema} />
       {/* Background Video */}
       {/* <BackgroundVideo /> */}
       {/* <HaloBackground /> */}

@@ -7,6 +7,8 @@ import * as z from "zod";
 import NavigationMenuDemo from "../components/Header";
 import GreenBanner from "../components/contact/GreenBanner";
 import FooterSection from "../components/FooterSection";
+import JsonLd from "../components/JsonLd";
+import { contactPageSchema } from "../data/schemas";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -65,14 +67,15 @@ export default function ContactPage() {
 
   return (
     <div className="w-full">
+      <JsonLd data={contactPageSchema} />
       <NavigationMenuDemo />
-      
+
       {/* Header Section */}
       <div className="relative container mx-auto px-4 pt-[100px] pb-16">
         <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
           {/* Background Image */}
           <div className="absolute inset-0 bg-[url('/contact-banner.avif')] bg-cover bg-center bg-no-repeat opacity-10" />
-          
+
           {/* Overlay */}
           <div className="absolute inset-0 bg-background/10 z-[-1]" />
 
@@ -92,7 +95,7 @@ export default function ContactPage() {
       </div>
 
       <GreenBanner />
-      
+
       <div className="container mx-auto px-4 pt-[80px] pb-[80px]">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 lg:max-w-[90%] mx-auto">
           {/* Left Side - Contact Details */}
@@ -155,7 +158,7 @@ export default function ContactPage() {
           <div className="lg:w-1/2 w-full sticky top-[100px] h-max">
             <div className="bg-card rounded-xl p-8 shadow-[0_10px_50px_rgba(0,0,0,0.05)]">
               <h2 className="text-foreground text-2xl font-semibold mb-6">Send Us a Message</h2>
-              
+
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField
@@ -232,8 +235,8 @@ export default function ContactPage() {
                     )}
                   />
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="w-full"
                     disabled={isSubmitting}
                   >
@@ -270,7 +273,7 @@ export default function ContactPage() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Office Location Map"
               ></iframe>
-              
+
               {/* Address Overlay Card */}
               <div className="absolute bottom-6 left-6 bg-background/95 backdrop-blur-sm p-6 rounded-lg shadow-xl border border-border/60  max-w-sm">
                 <div className="flex items-start gap-3">

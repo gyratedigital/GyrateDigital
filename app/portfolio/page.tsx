@@ -8,18 +8,21 @@ import FooterSection from "../components/FooterSection";
 import Icon from "../components/Icon";
 import Link from "next/link";
 import { ArrowRight, FolderKanban } from "lucide-react";
+import JsonLd from "../components/JsonLd";
+import { portfolioPageSchema } from "../data/schemas";
 
 export default function PortfolioPage() {
   return (
     <div className="w-full min-h-screen bg-background text-foreground">
+      <JsonLd data={portfolioPageSchema} />
       <NavigationMenuDemo />
-      
+
       {/* Header Section */}
       <div className="relative container mx-auto px-4 pt-[100px] pb-16">
         <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
           {/* Background Image */}
           <div className="absolute inset-0 bg-[url('/portfolio-banner.avif')] bg-cover bg-center bg-no-repeat opacity-10" />
-          
+
           {/* Overlay */}
           <div className="absolute inset-0 bg-background/10 z-[-1]" />
 

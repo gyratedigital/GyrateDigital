@@ -4,6 +4,8 @@ import { useState } from "react";
 import NavigationMenuDemo from "../components/Header";
 import FooterSection from "../components/FooterSection";
 import { Button } from "@/components/ui/button";
+import JsonLd from "../components/JsonLd";
+import { cookiePolicyPageSchema } from "../data/schemas";
 import { Cookie, Settings, BarChart, Target, Shield, Info } from "lucide-react";
 
 export default function CookiePolicyPage() {
@@ -72,19 +74,20 @@ export default function CookiePolicyPage() {
 
   return (
     <div className="w-full min-h-screen bg-background">
+      <JsonLd data={cookiePolicyPageSchema} />
       <NavigationMenuDemo />
 
       {/* Hero Section */}
       <div className="relative container mx-auto px-4 pt-[100px] pb-16">
         <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
           {/* Background Image */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
             style={{
               backgroundImage: "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
             }}
           />
-          
+
           {/* Overlay */}
           <div className="absolute inset-0 bg-background/10 z-[-1]" />
 
@@ -118,7 +121,7 @@ export default function CookiePolicyPage() {
                   <p className="text-foreground/70 text-sm mb-4">
                     We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. Please choose your cookie preferences below.
                   </p>
-                  
+
                   {/* Cookie Toggles */}
                   <div className="space-y-3 mb-4">
                     {[
@@ -141,18 +144,16 @@ export default function CookiePolicyPage() {
                             }
                           }}
                           disabled={cookie.locked}
-                          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                            cookiePreferences[cookie.key as keyof typeof cookiePreferences]
-                              ? 'bg-primary'
-                              : 'bg-foreground/20'
-                          } ${cookie.locked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${cookiePreferences[cookie.key as keyof typeof cookiePreferences]
+                            ? 'bg-primary'
+                            : 'bg-foreground/20'
+                            } ${cookie.locked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                         >
                           <span
-                            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                              cookiePreferences[cookie.key as keyof typeof cookiePreferences]
-                                ? 'translate-x-6'
-                                : 'translate-x-1'
-                            }`}
+                            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${cookiePreferences[cookie.key as keyof typeof cookiePreferences]
+                              ? 'translate-x-6'
+                              : 'translate-x-1'
+                              }`}
                           />
                         </button>
                       </div>
@@ -160,22 +161,22 @@ export default function CookiePolicyPage() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
-                <Button 
+                <Button
                   size="sm"
                   onClick={handleAcceptAll}
                 >
                   Accept All Cookies
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   size="sm"
                   onClick={handleSavePreferences}
                 >
                   Save My Preferences
                 </Button>
-                <Button 
+                <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => setShowConsent(false)}
@@ -209,7 +210,7 @@ export default function CookiePolicyPage() {
               {cookieTypes.map((cookie, index) => {
                 const Icon = cookie.icon;
                 return (
-                  <div 
+                  <div
                     key={index}
                     className="bg-card rounded-xl p-6 border border-border/60  hover:shadow-lg transition-shadow duration-300"
                   >
@@ -225,11 +226,10 @@ export default function CookiePolicyPage() {
                               Always Active
                             </span>
                           ) : (
-                            <span className={`text-xs px-2 py-1 rounded ${
-                              cookie.enabled 
-                                ? 'bg-primary/10 text-primary' 
-                                : 'bg-foreground/10 text-foreground/60'
-                            }`}>
+                            <span className={`text-xs px-2 py-1 rounded ${cookie.enabled
+                              ? 'bg-primary/10 text-primary'
+                              : 'bg-foreground/10 text-foreground/60'
+                              }`}>
                               {cookie.enabled ? 'Enabled' : 'Disabled'}
                             </span>
                           )}

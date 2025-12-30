@@ -4,6 +4,8 @@ import { useState } from "react";
 import NavigationMenuDemo from "../components/Header";
 import FooterSection from "../components/FooterSection";
 import { Button } from "@/components/ui/button";
+import JsonLd from "../components/JsonLd";
+import { privacyPolicyPageSchema } from "../data/schemas";
 import { Shield, Eye, Lock, Database, FileText, AlertCircle } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
@@ -94,19 +96,20 @@ These third parties are contractually obligated to protect your data and use it 
 
   return (
     <div className="w-full min-h-screen bg-background">
+      <JsonLd data={privacyPolicyPageSchema} />
       <NavigationMenuDemo />
 
       {/* Hero Section */}
       <div className="relative container mx-auto px-4 pt-[100px] pb-16">
         <div className="relative z-10 text-center rounded-xl overflow-hidden border border-foreground/10 py-12 px-4">
           {/* Background Image */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 p-6"
             style={{
               backgroundImage: "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
             }}
           />
-          
+
           {/* Overlay */}
           <div className="absolute inset-0 bg-background/10 z-[-1]" />
 
@@ -141,14 +144,14 @@ These third parties are contractually obligated to protect your data and use it 
                   </p>
                 </div>
                 <div className="flex gap-2">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => setShowConsent(false)}
                   >
                     Dismiss
                   </Button>
-                  <Button 
+                  <Button
                     size="sm"
                     onClick={() => setShowConsent(false)}
                   >
@@ -180,7 +183,7 @@ These third parties are contractually obligated to protect your data and use it 
             {sections.map((section, index) => {
               const Icon = section.icon;
               return (
-                <div 
+                <div
                   key={index}
                   className="bg-card rounded-xl p-6 md:p-8 border border-border/60  hover:shadow-lg transition-shadow duration-300"
                 >
