@@ -65,11 +65,11 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
   const ctaContent = getCTAContent(service);
 
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <NavigationMenuDemo />
 
-      <div className="relative container mx-auto px-4 pt-[100px] pb-12">
-        <div className="relative overflow-hidden bg-background/40 backdrop-blur">
+      <div className="relative container mx-auto px-4 pt-[100px] pb-12 z-10">
+        <div className="relative overflow-hidden bg-background/40 backdrop-blur z-10">
           {/* <div
             className="absolute inset-0 opacity-15"
             style={{
@@ -91,17 +91,17 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
               <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl">
                 {service.description}
               </p>
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-4 pt-2 relative z-50 pointer-events-auto">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-primary/30"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-primary/30 relative z-50 pointer-events-auto"
                 >
                   Start a project
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary relative z-50 pointer-events-auto"
                 >
                   <ArrowLeft className="h-4 w-4" />
                   Back to all services
