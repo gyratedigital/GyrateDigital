@@ -22,7 +22,7 @@ export const servicesSection: Service[] = [
         category: "GenAi",
         title: ["Generative", " AI"],
         description:
-            "Applied AI that augments your products with chatbots, recommendations, and workflow automation grounded in real data.",
+            "Harness the power of generative AI to create intelligent content, automate creative processes, and build AI-powered solutions that generate text, images, code, and insights tailored to your business needs.",
         image: "/services/ai-automations.jpg",
         slug: "genai",
         nestedServices: [
