@@ -1,3 +1,4 @@
+"use client";
 // import * as React from 'react'
 import { servicesSection } from '../data/servicesSection'
 import Link from 'next/link'

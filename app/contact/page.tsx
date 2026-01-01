@@ -21,7 +21,19 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Mail, Phone, MapPin, ArrowUpRight, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, MessageSquare, ChevronDown, Check } from "lucide-react";
+import { cn } from "@/lib/utils"; // Make sure we have cn or use string interpolation
+
+const serviceOptions = [
+  "Remote IT Resources",
+  "Custom Software Development",
+  "Web Development",
+  "Mobile App Development",
+  "AR/VR",
+  "Gaming",
+  "Cyber Security",
+  "Other IT Services"
+];
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -33,6 +45,9 @@ const formSchema = z.object({
   phone: z.string().min(10, {
     message: "Phone number must be at least 10 digits.",
   }),
+  services: z.array(z.string()).min(1, {
+    message: "Please select at least one service.",
+  }),
   subject: z.string().min(5, {
     message: "Subject must be at least 5 characters.",
   }),
@@ -43,6 +58,7 @@ const formSchema = z.object({
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -50,21 +66,41 @@ export default function ContactPage() {
       name: "",
       email: "",
       phone: "",
+      services: [],
       subject: "",
       message: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
       showToast("Message sent successfully!", "success", {
         description: "We'll get back to you soon.",
       });
       form.reset();
+    } catch (error) {
+      console.error(error);
+      showToast("Failed to send message.", "error", {
+        description: "Please try again later.",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   }
 
   return (
@@ -207,6 +243,72 @@ export default function ContactPage() {
 
                   <FormField
                     control={form.control}
+                    name="services"
+                    render={({ field }) => (
+                      <FormItem className="relative">
+                        <FormLabel>Services you are looking for</FormLabel>
+                        <FormControl>
+                          <div>
+                            <button
+                              type="button"
+                              onClick={() => setIsServicesOpen(!isServicesOpen)}
+                              className="flex min-h-10 h-auto w-full items-center justify-between rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                            >
+                              <span className={cn("text-left pr-2", field.value?.length ? "text-foreground" : "text-muted-foreground")}>
+                                {field.value?.length
+                                  ? field.value.join(", ")
+                                  : "Select services..."}
+                              </span>
+                              <ChevronDown className="h-4 w-4 opacity-50 flex-shrink-0" />
+                            </button>
+
+                            {isServicesOpen && (
+                              <div
+                                className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-popover text-popover-foreground shadow-md"
+                                data-lenis-prevent
+                              >
+                                <div className="p-1">
+                                  {serviceOptions.map((service) => (
+                                    <div
+                                      key={service}
+                                      className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 cursor-pointer"
+                                      onClick={() => {
+                                        const current = field.value || [];
+                                        const updated = current.includes(service)
+                                          ? current.filter((s) => s !== service)
+                                          : [...current, service];
+                                        field.onChange(updated);
+                                      }}
+                                    >
+                                      <div className={cn(
+                                        "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                                        field.value?.includes(service)
+                                          ? "bg-primary text-primary-foreground"
+                                          : "opacity-50 [&_svg]:invisible"
+                                      )}>
+                                        <Check className={cn("h-4 w-4")} />
+                                      </div>
+                                      <span>{service}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </FormControl>
+                        {isServicesOpen && (
+                          <div
+                            className="fixed inset-0 z-40"
+                            onClick={() => setIsServicesOpen(false)}
+                          />
+                        )}
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
@@ -244,15 +346,15 @@ export default function ContactPage() {
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
-                </form>
-              </Form>
-            </div>
-          </div>
-        </div>
-      </div>
+                </form >
+              </Form >
+            </div >
+          </div >
+        </div >
+      </div >
 
       {/* Map Section */}
-      <div className="w-full pt-8 pb-24">
+      < div className="w-full pt-8 pb-24" >
         <div className="container mx-auto px-4">
           <div className="max-w-[90%] mx-auto">
             <div className="text-center mb-8">
@@ -302,10 +404,10 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       <FooterSection />
-    </div>
+    </div >
   );
 }
 

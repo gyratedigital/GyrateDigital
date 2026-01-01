@@ -36,8 +36,9 @@ const BrandIcons = {
 };
 
 export default function FooterSection() {
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
 
-    const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.currentTarget;
         const emailInput = form.elements.namedItem('email') as HTMLInputElement;
@@ -54,9 +55,27 @@ export default function FooterSection() {
             return;
         }
 
-        // success case
-        showToast("Thank you for subscribing!", "success");
-        emailInput.value = '';
+        setIsSubmitting(true);
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || 'Failed to subscribe');
+            }
+
+            showToast("Thank you for subscribing!", "success");
+            emailInput.value = '';
+        } catch (error) {
+            console.error(error);
+            showToast("Failed to subscribe. Please try again.", "error");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -164,9 +183,10 @@ export default function FooterSection() {
                                 />
                                 <button
                                     type="submit"
-                                    className="w-max inline-flex items-center justify-center gap-1.5 rounded-xl bg-card-light px-6 py-3 text-md font-medium text-card-dark shadow hover:bg-card-light/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all"
+                                    disabled={isSubmitting}
+                                    className="w-max inline-flex items-center justify-center gap-1.5 rounded-xl bg-card-light px-6 py-3 text-md font-medium text-card-dark shadow hover:bg-card-light/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    Get Started
+                                    {isSubmitting ? 'Subscribing...' : 'Get Started'}
                                 </button>
                             </div>
                         </form>
