@@ -18,26 +18,79 @@ const roboto = Roboto_Flex({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gyratedigital.com"),
+
   title: {
     default: "Gyrate Digital | All-In-One Digital Agency for Design & Marketing",
-    template: "%s | Gyrate Digital"
+    template: "%s | Gyrate Digital",
   },
-  description: "Gyrate Digital is a premier creative agency specializing in design, development, and digital innovation. Helping brands grow through technology and marketing.",
-  keywords: ["Digital Agency", "Web Development", "UI/UX Design", "Digital Marketing", "Gyrate Digital", "Branding"],
-  authors: [{ name: "Gyrate Digital" }],
+
+  description:
+    "Gyrate Digital is a full-service digital agency offering web design, development, UI/UX, branding, and digital marketing to help businesses grow and scale online.",
+
+  keywords: [
+    "Digital Agency",
+    "Web Design Agency",
+    "Web Development",
+    "UI UX Design",
+    "Branding Agency",
+    "Digital Marketing Services",
+    "Gyrate Digital",
+  ],
+
+  authors: [{ name: "Gyrate Digital", url: "https://gyratedigital.com" }],
   creator: "Gyrate Digital",
+  publisher: "Gyrate Digital",
+
+  category: "Technology",
+  applicationName: "Gyrate Digital",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://gyratedigital.com",
+  },
+
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://gyratedigital.com",
-    title: "Gyrate Digital | All-In-One Digital Agency",
-    description: "Empowering brands through design, marketing, and technology.",
+    title: "Gyrate Digital | Creative Design & Digital Marketing Agency",
+    description:
+      "We help brands grow with modern design, scalable development, and data-driven digital marketing.",
     siteName: "Gyrate Digital",
+    images: [
+      {
+        url: "/gy-logo.svg", // Logo as OG image
+        width: 1200,
+        height: 630,
+        alt: "Gyrate Digital Logo",
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Gyrate Digital | All-In-One Digital Agency",
-    description: "Empowering brands through design, marketing, and technology.",
+    title: "Gyrate Digital | Digital Agency for Growth-Focused Brands",
+    description:
+      "Design, development & marketing solutions crafted to scale your business.",
+    images: ["/gy-logo.svg"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
   },
 };
 

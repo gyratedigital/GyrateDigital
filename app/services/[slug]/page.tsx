@@ -9,9 +9,31 @@ import NestedServiceCard from "../../components/shared/NestedServiceCard";
 import ServiceCTA from "../../components/shared/ServiceCTA";
 import { servicesSection, Service } from "../../data/servicesSection";
 
+import { Metadata } from "next";
+
 type ServiceParams =
   | { params: { slug: string } }
   | { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: ServiceParams): Promise<Metadata> {
+  const resolvedParams = "then" in params ? await params : params;
+  const slug = resolvedParams.slug;
+
+  const service = servicesSection.find((item) => item.slug === slug);
+
+  if (!service) {
+    return {
+      title: "Service Not Found",
+    };
+  }
+
+  const fullTitle = service.title.join("").replace(/\s+/g, " ").trim();
+
+  return {
+    title: `${fullTitle} | Services`,
+    description: service.description,
+  };
+}
 
 export default async function ServiceDetailPage({ params }: ServiceParams) {
   const resolvedParams = "then" in params ? await params : params;
@@ -31,13 +53,13 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
   const getCTAContent = (service: Service) => {
     const serviceTitle = fullTitle;
     const serviceCategory = service.category.toLowerCase();
-    
+
     // Generate heading based on service type
     let heading = `Ready to Get Started with ${serviceTitle}?`;
-    
+
     // Generate description based on service category
     let description = `Let's discuss how ${serviceTitle.toLowerCase()} can help you achieve your project goals and drive measurable results for your business.`;
-    
+
     // Customize based on service category
     if (serviceCategory.includes("ai") || serviceCategory.includes("genai")) {
       heading = `Ready to Transform Your Business with ${serviceTitle}?`;
@@ -58,7 +80,7 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
       heading = `Ready to Scale Your Team?`;
       description = `Let's discuss how ${serviceTitle.toLowerCase()} can help you achieve your project goals with the right talent at the right time.`;
     }
-    
+
     return { heading, description };
   };
 

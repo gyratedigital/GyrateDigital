@@ -34,7 +34,13 @@ export async function generateMetadata({ params }: PortfolioDetailsPageProps): P
     const title = Array.isArray(project.title) ? project.title.join(" ") : project.title;
 
     return {
-        title: `${title} | Portfolio`
+        title: `${title} | Portfolio`,
+        description: project.caseStudy?.summary || project.description,
+        openGraph: {
+            title: `${title} | Portfolio`,
+            description: project.caseStudy?.summary || project.description,
+            images: [project.image]
+        }
     };
 }
 
