@@ -13,8 +13,8 @@ export default function ServicesSection() {
                 <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Services</h2>
                 <p className="text-center text-sm text-foreground mb-12">Comprehensive services, lasting impact.</p>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {servicesSection.slice(0, 4).map((service) => (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {servicesSection.map((service) => (
                     <div key={service.id} className="card relative group bg-primary p-[30px] rounded-2xl shadow-md bg-[url('/card-bg.svg')] bg-[length:46%] bg-top-right bg-no-repeat transition-[background-size] duration-500 ease-in-out hover:bg-[length:80%] overflow-hidden block">
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-primary/90 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100 rounded-xl z-99"></div>

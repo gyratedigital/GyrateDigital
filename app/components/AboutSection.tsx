@@ -15,6 +15,8 @@ export default function AboutSection() {
                 <Image 
                     src="/about-img.svg" 
                     alt="About Image" 
+                    loading="lazy"
+                    
                     width={500} 
                     height={500} 
                 />

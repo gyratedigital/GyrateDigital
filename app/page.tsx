@@ -28,7 +28,7 @@ export default function Home() {
       {/* Background Video */}
       {/* <BackgroundVideo /> */}
       {/* <HaloBackground /> */}
-      <div className="header-banner relative overflow-hidden bg-[url('/spiral-bg.png')] bg-cover bg-center bg-no-repeat">
+      <div className="header-banner relative overflow-hidden bg-[url('/spiral-bg.png')] md:bg-cover bg-contain bg-center bg-no-repeat">
         <LightRays
           raysOrigin="top-center-offset"
           //  raysColor="#68BA7F"
