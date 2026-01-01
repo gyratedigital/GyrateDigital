@@ -59,7 +59,6 @@ export default function ContactPage() {
     setIsSubmitting(true);
     // Simulate form submission
     setTimeout(() => {
-      console.log(values);
       showToast("Message sent successfully!", "success", {
         description: "We'll get back to you soon.",
       });

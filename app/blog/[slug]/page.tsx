@@ -49,7 +49,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         setCopied(false);
       }, 1500);
     } catch (err) {
-      console.error("Failed to copy", err);
+      // Failed to copy - silently handle error
     }
   };
 
