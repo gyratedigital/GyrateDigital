@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
   title: {
     default: "Gyrate Digital | All-In-One Digital Agency for Design & Marketing",
-    template: "%s | Gyrate Digital",
+    template: "",
   },
 
   description:

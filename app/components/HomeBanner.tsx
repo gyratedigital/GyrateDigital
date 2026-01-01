@@ -16,7 +16,9 @@ export default function HeroSection() {
                     <div className="absolute z-0 w-[300px] h-[300px] blur-[50px] right-0 top-0 rounded-full bg-[radial-gradient(circle,#CDFFDC,rgba(9,9,17,0)_60%)]"></div>
                     <div className="banner-text relative z-1">
                         <Link
-                            href="/contact"
+                            href="https://calendly.com/gyratedigital/30min"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             data-slot="badge"
                             className="w-max inline-flex items-center justify-center gap-1 rounded-full border border-transparent bg-input px-2 py-0.5 text-xs font-medium text-dark transition-colors hover:bg-input/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 mb-2"
                         >
@@ -40,6 +42,11 @@ export default function HeroSection() {
                             <Link href="/services">
                                 <Button className="gap-2 px-4 py-2 text-base cursor-pointer h-[40px]">
                                     <p>Explore more</p>
+                                </Button>
+                            </Link>
+                            <Link href="/contact">
+                                <Button className="gap-2 px-4 py-2 text-base cursor-pointer h-[40px]">
+                                    <p>Contact</p>
                                 </Button>
                             </Link>
                         </div>
