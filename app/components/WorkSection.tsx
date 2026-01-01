@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function WorkSection() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const displayedWorks = workSection.slice(0, 4)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -91,9 +92,9 @@ export default function WorkSection() {
       </div>
 
       {/* Cards stacked */}
-      <div className="relative" style={{ height: `${Math.min(workSection.length * 55, 420)}vh` }}>
+      <div className="relative" style={{ height: `${Math.min(displayedWorks.length * 55, 420)}vh` }}>
         <div className="sticky top-24 flex flex-col items-center h-[70vh] sm:h-[80vh]">
-          {workSection.map((work) => (
+          {displayedWorks.map((work) => (
             <div
               key={work.id}
               className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:h-[70vh] sm:max-h-[80vh] sm:max-w-[90%] sm:flex-row p-6 sm:p-8"
@@ -239,6 +240,17 @@ export default function WorkSection() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* View All Button */}
+      <div className="flex justify-center ">
+        <Link
+          href="/portfolio"
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-primary/30"
+        >
+          View All
+          <ArrowRight className="h-5 w-5" />
+        </Link>
       </div>
     </div>
   )
