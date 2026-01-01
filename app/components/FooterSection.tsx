@@ -107,7 +107,7 @@ export default function FooterSection() {
                             <div>
                                 <h4 className="font-semibold text-card-light text-lg">United Kingdom Office</h4>
                                 <p className="text-card-light">33 Copgrove Road, Leeds,<br />West Yorkshire LS8 2SP, United Kingdom</p>
-                                <p className="text-card-light mt-2">+92 332 4543168</p>
+                                <p className="text-card-light mt-2">+44 7814 580990</p>
                             </div>
                             <div>
                                 <h4 className="font-semibold text-card-light text-lg">Bahrain Office</h4>
