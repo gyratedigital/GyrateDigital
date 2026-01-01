@@ -8,7 +8,7 @@ export default function FeaturedCategories() {
     useHorizontalScroll();
     return (
         <section className="relative overflow-hidden" id="horizontal-scroll">
-            <div className="sticky top-0 h-screen flex items-center">
+            <div className="sticky top-0 h-screen lg:h-[80vh] xl:h-[70vh] 2xl:h-[60vh] flex items-center">
                 {/* Horizontal track */}
                 <div className="flex gap-6 px-10 will-change-transform" id="horizontal-track">
                     {featuredCategories.map((cat) => (

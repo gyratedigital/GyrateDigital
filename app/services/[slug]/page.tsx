@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import FooterSection from "../../components/FooterSection";
 import NavigationMenuDemo from "../../components/Header";
+import NestedServiceCard from "../../components/shared/NestedServiceCard";
+import ServiceCTA from "../../components/shared/ServiceCTA";
 import { servicesSection, Service } from "../../data/servicesSection";
 
 type ServiceParams =
@@ -24,6 +26,43 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
   }
 
   const fullTitle = service.title.join("").replace(/\s+/g, " ").trim();
+
+  // Generate dynamic CTA content based on service
+  const getCTAContent = (service: Service) => {
+    const serviceTitle = fullTitle;
+    const serviceCategory = service.category.toLowerCase();
+    
+    // Generate heading based on service type
+    let heading = `Ready to Get Started with ${serviceTitle}?`;
+    
+    // Generate description based on service category
+    let description = `Let's discuss how ${serviceTitle.toLowerCase()} can help you achieve your project goals and drive measurable results for your business.`;
+    
+    // Customize based on service category
+    if (serviceCategory.includes("ai") || serviceCategory.includes("genai")) {
+      heading = `Ready to Transform Your Business with ${serviceTitle}?`;
+      description = `Let's explore how ${serviceTitle.toLowerCase()} can automate your workflows, enhance user experiences, and unlock new possibilities for your business.`;
+    } else if (serviceCategory.includes("mobile")) {
+      heading = `Ready to Build Your Mobile App?`;
+      description = `Let's discuss how our ${serviceTitle.toLowerCase()} services can help you create engaging mobile experiences that connect with your users and drive business growth.`;
+    } else if (serviceCategory.includes("web") || serviceCategory.includes("ecommerce")) {
+      heading = `Ready to Launch Your Web Project?`;
+      description = `Let's explore how our ${serviceTitle.toLowerCase()} solutions can help you build a powerful online presence that converts visitors into customers.`;
+    } else if (serviceCategory.includes("cloud") || serviceCategory.includes("devops")) {
+      heading = `Ready to Optimize Your Infrastructure?`;
+      description = `Let's discuss how our ${serviceTitle.toLowerCase()} services can help you deploy, scale, and maintain your applications with confidence.`;
+    } else if (serviceCategory.includes("ui") || serviceCategory.includes("ux") || serviceCategory.includes("design")) {
+      heading = `Ready to Elevate Your User Experience?`;
+      description = `Let's explore how our ${serviceTitle.toLowerCase()} services can help you create intuitive, beautiful interfaces that users love.`;
+    } else if (serviceCategory.includes("staff") || serviceCategory.includes("talent")) {
+      heading = `Ready to Scale Your Team?`;
+      description = `Let's discuss how ${serviceTitle.toLowerCase()} can help you achieve your project goals with the right talent at the right time.`;
+    }
+    
+    return { heading, description };
+  };
+
+  const ctaContent = getCTAContent(service);
 
   return (
     <div className="w-full">
@@ -94,37 +133,18 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-col gap-8 ">
           {service.nestedServices.map((item) => (
-            <div
+            <NestedServiceCard
               key={item.title}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-background/80 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="relative h-64 w-full overflow-hidden">
-                <Image
-                  src={item.image || service.image}
-                  alt={item.title}
-                  fill
-                  sizes="(min-width: 1024px) 320px, 50vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-1 flex-col gap-3 p-5">
-                <div className="flex items-center gap-2 text-primary text-sm font-semibold">
-                  <CheckCircle className="h-4 w-4" />
-                  Nested service
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-foreground/70 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </div>
+              service={item}
+              fallbackImage={service.image}
+            />
           ))}
         </div>
       </section>
+
+      <ServiceCTA heading={ctaContent.heading} description={ctaContent.description} />
 
       <FooterSection />
     </div>

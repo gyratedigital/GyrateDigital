@@ -8,8 +8,6 @@ import FooterSection from "../components/FooterSection";
 import Icon from "../components/Icon";
 import { Briefcase, ArrowRight } from "lucide-react";
 import Link from "next/link";
-// import Augmentation from "../components/services/Augmentation";
-import { augmentation } from "../data/augmentation";
 import JsonLd from "../components/JsonLd";
 import { servicesPageSchema } from "../data/schemas";
 
@@ -106,21 +104,18 @@ export default function ServicesPage() {
           </div>
         )}
       </div>
-      {/* <Augmentation /> */}
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl font-semibold text-center mb-8">Our Staff Augmentation Models</h2>
-        <div className="flex flex-col md:flex-row gap-6 items-stretch pb-[80px]">
-          {augmentation.map((item) => (
-            <div
-              key={item.id}
-              className="augmentation-card group flex flex-col w-full rounded-2xl border border-border/60 bg-card p-10 shadow-sm text-center"
-            >
-              <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
-              <p className="text-muted-foreground">{item.description}</p>
-            </div>
-          ))}
-        </div>
+      
+      {/* CTA Button Section */}
+      <div className="container mx-auto px-4 py-16 flex justify-center">
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-primary/30"
+        >
+          Expand your team
+          <ArrowRight className="h-5 w-5" />
+        </Link>
       </div>
+      
       <FooterSection />
     </div>
   );
