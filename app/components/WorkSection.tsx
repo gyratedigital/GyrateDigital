@@ -17,18 +17,21 @@ export default function WorkSection() {
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>('.work-card')
 
-      // initial state
-      gsap.set(cards, { yPercent: 10, opacity: 0, scale: 0.7 })
+      if (cards.length === 0) return
+
+      // initial state - all cards hidden
+      gsap.set(cards, { yPercent: 10, opacity: 0, scale: 0.7, zIndex: 1 })
 
       cards.forEach((card, i) => {
         const prevCards = cards.slice(0, i)
+        const nextCards = cards.slice(i + 1)
 
         // timeline for each card
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
-            start: () => `top+=${i * window.innerHeight-300 * 0.7} top`, // trigger a bit earlier
-            end: () => `+=${window.innerHeight-200 * 0.7}`,
+            start: () => `top+=${i * (window.innerHeight - 300) * 0.7} top`,
+            end: () => `+=${(window.innerHeight - 200) * 0.7}`,
             scrub: true,
           },
         })
@@ -44,16 +47,31 @@ export default function WorkSection() {
 
         // previous cards stacked behind
         prevCards.forEach((prevCard, j) => {
+          const stackDepth = i - j
           tl.to(
             prevCard,
             {
-              yPercent: -10 * (i - j),
-              scale: 0.9 - (i - j) * 0.05,
-              opacity: 0.1,
-              zIndex: 5 - (i - j),
+              yPercent: -10 * stackDepth,
+              scale: Math.max(0.7, 0.9 - stackDepth * 0.05),
+              opacity: Math.max(0, 0.1),
+              zIndex: Math.max(1, 5 - stackDepth),
               duration: 0.4,
             },
             '<' // run at same time
+          )
+        })
+
+        // future cards stay hidden
+        nextCards.forEach((nextCard) => {
+          tl.set(
+            nextCard,
+            {
+              yPercent: 10,
+              opacity: 0,
+              scale: 0.7,
+              zIndex: 1,
+            },
+            '<'
           )
         })
       })
@@ -72,7 +90,7 @@ export default function WorkSection() {
       </div>
 
       {/* Cards stacked */}
-      <div className="relative sm:h-[500vh] h-[510vh]"> {/* enough scroll space */}
+      <div className="relative" style={{ height: `${Math.max(workSection.length * 100, 500)}vh` }}>
         <div className="sticky top-24 flex flex-col items-center h-[70vh] sm:h-[80vh]">
           {workSection.map((work) => (
             <div

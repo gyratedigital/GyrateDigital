@@ -111,44 +111,90 @@ export const workSection = [
     },
     {
         id: "4",
-        slug: "nanoapp-studio",
-        category: "AI Builder",
-        title: ["Nano App", "Studio"],
-        description: "AI-driven app builder for creating micro-apps with prompts, datasets, and instant previews.",
-        image: "/portfolio/nano-studio.jpg",
+        slug: "aviator-connect",
+        category: "Aviation",
+        title: ["Aviator", "Connect"],
+        description:
+          "A privacy-first aviation recruitment platform that intelligently connects airlines with verified pilots through anonymized profiles, advanced search, and streamlined communic.ation",
+      
+        image: "/portfolio/aviator-connect.jpg",
         imageGallery: [
-            "/portfolio/nano-studio.jpg",
-            "/portfolio/visual-gallery/nano-studio-2.jpg",
-            "/portfolio/visual-gallery/nano-studio-3.jpg",
-            "/portfolio/visual-gallery/nano-studio-4.jpg",
+          "/portfolio/aviator-connect.jpg",
+          "/portfolio/visual-gallery/aviator-connect-2.jpg",
+          "/portfolio/visual-gallery/aviator-connect-3.jpg",
+          "/portfolio/visual-gallery/aviator-connect-4.jpg",
         ],
-        liveUrl: "https://nanoapp.nanostudio.ai/",
-        tags: ["AI", "No-code", "Multi-tenant", "Realtime Preview"],
+        liveUrl: "https://aviator-connect.com/",
+        tags: [
+          "Aviation Recruitment",
+          "Pilot Hiring Platform",
+          "Privacy-First Profiles",
+          "Advanced Pilot Search",
+          "Airline–Pilot Matching"
+        ],
+      
         caseStudy: {
-            summary: "Created an AI-assisted builder with live preview, prompt chaining, and dataset management for rapid prototyping.",
-            challenge: "Needed to orchestrate AI calls, preview state, and user datasets with minimal latency.",
-            solution: [
-                "Built a live canvas that syncs prompt edits to previews with optimistic updates.",
-                "Added dataset ingestion, schema validation, and safe prompt templates.",
-                "Implemented usage metering, quotas, and billing-friendly event logs."
-            ],
-            results: [
-                "Users ship prototypes 2.3x faster on average.",
-                "Reduced failed generations by 31% through guardrails and validation.",
-                "Sub-800ms median preview refresh under typical loads."
-            ],
-            metrics: [
-                { label: "Build Speed", value: "2.3x faster", description: "Prototype delivery speed" },
-                { label: "Error Rate", value: "-31%", description: "Reduction in failed generations" },
-                { label: "Preview Latency", value: "<800ms", description: "Median live preview refresh" }
-            ],
-            timeline: "10 weeks",
-            platform: "Next.js, Vercel, Vector Store",
-            services: ["Product Design", "Frontend", "AI Integration"],
-            deliverables: ["Design System", "AI Builder UI", "Usage Metering"],
-            gallery: [{ src: "/portfolio/nano-studio.jpg", caption: "Prompt-to-preview builder" }]
+          summary:
+            "Built a secure aviation recruitment platform that enables airlines to discover, evaluate, and connect with pilots.",
+      
+          challenge:
+            "Airlines struggle to find qualified pilots efficiently, while pilots face privacy concerns and limited control over how their professional data is shared.",
+      
+          solution: [
+            "Designed privacy-first pilot profiles where airlines can view anonymized information until a connection is approved.",
+            "Implemented structured pilot profiles including flight hours, aircraft type experience, simulator training, certifications, languages, and CVs.",
+            "Built advanced search and filtering tools for airlines to quickly identify suitable candidates.",
+            "Enabled direct, permission-based connections between airlines and pilots for secure communication."
+          ],
+      
+          results: [
+            "Improved pilot discovery and shortlisting speed for airlines.",
+            "Increased pilot trust through anonymized profile visibility.",
+            "Streamlined recruitment workflows by centralizing aviation-specific data."
+          ],
+      
+          metrics: [
+            {
+              label: "Profile Completion",
+              value: "90%+",
+              description: "Pilots completing full professional profiles"
+            },
+            {
+              label: "Search Efficiency",
+              value: "3x faster",
+              description: "Time to shortlist qualified pilots"
+            },
+            {
+              label: "Privacy Control",
+              value: "100%",
+              description: "Pilot-controlled profile visibility"
+            }
+          ],
+      
+          timeline: "8 weeks",
+          platform: "Next.js, Node.js, PostgreSQL",
+          services: [
+            "Product Strategy",
+            "UI/UX Design",
+            "Frontend Development",
+            "Backend Development",
+            "Database Architecture",
+            "Authentication & Privacy Controls"
+          ],
+          deliverables: [
+            "Pilot Profile Management System",
+            "Anonymized Profile & Connection Logic",
+            "Advanced Airline Search Dashboard",
+          ],
+          gallery: [
+            {
+              src: "/portfolio/aviator-connect.jpg",
+              caption: "Privacy-first pilot recruitment platform"
+            }
+          ]
         }
-    },
+      },
+      
     {
         id: "5",
         slug: "vendorzero",
@@ -228,5 +274,94 @@ export const workSection = [
             deliverables: ["Itinerary Templates", "Media Galleries", "Lead Flow"],
             gallery: [{ src: "/portfolio/eyes-for-nature.jpg", caption: "Itinerary and gallery view" }]
         }
-    }
+    },
+    {
+        id: "7",
+        slug: "pilot-jobs-cloud",
+        category: "Aviation",
+        title: ["Pilot Jobs", "Cloud"],
+        description:
+          "Discover premium pilot jobs and aviation careers worldwide. Browse opportunities from top airlines and aviation agencies.",
+      
+        image: "/portfolio/pilotjobs.jpg",
+        imageGallery: [
+          "/portfolio/pilotjobs.jpg",
+          "/portfolio/visual-gallery/pilotjobs-2.jpg",
+          "/portfolio/visual-gallery/pilotjobs-3.jpg",
+          "/portfolio/visual-gallery/pilotjobs-4.jpg",
+        ],
+        liveUrl: "https://pilotjobs.cloud/",
+        tags: [
+          "Pilot Jobs",
+          "Aviation Careers",
+          "Global Job Aggregation",
+          "Airline Job Posting",
+          "Featured Job Listings"
+        ],
+      
+        caseStudy: {
+          summary:
+            "Developed a centralized aviation job board that aggregates pilot vacancies from around the world while enabling airlines to publish and promote their own job listings.",
+      
+          challenge:
+            "Pilot job opportunities are scattered across multiple sources, making it difficult for pilots to find relevant openings and for airlines to reach qualified candidates effectively.",
+      
+          solution: [
+            "Aggregated pilot job listings from multiple global sources into a single searchable platform.",
+            "Built airline registration and job posting workflows with role-based dashboards.",
+            "Introduced premium featured job listings to increase airline visibility.",
+            "Implemented advanced search, filtering, and sorting by aircraft type, location, and job category.",
+            "Added job performance statistics and analytics for airlines."
+          ],
+      
+          results: [
+            "Significantly improved discoverability of global pilot job opportunities.",
+            "Increased airline engagement through featured job placements.",
+            "Enabled faster job discovery for pilots through powerful filters."
+          ],
+      
+          metrics: [
+            {
+              label: "Job Coverage",
+              value: "Global",
+              description: "Pilot jobs aggregated from worldwide sources"
+            },
+            {
+              label: "Search Efficiency",
+              value: "3x faster",
+              description: "Time to find relevant job listings"
+            },
+            {
+              label: "Featured Listings",
+              value: "+40%",
+              description: "Higher visibility compared to standard listings"
+            }
+          ],
+      
+          timeline: "8 weeks",
+          platform: "Next.js, Node.js, PostgreSQL, Stripe",
+          services: [
+            "Product Design",
+            "Frontend Development",
+            "Backend Development",
+            "Job Aggregation",
+            "Payment & Subscription Integration",
+            "Analytics & Reporting"
+          ],
+          deliverables: [
+            "Global Pilot Job Aggregation Engine",
+            "Airline Job Posting Dashboard",
+            "Featured (Paid) Job Listing System",
+            "Advanced Search & Filtering",
+            "Job Analytics & Statistics Dashboard"
+          ],
+          gallery: [
+            {
+              src: "/portfolio/pilotjobs.jpg",
+              caption: "Global pilot job listing and search interface"
+            }
+          ]
+        }
+      }
+      
 ];
