@@ -58,9 +58,10 @@ const getEmailLayout = (content: string, preheader: string = "") => `
 
       <div style="margin-top: 20px; font-size: 14px; color: ${colors.text}; line-height: 1.6;">
         <p style="margin: 3px 0;">33 Copgrove Road, Leeds, West Yorkshire LS8 2SP, United Kingdom</p>
+        
         <p style="margin: 3px 0;">Office 210, Building 1691, Road 432, Salmabad 704, Bahrain.</p>
         
-        <p style="margin: 15px 0 3px 0;"><strong>Phone:</strong> <a href="tel:+97334679176" style="color: #0066cc; text-decoration: underline;">+973 3467 9176</a></p>
+        <p style="margin: 15px 0 3px 0;"><strong>Phone:</strong> <a href="tel:+447814580990" style="color: #0066cc; text-decoration: underline;">+44 7814 580990</a></p>
         <p style="margin: 3px 0;"><strong>Email:</strong> <a href="mailto:info@gyratedigital.com" style="color: #0066cc; text-decoration: underline;">info@gyratedigital.com</a></p>
         <p style="margin: 3px 0;"><strong>Web:</strong> <a href="https://www.gyratedigital.com" style="color: #0066cc; text-decoration: underline;">www.gyratedigital.com</a></p>
       </div>
