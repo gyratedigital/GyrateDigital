@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ServiceParams): Promise<Metad
   const fullTitle = service.title.join("").replace(/\s+/g, " ").trim();
 
   return {
-    title: `${fullTitle} | Services`,
+    title: `${fullTitle} | Gyrate Digital Services`,
     description: service.description,
   };
 }
