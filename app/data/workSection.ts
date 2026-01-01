@@ -9,8 +9,8 @@ export const workSection = [
         imageGallery: [
             "/portfolio/einfatch.jpg",
             "/portfolio/visual-gallery/einfatch-2.jpg",
-            "/portfolio/visual-gallery/einfatch-3.jpg",
-            "/portfolio/visual-gallery/einfatch-4.jpg",
+            "/portfolio/visual-gallery/einfach3.png",
+            "/portfolio/visual-gallery/einfach4.jpg",
         ],
         liveUrl: "https://lernen.einfachdeutsch.de/",
         tags: ["Next.js", "E-learning", "Gamification", "Localization"],
@@ -81,6 +81,36 @@ export const workSection = [
     },
     {
         id: "3",
+        slug: "ionicx",
+        category: "AI Architect Design Tool",
+        title: ["IonicX"],
+        description: "AI-powered tool that makes professional-quality interior design accessible to everyone through instant, personalized room redesigns.",
+        image: "/portfolio/visual-gallery/ionicx.jpg",
+        imageGallery: [
+            "/portfolio/visual-gallery/ionicx.jpg",
+            "/portfolio/visual-gallery/ionicx-2.jpg",
+            "/portfolio/visual-gallery/ionicx-3.jpg",
+            "/portfolio/visual-gallery/ionicx-4.jpg",
+        ],
+        liveUrl: "https://www.ionicx.io/",
+        tags: ["AI", "Architect Design Tool", "SaaS", "Realtime Preview"],
+        caseStudy: {
+            summary: "Developed an AI-powered tool that transforms interior design with instant, personalized room redesigns.",
+            challenge: "Homeowners and architects struggle to quickly visualize architectural and interior design ideas.Traditional design workflows are time-consuming, expensive, and require multiple iterations to reach clarity.",
+            solution: [
+                "Built an AI-driven design platform that analyzes user-provided images, documents, styles, and text prompts.",
+                "The system intelligently gathers and interprets these inputs to generate architect-style design concepts and room redesigns.",
+                "Enabled both homeowners and architects to instantly visualize personalized architectural and interior designs without complex tools or manual drafting."
+            ],
+            timeline: "4 weeks",
+            platform: "Next.js, Vercel, Gemini, Backblaze",
+            services: ["Product Design", "Frontend", "AI Integration",],
+            deliverables: ["Design System", "AI powered tools",],
+            gallery: [{ src: "/portfolio/visual-gallery/ionicx.jpg", caption: "Room redesign" }]
+        }
+    },
+    {
+        id: "4",
         slug: "nanoapp-studio",
         category: "AI Builder",
         title: ["Nano App", "Studio"],
@@ -120,7 +150,7 @@ export const workSection = [
         }
     },
     {
-        id: "4",
+        id: "5",
         slug: "vendorzero",
         category: "B2B Procurement",
         title: ["Vendor Zero"],
@@ -160,7 +190,7 @@ export const workSection = [
         }
     },
     {
-        id: "5",
+        id: "6",
         slug: "eyes4nature-safaris",
         category: "Travel & Tourism",
         title: ["Eyes 4 Nature", "Safaris"],
