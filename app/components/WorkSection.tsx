@@ -27,11 +27,12 @@ export default function WorkSection() {
         const nextCards = cards.slice(i + 1)
 
         // timeline for each card
+        const scrollDistance = Math.min(window.innerHeight * 0.45, 380)
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,
-            start: () => `top+=${i * (window.innerHeight - 300) * 0.7} top`,
-            end: () => `+=${(window.innerHeight - 200) * 0.7}`,
+            start: () => `top+=${i * scrollDistance} top`,
+            end: () => `+=${scrollDistance}`,
             scrub: true,
           },
         })
@@ -90,7 +91,7 @@ export default function WorkSection() {
       </div>
 
       {/* Cards stacked */}
-      <div className="relative" style={{ height: `${Math.max(workSection.length * 100, 500)}vh` }}>
+      <div className="relative" style={{ height: `${Math.min(workSection.length * 55, 420)}vh` }}>
         <div className="sticky top-24 flex flex-col items-center h-[70vh] sm:h-[80vh]">
           {workSection.map((work) => (
             <div
