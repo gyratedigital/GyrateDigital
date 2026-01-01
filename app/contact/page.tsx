@@ -25,13 +25,11 @@ import { Mail, Phone, MapPin, ArrowUpRight, MessageSquare, ChevronDown, Check } 
 import { cn } from "@/lib/utils"; // Make sure we have cn or use string interpolation
 
 const serviceOptions = [
-  "Remote IT Resources",
+  "Staff Augmentation",
   "Custom Software Development",
   "Web Development",
   "Mobile App Development",
-  "AR/VR",
-  "Gaming",
-  "Cyber Security",
+  "Cloud Development",
   "Other IT Services"
 ];
 
