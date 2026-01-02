@@ -20,7 +20,7 @@ export default function BrandsSection () {
   if (!mounted) {
     return (
       <div className="container px-4 mx-auto mb-[100px]">
-        <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center relative">Our Clients</h2>
+        <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center relative">Our Partners</h2>
         <p className="text-center text-sm text-foreground mb-12">Proud to work with these leaders.</p>
         <div className="h-[80px]"></div> {/* Placeholder to prevent layout shift */}
       </div>
@@ -32,7 +32,7 @@ export default function BrandsSection () {
   
   return (
     <div className="container px-4 mx-auto mb-[100px]">
-      <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center relative">Our Clients</h2>
+      <h2 className="max-w-4xl font-semibold mx-auto mb-2 text-4xl text-foreground text-center relative">Our Partners</h2>
       <p className="text-center text-sm text-foreground mb-12">Proud to work with these leaders.</p>
       <Swiper
         modules={[Autoplay]}
@@ -132,6 +132,22 @@ export default function BrandsSection () {
             height={50}
             className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
           />
+        </SwiperSlide>
+        <SwiperSlide>
+          <a 
+            href="https://foodblogliebe.de/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center  cursor-pointer hover:opacity-80 transition-opacity duration-300"
+          >
+            <Image
+              src="https://foodblogliebe.de/wp-content/uploads/2020/11/cropped-Foodblogliebe_Logo-1-1.png"
+              alt="Foodblogliebe logo"
+              width={150}
+              height={125}
+              className={`w-full max-h-[125px] h-auto object-contain rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
+            />
+          </a>
         </SwiperSlide>
       </Swiper>
     </div>
