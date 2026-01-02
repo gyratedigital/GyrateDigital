@@ -9,22 +9,19 @@ export default function GreenBanner() {
         variant="secondary"
         className="mb-6 rounded-full bg-green-500/40 text-background hover:bg-green-500/60"
       >
-        Know us better
+        How We Create Value
       </Button>
 
       {/* Heading */}
       <h2 className="text-3xl font-bold tracking-tight text-background sm:text-4xl">
-        Your Premier Digital Marketing Agency
+        Your Premier Digital Solutions Partner
       </h2>
 
       {/* Paragraph */}
       <p className="mt-6 max-w-5xl mx-auto text-lg text-background/80">
-        At Gyrate Digital Agency, we are your dedicated problem solvers,
-        innovators and creators of remarkable design solutions. As a leading
-        Digital Marketing Agency, we go beyond design to offer comprehensive
-        solutions. From impactful social media campaigns to search engine
-        optimization SEO strategies, we are committed to driving your brands
-        success in the digital realm.
+        At Gyrate Digital, we focus on building digital solutions that perform over time.
+
+        By aligning strategy, design, development, marketing, and AI-enabled tools, we help businesses create systems that are usable, scalable, and continuously evolving.
       </p>
     </section>
   );

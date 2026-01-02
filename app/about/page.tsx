@@ -5,6 +5,7 @@ import { aboutSection } from "../data/aboutSection";
 import AboutUsMessage from "../components/AboutUsMessage";
 import NavigationMenuDemo from "../components/Header";
 import GreenBanner from "../components/about/GreenBanner";
+import CoreValuesMissionVision from "../components/about/CoreValuesMissionVision";
 import FooterSection from "../components/FooterSection";
 import Icon from "../components/Icon";
 import CtaSection from "../components/CtaSection";
@@ -37,13 +38,15 @@ export default function PortfolioPage() {
                             Who We Are
                         </h1>
                         <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl mx-auto">
-                            We are a team of passionate designers and developers dedicated to creating digital experiences that make a difference.
+                            Gyrate Digital is a one-stop digital and software solutions company. We help businesses plan, build, and grow meaningful digital experiences. From professional websites and digital platforms to custom web applications, SaaS products, and AI-enabled systems, we deliver solutions that scale.
                         </p>
                     </div>
                 </div>
             </div>
 
             <GreenBanner />
+            <CoreValuesMissionVision />
+
             <div className="container mx-auto px-4 flex flex-col items-center pt-[80px]">
 
                 {Array.isArray(aboutSection) && aboutSection.length > 0 ? (
