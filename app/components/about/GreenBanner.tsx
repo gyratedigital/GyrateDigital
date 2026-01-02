@@ -19,9 +19,7 @@ export default function GreenBanner() {
 
       {/* Paragraph */}
       <p className="mt-6 max-w-5xl mx-auto text-lg text-background/80">
-        At Gyrate Digital, we focus on building digital solutions that perform over time.
-
-        By aligning strategy, design, development, marketing, and AI-enabled tools, we help businesses create systems that are usable, scalable, and continuously evolving.
+        At Gyrate Digital, we focus on building digital solutions that perform over time. By aligning strategy, design, development, marketing, and AI-enabled tools, we help businesses create systems that are usable, scalable, and continuously evolving. Rather than offering isolated services, we take ownership of the full journey — combining strategy, design, software development, SaaS expertise, and AI capabilities to deliver long-term value.
       </p>
     </section>
   );
