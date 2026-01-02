@@ -134,11 +134,15 @@ export default function BrandsSection () {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <a 
-            href="https://foodblogliebe.de/" 
-            target="_blank" 
+          <a
+            href="https://foodblogliebe.de/"
+            target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center  cursor-pointer hover:opacity-80 transition-opacity duration-300"
+            className="flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity duration-300"
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open("https://foodblogliebe.de/", "_blank", "noopener,noreferrer");
+            }}
           >
             <Image
               src="https://foodblogliebe.de/wp-content/uploads/2020/11/cropped-Foodblogliebe_Logo-1-1.png"
