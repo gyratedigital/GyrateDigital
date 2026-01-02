@@ -126,8 +126,7 @@ export const workSection = [
         ],
         liveUrl: "https://aviator-connect.com/",
         tags: [
-          "Aviation Recruitment",
-          "Pilot Hiring Platform",
+          "Aviation",
           "Privacy-First Profiles",
           "Advanced Pilot Search",
           "Airline–Pilot Matching"
