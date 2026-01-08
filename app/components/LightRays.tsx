@@ -96,50 +96,53 @@ const LightRays: React.FC<LightRaysProps> = ({
   const animationIdRef = useRef<number | null>(null);
   const meshRef = useRef<Mesh | null>(null);
   const cleanupFunctionRef = useRef<(() => void) | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
-
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    observerRef.current.observe(containerRef.current);
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-        observerRef.current = null;
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible || !containerRef.current) return;
-
-    if (cleanupFunctionRef.current) {
-      cleanupFunctionRef.current();
-      cleanupFunctionRef.current = null;
-    }
+    let hasInitialized = false;
 
     const initializeWebGL = async () => {
-      if (!containerRef.current) return;
+      if (hasInitialized) return;
+      hasInitialized = true;
 
-      await new Promise((resolve) => setTimeout(resolve, 10));
+      // Wait for container to be available
+      let attempts = 0;
+      while (!containerRef.current && attempts < 50) { // Try for up to 5 seconds
+        await new Promise((resolve) => setTimeout(resolve, 100));
+        attempts++;
+      }
 
-      if (!containerRef.current) return;
+      if (!containerRef.current) {
+        return;
+      }
 
-      const renderer = new Renderer({
-        dpr: Math.min(window.devicePixelRatio, 2),
-        alpha: true,
-      });
-      rendererRef.current = renderer;
+      if (cleanupFunctionRef.current) {
+        cleanupFunctionRef.current();
+        cleanupFunctionRef.current = null;
+      }
+
+      let renderer;
+      try {
+        renderer = new Renderer({
+          dpr: Math.min(window.devicePixelRatio, 2),
+          alpha: true,
+        });
+        rendererRef.current = renderer;
+      } catch (error) {
+        // Fallback: create a visible div
+        const fallbackDiv = document.createElement('div');
+        fallbackDiv.style.cssText = `
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(104, 186, 127, 0.1) 0%, rgba(104, 186, 127, 0.05) 100%);
+          pointer-events: none;
+          z-index: -1;
+        `;
+        containerRef.current.appendChild(fallbackDiv);
+        return;
+      }
 
       const gl = renderer.gl;
       gl.canvas.style.width = "100%";
@@ -285,9 +288,11 @@ void main() {
       const updatePlacement = () => {
         if (!containerRef.current || !renderer) return;
 
-        renderer.dpr = Math.min(window.devicePixelRatio, 2);
+        // Use window dimensions for full-screen fixed element
+        const wCSS = window.innerWidth;
+        const hCSS = window.innerHeight;
 
-        const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current;
+        renderer.dpr = Math.min(window.devicePixelRatio, 2);
         renderer.setSize(wCSS, hCSS);
 
         const dpr = renderer.dpr;
@@ -376,7 +381,6 @@ void main() {
       }
     };
   }, [
-    isVisible,
     raysOrigin,
     raysColor,
     raysSpeed,
@@ -392,7 +396,7 @@ void main() {
   ]);
 
   useEffect(() => {
-    if (!uniformsRef.current || !containerRef.current || !rendererRef.current)
+    if (!uniformsRef.current || !rendererRef.current)
       return;
 
     const u = uniformsRef.current;
@@ -409,7 +413,9 @@ void main() {
     u.noiseAmount.value = noiseAmount;
     u.distortion.value = distortion;
 
-    const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current;
+    // Use window dimensions for consistency
+    const wCSS = window.innerWidth;
+    const hCSS = window.innerHeight;
     const dpr = renderer.dpr;
     const { anchor, dir } = getAnchorAndDir(raysOrigin, wCSS * dpr, hCSS * dpr);
     u.rayPos.value = anchor;
