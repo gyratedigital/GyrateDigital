@@ -7,12 +7,14 @@ import { Button } from '@/components/ui/button'
 // import Image from 'next/image'
 // import { useEffect, useRef } from "react";
 
+import SmoothMarquee from './SmoothMarquee'
+
 export default function HeroSection() {
 
     return (
         <div className="w-full flex items-center justify-between pt-[80px] h-screen">
             <div className="container px-4 relative flex sm:flex-row flex-col justify-center items-center pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-20 lg:pb-24 mx-auto px-4 gap-12 animate__animated animate__bounce">
-                <div className="hero-content flex flex-col gap-2 sm:w-4xl w-full items-center text-center">
+                <div className="hero-content flex flex-col gap-2 sm:max-w-6xl w-full items-center text-center">
                     <div className="absolute z-0 w-[300px] h-[300px] blur-[50px] right-0 top-0 rounded-full bg-[radial-gradient(circle,#CDFFDC,rgba(9,9,17,0)_60%)]"></div>
                     <div className="banner-text relative z-1">
                         <Link
@@ -26,10 +28,11 @@ export default function HeroSection() {
                             <ArrowRight className="size-3 pointer-events-none" />
                         </Link>
                         <h1 className="text-4xl font-semibold text-foreground lg:text-[2.75rem] xl:text-5xl mb-2 leading-tight">
-                            Gyrate is your All-In-One trusted<br /> Digital Agency
+                            {/* Gyrate is your All-In-One trusted<br /> Digital Agency */}
+                            Gyrate is your  Trusted All-In-One <br /> Digital Partner
                         </h1>
-                        <p className="text-base font-normal text-muted-foreground sm:text-lg mb-3">
-                            Helping brands grow through design, marketing, and technology.
+                        <p className="text-base font-normal text-muted-foreground sm:text-lg mb-3 max-w-3xl mx-auto">
+                            We design, build, and evolve digital systems — from websites and web applications to SaaS platforms and AI-enabled solutions and digital marketing — built for long-term performance.
                         </p>
                         <div className="flex w-full items-center justify-center gap-3 pt-2">
                             {/* <a
@@ -39,17 +42,19 @@ export default function HeroSection() {
                                 >
                                 Get Started
                             </a> */}
-                            <Link href="/services">
+                            {/* <Link href="/services">
                                 <Button className="gap-2 px-4 py-2 text-base cursor-pointer h-[40px]">
                                     <p>Explore more</p>
                                 </Button>
-                            </Link>
+                            </Link> */}
                             <Link href="/contact">
                                 <Button className="gap-2 px-4 py-2 text-base cursor-pointer h-[40px]">
-                                    <p>Contact</p>
+                                    <p>Talk to Us</p>
                                 </Button>
                             </Link>
                         </div>
+                        <SmoothMarquee />
+
                     </div>
                     <div className="absolute z-0 w-[300px] h-[300px] blur-[50px] left-0 bottom-0 rounded-full bg-[radial-gradient(circle,#CDFFDC,rgba(9,9,17,0)_60%)]"></div>
                 </div>

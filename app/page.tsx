@@ -11,6 +11,7 @@ import LightRays from "./components/LightRays";
 import HeroSection from "./components/HomeBanner";
 import QualitySection from "./components/QualitySection";
 import ServicesSection from "./components/ServicesSection";
+import DedicatedTeamSection from "./components/DedicatedTeamSection";
 import WorkSection from "./components/WorkSection";
 // import HaloBackground from "./components/ThreeBackground";
 // import BackgroundVideo from "./components/BackgroundVideo";
@@ -47,6 +48,7 @@ export default function Home() {
       <FeaturedCategories />
       <AboutSection />
       <ServicesSection />
+      <DedicatedTeamSection />
       <WorkSection />
       <QualitySection />
       <BrandsSection />

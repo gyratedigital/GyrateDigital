@@ -10,8 +10,8 @@ export default function ServicesSection() {
     return (
         <div className="container px-4 mx-auto mb-[100px]">
             <div className="max-w-4xl mx-auto">
-                <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Services</h2>
-                <p className="text-center text-sm text-foreground mb-12">Comprehensive services, lasting impact.</p>
+                <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">What We Build & Support </h2>
+                <p className="text-center text-sm text-foreground mb-12">Our services cover the full lifecycle of digital products — from development and design to growth, optimisation, and long-term support. </p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {servicesSection.map((service) => (
