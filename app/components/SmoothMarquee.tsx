@@ -18,15 +18,15 @@ export default function SmoothMarquee() {
       <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent z-10"></div>
 
       <div className="flex animate-marquee whitespace-nowrap">
-        {/* Render items multiple times for seamless looping */}
-        {[...Array(4)].map((_, containerIdx) => (
+        {/* Two identical sets for a perfectly seamless loop */}
+        {[...Array(2)].map((_, containerIdx) => (
           <div key={containerIdx} className="flex shrink-0 items-center">
             {MarqueeItems.map((item, idx) => (
-              <div key={idx} className="flex items-center mx-6 lg:mx-10 group">
+              <div key={idx} className="flex items-center px-6 lg:px-10 group">
                 <span className="text-sm lg:text-base font-medium text-muted-foreground uppercase tracking-widest group-hover:text-primary transition-colors duration-300">
                   {item}
                 </span>
-                <span className="ml-12 lg:ml-20 w-1.5 h-1.5 rounded-full bg-primary block"></span>
+                <span className="ml-12 lg:ml-20 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
               </div>
             ))}
           </div>
@@ -34,16 +34,27 @@ export default function SmoothMarquee() {
       </div>
 
       <style jsx>{`
+        .animate-marquee {
+          display: flex;
+          width: max-content;
+          animation: marquee 15s linear infinite;
+          will-change: transform;
+        }
+
         @keyframes marquee {
           0% {
-            transform: translateX(0);
+            transform: translate3d(0, 0, 0);
           }
           100% {
-            transform: translateX(-25%);
+            transform: translate3d(-50%, 0, 0);
           }
         }
+
+        /* Essential for eliminating flicker on some browsers */
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          backface-visibility: hidden;
+          perspective: 1000px;
+          transform-style: preserve-3d;
         }
       `}</style>
     </div>
