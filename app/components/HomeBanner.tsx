@@ -28,11 +28,10 @@ export default function HeroSection() {
                                 Go Digital with Gyrate
                                 <ArrowRight className="size-3 pointer-events-none" />
                             </Link>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-4 leading-[1.15] text-balance max-w-4xl mx-auto">
-                                {/* Gyrate is your All-In-One trusted<br /> Digital Agency */}
-                                Gyrate is your Trusted All-In-One <span className="hidden sm:inline"><br /></span> Digital Partner
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight max-w-screen-xl mx-auto text-balance">
+                                Gyrate is your Trusted All-In-One <br className="hidden md:block" /> Digital Partner
                             </h1>
-                            <p className="text-sm sm:text-base font-normal text-muted-foreground md:text-lg mb-6 max-w-2xl mx-auto px-2">
+                            <p className="text-base sm:text-lg md:text-xl font-normal text-muted-foreground mb-10 max-w-3xl md:max-w-4xl mx-auto px-4 leading-relaxed text-balance">
                                 We design, build, and evolve digital systems — from websites and web applications to SaaS platforms and AI-enabled solutions and digital marketing — built for long-term performance.
                             </p>
                             <div className="flex w-full items-center justify-center gap-3 pt-2">
