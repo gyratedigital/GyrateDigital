@@ -43,9 +43,9 @@ export default function BrandsSection () {
         autoplay={{
           delay: 1000,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true,
+          pauseOnMouseEnter: false,
         }}
-        allowTouchMove={false}
+        allowTouchMove={true}
         freeMode={true}
         breakpoints={{
           320: {

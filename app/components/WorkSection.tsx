@@ -83,7 +83,7 @@ export default function WorkSection() {
   }, [])
 
   return (
-    <div ref={containerRef} className="container px-4 mx-auto sm:mb-[100px] mb-[200px] relative">
+    <div ref={containerRef} className="container px-4 mx-auto sm:mb-[100px] mb-[250px] relative">
       <div className="max-w-4xl mx-auto">
         <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Our Work</h2>
         <p className="text-center text-sm text-foreground mb-12">
@@ -92,7 +92,7 @@ export default function WorkSection() {
       </div>
 
       {/* Cards stacked */}
-      <div className="relative" style={{ height: `${Math.min(displayedWorks.length * 55, 420)}vh` }}>
+      <div className="relative mb-32 sm:mb-12" style={{ height: `${Math.min(displayedWorks.length * 55 + 25, 445)}vh` }}>
         <div className="sticky top-24 flex flex-col items-center h-[70vh] sm:h-[80vh]">
           {displayedWorks.map((work) => (
             <div
@@ -243,7 +243,7 @@ export default function WorkSection() {
       </div>
 
       {/* View All Button */}
-      <div className="flex justify-center ">
+      <div className="flex justify-center !mt-20 md:mt-1 relative z-10">
         <Link
           href="/portfolio"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-primary/30"

@@ -104,7 +104,7 @@ export default function DedicatedTeamSection() {
                     </div>
 
                     {/* Right Side: Visual Element */}
-                    <div className="lg:w-1/2 relative animate__animated animate__fadeInRight">
+                    <div className="w-[87%] lg:w-1/2 relative animate__animated animate__fadeInRight ">
                         <div className="relative z-10 rounded-[40px] overflow-hidden border border-border bg-gradient-to-br from-card to-primary/5 p-12 lg:p-16 flex items-center justify-center min-h-[400px] shadow-2xl group">
                             {/* Central Icon Visual */}
                             <div className="relative">

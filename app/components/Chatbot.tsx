@@ -42,11 +42,6 @@ export default function Chatbot() {
     }
   }, [isOpen, messages.length, isTyping, typingMessage]);
 
-  useEffect(() => {
-    if (isOpen) {
-      inputRef.current?.focus();
-    }
-  }, [isOpen]);
 
   useEffect(() => {
     scrollToBottom();
