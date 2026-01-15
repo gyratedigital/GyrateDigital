@@ -243,7 +243,7 @@ export default function WorkSection() {
       </div>
 
       {/* View All Button */}
-      <div className="flex justify-center !mt-20 md:mt-1 relative z-10">
+      <div className="flex justify-center ">
         <Link
           href="/portfolio"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-primary/30"
