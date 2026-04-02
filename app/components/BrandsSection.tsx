@@ -145,10 +145,10 @@ export default function BrandsSection() {
             }}
           >
             <Image
-              src="https://foodblogliebe.de/wp-content/uploads/2020/11/cropped-Foodblogliebe_Logo-1-1.png"
+              src="/client-slider-images/fbl.png"
               alt="Foodblogliebe logo"
               width={150}
-              height={125}
+              height={150}
               className={`w-full max-h-[125px] h-auto object-contain rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
             />
           </a>
