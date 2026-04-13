@@ -61,7 +61,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Message is required' }, { status: 400 });
         }
 
-        const apiKey = process.env.GEMINI_API_KEY;
+        const apiKey = 'AIzaSyBO-xyzyz19zyf8St0ARNx91k0aababqaKUeQ';
         if (!apiKey) {
             return NextResponse.json({ error: 'GEMINI_API_KEY not configured' }, { status: 500 });
         }
