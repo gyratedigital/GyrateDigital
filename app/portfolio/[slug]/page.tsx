@@ -35,10 +35,10 @@ export async function generateMetadata({ params }: PortfolioDetailsPageProps): P
 
     return {
         title: `${title} | Gyrate Digital Portfolio`,
-        description: project.caseStudy?.summary || project.description,
+        description: project.caseStudy.summary || project.description,
         openGraph: {
             title: `${title} | Gyrate Digital Portfolio`,
-            description: project.caseStudy?.summary || project.description,
+            description: project.caseStudy.summary || project.description,
             images: [project.image]
         }
     };
