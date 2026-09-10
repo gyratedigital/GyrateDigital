@@ -127,8 +127,14 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-background text-foreground;
+    overflow-x: clip;
+    overscroll-behavior-y: contain;
   }
 }
 
@@ -317,6 +323,13 @@ h6 {
 
   .animate-work-image-scroll,
   .animate-work-image-scroll-reverse {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .animate-work-image-scroll,
+  .animate-work-image-scroll.reverse {
     animation: none !important;
   }
 }

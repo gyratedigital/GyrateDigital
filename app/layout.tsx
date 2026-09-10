@@ -6,7 +6,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import JsonLd from "./components/JsonLd";
 import { organizationSchema } from "./data/schemas";
 import { Toaster } from "sonner";
-import Chatbot from "./components/Chatbot";
+import LazyChatbot from "./components/LazyChatbot";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -121,7 +121,7 @@ export default function RootLayout({
           <LenisProvider>
             {children}
           </LenisProvider>
-          <Chatbot />
+          <LazyChatbot />
         </ThemeProvider>
       </body>
     </html>

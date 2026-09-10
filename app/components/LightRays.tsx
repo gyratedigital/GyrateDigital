@@ -14,7 +14,7 @@ export type RaysOrigin =
   | "bottom-right"
   | "bottom-left";
 
-interface LightRaysProps {
+export interface LightRaysProps {
   raysOrigin?: RaysOrigin;
   raysColor?: string;
   raysSpeed?: number;
@@ -123,7 +123,7 @@ const LightRays: React.FC<LightRaysProps> = ({
       let renderer;
       try {
         renderer = new Renderer({
-          dpr: Math.min(window.devicePixelRatio, 2),
+          dpr: Math.min(window.devicePixelRatio, 1.25),
           alpha: true,
         });
         rendererRef.current = renderer;
@@ -292,7 +292,7 @@ void main() {
         const wCSS = window.innerWidth;
         const hCSS = window.innerHeight;
 
-        renderer.dpr = Math.min(window.devicePixelRatio, 2);
+        renderer.dpr = Math.min(window.devicePixelRatio, 1.25);
         renderer.setSize(wCSS, hCSS);
 
         const dpr = renderer.dpr;

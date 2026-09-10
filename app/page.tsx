@@ -1,5 +1,3 @@
-'use client'
-
 import AboutSection from "./components/AboutSection";
 import BlogSection from "./components/BlogSection";
 import BrandsSection from "./components/BrandsSection";
@@ -7,15 +5,12 @@ import CtaSection from "./components/CtaSection";
 import FeaturedCategories from "./components/FeaturedCategoryCards";
 import FooterSection from "./components/FooterSection";
 import NavigationMenuDemo from "./components/Header";
-import LightRays from "./components/LightRays";
+import DesktopLightRays from "./components/DesktopLightRays";
 import HeroSection from "./components/HomeBanner";
 import QualitySection from "./components/QualitySection";
 import ServicesSection from "./components/ServicesSection";
 import DedicatedTeamSection from "./components/DedicatedTeamSection";
 import WorkSection from "./components/WorkSection";
-// import HaloBackground from "./components/ThreeBackground";
-// import BackgroundVideo from "./components/BackgroundVideo";
-
 
 import JsonLd from "./components/JsonLd";
 import { homePageSchema } from "./data/schemas";
@@ -30,9 +25,8 @@ export default function Home() {
       {/* <BackgroundVideo /> */}
       {/* <HaloBackground /> */}
       <div className="header-banner relative overflow-hidden bg-[url('/spiral-bg.png')] md:bg-cover bg-contain bg-center bg-no-repeat">
-        <LightRays
+        <DesktopLightRays
           raysOrigin="top-center-offset"
-          //  raysColor="#68BA7F"
           raysColor="#89e9a4"
           raysSpeed={1.5}
           lightSpread={0.8}

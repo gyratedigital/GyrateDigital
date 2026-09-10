@@ -8,6 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function useHorizontalScroll() {
   useEffect(() => {
+    // Pinning hijacks vertical scroll and is too heavy on phones.
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+
     const track = document.querySelector<HTMLElement>("#horizontal-track");
     const section = document.querySelector<HTMLElement>("#horizontal-scroll");
 
