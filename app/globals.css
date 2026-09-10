@@ -134,8 +134,24 @@
   body {
     @apply bg-background text-foreground;
     overflow-x: clip;
-    overscroll-behavior-y: contain;
   }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 
@@ -323,13 +339,6 @@ h6 {
 
   .animate-work-image-scroll,
   .animate-work-image-scroll-reverse {
-    animation: none !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .animate-work-image-scroll,
-  .animate-work-image-scroll.reverse {
     animation: none !important;
   }
 }

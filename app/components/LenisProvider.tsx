@@ -2,29 +2,46 @@
 
 import { ReactNode, useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function LenisProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      // Disable Lenis smooth scroll on mobile (<768px)
-      return;
-    }
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
 
     const lenis = new Lenis({
-      duration: 1.2, // scroll speed (lower = faster)
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth easing
+      lerp: isCoarsePointer ? 0.11 : 0.085,
       smoothWheel: true,
-    //   smoothTouch: false,
+      syncTouch: true,
+      syncTouchLerp: isCoarsePointer ? 0.12 : 0.075,
+      touchInertiaMultiplier: isCoarsePointer ? 28 : 35,
+      touchMultiplier: isCoarsePointer ? 1.2 : 1,
+      wheelMultiplier: 1,
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      autoResize: true,
     });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    lenis.on("scroll", ScrollTrigger.update);
 
-    requestAnimationFrame(raf);
+    const onTick = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(onTick);
+    gsap.ticker.lagSmoothing(0);
+
+    const refresh = () => ScrollTrigger.refresh();
+    const onLoad = () => refresh();
+
+    window.addEventListener("load", onLoad);
+    requestAnimationFrame(refresh);
 
     return () => {
+      window.removeEventListener("load", onLoad);
+      gsap.ticker.remove(onTick);
       lenis.destroy();
     };
   }, []);

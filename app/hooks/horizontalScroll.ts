@@ -8,9 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function useHorizontalScroll() {
   useEffect(() => {
-    // Pinning hijacks vertical scroll and is too heavy on phones.
-    if (window.matchMedia("(max-width: 767px)").matches) return;
-
     const track = document.querySelector<HTMLElement>("#horizontal-track");
     const section = document.querySelector<HTMLElement>("#horizontal-scroll");
 
@@ -27,13 +24,17 @@ export default function useHorizontalScroll() {
         scrollTrigger: {
           trigger: section,
           pin: true,
-          scrub: 0.5, // Smoother response
+          scrub: 0.65,
+          anticipatePin: 1,
           start: "top top",
           end: () => `+=${totalScroll}`,
           invalidateOnRefresh: true,
         },
       });
     });
+
+    const refresh = () => ScrollTrigger.refresh();
+    requestAnimationFrame(refresh);
 
     return () => ctx.revert();
   }, []);

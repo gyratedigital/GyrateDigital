@@ -13,19 +13,8 @@ gsap.registerPlugin(ScrollTrigger)
 export default function WorkSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const displayedWorks = workSection.slice(0, 4)
-  const [isDesktop, setIsDesktop] = React.useState(false)
 
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)')
-    const update = () => setIsDesktop(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
-
-  useEffect(() => {
-    if (!isDesktop) return
-
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>('.work-card')
 
@@ -45,7 +34,8 @@ export default function WorkSection() {
             trigger: containerRef.current,
             start: () => `top+=${i * scrollDistance} top`,
             end: () => `+=${scrollDistance}`,
-            scrub: true,
+            scrub: 0.6,
+            invalidateOnRefresh: true,
           },
         })
 
@@ -91,7 +81,7 @@ export default function WorkSection() {
     }, containerRef)
 
     return () => ctx.revert()
-  }, [isDesktop])
+  }, [])
 
   return (
     <div ref={containerRef} className="container px-4 mx-auto sm:mb-[100px] mb-[250px] relative">
@@ -103,15 +93,12 @@ export default function WorkSection() {
       </div>
 
       {/* Cards stacked */}
-      <div
-        className="relative mb-12 md:mb-32"
-        style={isDesktop ? { height: `${Math.min(displayedWorks.length * 55 + 25, 445)}vh` } : undefined}
-      >
-        <div className={`flex flex-col gap-8 ${isDesktop ? 'sticky top-24 items-center h-[80vh]' : ''}`}>
+      <div className="relative mb-32 sm:mb-12" style={{ height: `${Math.min(displayedWorks.length * 55 + 25, 445)}vh` }}>
+        <div className="sticky top-24 flex flex-col items-center h-[70vh] sm:h-[80vh]">
           {displayedWorks.map((work) => (
             <div
               key={work.id}
-              className={`work-card group flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:max-w-[90%] sm:flex-row p-6 sm:p-8 ${isDesktop ? 'absolute sm:h-[70vh] sm:max-h-[80vh]' : 'relative'}`}
+              className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:h-[70vh] sm:max-h-[80vh] sm:max-w-[90%] sm:flex-row p-6 sm:p-8"
             >
               <div className="flex flex-1 flex-col justify-center gap-6">
                 <div className="space-y-4">
@@ -193,17 +180,15 @@ export default function WorkSection() {
 
                   // const duplicated = [...galleryImages, ...galleryImages]
 
-                  const gallery = isDesktop
-                    ? [...work.imageGallery, ...work.imageGallery]
-                    : work.imageGallery.slice(0, 1)
+                  const duplicated = [...work.imageGallery, ...work.imageGallery]
 
                   return (
                     <div className="h-full w-full sm:max-h-full max-h-[283px] sm:rounded-tr-[40px] rounded-b-[32px] sm:rounded-b-none overflow-hidden">
-                      <div className={`work-image-scroller h-full overflow-hidden flex items-center gap-2 relative rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px] ${isDesktop ? 'w-[150%]' : 'w-full'}`}>
+                      <div className="work-image-scroller h-full w-[150%] overflow-hidden flex items-center gap-2 relative  rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
                         
                         {/* First Row - Scrolls Up */}
-                        <div className={`flex-1 flex flex-col justify-center gap-2 ${isDesktop ? 'animate-work-image-scroll' : ''}`}>
-                          {gallery.map((src, idx) => (
+                        <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll">
+                          {duplicated.map((src, idx) => (
                             <div
                               key={`${work.slug}-top-${idx}`}
                               className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/20 flex-shrink-0"
@@ -227,9 +212,8 @@ export default function WorkSection() {
                         </div>
 
                         {/* Second Row - Scrolls Down */}
-                        {isDesktop && (
                         <div className="flex-1 flex flex-col justify-center gap-2 animate-work-image-scroll reverse">
-                          {gallery.map((src, idx) => (
+                          {duplicated.map((src, idx) => (
                             <div
                               key={`${work.slug}-bottom-${idx}`}
                               className="relative h-auto w-full overflow-hidden rounded-xl bg-card-light/20 border border-foreground/5 flex-shrink-0"
@@ -250,7 +234,6 @@ export default function WorkSection() {
                             </div>
                           ))}
                         </div>
-                        )}
                       </div>
                     </div>
                   )
