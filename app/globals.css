@@ -312,34 +312,64 @@ h6 {
 }
 
 /* Work image vertical scroller (card image only) */
-@keyframes work-image-scroll {
-  0% {
-    transform: translateY(0);
+@keyframes work-image-scroll-up {
+  from {
+    transform: translate3d(0, 0, 0);
   }
 
-  100% {
-    transform: translateY(-50%);
+  to {
+    transform: translate3d(0, -50%, 0);
   }
+}
+
+@keyframes work-image-scroll-down {
+  from {
+    transform: translate3d(0, -50%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.work-image-scroller {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
 }
 
 .animate-work-image-scroll {
-  animation: work-image-scroll 6s linear infinite;
+  animation: work-image-scroll-up 14s linear infinite;
   will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .animate-work-image-scroll.reverse {
-  animation-direction: reverse;
+  animation-name: work-image-scroll-down;
+  animation-duration: 16s;
 }
 
-/* .work-image-scroller:hover .animate-work-image-scroll,
-.work-image-scroller:hover .animate-work-image-scroll-reverse {
+.work-image-scroller:hover .animate-work-image-scroll {
   animation-play-state: paused;
-} */
-@media (prefers-reduced-motion: reduce) {
+}
 
+@media (prefers-reduced-motion: reduce) {
   .animate-work-image-scroll,
-  .animate-work-image-scroll-reverse {
+  .animate-work-image-scroll.reverse {
     animation: none !important;
+    transform: none !important;
   }
 }
 

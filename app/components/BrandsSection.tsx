@@ -80,60 +80,6 @@ export default function BrandsSection() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <Image
-            src="/client-slider-images/client-2.svg"
-            alt="logo"
-            width={150}
-            height={50}
-            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/client-slider-images/client-3.svg"
-            alt="logo"
-            width={150}
-            height={50}
-            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/client-slider-images/client-4.svg"
-            alt="logo"
-            width={150}
-            height={50}
-            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/client-slider-images/client-5.svg"
-            alt="logo"
-            width={150}
-            height={50}
-            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/client-slider-images/client-4.svg"
-            alt="logo"
-            width={150}
-            height={50}
-            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/client-slider-images/client-6.svg"
-            alt="logo"
-            width={150}
-            height={50}
-            className={`w-full h-auto object-cover rounded-xl transition-all duration-300 ${isDark ? "invert" : ""}`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
           <a
             href="https://foodblogliebe.de/"
             target="_blank"

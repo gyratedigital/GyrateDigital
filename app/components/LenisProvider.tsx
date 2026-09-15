@@ -1,50 +1,75 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function LenisProvider({ children }: { children: ReactNode }) {
-  useEffect(() => {
-    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+type LenisContextValue = {
+  lenis: Lenis | null;
+};
 
-    const lenis = new Lenis({
-      lerp: isCoarsePointer ? 0.11 : 0.085,
+const LenisContext = createContext<LenisContextValue>({ lenis: null });
+
+export function useLenis() {
+  return useContext(LenisContext);
+}
+
+export default function LenisProvider({ children }: { children: ReactNode }) {
+  const [lenis, setLenis] = useState<Lenis | null>(null);
+
+  useEffect(() => {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
+    const instance = new Lenis({
+      // Lenis.dev-style feel: soft lerp, Lenis owns the smoothness
+      lerp: isTouch ? 0.1 : 0.08,
       smoothWheel: true,
       syncTouch: true,
-      syncTouchLerp: isCoarsePointer ? 0.12 : 0.075,
-      touchInertiaMultiplier: isCoarsePointer ? 28 : 35,
-      touchMultiplier: isCoarsePointer ? 1.2 : 1,
-      wheelMultiplier: 1,
+      syncTouchLerp: isTouch ? 0.085 : 0.07,
+      touchInertiaExponent: 1.7,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.15,
       orientation: "vertical",
       gestureOrientation: "vertical",
       autoResize: true,
+      autoRaf: false,
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
+    instance.on("scroll", ScrollTrigger.update);
 
     const onTick = (time: number) => {
-      lenis.raf(time * 1000);
+      instance.raf(time * 1000);
     };
 
     gsap.ticker.add(onTick);
     gsap.ticker.lagSmoothing(0);
 
-    const refresh = () => ScrollTrigger.refresh();
-    const onLoad = () => refresh();
+    setLenis(instance);
+    (window as Window & { __lenis?: Lenis }).__lenis = instance;
 
-    window.addEventListener("load", onLoad);
+    const refresh = () => {
+      instance.resize();
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("load", refresh);
     requestAnimationFrame(refresh);
 
     return () => {
-      window.removeEventListener("load", onLoad);
+      window.removeEventListener("load", refresh);
       gsap.ticker.remove(onTick);
-      lenis.destroy();
+      instance.destroy();
+      delete (window as Window & { __lenis?: Lenis }).__lenis;
+      setLenis(null);
     };
   }, []);
 
-  return <>{children}</>;
+  return (
+    <LenisContext.Provider value={{ lenis }}>
+      {children}
+    </LenisContext.Provider>
+  );
 }

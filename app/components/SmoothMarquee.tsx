@@ -3,11 +3,14 @@
 import * as React from "react";
 
 const MarqueeItems = [
-  "Digital Marketing",
-  "Design",
-  "Web Platforms",
-  "Custom Software",
-  "SaaS",
+  "Python",
+  "Next.js",
+  ".NET",
+  "Laravel",
+  "PHP",
+  "Support",
+  "WordPress",
+  "Shopify",
 ];
 
 export default function SmoothMarquee() {

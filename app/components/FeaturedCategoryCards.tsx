@@ -1,21 +1,36 @@
 'use client'
 
 import * as React from 'react'
+import { useRef } from 'react'
 import { featuredCategories } from "../data/featuredCategory";
 import useHorizontalScroll from '../hooks/horizontalScroll';
 
 export default function FeaturedCategories() {
-    useHorizontalScroll();
+    const sectionRef = useRef<HTMLElement>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
+
+    useHorizontalScroll({
+        sectionRef,
+        trackRef,
+        distanceScale: 1.15,
+    });
+
     return (
-        <section className="relative overflow-hidden" id="horizontal-scroll">
-            <div className="sticky top-0 h-screen lg:h-[80vh] xl:h-[70vh] 2xl:h-[60vh] flex items-center">
-                {/* Horizontal track */}
-                <div className="flex gap-6 px-10 will-change-transform" id="horizontal-track">
+        <section
+            ref={sectionRef}
+            className="relative h-screen w-full overflow-hidden"
+        >
+            <div className="flex h-full w-full items-center">
+                <div
+                    ref={trackRef}
+                    className="flex w-max items-stretch gap-6 px-6 will-change-transform md:gap-8 md:px-10 lg:gap-10 lg:px-14"
+                >
                     {featuredCategories.map((cat) => (
-                        <div 
-                            key={cat.id} 
-                            className="min-w-[350px] lg:min-w-[400px] card bg-primary p-[30px] rounded-2xl shadow-md w-full 
-                                       bg-[url('/card-bg.svg')] bg-[60%] bg-top-right bg-no-repeat"
+                        <div
+                            key={cat.id}
+                            className="card flex w-[78vw] max-w-[420px] shrink-0 flex-col bg-primary p-[30px] rounded-2xl shadow-md
+                                       bg-[url('/card-bg.svg')] bg-[60%] bg-top-right bg-no-repeat
+                                       sm:w-[360px] lg:w-[400px]"
                         >
                             <p className="text-card-dark text-xs mb-5">{cat.number}</p>
                             <h3 className="text-card-dark text-2xl font-semibold mb-5">
