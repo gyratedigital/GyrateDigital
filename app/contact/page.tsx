@@ -164,7 +164,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-foreground text-lg font-semibold mb-1">Call Us</h3>
-                  <p className="text-foreground/70">+44 7814 580990</p>
+                  <p className="text-foreground/70">+44 7943 939124</p>
                   <p className="text-foreground/70">Mon - Fri 11am - 8pm EST</p>
                 </div>
               </div>

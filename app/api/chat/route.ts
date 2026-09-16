@@ -40,7 +40,7 @@ Email: info@gyratedigital.com
 
 United Kingdom Office:
 Address: 33 Copgrove Road, Leeds, West Yorkshire LS8 2SP, United Kingdom
-Phone: +44 7814 580990
+Phone: +44 7943 939124
 
 Bahrain Office:
 Address: Office 210, Building 1691, Road 432, Salmabad 704, Bahrain
