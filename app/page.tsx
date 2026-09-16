@@ -12,6 +12,7 @@ import ServicesSection from "./components/ServicesSection";
 import DedicatedTeamSection from "./components/DedicatedTeamSection";
 import WorkSection from "./components/WorkSection";
 
+// This is a commit from the Codeturtle AI
 import JsonLd from "./components/JsonLd";
 import { homePageSchema } from "./data/schemas";
 import type { Metadata } from "next";
