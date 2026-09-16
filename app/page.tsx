@@ -14,6 +14,13 @@ import WorkSection from "./components/WorkSection";
 
 import JsonLd from "./components/JsonLd";
 import { homePageSchema } from "./data/schemas";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://gyratedigital.com",
+  },
+};
 
 export default function Home() {
   return (

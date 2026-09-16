@@ -58,10 +58,6 @@ export const metadata: Metadata = {
     },
   },
 
-  alternates: {
-    canonical: "https://gyratedigital.com",
-  },
-
   openGraph: {
     type: "website",
     locale: "en_US",

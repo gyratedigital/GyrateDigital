@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "About Us | Gyrate Digital",
     description: "Learn about Gyrate Digital - a passionate team of designers and developers dedicated to creating impactful digital experiences.",
+    alternates: {
+        canonical: "https://gyratedigital.com/about",
+    },
 };
 
 export default function AboutLayout({

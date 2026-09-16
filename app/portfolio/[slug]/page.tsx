@@ -32,13 +32,22 @@ export async function generateMetadata({ params }: PortfolioDetailsPageProps): P
     }
 
     const title = Array.isArray(project.title) ? project.title.join(" ") : project.title;
+    const url = `https://gyratedigital.com/portfolio/${project.slug}`;
 
     return {
         title: `${title} | Gyrate Digital Portfolio`,
         description: project.caseStudy?.summary || project.description,
+        robots: {
+            index: true,
+            follow: true,
+        },
+        alternates: {
+            canonical: url,
+        },
         openGraph: {
             title: `${title} | Gyrate Digital Portfolio`,
             description: project.caseStudy?.summary || project.description,
+            url,
             images: [project.image]
         }
     };

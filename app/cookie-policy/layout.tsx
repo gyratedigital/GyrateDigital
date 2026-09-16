@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Cookie Policy | Gyrate Digital",
     description: "Understand how we use cookies and tracking technologies to improve your experience on our website.",
+    alternates: {
+        canonical: "https://gyratedigital.com/cookie-policy",
+    },
 };
 
 export default function CookiePolicyLayout({
