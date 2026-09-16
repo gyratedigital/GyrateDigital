@@ -43,9 +43,9 @@ export default function WorkSection() {
       })
 
       const transitions = cards.length - 1
-      // Transition segments + longer hold on the last card only
+      // Equal scroll distance per card transition
       const endDistance = () =>
-        Math.round(window.innerHeight * transitions * 0.95 + window.innerHeight * 1.15)
+        Math.round(window.innerHeight * transitions * 0.95)
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -114,13 +114,6 @@ export default function WorkSection() {
           },
           at + 0.85
         )
-      })
-
-      // Extra hold only on the last card before unpinning
-      tl.to(cards[cards.length - 1], {
-        scale: 1,
-        duration: 1.1,
-        ease: 'none',
       })
     }, section)
 

@@ -172,9 +172,9 @@ export const blogPosts: BlogPost[] = [
       <p>The debate about AI and brand voice isn't about technology—it's about strategy. AI doesn't kill brand voice; poor strategy does. By treating AI as a tool that enhances human creativity rather than replaces it, you can maintain authentic brand voices while scaling your content production efficiently.</p>
     `,
     author: {
-      name: "Elton Tsang",
-      avatar: "/authors/elton-tsang.jpg",
-      bio: "Digital marketing strategist with 10+ years of experience in AI-driven campaigns and brand voice development."
+      name: "Gyrate Digital",
+      avatar: "/gyrate-monogram.png",
+      bio: "Full-service digital agency specializing in design, development, and marketing that helps brands grow online."
     },
     date: "13th Oct 2025",
     categories: ["AI", "Digital Marketing"],
@@ -534,9 +534,9 @@ className="bg-card" style="padding: 20px; border-radius: 8px; overflow-x: auto; 
       <p>The web design landscape of 2024 represents a perfect convergence of technology and creativity. By embracing these trends thoughtfully and focusing on user needs above all else, designers can create digital experiences that are not just visually stunning, but genuinely transformative.</p>
     `,
     author: {
-      name: "Sarah Johnson",
-      avatar: "/authors/sarah-johnson.jpg",
-      bio: "Lead UX designer specializing in emerging web technologies and user-centered design methodologies."
+      name: "Gyrate Digital",
+      avatar: "/gyrate-monogram.png",
+      bio: "Full-service digital agency specializing in design, development, and marketing that helps brands grow online."
     },
     date: "10th Oct 2025",
     categories: ["Web Design", "UI/UX"],
@@ -1212,9 +1212,9 @@ const App = () => (
       </blockquote>
     `,
     author: {
-      name: "Mike Chen",
-      avatar: "/authors/mike-chen.jpg",
-      bio: "Senior React developer and technical lead with expertise in large-scale application architecture and performance optimization."
+      name: "Gyrate Digital",
+      avatar: "/gyrate-monogram.png",
+      bio: "Full-service digital agency specializing in design, development, and marketing that helps brands grow online."
     },
     date: "8th Oct 2025",
     categories: ["Development", "React"],
@@ -1715,9 +1715,9 @@ const linkQualityScore = (backlink) => {
       <p>SEO success requires patience, persistence, and a commitment to continuous improvement. By following this comprehensive framework, you'll build a strong foundation that drives sustainable organic growth.</p>
     `,
     author: {
-      name: "Emma Wilson",
-      avatar: "/authors/emma-wilson.jpg",
-      bio: "SEO specialist and digital marketing consultant with expertise in search engine optimization and content strategy."
+      name: "Gyrate Digital",
+      avatar: "/gyrate-monogram.png",
+      bio: "Full-service digital agency specializing in design, development, and marketing that helps brands grow online."
     },
     date: "5th Oct 2025",
     categories: ["SEO", "Digital Marketing"],
@@ -2196,9 +2196,9 @@ const calculateSignificance = (control, variation, sampleSize) => {
       <p>Color psychology is both an art and a science. By understanding the emotional impact of colors and testing their effects on your specific audience, you can create brand experiences that resonate deeply and drive meaningful business results.</p>
     `,
     author: {
-      name: "David Rodriguez",
-      avatar: "/authors/david-rodriguez.jpg",
-      bio: "Brand strategist and color psychology expert with 8+ years of experience in visual identity and brand development."
+      name: "Gyrate Digital",
+      avatar: "/gyrate-monogram.png",
+      bio: "Full-service digital agency specializing in design, development, and marketing that helps brands grow online."
     },
     date: "3rd Oct 2025",
     categories: ["Brand Design", "Psychology"],
@@ -3117,9 +3117,9 @@ describe('MobileButton', () => {
       <p>Mobile-first design is no longer optional—it's essential for business success. By starting with mobile constraints and progressively enhancing for larger screens, you'll create experiences that work beautifully everywhere while prioritizing the majority of your users.</p>
     `,
     author: {
-      name: "Lisa Park",
-      avatar: "/authors/lisa-park.jpg",
-      bio: "Mobile UX designer and accessibility advocate specializing in responsive design and inclusive user experiences."
+      name: "Gyrate Digital",
+      avatar: "/gyrate-monogram.png",
+      bio: "Full-service digital agency specializing in design, development, and marketing that helps brands grow online."
     },
     date: "1st Oct 2025",
     categories: ["Mobile Design", "UI/UX"],
@@ -3776,9 +3776,9 @@ const campaignROI = calculateContentROI({
       <p>AI is revolutionizing content marketing, but success depends on strategic implementation and human oversight. By treating AI as a collaborative partner rather than a replacement, you can achieve unprecedented scale while maintaining quality and authenticity.</p>
     `,
     author: {
-      name: "Lisa Park",
-      avatar: "/authors/lisa-park.jpg",
-      bio: "Content marketing strategist and AI researcher focused on the intersection of technology and creative content."
+      name: "Gyrate Digital",
+      avatar: "/gyrate-monogram.png",
+      bio: "Full-service digital agency specializing in design, development, and marketing that helps brands grow online."
     },
     date: "28th Sep 2025",
     categories: ["Content Marketing", "AI"],
@@ -4801,9 +4801,9 @@ self.addEventListener('push', (event) => {
       <p>Building high-performance web applications requires a systematic approach combining technical optimization, continuous monitoring, and user-centric thinking. By following this comprehensive framework, you'll create applications that not only load fast but also provide exceptional user experiences across all devices and network conditions.</p>
     `,
     author: {
-      name: "Lisa Park",
-      avatar: "/authors/lisa-park.jpg",
-      bio: "Full-stack developer and performance optimization expert with deep knowledge of web technologies and scalability."
+      name: "Gyrate Digital",
+      avatar: "/gyrate-monogram.png",
+      bio: "Full-service digital agency specializing in design, development, and marketing that helps brands grow online."
     },
     date: "25th Sep 2025",
     categories: ["Performance", "Development"],

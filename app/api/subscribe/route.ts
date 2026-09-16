@@ -13,7 +13,7 @@ export async function POST(request: Request) {
         }
 
         // 1. Send email to Admin
-        const adminEmail = `${process.env.SMTP_USER || 'info@gyratedigital.com'}, daniyalamjadali@gmail.com`;
+        const adminEmail = 'gyratedigital@gmail.com';
 
         await sendMail(
             adminEmail,
