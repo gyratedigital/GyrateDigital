@@ -134,24 +134,27 @@ export default function WorkSection() {
 
   return (
     <div className="relative">
-      <div className="container mx-auto max-w-4xl px-4">
-        <h2 className="relative mb-2 text-center text-4xl font-semibold text-foreground">
-          Our Work
-        </h2>
-        <p className="mb-10 text-center text-sm text-foreground sm:mb-12">
-          Designs that speak, results that last.
-        </p>
-      </div>
+      <section
+        ref={sectionRef}
+        className="relative flex h-screen w-full flex-col overflow-hidden"
+      >
+        <div className="container mx-auto max-w-4xl shrink-0 px-4 pt-6 pb-4 sm:pt-8 sm:pb-6">
+          <h2 className="relative mb-2 text-center text-3xl font-semibold text-foreground sm:text-4xl">
+            Our Work
+          </h2>
+          <p className="text-center text-sm text-foreground">
+            Designs that speak, results that last.
+          </p>
+        </div>
 
-      <section ref={sectionRef} className="relative h-screen w-full overflow-hidden">
         <div
           ref={stageRef}
-          className="relative flex h-full w-full items-center justify-center px-4"
+          className="relative flex min-h-0 flex-1 w-full items-center justify-center px-4 pb-4"
         >
           {displayedWorks.map((work) => (
             <div
               key={work.id}
-              className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card p-6 text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:h-[70vh] sm:max-h-[80vh] sm:max-w-[90%] sm:flex-row sm:p-8"
+              className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card p-6 text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:h-[min(62vh,640px)] sm:max-h-[68vh] sm:max-w-[90%] sm:flex-row sm:p-8"
             >
               <div className="flex flex-1 flex-col justify-center gap-6">
                 <div className="space-y-4">

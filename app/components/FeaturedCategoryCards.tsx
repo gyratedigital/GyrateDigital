@@ -18,9 +18,9 @@ export default function FeaturedCategories() {
     return (
         <section
             ref={sectionRef}
-            className="relative h-screen w-full overflow-hidden"
+            className="relative flex h-screen w-full flex-col overflow-hidden"
         >
-            <div className="flex h-full w-full items-center">
+            <div className="flex min-h-0 flex-1 items-center">
                 <div
                     ref={trackRef}
                     className="flex w-max items-stretch gap-6 px-6 will-change-transform md:gap-8 md:px-10 lg:gap-10 lg:px-14"
