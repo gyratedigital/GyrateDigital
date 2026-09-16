@@ -12,121 +12,117 @@ import { useLenis } from './LenisProvider'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function WorkSection() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const stageRef = useRef<HTMLDivElement>(null)
   const { lenis } = useLenis()
   const displayedWorks = workSection.slice(0, 4)
 
   useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
+    const section = sectionRef.current
+    const stage = stageRef.current
+    if (!section || !stage) return
 
     const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray<HTMLElement>('.work-card')
-      if (cards.length === 0) return
+      const cards = gsap.utils.toArray<HTMLElement>('.work-card', stage)
+      if (cards.length < 2) return
 
-      // Normal cards move through fairly quickly; only the last one holds longer
-      const normalScroll = () => Math.round(window.innerHeight * 0.55)
-      const lastScroll = () => Math.round(window.innerHeight * 1.25)
-
-      const distanceFor = (i: number) =>
-        i === cards.length - 1 ? lastScroll() : normalScroll()
-
-      const startOffsetFor = (i: number) => {
-        let offset = 0
-        for (let j = 0; j < i; j++) offset += distanceFor(j)
-        return offset
-      }
-
+      // Lenis.dev "enter in": next card scales up from behind, current flies toward camera
       gsap.set(cards, {
-        yPercent: 22,
+        scale: 0.55,
         opacity: 0,
-        scale: 0.78,
         zIndex: 1,
         force3D: true,
         transformOrigin: '50% 50%',
+        pointerEvents: 'none',
       })
-      // First card visible on load
-      gsap.set(cards[0], { yPercent: 0, opacity: 1, scale: 1, zIndex: 10 })
+      gsap.set(cards[0], {
+        scale: 1,
+        opacity: 1,
+        zIndex: 10,
+        pointerEvents: 'auto',
+      })
+
+      const transitions = cards.length - 1
+      // Transition segments + longer hold on the last card only
+      const endDistance = () =>
+        Math.round(window.innerHeight * transitions * 0.95 + window.innerHeight * 1.15)
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: () => `+=${endDistance()}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
+        },
+      })
 
       cards.forEach((card, i) => {
-        const prevCards = cards.slice(0, i)
-        const nextCards = cards.slice(i + 1)
-        const isLast = i === cards.length - 1
+        if (i === cards.length - 1) return
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: container,
-            start: () => `top+=${startOffsetFor(i)} top`,
-            end: () => `+=${distanceFor(i)}`,
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
-        })
+        const next = cards[i + 1]
+        const at = i
 
-        if (i === 0) {
-          tl.to(card, { scale: 1, duration: 1, ease: 'none' })
-          return
-        }
-
-        // Enter + pop out
-        tl.fromTo(
+        // Current card — scale past the viewer (out)
+        tl.to(
           card,
-          { yPercent: 22, scale: 0.78, opacity: 0, zIndex: 1 },
           {
-            yPercent: 0,
-            scale: 1.05,
-            opacity: 1,
-            zIndex: 20,
-            duration: isLast ? 0.4 : 0.7,
+            scale: 1.65,
+            opacity: 0,
+            zIndex: 5,
+            pointerEvents: 'none',
+            duration: 1,
             ease: 'none',
             force3D: true,
-          }
+          },
+          at
         )
-        // Settle from overshoot
-        tl.to(card, {
-          scale: 1,
-          duration: isLast ? 0.15 : 0.2,
-          ease: 'none',
-          force3D: true,
-        })
-        // Extra hold only on the last card
-        tl.to(card, {
-          scale: 1,
-          duration: isLast ? 0.45 : 0.1,
-          ease: 'none',
-        })
 
-        prevCards.forEach((prevCard, j) => {
-          const stackDepth = i - j
-          tl.to(
-            prevCard,
-            {
-              yPercent: -8 * stackDepth,
-              scale: Math.max(0.72, 0.94 - stackDepth * 0.06),
-              opacity: Math.max(0.08, 0.45 - stackDepth * 0.15),
-              zIndex: Math.max(1, 8 - stackDepth),
-              duration: isLast ? 0.4 : 0.7,
-              ease: 'none',
-              force3D: true,
-            },
-            0
-          )
-        })
+        // Next card — enter from behind and pop into place
+        tl.fromTo(
+          next,
+          {
+            scale: 0.5,
+            opacity: 0,
+            zIndex: 20,
+            pointerEvents: 'none',
+          },
+          {
+            scale: 1.04,
+            opacity: 1,
+            zIndex: 20,
+            pointerEvents: 'auto',
+            duration: 0.85,
+            ease: 'none',
+            force3D: true,
+          },
+          at
+        )
 
-        nextCards.forEach((nextCard) => {
-          tl.set(
-            nextCard,
-            {
-              yPercent: 22,
-              opacity: 0,
-              scale: 0.78,
-              zIndex: 1,
-            },
-            0
-          )
-        })
+        // Settle pop (1.04 → 1)
+        tl.to(
+          next,
+          {
+            scale: 1,
+            duration: 0.15,
+            ease: 'none',
+            force3D: true,
+          },
+          at + 0.85
+        )
       })
-    }, container)
+
+      // Extra hold only on the last card before unpinning
+      tl.to(cards[cards.length - 1], {
+        scale: 1,
+        duration: 1.1,
+        ease: 'none',
+      })
+    }, section)
 
     const refresh = () => {
       lenis?.resize()
@@ -144,24 +140,25 @@ export default function WorkSection() {
   }, [lenis])
 
   return (
-    <div ref={containerRef} className="container px-4 mx-auto sm:mb-[100px] mb-[250px] relative">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">Our Work</h2>
-        <p className="text-center text-sm text-foreground mb-12">
+    <div className="relative">
+      <div className="container mx-auto max-w-4xl px-4">
+        <h2 className="relative mb-2 text-center text-4xl font-semibold text-foreground">
+          Our Work
+        </h2>
+        <p className="mb-10 text-center text-sm text-foreground sm:mb-12">
           Designs that speak, results that last.
         </p>
       </div>
 
-      {/* Cards stacked — shorter travel for early cards, longer hold for the last */}
-      <div
-        className="relative mb-32 sm:mb-12"
-        style={{ height: `${(displayedWorks.length - 1) * 55 + 125 + 20}vh` }}
-      >
-        <div className="sticky top-24 flex flex-col items-center h-[70vh] sm:h-[80vh]">
+      <section ref={sectionRef} className="relative h-screen w-full overflow-hidden">
+        <div
+          ref={stageRef}
+          className="relative flex h-full w-full items-center justify-center px-4"
+        >
           {displayedWorks.map((work) => (
             <div
               key={work.id}
-              className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:h-[70vh] sm:max-h-[80vh] sm:max-w-[90%] sm:flex-row p-6 sm:p-8"
+              className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card p-6 text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:h-[70vh] sm:max-h-[80vh] sm:max-w-[90%] sm:flex-row sm:p-8"
             >
               <div className="flex flex-1 flex-col justify-center gap-6">
                 <div className="space-y-4">
@@ -215,16 +212,14 @@ export default function WorkSection() {
                 </div>
               </div>
 
-              <div className="relative w-full overflow-hidden rounded-b-[32px] bg-background sm:h-full sm:max-h-full max-h-[300px] sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] p-2 sm:p-3 sm:mt-0 mt-6">
+              <div className="relative mt-6 w-full max-h-[300px] overflow-hidden rounded-b-[32px] bg-background p-2 sm:mt-0 sm:h-full sm:max-h-full sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] sm:p-3">
                 {(() => {
                   const gallery = work.imageGallery
-                  // Two identical halves = seamless -50% loop
                   const column = [...gallery, ...gallery]
 
                   return (
-                    <div className="h-full w-full sm:max-h-full max-h-[283px] sm:rounded-tr-[40px] rounded-b-[32px] sm:rounded-b-none overflow-hidden">
+                    <div className="h-full max-h-[283px] w-full overflow-hidden rounded-b-[32px] sm:max-h-full sm:rounded-b-none sm:rounded-tr-[40px]">
                       <div className="work-image-scroller relative flex h-full w-full items-start gap-2 overflow-hidden rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
-                        {/* First column — scrolls up */}
                         <div className="flex w-1/2 shrink-0 flex-col gap-2 animate-work-image-scroll">
                           {column.map((src, idx) => (
                             <div
@@ -249,7 +244,6 @@ export default function WorkSection() {
                           ))}
                         </div>
 
-                        {/* Second column — scrolls down */}
                         <div className="flex w-1/2 shrink-0 flex-col gap-2 animate-work-image-scroll reverse">
                           {column.map((src, idx) => (
                             <div
@@ -281,9 +275,9 @@ export default function WorkSection() {
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="flex justify-center">
+      <div className="mt-12 flex justify-center px-4">
         <Link
           href="/portfolio"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-primary/30"

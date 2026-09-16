@@ -23,11 +23,11 @@ export default function DedicatedTeamSection() {
     ];
 
     return (
-        <div className="container px-4 mx-auto my-[100px]">
+        <div className="container px-4 mx-auto">
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     {/* Left Side: Content */}
-                    <div className="lg:w-1/2 space-y-8 animate__animated animate__fadeInLeft">
+                    <div className="lg:w-1/2 space-y-8">
                         <div>
                             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-wider uppercase bg-primary/10 text-primary rounded-full">
                                 Dedicated Development Teams
@@ -104,20 +104,20 @@ export default function DedicatedTeamSection() {
                     </div>
 
                     {/* Right Side: Visual Element */}
-                    <div className="w-[87%] lg:w-1/2 relative animate__animated animate__fadeInRight ">
-                        <div className="relative z-10 rounded-[40px] overflow-hidden border border-border bg-gradient-to-br from-card to-primary/5 p-12 lg:p-16 flex items-center justify-center min-h-[400px] shadow-2xl group">
+                    <div className="w-[87%] lg:w-1/2 relative">
+                        <div className="relative z-10 rounded-[40px] overflow-hidden border border-border bg-gradient-to-br from-card to-primary/5 p-12 lg:p-16 flex items-center justify-center min-h-[400px] shadow-2xl">
                             {/* Central Icon Visual */}
                             <div className="relative">
-                                <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full scale-150 animate-pulse"></div>
-                                <div className="relative bg-card-dark rounded-3xl p-8 border border-white/10 shadow-2xl transform transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110">
+                                <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full scale-150"></div>
+                                <div className="relative bg-card-dark rounded-3xl p-8 border border-white/10 shadow-2xl">
                                     <Users className="w-24 h-24 text-primary" strokeWidth={1} />
                                 </div>
 
                                 {/* Floating Small Icons */}
-                                <div className="absolute -top-6 -right-6 bg-primary p-3 rounded-xl shadow-lg border border-white/20 animate-bounce-slow">
+                                <div className="absolute -top-6 -right-6 bg-primary p-3 rounded-xl shadow-lg border border-white/20">
                                     <Code className="w-6 h-6 text-primary-foreground" />
                                 </div>
-                                <div className="absolute -bottom-4 -left-8 bg-secondary p-3 rounded-xl shadow-lg border border-white/20 animate-bounce-slow delay-300">
+                                <div className="absolute -bottom-4 -left-8 bg-secondary p-3 rounded-xl shadow-lg border border-white/20">
                                     <Zap className="w-6 h-6 text-white" />
                                 </div>
                             </div>

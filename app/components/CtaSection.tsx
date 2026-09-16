@@ -9,7 +9,7 @@ export default function CtaSection() {
     const { ripples, addRipple } = useRippleEffect();
 
     return (
-        <div className="container px-4 mx-auto mb-[100px]">
+        <div className="container px-4 mx-auto">
             <div className="relative w-full bg-primary rounded-xl md:px-8 px-4 py-16 flex flex-col items-center">
                 <Image
                     src={"/quater-circle.svg"}

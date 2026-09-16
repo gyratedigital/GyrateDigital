@@ -19,7 +19,7 @@ export default function ServicesSection() {
     });
 
     return (
-        <div className="mb-[100px]">
+        <div>
             <div className="container px-4 mx-auto">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="font-semibold mb-2 text-4xl text-foreground text-center relative">What We Build & Support </h2>

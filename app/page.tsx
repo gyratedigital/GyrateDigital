@@ -15,16 +15,11 @@ import WorkSection from "./components/WorkSection";
 import JsonLd from "./components/JsonLd";
 import { homePageSchema } from "./data/schemas";
 
-
 export default function Home() {
-
   return (
     <div className="w-full min-h-screen bg-background/50">
       <JsonLd data={homePageSchema} />
-      {/* Background Video */}
-      {/* <BackgroundVideo /> */}
-      {/* <HaloBackground /> */}
-      <div className="header-banner relative overflow-hidden bg-[url('/spiral-bg.png')] md:bg-cover bg-contain bg-center bg-no-repeat">
+      <div className="header-banner relative overflow-hidden bg-[url('/spiral-bg.png')] bg-contain bg-center bg-no-repeat md:bg-cover">
         <DesktopLightRays
           raysOrigin="top-center-offset"
           raysColor="#89e9a4"
@@ -39,15 +34,19 @@ export default function Home() {
         <NavigationMenuDemo />
         <HeroSection />
       </div>
-      <FeaturedCategories />
-      <AboutSection />
-      <ServicesSection />
-      <DedicatedTeamSection />
-      <WorkSection />
-      <QualitySection />
-      <BrandsSection />
-      <BlogSection />
-      <CtaSection />
+
+      <div className="flex flex-col gap-[100px] py-[100px]">
+        <BrandsSection />
+        <FeaturedCategories />
+        <AboutSection />
+        <ServicesSection />
+        <WorkSection />
+        <DedicatedTeamSection />
+        <QualitySection />
+        <BlogSection />
+        <CtaSection />
+      </div>
+
       <FooterSection />
     </div>
   );

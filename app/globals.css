@@ -373,6 +373,28 @@ h6 {
   }
 }
 
+@keyframes site-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-site-marquee {
+  animation: site-marquee 28s linear infinite;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-site-marquee {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* Blog Content Styles */
 .blog-content-box {
   background-color: var(--card);

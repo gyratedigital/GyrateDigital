@@ -14,7 +14,7 @@ export default function HeroSection() {
     return (
         <>
             <div className="w-full flex items-center justify-center pt-[80px] min-h-screen overflow-hidden">
-                <div className="w-full max-w-7xl relative flex flex-col justify-center items-center pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-20 lg:pb-24 mx-auto px-4 sm:px-6 gap-12 animate__animated animate__fadeIn">
+                <div className="w-full max-w-7xl relative flex flex-col justify-center items-center pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-20 lg:pb-24 mx-auto px-4 sm:px-6 gap-12">
                     <div className="hero-content flex flex-col gap-2 w-full items-center text-center px-2">
                         <div className="absolute z-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] blur-[50px] right-0 top-0 rounded-full bg-[radial-gradient(circle,#CDFFDC,rgba(9,9,17,0)_60%)] opacity-50"></div>
                         <div className="banner-text relative z-1 w-full flex flex-col items-center">
