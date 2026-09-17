@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { useRippleEffect } from "@/hooks/useRippleEffect";
 
+// test 
 export default function AboutSection() {
     const { ripples, addRipple } = useRippleEffect();
 
