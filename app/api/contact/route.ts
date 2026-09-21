@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
         // 1. Send email to Admin
         // Using default from env or fallback
-        const adminEmail = 'gyratedigital@gmail.com';
+        const adminEmail = 'contact@gyratedigital.com';
 
         await sendMail(
             adminEmail,
