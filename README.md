@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started, changes live on codeturtle
+## Getting Started, changes live on codeturtle with file opened
 
 First, run the development server:
 
