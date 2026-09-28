@@ -52,17 +52,12 @@ export default function Home() {
         <div className="mb-[100px]">
           <BrandsSection />
         </div>
-
-        <FeaturedCategories />
-
+        <ServicesSection />
         <div className="my-[100px]">
           <AboutSection />
         </div>
-
-        <ServicesSection />
-
         <WorkSection />
-
+        <FeaturedCategories />
         <div className="mt-[100px] flex flex-col gap-[100px]">
           <DedicatedTeamSection />
           <QualitySection />

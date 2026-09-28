@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from 'react'
-import { servicesSection } from '../data/servicesSection'
+import { homepageServices } from '../data/homepageServices'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { useRippleEffect } from '@/hooks/useRippleEffect'
@@ -36,7 +36,7 @@ export default function ServicesSection() {
                     ref={trackRef}
                     className="flex w-max items-stretch gap-6 px-6 will-change-transform md:gap-8 md:px-10 lg:gap-10 lg:px-14"
                 >
-                    {servicesSection.map((service) => (
+                    {homepageServices.map((service) => (
                         <div
                             key={service.id}
                             className="card relative group flex w-[78vw] max-w-[420px] shrink-0 flex-col overflow-hidden
@@ -49,13 +49,13 @@ export default function ServicesSection() {
                             <div className="relative z-10">
                                 <p className="text-card-dark text-xs mb-5">{service.number}</p>
                                 <h3 className="text-card-dark text-2xl font-semibold mb-5 line-clamp-2">
-                                    {(Array.isArray(service.title) ? service.title : [service.title]).map((ti, i) => (
+                                    {service.title.map((ti, i) => (
                                         <p key={i} className="outfit-text text-card-dark text-2xl font-semibold mb-0">
                                             {ti}
                                         </p>
                                     ))}
                                 </h3>
-                                <p className="text-card-dark text-sm line-clamp-4">{service.description}</p>
+                                <p className="text-card-dark text-sm line-clamp-5">{service.description}</p>
                             </div>
                             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-card-dark text-lg font-semibold opacity-0 translate-y-5 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 z-99">
                                 <Link
@@ -79,10 +79,10 @@ export default function ServicesSection() {
                                     ))}
                                 </Link>
                                 <Link
-                                    href={`/services/${service.slug}`}
+                                    href="/contact"
                                     className="flex items-center justify-center gap-2 text-card-dark text-sm font-semibold"
                                 >
-                                    <span>Read More</span>
+                                    <span>Talk to Us</span>
                                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                                 </Link>
                             </div>

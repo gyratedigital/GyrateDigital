@@ -95,10 +95,11 @@
 - Image: `/about-gyrate.webp`
 - Copy: AI-focused company; Agentic AI, fine-tuning, Generative AI, chatbots & agents; data engineering & integration; prototypes & MVPs
 
-### `app/components/ServicesSection.tsx`
-**Change:**
-- Heading: “What We Build & Support” → e.g. “AI Capabilities & Delivery”
-- Subcopy: lifecycle of digital products → AI models, agents, and AI-powered products
+### `app/components/ServicesSection.tsx` + `app/data/homepageServices.ts`
+**Status:** Done
+- Heading: “What We Build & Support” (subcopy removed)
+- Cards: Agentic AI · Fine-tuning Models · Generative AI · AI Chatbots & Autonomous Agents · Data Engineering & Integration · Prototyping & MVPs
+- Homepage cards use `homepageServices` (does not change `/services` catalog)
 
 ### `app/data/featuredCategory.ts`
 **Change:** Category titles/descriptions — elevate AI; reframe web/CRM/growth as AI-backed or secondary.

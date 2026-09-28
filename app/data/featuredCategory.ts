@@ -5,7 +5,7 @@ export const featuredCategories = [
     id: 1,
     number: "01",
     title: ["AI-Enabled Systems", " & Automation"],
-    description: "",
+    description: "We develop custom AI solutions, train models on your data, and build agentic AI systems to help your business automate.",
   },
   {
     id: 2,
