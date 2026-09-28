@@ -10,13 +10,26 @@ import JsonLd from "../../components/JsonLd";
 import BackButton from "@/components/BackButton";
 import ShareButton from "@/components/ShareButton";
 import { blogPosts } from "../../data/blog";
+import { blogIndex } from "../../data/blogIndex";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+function getIsoDate(slug: string, fallbackDate: string) {
+  const entry = blogIndex.find((p) => p.slug === slug);
+  if (entry) return entry.lastModified;
+  // Best-effort fallback for display-only dates like "13th Oct 2025"
+  const parsed = Date.parse(fallbackDate.replace(/(\d+)(st|nd|rd|th)/, "$1"));
+  return Number.isNaN(parsed)
+    ? new Date().toISOString().slice(0, 10)
+    : new Date(parsed).toISOString().slice(0, 10);
 }
 
 export async function generateMetadata({
@@ -33,6 +46,10 @@ export async function generateMetadata({
   }
 
   const url = `https://gyratedigital.com/blog/${post.slug}`;
+  const published = getIsoDate(post.slug, post.date);
+  const absoluteImage = post.image.startsWith("http")
+    ? post.image
+    : `https://gyratedigital.com${post.image}`;
 
   return {
     title: `${post.title} | Gyrate Digital Blog`,
@@ -58,9 +75,12 @@ export async function generateMetadata({
       title: post.title,
       description: post.excerpt,
       siteName: "Gyrate Digital",
+      publishedTime: published,
+      modifiedTime: published,
+      authors: [post.author.name],
       images: [
         {
-          url: post.image,
+          url: absoluteImage,
           alt: post.title,
         },
       ],
@@ -69,7 +89,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [post.image],
+      images: [absoluteImage],
     },
   };
 }
@@ -90,13 +110,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     )
     .slice(0, 3);
 
+  const published = getIsoDate(post.slug, post.date);
+  const absoluteImage = post.image.startsWith("http")
+    ? post.image
+    : `https://gyratedigital.com${post.image}`;
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: `https://gyratedigital.com${post.image}`,
-    datePublished: post.date,
+    image: absoluteImage,
+    datePublished: published,
+    dateModified: published,
     author: {
       "@type": "Organization",
       name: post.author.name,

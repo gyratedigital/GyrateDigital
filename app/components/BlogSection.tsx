@@ -1,37 +1,10 @@
-'use client'
-import * as React from 'react'
 import { blogPosts } from '../data/blog'
 import Image from 'next/image'
 import Link from 'next/link'
 
-
+/** Latest posts — rendered on the server so crawlers see real links (not empty skeletons). */
 export default function BlogSection() {
-  const [randomPosts, setRandomPosts] = React.useState<typeof blogPosts>([])
-
-  React.useEffect(() => {
-    // Randomize posts only on the client after mount to avoid hydration mismatch
-    const shuffled = [...blogPosts].sort(() => 0.5 - Math.random());
-    setRandomPosts(shuffled.slice(0, 4));
-  }, []);
-
-  if (randomPosts.length === 0) {
-    return (
-      <div className="container px-4 mx-auto">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-heading font-semibold mb-2 text-foreground text-center relative">Our Blog</h2>
-          <p className="text-center text-sm text-foreground mb-12">Ideas that inspire, stories that matter.</p>
-        </div>
-        <div className="mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="bg-card/50 rounded-2xl h-[400px] animate-pulse border border-border/60" />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+  const posts = blogPosts.slice(0, 4)
 
   return (
     <div className="container px-4 mx-auto">
@@ -41,7 +14,7 @@ export default function BlogSection() {
       </div>
       <div className="mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {randomPosts.map((post) => (
+          {posts.map((post) => (
             <article key={post.id} className="group cursor-pointer">
               <Link href={`/blog/${post.slug}`}>
                 <div className="bg-card rounded-2xl overflow-hidden border border-border/60  hover:shadow-lg transition-all duration-300 h-full">

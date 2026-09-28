@@ -1,7 +1,7 @@
 export const siteConfig = {
     name: "Gyrate Digital",
     url: "https://gyratedigital.com",
-    logo: "https://gyratedigital.com/logo.png",
+    logo: "https://gyratedigital.com/gy-logo.svg",
     description: "Gyrate Digital builds custom AI solutions, trains models on your data, and develops agentic AI systems to help businesses automate.",
     socials: [
         "https://www.facebook.com/GyrateDigital/",
