@@ -183,11 +183,7 @@ export default function WorkSection() {
                     {work.category}
                   </p>
                   <h3 className="text-3xl font-semibold leading-tight sm:text-[40px]">
-                    {(Array.isArray(work.title) ? work.title : [work.title]).map((ti, index) => (
-                      <span key={index} className="block">
-                        {ti.trim()}
-                      </span>
-                    ))}
+                    {Array.isArray(work.title) ? work.title.join(' ') : work.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                     {work.description}

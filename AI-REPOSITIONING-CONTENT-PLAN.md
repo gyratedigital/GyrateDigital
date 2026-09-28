@@ -82,8 +82,10 @@
 ## 2. Homepage surfaces
 
 ### `app/components/HomeBanner.tsx`
-**Change:** Hero supporting sentence (today: websites, SaaS, AI-enabled, digital marketing).  
-**To:** Lead with AI systems, agents, custom models; mention apps as how AI ships to users.
+**Status:** Done (banner rewrite)
+- Badge: “Book a Meeting” (Calendly)
+- Headline: AI engineers building intelligent systems
+- Subcopy: custom AI solutions, model training, usable intelligent systems
 
 ### `app/components/AboutSection.tsx`
 **Change:** Homepage about blurb (“one-stop digital and software solutions…”).  

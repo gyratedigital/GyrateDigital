@@ -25,14 +25,14 @@ export default function HeroSection() {
                                 data-slot="badge"
                                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-transparent bg-input px-3 py-1 text-[10px] sm:text-xs font-medium text-dark transition-colors hover:bg-input/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 mb-4"
                             >
-                                Go Digital with Gyrate
+                                Book a Meeting
                                 <ArrowRight className="size-3 pointer-events-none" />
                             </Link>
                             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight max-w-screen-xl mx-auto text-balance">
-                                Gyrate is your Trusted All-In-One <br className="hidden md:block" /> Digital Partner
+                                Gyrate Digital — AI Engineers <br className="hidden md:block" /> Building Intelligent Systems
                             </h1>
                             <p className="text-base sm:text-lg md:text-xl font-normal text-muted-foreground mb-10 max-w-3xl md:max-w-4xl mx-auto px-4 leading-relaxed text-balance">
-                                We design, build, and evolve digital systems — from websites and web applications to SaaS platforms and AI-enabled solutions and digital marketing — built for long-term performance.
+                                We develop custom AI solutions, train models on your data, and build agentic AI systems to help your business automate.
                             </p>
                             <div className="flex w-full items-center justify-center gap-3 pt-2">
                                 <Link href="/contact">
