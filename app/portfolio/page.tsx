@@ -71,7 +71,7 @@ export default function PortfolioPage() {
                       {work.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground"
+                          className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground dark:border-primary/50"
                         >
                           {tag}
                         </span>

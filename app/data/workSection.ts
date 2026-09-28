@@ -1,13 +1,113 @@
 export const workSection = [
+    {
+        id: "8",
+        slug: "codeturtle-ai",
+        category: "AI Code Review SaaS",
+        title: ["CodeTurtle", "AI"],
+        description:
+            "AI code review that keeps you ahead — analyze GitHub PRs, accept precise suggested fixes, and push updates back to the branch. Includes a browser Codebase to edit, commit, and push without leaving the app.",
+        image: "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai.png",
+        imageGallery: [
+            "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai.png",
+            "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai-1.png",
+            "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai-2.png",
+            "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai-3.png",
+            "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai-4.png",
+        ],
+        liveUrl: "https://codeturtle.gyratedigital.com/",
+        tags: [
+            "AI Code Review",
+            "GitHub",
+            "PR Analysis",
+            "Security Scanning",
+            "SaaS",
+        ],
+        caseStudy: {
+            summary:
+                "Built CodeTurtle AI — an AI engineering workspace for GitHub teams that analyzes pull requests, surfaces high-signal findings with suggested code fixes, lets reviewers accept or reject changes in-product, and pushes accepted updates straight back to the PR branch. Includes a browser-based Repositories Codebase to browse, edit, and commit without leaving the app.",
+            challenge:
+                "Pull requests sit idle waiting for reviewers, senior engineers burn time rubber-stamping reviews, and most AI tools only leave comments — they don’t close the loop from finding to fix on the branch. Teams needed signal over noise: security, bugs, performance, and architectural risk — not style nitpicks.",
+            solution: [
+                "Shipped the CodeTurtle loop: connect a GitHub repo → open a PR → run multi-model AI analysis → review findings and suggested diffs → accept fixes and push to the PR branch.",
+                "Built PR Engineer as the primary analysis workspace with model selection, actionable findings (file + line), and accept/reject suggested code replacements.",
+                "Added Repositories Codebase with file tree, Monaco editor, create/upload, and commit & push — the same flow teams expect from a desktop Git client, inside the review product.",
+                "Covered security (injection, XSS/CSRF, and 100+ patterns), performance smells, logic mistakes, framework consistency, and risk scoring — plus audits for merged PRs.",
+                "Productized auth (email + GitHub OAuth via Supabase), Stripe billing (Starter / Pro / Team), quotas, and a NestJS backend for GitHub sync, AI review pipelines, and webhooks.",
+            ],
+            results: [
+                "Closed the gap between “AI left a comment” and “the fix is on the branch.”",
+                "Gave teams a GitHub-native review → fix → push workflow with multi-model analysis.",
+                "Launched a live SaaS product at codeturtle.gyratedigital.com with clear free-to-paid plans.",
+            ],
+            metrics: [
+                {
+                    label: "Review Loop",
+                    value: "4 steps",
+                    description: "Connect → analyze → review → push",
+                },
+                {
+                    label: "Security Patterns",
+                    value: "100+",
+                    description: "Common vulnerability checks per PR",
+                },
+                {
+                    label: "Live Product",
+                    value: "Shipped",
+                    description: "Public SaaS with GitHub + billing",
+                },
+            ],
+            timeline: "Product build & launch",
+            platform:
+                "Next.js 14, React 18, NestJS, Supabase, GitHub API, Stripe, Monaco, multi-model AI",
+            services: [
+                "Product Strategy",
+                "UI/UX Design",
+                "Frontend Development",
+                "Backend / API",
+                "AI Integration",
+                "GitHub Integration",
+                "Billing & Auth",
+            ],
+            deliverables: [
+                "PR Engineer analysis console",
+                "Accept / reject / push to GitHub",
+                "Repositories + in-browser Codebase",
+                "Security & performance review findings",
+                "Auth, billing plans, and usage quotas",
+            ],
+            gallery: [
+                {
+                    src: "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai.png",
+                    caption: "CodeTurtle AI — AI code review workspace",
+                },
+                {
+                    src: "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai-1.png",
+                    caption: "PR analysis and findings",
+                },
+                {
+                    src: "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai-2.png",
+                    caption: "Suggested fixes and review flow",
+                },
+                {
+                    src: "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai-3.png",
+                    caption: "Repositories and Codebase editing",
+                },
+                {
+                    src: "/portfolio/visual-gallery/codeturtle-ai/codeturtle-ai-4.png",
+                    caption: "CodeTurtle product experience",
+                },
+            ],
+        },
+    },
     // {
     //     id: "1",
     //     slug: "lernen-einfachdeutsch",
     //     category: "E-learning Platform",
     //     title: ["Lernen", "Einfach Deutsch"],
     //     description: "German language learning platform with adaptive lessons, quizzes, and progress tracking for adult learners.",
-    //     image: "/portfolio/einfatch.jpg",
+    //     image: "/portfolio/visual-gallery/einfatch.jpg",
     //     imageGallery: [
-    //         "/portfolio/einfatch.jpg",
+    //         "/portfolio/visual-gallery/einfatch.jpg",
     //         "/portfolio/visual-gallery/einfatch-2.jpg",
     //         "/portfolio/visual-gallery/einfach3.png",
     //         "/portfolio/visual-gallery/einfach4.jpg",
@@ -36,7 +136,7 @@ export const workSection = [
     //         platform: "Next.js, Node.js, Headless CMS",
     //         services: ["Product Design", "Frontend", "CMS Architecture"],
     //         deliverables: ["Design System", "Responsive Web App", "CMS Schema"],
-    //         gallery: [{ src: "/portfolio/einfatch.jpg", caption: "Lesson overview and progress" }]
+    //         gallery: [{ src: "/portfolio/visual-gallery/einfatch.jpg", caption: "Lesson overview and progress" }]
     //     }
     // },
     {
@@ -45,12 +145,12 @@ export const workSection = [
         category: "Fintech SaaS",
         title: ["Bank Tracker"],
         description: "Risk and exposure tracking for banks with dashboards, alerts, and audit-ready reports.",
-        image: "/portfolio/bank-track.jpg",
+        image: "/portfolio/visual-gallery/bank-track-ai/bank-track.jpg",
         imageGallery: [
-            "/portfolio/bank-track.jpg",
-            "/portfolio/visual-gallery/bank-track-2.jpg",
-            "/portfolio/visual-gallery/bank-track-3.jpg",
-            "/portfolio/visual-gallery/bank-track-4.jpg",
+            "/portfolio/visual-gallery/bank-track-ai/bank-track.jpg",
+            "/portfolio/visual-gallery/bank-track-ai/bank-track-2.jpg",
+            "/portfolio/visual-gallery/bank-track-ai/bank-track-3.jpg",
+            "/portfolio/visual-gallery/bank-track-ai/bank-track-4.jpg",
         ],
         liveUrl: "https://banktracker.de/",
         tags: ["SaaS", "Fintech", "Dashboards", "Access Control"],
@@ -76,7 +176,7 @@ export const workSection = [
             platform: "Next.js, Node.js, PostgreSQL",
             services: ["Product Design", "Frontend", "Backend", "Security"],
             deliverables: ["Design System", "Dashboard Suite", "Audit Logging"],
-            gallery: [{ src: "/portfolio/bank-track.jpg", caption: "Portfolio risk dashboard" }]
+            gallery: [{ src: "/portfolio/visual-gallery/bank-track-ai/bank-track.jpg", caption: "Portfolio risk dashboard" }]
         }
     },
     {
@@ -85,12 +185,12 @@ export const workSection = [
         category: "AI Architect Design Tool",
         title: ["IonicX"],
         description: "AI-powered tool that makes professional-quality interior design accessible to everyone through instant, personalized room redesigns.",
-        image: "/portfolio/visual-gallery/ionicx.jpg",
+        image: "/portfolio/visual-gallery/ionicx-ai/ionicx.jpg",
         imageGallery: [
-            "/portfolio/visual-gallery/ionicx.jpg",
-            "/portfolio/visual-gallery/ionicx-2.jpg",
-            "/portfolio/visual-gallery/ionicx-3.jpg",
-            "/portfolio/visual-gallery/ionicx-4.jpg",
+            "/portfolio/visual-gallery/ionicx-ai/ionicx.jpg",
+            "/portfolio/visual-gallery/ionicx-ai/ionicx-2.jpg",
+            "/portfolio/visual-gallery/ionicx-ai/ionicx-3.jpg",
+            "/portfolio/visual-gallery/ionicx-ai/ionicx-4.jpg",
         ],
         liveUrl: "https://www.ionicx.io/",
         tags: ["AI", "Architect Design Tool", "SaaS", "Realtime Preview"],
@@ -106,7 +206,7 @@ export const workSection = [
             platform: "Next.js, Vercel, Gemini, Backblaze",
             services: ["Product Design", "Frontend", "AI Integration",],
             deliverables: ["Design System", "AI powered tools",],
-            gallery: [{ src: "/portfolio/visual-gallery/ionicx.jpg", caption: "Room redesign" }]
+            gallery: [{ src: "/portfolio/visual-gallery/ionicx-ai/ionicx.jpg", caption: "Room redesign" }]
         }
     },
     {
@@ -115,14 +215,14 @@ export const workSection = [
         category: "Aviation",
         title: ["Aviator", "Connect"],
         description:
-          "A privacy-first aviation recruitment platform that intelligently connects airlines with verified pilots through anonymized profiles, advanced search, and streamlined communic.ation",
+          "A privacy-first aviation recruitment platform that intelligently connects airlines with verified pilots through anonymized profiles, advanced search, and streamlined communication.",
       
-        image: "/portfolio/aviator-connect.jpg",
+        image: "/portfolio/visual-gallery/aviator-connect/aviator-connect.jpg",
         imageGallery: [
-          "/portfolio/aviator-connect.jpg",
-          "/portfolio/visual-gallery/aviator-connect-2.jpg",
-          "/portfolio/visual-gallery/aviator-connect-3.jpg",
-          "/portfolio/visual-gallery/aviator-connect-4.jpg",
+          "/portfolio/visual-gallery/aviator-connect/aviator-connect.jpg",
+          "/portfolio/visual-gallery/aviator-connect/aviator-connect-2.jpg",
+          "/portfolio/visual-gallery/aviator-connect/aviator-connect-3.jpg",
+          "/portfolio/visual-gallery/aviator-connect/aviator-connect-4.jpg",
         ],
         liveUrl: "https://aviator-connect.com/",
         tags: [
@@ -187,7 +287,7 @@ export const workSection = [
           ],
           gallery: [
             {
-              src: "/portfolio/aviator-connect.jpg",
+              src: "/portfolio/visual-gallery/aviator-connect/aviator-connect.jpg",
               caption: "Privacy-first pilot recruitment platform"
             }
           ]
@@ -200,12 +300,12 @@ export const workSection = [
     //     category: "B2B Procurement",
     //     title: ["Vendor Zero"],
     //     description: "Vendor risk and procurement workspace with workflows, approvals, and centralized vendor records.",
-    //     image: "/portfolio/vendor-zero.jpg",
+    //     image: "/portfolio/visual-gallery/vendor-zero-ai/vendor-zero.jpg",
     //     imageGallery: [
-    //         "/portfolio/vendor-zero.jpg",
-    //         "/portfolio/visual-gallery/vendor-zero-2.jpg",
-    //         "/portfolio/visual-gallery/vendor-zero-3.jpg",
-    //         "/portfolio/visual-gallery/vendor-zero-4.jpg",
+    //         "/portfolio/visual-gallery/vendor-zero-ai/vendor-zero.jpg",
+    //         "/portfolio/visual-gallery/vendor-zero-ai/vendor-zero-2.jpg",
+    //         "/portfolio/visual-gallery/vendor-zero-ai/vendor-zero-3.jpg",
+    //         "/portfolio/visual-gallery/vendor-zero-ai/vendor-zero-4.jpg",
     //     ],
     //     liveUrl: "https://vendorzero.de/",
     //     tags: ["B2B", "Workflows", "Vendor Management", "RBAC"],
@@ -231,7 +331,7 @@ export const workSection = [
     //         platform: "Next.js, Supabase, Workflow Engine",
     //         services: ["UX/UI", "Frontend", "Workflow Design"],
     //         deliverables: ["Design System", "Vendor Workflows", "Audit Trails"],
-    //         gallery: [{ src: "/portfolio/vendor-zero.jpg", caption: "Vendor intake and approvals" }]
+    //         gallery: [{ src: "/portfolio/visual-gallery/vendor-zero-ai/vendor-zero.jpg", caption: "Vendor intake and approvals" }]
     //     }
     // },
     {
@@ -240,12 +340,12 @@ export const workSection = [
         category: "Travel & Tourism",
         title: ["Eyes 4 Nature", "Safaris"],
         description: "Safari tour operator site with itineraries, conservation storytelling, and lead capture.",
-        image: "/portfolio/eyes-for-nature.jpg",
+        image: "/portfolio/visual-gallery/eysfornature/eyes-for-nature.jpg",
         imageGallery: [
-            "/portfolio/eyes-for-nature.jpg",
-            "/portfolio/visual-gallery/eyes-for-nature-2.jpg",
-            "/portfolio/visual-gallery/eyes-for-nature-3.jpg",
-            "/portfolio/visual-gallery/eyes-for-nature-4.jpg",
+            "/portfolio/visual-gallery/eysfornature/eyes-for-nature.jpg",
+            "/portfolio/visual-gallery/eysfornature/eyes-for-nature-2.jpg",
+            "/portfolio/visual-gallery/eysfornature/eyes-for-nature-3.jpg",
+            "/portfolio/visual-gallery/eysfornature/eyes-for-nature-4.jpg",
         ],
         liveUrl: "https://eyes4naturesafaris.com/",
         tags: ["Travel", "Lead Gen", "Storytelling", "CMS"],
@@ -271,7 +371,7 @@ export const workSection = [
             platform: "Next.js, Headless CMS",
             services: ["UX/UI", "Frontend", "CMS Implementation"],
             deliverables: ["Itinerary Templates", "Media Galleries", "Lead Flow"],
-            gallery: [{ src: "/portfolio/eyes-for-nature.jpg", caption: "Itinerary and gallery view" }]
+            gallery: [{ src: "/portfolio/visual-gallery/eysfornature/eyes-for-nature.jpg", caption: "Itinerary and gallery view" }]
         }
     },
     {
@@ -282,12 +382,12 @@ export const workSection = [
         description:
           "Discover premium pilot jobs and aviation careers worldwide. Browse opportunities from top airlines and aviation agencies.",
       
-        image: "/portfolio/pilotjobs.jpg",
+        image: "/portfolio/visual-gallery/pilots-job-portal/pilotjobs.jpg",
         imageGallery: [
-          "/portfolio/pilotjobs.jpg",
-          "/portfolio/visual-gallery/pilotjobs-2.jpg",
-          "/portfolio/visual-gallery/pilotjobs-3.jpg",
-          "/portfolio/visual-gallery/pilotjobs-4.jpg",
+          "/portfolio/visual-gallery/pilots-job-portal/pilotjobs.jpg",
+          "/portfolio/visual-gallery/pilots-job-portal/pilotjobs-2.jpg",
+          "/portfolio/visual-gallery/pilots-job-portal/pilotjobs-3.jpg",
+          "/portfolio/visual-gallery/pilots-job-portal/pilotjobs-4.jpg",
         ],
         liveUrl: "https://pilotjobs.cloud/",
         tags: [
@@ -356,7 +456,7 @@ export const workSection = [
           ],
           gallery: [
             {
-              src: "/portfolio/pilotjobs.jpg",
+              src: "/portfolio/visual-gallery/pilots-job-portal/pilotjobs.jpg",
               caption: "Global pilot job listing and search interface"
             }
           ]

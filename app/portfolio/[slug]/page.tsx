@@ -78,12 +78,19 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
     const galleryFromCaseStudy = gallery.map((item) => item.src).filter(Boolean);
 
     const combinedGallery = [...galleryFromProject, ...galleryFromCaseStudy].filter(Boolean);
+    const uniqueGallery = Array.from(new Set(combinedGallery));
     const filledGallery =
-        combinedGallery.length >= 4
-            ? combinedGallery.slice(0, 4)
-            : [...combinedGallery, ...Array(4 - combinedGallery.length).fill(project.image)].slice(0, 4);
+        uniqueGallery.length > 0
+            ? uniqueGallery
+            : [project.image];
 
-    const visualGallery = filledGallery.map((src) => ({ src, caption: formattedTitle }));
+    const visualGallery = filledGallery.map((src, idx) => {
+        const caseCaption = gallery.find((item) => item.src === src)?.caption;
+        return {
+            src,
+            caption: caseCaption || `${formattedTitle} — view ${idx + 1}`,
+        };
+    });
     const infoHighlights = [
         {
             label: "Timeline",
@@ -126,7 +133,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                                         {project.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground"
+                                                className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground dark:border-primary/50"
                                             >
                                                 {tag}
                                             </span>
@@ -152,7 +159,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                                         {services.map((service) => (
                                             <span
                                                 key={service}
-                                                className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
+                                                className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground dark:border-primary/50"
                                             >
                                                 {service}
                                             </span>
@@ -242,7 +249,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                                         {deliverables.map((item) => (
                                             <span
                                                 key={item}
-                                                className="rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground"
+                                                className="rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-sm font-medium text-muted-foreground dark:border-primary/50"
                                             >
                                                 {item}
                                             </span>

@@ -105,9 +105,10 @@
   --accent: #101d17;
   --accent-foreground: #dce7e1;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: #1c2a23;
-  --input: #1c2a23;
-  --ring: #4f9d70;
+  /* Stronger borders so pills/cards remain visible on dark surfaces */
+  --border: #5a8f6e;
+  --input: #5a8f6e;
+  --ring: #68ba7f;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);

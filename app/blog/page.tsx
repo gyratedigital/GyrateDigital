@@ -322,7 +322,7 @@ export default function BlogPage() {
                             {post.categories.map((category, index) => (
                               <span
                                 key={index}
-                                className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
+                                className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 dark:border-primary/45"
                               >
                                 {category}
                               </span>

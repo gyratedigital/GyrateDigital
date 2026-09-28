@@ -104,7 +104,7 @@ export default async function ServiceDetailPage({ params }: ServiceParams) {
 
           <div className="relative z-10 grid gap-8 lg:grid-cols-[1.3fr,1fr] items-center pt-14 pb-10">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary dark:border-primary/45">
                 {service.category}
               </div>
               <h1 className="outfit-text text-4xl md:text-5xl font-semibold text-foreground">

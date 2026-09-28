@@ -43,9 +43,14 @@ export default function WorkSection() {
       })
 
       const transitions = cards.length - 1
-      // Equal scroll distance per card transition
+      // Hold each card longer, then transition — more scroll per step
+      const HOLD = 1.35
+      const TRANSITION = 1
+      const SETTLE = 0.2
+      const segment = HOLD + TRANSITION
+      // ~2.1 viewports of scroll per card step
       const endDistance = () =>
-        Math.round(window.innerHeight * transitions * 0.95)
+        Math.round(window.innerHeight * transitions * 2.1)
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -54,7 +59,8 @@ export default function WorkSection() {
           end: () => `+=${endDistance()}`,
           pin: true,
           pinSpacing: true,
-          scrub: true,
+          // Light scrub so Lenis + scroll feel smooth without jumpy card swaps
+          scrub: 0.65,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           fastScrollEnd: true,
@@ -62,57 +68,72 @@ export default function WorkSection() {
       })
 
       cards.forEach((card, i) => {
-        if (i === cards.length - 1) return
+        const segmentStart = i * segment
 
-        const next = cards[i + 1]
-        const at = i
-
-        // Current card — scale past the viewer (out)
+        // Dwell on the current card before any swap
         tl.to(
           card,
           {
-            scale: 1.65,
+            scale: 1,
+            opacity: 1,
+            duration: HOLD,
+            ease: 'none',
+            force3D: true,
+          },
+          segmentStart
+        )
+
+        if (i === cards.length - 1) return
+
+        const next = cards[i + 1]
+        const swapAt = segmentStart + HOLD
+
+        // Current card — ease out toward camera
+        tl.to(
+          card,
+          {
+            scale: 1.4,
             opacity: 0,
             zIndex: 5,
             pointerEvents: 'none',
-            duration: 1,
+            duration: TRANSITION,
             ease: 'none',
             force3D: true,
           },
-          at
+          swapAt
         )
 
-        // Next card — enter from behind and pop into place
+        // Next card — enter from behind
         tl.fromTo(
           next,
           {
-            scale: 0.5,
+            scale: 0.62,
             opacity: 0,
             zIndex: 20,
             pointerEvents: 'none',
           },
           {
-            scale: 1.04,
+            scale: 1.03,
             opacity: 1,
             zIndex: 20,
             pointerEvents: 'auto',
-            duration: 0.85,
+            duration: TRANSITION - SETTLE,
             ease: 'none',
             force3D: true,
           },
-          at
+          swapAt
         )
 
-        // Settle pop (1.04 → 1)
+        // Soft settle
         tl.to(
           next,
           {
             scale: 1,
-            duration: 0.15,
+            duration: SETTLE,
             ease: 'none',
             force3D: true,
           },
-          at + 0.85
+          swapAt + (TRANSITION - SETTLE)
         )
       })
     }, section)
@@ -154,7 +175,7 @@ export default function WorkSection() {
           {displayedWorks.map((work) => (
             <div
               key={work.id}
-              className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch rounded-[32px] border border-border/60 bg-card p-6 text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:h-[min(62vh,640px)] sm:max-h-[68vh] sm:max-w-[90%] sm:flex-row sm:p-8"
+              className="work-card group absolute flex h-auto w-full max-w-full flex-col items-stretch overflow-hidden rounded-[32px] border border-border/60 bg-card p-6 text-card-foreground shadow-[0_24px_72px_rgba(8,16,12,0.12)] sm:max-w-[90%] sm:flex-row sm:items-stretch sm:p-8"
             >
               <div className="flex flex-1 flex-col justify-center gap-6">
                 <div className="space-y-4">
@@ -178,7 +199,7 @@ export default function WorkSection() {
                     {work.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground sm:text-sm"
+                        className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground dark:border-primary/50 sm:text-sm"
                       >
                         {tag}
                       </span>
@@ -199,7 +220,7 @@ export default function WorkSection() {
                       href={work.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex h-11 items-center gap-2 rounded-full border border-border/60 px-5 text-sm font-semibold text-card-foreground transition-colors hover:border-primary hover:text-primary"
+                      className="inline-flex h-11 items-center gap-2 rounded-full border border-border/60 px-5 text-sm font-semibold text-card-foreground transition-colors hover:border-primary hover:text-primary dark:border-primary/45"
                     >
                       Visit Site
                       <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -208,14 +229,14 @@ export default function WorkSection() {
                 </div>
               </div>
 
-              <div className="relative mt-6 w-full max-h-[300px] overflow-hidden rounded-b-[32px] bg-background p-2 sm:mt-0 sm:h-full sm:max-h-full sm:w-[42%] sm:rounded-b-none sm:rounded-r-[50px] sm:p-3">
+              <div className="relative mt-6 h-[260px] w-full shrink-0 overflow-hidden rounded-[24px] bg-background p-2 sm:mt-0 sm:h-auto sm:min-h-[300px] sm:w-[42%] sm:self-stretch sm:rounded-r-[40px] sm:rounded-l-none sm:p-3">
                 {(() => {
                   const gallery = work.imageGallery
                   const column = [...gallery, ...gallery]
 
                   return (
-                    <div className="h-full max-h-[283px] w-full overflow-hidden rounded-b-[32px] sm:max-h-full sm:rounded-b-none sm:rounded-tr-[40px]">
-                      <div className="work-image-scroller relative flex h-full w-full items-start gap-2 overflow-hidden rounded-b-[20px] sm:rounded-b-none sm:rounded-r-[36px]">
+                    <div className="relative h-full min-h-[240px] w-full overflow-hidden rounded-[20px] sm:absolute sm:inset-3 sm:min-h-0 sm:rounded-r-[36px] sm:rounded-l-xl">
+                      <div className="work-image-scroller relative flex h-full w-full items-start gap-2 overflow-hidden">
                         <div className="flex w-1/2 shrink-0 flex-col gap-2 animate-work-image-scroll">
                           {column.map((src, idx) => (
                             <div
