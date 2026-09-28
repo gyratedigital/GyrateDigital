@@ -20,7 +20,7 @@ export default function CtaSection() {
                     style={{ width: "auto", height: "auto" }}
                 >
                 </Image>
-                <h2 className="font-semibold mb-5 lg:text-5xl md:text-4xl text-3xl text-card-dark text-center">Let&apos;s talk about your next project</h2>
+                <h2 className="section-heading mb-5 text-card-dark text-center">Let&apos;s talk about your next project</h2>
                 <p className="text-center text-md text-card-dark mb-8 max-w-xl mx-auto">Whether it&apos;s a website, app, or creative design, we&apos;re here to turn your next project into reality with
                     innovation and precision.</p>
                 <Link

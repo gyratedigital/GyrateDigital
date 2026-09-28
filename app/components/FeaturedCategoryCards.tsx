@@ -18,7 +18,7 @@ export default function FeaturedCategories() {
     return (
         <section
             ref={sectionRef}
-            className="relative flex h-screen w-full flex-col overflow-hidden"
+            className="relative isolate z-10 flex h-screen w-full flex-col overflow-hidden bg-background"
         >
             <div className="flex min-h-0 flex-1 items-center">
                 <div

@@ -59,11 +59,12 @@ export default function WorkSection() {
           end: () => `+=${endDistance()}`,
           pin: true,
           pinSpacing: true,
-          // Light scrub so Lenis + scroll feel smooth without jumpy card swaps
-          scrub: 0.65,
-          anticipatePin: 1,
+          // Soft scrub with Lenis — avoid pin jump / snap
+          scrub: 0.85,
+          anticipatePin: 0,
           invalidateOnRefresh: true,
-          fastScrollEnd: true,
+          fastScrollEnd: false,
+          preventOverlaps: false,
         },
       })
 
@@ -157,10 +158,10 @@ export default function WorkSection() {
     <div className="relative">
       <section
         ref={sectionRef}
-        className="relative flex h-screen w-full flex-col overflow-hidden"
+        className="relative isolate z-10 flex h-screen w-full flex-col overflow-hidden bg-background"
       >
         <div className="container mx-auto max-w-4xl shrink-0 px-4 pt-6 pb-4 sm:pt-8 sm:pb-6">
-          <h2 className="relative mb-2 text-center text-3xl font-semibold text-foreground sm:text-4xl">
+          <h2 className="section-heading relative mb-2 text-center text-foreground">
             Our Work
           </h2>
           <p className="text-center text-sm text-foreground">

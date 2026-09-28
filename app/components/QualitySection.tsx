@@ -6,7 +6,7 @@ export default function QualitySection() {
         <div className="bg-gradient-to-r from-[#233E2B] to-[#68BA7F] py-20">
             <div className="container px-4 mx-auto">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="font-semibold mb-2 text-4xl text-card-light text-center relative">Reasons you should choose Gyrate</h2>
+                    <h2 className="section-heading mb-2 text-card-light text-center relative">Reasons you should choose Gyrate</h2>
                     <p className="text-center text-sm text-card-light mb-12">We Provide Quality</p>
                 </div>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

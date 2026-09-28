@@ -13,7 +13,7 @@ export default function GreenBanner() {
       </Button>
 
       {/* Heading */}
-      <h2 className="text-3xl font-bold tracking-tight text-background sm:text-4xl">
+      <h2 className="section-heading tracking-tight text-background">
         Your Premier Digital Marketing Agency
       </h2>
 

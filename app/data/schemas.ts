@@ -2,7 +2,7 @@ export const siteConfig = {
     name: "Gyrate Digital",
     url: "https://gyratedigital.com",
     logo: "https://gyratedigital.com/logo.png",
-    description: "Gyrate Digital is a premier creative agency specializing in design, development, and digital innovation.",
+    description: "Gyrate Digital builds custom AI solutions, trains models on your data, and develops agentic AI systems to help businesses automate.",
     socials: [
         "https://www.facebook.com/GyrateDigital/",
         "https://www.instagram.com/gyrate.digital/",

@@ -4,28 +4,41 @@ import * as React from 'react'
 import Image from "next/image";
 import Link from 'next/link';
 import { useRippleEffect } from "@/hooks/useRippleEffect";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import { useLenis } from "./LenisProvider";
 
-// test 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function AboutSection() {
     const { ripples, addRipple } = useRippleEffect();
+    const { lenis } = useLenis();
+
+    const refreshScroll = React.useCallback(() => {
+        requestAnimationFrame(() => {
+            lenis?.resize();
+            ScrollTrigger.refresh();
+        });
+    }, [lenis]);
 
     return (
         <div className="container px-4 mx-auto">
-            <h2 className="max-w-4xl font-semibold mx-auto mb-12 text-4xl text-foreground text-center">About Gyrate Digital </h2>
+            <h2 className="section-heading max-w-4xl mx-auto mb-12 text-foreground text-center">About Gyrate Digital</h2>
             <div className="max-w-6xl mx-auto flex items-center md:flex-row flex-col md:gap-10 gap-6">
                 <Image
-                    src="/about-img.svg"
-                    alt="About Image"
-                    loading="lazy"
-
+                    src="/about-gyrate.webp"
+                    alt="About Gyrate Digital — Deep Learning"
+                    loading="eager"
+                    priority
                     width={500}
                     height={500}
+                    className="rounded-2xl h-auto w-full max-w-[500px]"
+                    onLoadingComplete={refreshScroll}
                 />
                 <div className="about-text md:text-left text-center">
-                    {/* <h2 className="mb-4 text-2xl text-foreground font-semibold">About Gyrate Digital</h2> */}
-                    <p className="text-muted-foreground text-md mb-4"><strong>Gyrate Digital</strong>  is a one-stop digital and software solutions company helping businesses plan, build, and grow meaningful digital experiences.
-
-                        From professional websites and platforms to custom applications, SaaS products, and AI-enabled systems, we deliver solutions that are practical, scalable, and aligned with real business needs. </p>
+                    <p className="text-muted-foreground text-lg sm:text-xl leading-[1.85] mb-6">
+                        <strong>Gyrate Digital</strong> is an AI-focused technology company helping businesses turn emerging AI capabilities into practical, scalable solutions. We specialize in Agentic AI, model fine-tuning, Generative AI, AI chatbots, and autonomous agents designed around real business needs. Our expertise also extends to data engineering and integration, connecting AI with the systems and data businesses already use. We build prototypes and MVPs that help businesses validate, launch, and scale AI-powered products.
+                    </p>
                     <Link
                         href="/about"
                         data-slot="button"

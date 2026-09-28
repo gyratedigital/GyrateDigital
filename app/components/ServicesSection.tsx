@@ -21,16 +21,13 @@ export default function ServicesSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative flex h-screen w-full flex-col overflow-hidden"
+            className="relative isolate z-10 flex h-screen w-full flex-col overflow-hidden bg-background"
         >
             <div className="container mx-auto shrink-0 px-4 pt-6 pb-4 sm:pt-8 sm:pb-6">
                 <div className="mx-auto max-w-4xl">
-                    <h2 className="relative mb-2 text-center text-3xl font-semibold text-foreground sm:text-4xl">
+                    <h2 className="section-heading relative mb-2 text-center text-foreground">
                         What We Build & Support
                     </h2>
-                    <p className="text-center text-sm text-foreground">
-                        Our services cover the full lifecycle of digital products — from development and design to growth, optimisation, and long-term support.
-                    </p>
                 </div>
             </div>
 

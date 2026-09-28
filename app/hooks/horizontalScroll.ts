@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, type RefObject } from "react";
+import { useEffect, type RefObject } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "../components/LenisProvider";
@@ -15,8 +15,8 @@ type UseHorizontalScrollArgs = {
 };
 
 /**
- * Vertical Lenis scroll → horizontal track (lenis.dev showcase style).
- * scrub: true so Lenis lerp alone provides smoothness (no double-smoothing).
+ * Vertical Lenis scroll → horizontal track.
+ * Soft scrub + deferred refresh so pin metrics match final layout (fonts/images).
  */
 export default function useHorizontalScroll({
   sectionRef,
@@ -30,31 +30,35 @@ export default function useHorizontalScroll({
     const track = trackRef.current;
     if (!section || !track) return;
 
-    const getDistance = () => {
-      const overflow = track.scrollWidth - window.innerWidth;
-      return Math.max(overflow, 0);
-    };
+    const getDistance = () =>
+      Math.max(track.scrollWidth - window.innerWidth, 0);
+
+    let trigger: ScrollTrigger | undefined;
 
     const ctx = gsap.context(() => {
       gsap.set(track, { x: 0, force3D: true });
 
-      gsap.to(track, {
+      const tween = gsap.to(track, {
         x: () => -getDistance(),
         ease: "none",
         force3D: true,
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: () => `+=${getDistance() * distanceScale}`,
+          end: () => `+=${Math.max(getDistance() * distanceScale, window.innerHeight * 0.5)}`,
           pin: true,
           pinSpacing: true,
-          scrub: true,
-          anticipatePin: 1,
+          // Soft scrub = smooth with Lenis, avoids hard pin jumps
+          scrub: 0.85,
+          anticipatePin: 0,
           invalidateOnRefresh: true,
-          fastScrollEnd: true,
-          preventOverlaps: true,
+          // Avoid snap/fight between stacked pins (Featured → Services → Work)
+          fastScrollEnd: false,
+          preventOverlaps: false,
         },
       });
+
+      trigger = tween.scrollTrigger ?? undefined;
     }, section);
 
     const refresh = () => {
@@ -62,13 +66,40 @@ export default function useHorizontalScroll({
       ScrollTrigger.refresh();
     };
 
-    // Wait a frame so layout/fonts settle, then refresh pin metrics
-    const raf = requestAnimationFrame(refresh);
-    window.addEventListener("resize", refresh);
+    // Staggered refreshes: fonts, about image, and pin siblings settle at different times
+    const raf1 = requestAnimationFrame(() => {
+      refresh();
+      requestAnimationFrame(refresh);
+    });
+
+    const timeouts = [100, 350, 800].map((ms) =>
+      window.setTimeout(refresh, ms)
+    );
+
+    const fontsReady = document.fonts?.ready?.then(refresh);
+
+    let resizeTimer: number | undefined;
+    const scheduleRefresh = () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(refresh, 80);
+    };
+
+    const ro = new ResizeObserver(scheduleRefresh);
+    ro.observe(section);
+    ro.observe(track);
+
+    window.addEventListener("resize", scheduleRefresh);
+    window.addEventListener("load", refresh);
 
     return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", refresh);
+      cancelAnimationFrame(raf1);
+      timeouts.forEach(clearTimeout);
+      window.clearTimeout(resizeTimer);
+      fontsReady?.catch(() => undefined);
+      ro.disconnect();
+      window.removeEventListener("resize", scheduleRefresh);
+      window.removeEventListener("load", refresh);
+      trigger = undefined;
       ctx.revert();
     };
   }, [sectionRef, trackRef, distanceScale, lenis]);

@@ -38,7 +38,7 @@
   --color-badge: var(--badge);
   --color-badge-text: var(--badge-text);
   --color-badge-border: var(--badge-border);
-  --font-sans: var(--font-inter-tight);
+  --font-sans: var(--font-geist-sans);
   --color-body: var(--body);
   --color-light: var(--light);
   --color-success: var(--success);
@@ -164,7 +164,7 @@ li,
 input,
 button,
 a {
-  font-family: var(--font-roboto-flex), sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 h1,
@@ -178,6 +178,11 @@ h6 {
 
 .outfit-text {
   font-family: var(--font-outfit), sans-serif;
+}
+
+.section-heading {
+  font-family: var(--font-outfit), sans-serif;
+  @apply text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl;
 }
 
 .light-rays {

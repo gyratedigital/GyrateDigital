@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Pinned GSAP sections must NOT live inside `display:flex` + `gap`.
+ * Flex gap breaks pin-spacer math → bounce/overlap until a resize refresh.
+ * Use block flow + margin on non-pinned blocks only.
+ */
 export default function Home() {
   return (
     <div className="w-full min-h-screen bg-background/50">
@@ -43,16 +48,27 @@ export default function Home() {
         <HeroSection />
       </div>
 
-      <div className="flex flex-col gap-[100px] py-[100px]">
-        <BrandsSection />
+      <div className="py-[100px]">
+        <div className="mb-[100px]">
+          <BrandsSection />
+        </div>
+
         <FeaturedCategories />
-        <AboutSection />
+
+        <div className="my-[100px]">
+          <AboutSection />
+        </div>
+
         <ServicesSection />
+
         <WorkSection />
-        <DedicatedTeamSection />
-        <QualitySection />
-        <BlogSection />
-        <CtaSection />
+
+        <div className="mt-[100px] flex flex-col gap-[100px]">
+          <DedicatedTeamSection />
+          <QualitySection />
+          <BlogSection />
+          <CtaSection />
+        </div>
       </div>
 
       <FooterSection />

@@ -48,12 +48,17 @@
 ## 1. Global SEO & site metadata
 
 ### `app/layout.tsx`
-**Change:**
-- Default title (today: “All-In-One Digital Agency for Design & Marketing”) → AI-first title  
-  e.g. `Gyrate Digital | AI Engineering, ML & Agentic Systems`
-- Meta description → AI expertise, models, agents, custom training
-- Keywords → add: AI agency, machine learning, deep learning, agentic AI, custom AI models, MLOps, AI engineers
-- Open Graph + Twitter titles/descriptions → same AI positioning
+**Status:** Done
+- Default title: `Gyrate Digital | AI Development Solutions, ML & Agentic Systems`
+- Meta description: custom AI solutions, model training, agentic AI / business automation
+- Keywords: AI agency, machine learning, deep learning, agentic AI, custom AI models, MLOps, AI engineers
+- Open Graph + Twitter: aligned to same AI positioning
+
+### `app/data/schemas.ts` (Organization)
+**Status:** Done (org description)
+- Organization `description` → AI solutions / model training / agentic systems
+- Remaining: Home / services `Offer` names → Custom AI Training, Agentic AI, ML/DL, etc.
+- Leave portfolio-related schema entries untouched if present
 
 ### Page layouts (meta titles/descriptions)
 | File | Current lean | Rewrite to |
@@ -67,13 +72,6 @@
 
 **Do not change:** `app/portfolio/layout.tsx` (portfolio out of scope).
 
-### `app/data/schemas.ts`
-**Change:**
-- Organization `description` (creative agency / design & development)
-- Home / services `Offer` names → include Custom AI Training, Agentic AI, ML/DL, etc.
-- Any Service schema lists that still center UI/UX / marketing only
-- Leave portfolio-related schema entries untouched if present
-
 ### `app/sitemap.ts` / `app/robots.ts`
 **Change:** No copy change required unless new AI service slugs are added (then regenerates via `servicesSection`). Portfolio URLs stay as generated from existing `workSection` (no edits to that data).
 
@@ -82,14 +80,20 @@
 ## 2. Homepage surfaces
 
 ### `app/components/HomeBanner.tsx`
-**Status:** Done (banner rewrite)
+**Status:** Done
 - Badge: “Book a Meeting” (Calendly)
-- Headline: AI engineers building intelligent systems
-- Subcopy: custom AI solutions, model training, usable intelligent systems
+- Headline: “Gyrate Digital — AI Engineers Building Intelligent Systems”
+- Subcopy: “We develop custom AI solutions, train models on your data, and build agentic AI systems to help your business automate.”
+- CTA: “Talk to Us” → `/contact`
+
+### `app/components/SmoothMarquee.tsx`
+**Status:** Done
+- Marquee items: Agentic AI · Fine-tuning Models · Generative AI · AI Chatbots & Autonomous Agents · Data Engineering & Integration · Prototyping & MVPs
 
 ### `app/components/AboutSection.tsx`
-**Change:** Homepage about blurb (“one-stop digital and software solutions…”).  
-**To:** AI-driven company; best AI engineers; ML/DL/agentic/custom training; build & deploy production AI.
+**Status:** Done
+- Image: `/about-gyrate.webp`
+- Copy: AI-focused company; Agentic AI, fine-tuning, Generative AI, chatbots & agents; data engineering & integration; prototypes & MVPs
 
 ### `app/components/ServicesSection.tsx`
 **Change:**

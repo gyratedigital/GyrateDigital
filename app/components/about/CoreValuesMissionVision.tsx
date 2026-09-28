@@ -32,7 +32,7 @@ export default function CoreValuesMissionVision() {
                     <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary">
                         What Drives Us
                     </span>
-                    <h2 className="outfit-text text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    <h2 className="section-heading outfit-text text-foreground mb-4">
                         Our Core Values
                     </h2>
                     <p className="text-foreground/70 max-w-2xl mx-auto">

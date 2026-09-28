@@ -58,8 +58,14 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
     window.addEventListener("load", refresh);
     requestAnimationFrame(refresh);
 
+    void document.fonts?.ready?.then(refresh);
+
+    // Late layout (lazy images / font swap) — one more pass after paint
+    const lateRefresh = window.setTimeout(refresh, 500);
+
     return () => {
       window.removeEventListener("load", refresh);
+      window.clearTimeout(lateRefresh);
       gsap.ticker.remove(onTick);
       instance.destroy();
       delete (window as Window & { __lenis?: Lenis }).__lenis;

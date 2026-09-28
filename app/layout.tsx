@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Outfit, Roboto_Flex } from "next/font/google";
+import { Outfit } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import LenisProvider from "./components/LenisProvider";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -13,29 +14,27 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
-const roboto = Roboto_Flex({
-  variable: "--font-roboto-flex",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://gyratedigital.com"),
 
   title: {
-    default: "Gyrate Digital | All-In-One Digital Agency for Design & Marketing",
+    default: "Gyrate Digital | AI Development Solutions, ML & Agentic Systems",
     template: "%s",
   },
 
   description:
-    "Gyrate Digital is a full-service digital agency offering web design, development, UI/UX, branding, and digital marketing to help businesses grow and scale online.",
+    "Gyrate Digital builds custom AI solutions, trains models on your data, and develops agentic AI systems to help your business automate.",
 
   keywords: [
-    "Digital Agency",
-    "Web Design Agency",
-    "Web Development",
-    "UI UX Design",
-    "Branding Agency",
-    "Digital Marketing Services",
+    "AI Agency",
+    "AI Engineering",
+    "Machine Learning",
+    "Deep Learning",
+    "Agentic AI",
+    "Custom AI Models",
+    "Model Training",
+    "MLOps",
+    "AI Engineers",
     "Gyrate Digital",
   ],
 
@@ -62,9 +61,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://gyratedigital.com",
-    title: "Gyrate Digital | Creative Design & Digital Marketing Agency",
+    title: "Gyrate Digital | AI Development Solutions, ML & Agentic Systems",
     description:
-      "We help brands grow with modern design, scalable development, and data-driven digital marketing.",
+      "Custom AI solutions, model training, and agentic AI systems that help businesses automate.",
     siteName: "Gyrate Digital",
     images: [
       {
@@ -78,9 +77,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Gyrate Digital | Digital Agency for Growth-Focused Brands",
+    title: "Gyrate Digital | AI Development Solutions, ML & Agentic Systems",
     description:
-      "Design, development & marketing solutions crafted to scale your business.",
+      "Custom AI solutions, model training, and agentic AI systems that help businesses automate.",
     images: ["/gy-logo.svg"],
   },
 
@@ -111,7 +110,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.variable} ${roboto.variable} antialiased bg-background`} suppressHydrationWarning>
+      <body className={`${outfit.variable} ${GeistSans.variable} antialiased bg-background`} suppressHydrationWarning>
         <ThemeProvider>
           <Toaster position="bottom-right" richColors />
           <LenisProvider>

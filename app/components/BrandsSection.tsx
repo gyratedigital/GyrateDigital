@@ -39,7 +39,7 @@ export default function BrandsSection() {
     return (
       <div>
         <div className="container mx-auto px-4">
-          <h2 className="relative mx-auto mb-2 max-w-4xl text-center text-4xl font-semibold text-foreground">
+          <h2 className="section-heading relative mx-auto mb-2 max-w-4xl text-center text-foreground">
             Our Partners
           </h2>
           <p className="mb-12 text-center text-sm text-foreground">
@@ -95,7 +95,7 @@ export default function BrandsSection() {
   return (
     <div>
       <div className="container mx-auto px-4">
-        <h2 className="relative mx-auto mb-2 max-w-4xl text-center text-4xl font-semibold text-foreground">
+        <h2 className="section-heading relative mx-auto mb-2 max-w-4xl text-center text-foreground">
           Our Partners
         </h2>
         <p className="mb-12 text-center text-sm text-foreground">

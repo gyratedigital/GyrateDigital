@@ -3,11 +3,12 @@
 import * as React from "react";
 
 const MarqueeItems = [
-  "Digital Marketing",
-  "Design",
-  "Web Platforms",
-  "Custom Software",
-  "SaaS",
+  "Agentic AI",
+  "Fine-tuning Models",
+  "Generative AI",
+  "AI Chatbots & Autonomous Agents",
+  "Data Engineering & Integration",
+  "Prototyping & MVPs",
 ];
 
 export default function SmoothMarquee() {

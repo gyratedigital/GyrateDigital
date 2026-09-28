@@ -32,7 +32,7 @@ export default function DedicatedTeamSection() {
                             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-wider uppercase bg-primary/10 text-primary rounded-full">
                                 Dedicated Development Teams
                             </span>
-                            <h2 className="text-4xl lg:text-5xl font-semibold text-foreground leading-tight mb-4">
+                            <h2 className="section-heading text-foreground leading-tight mb-4">
                                 Need long-term development support?
                             </h2>
                             <p className="text-muted-foreground text-lg leading-relaxed">
