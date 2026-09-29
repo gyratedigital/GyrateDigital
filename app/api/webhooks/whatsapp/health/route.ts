@@ -20,7 +20,8 @@ export async function GET() {
       "Subscribe to the messages field in Meta → WhatsApp → Configuration.",
       "In Development mode, add your phone as a test recipient in API Setup.",
       "Messages must go to the Cloud API business number, not a personal WhatsApp app.",
-      "If WHATSAPP_APP_SECRET is wrong, webhooks return 401 and no auto-reply is sent.",
+      "Keep WHATSAPP_APP_SECRET equal to Meta App Secret (App Settings → Basic).",
+      "Webhook must be subscribed to the messages field and callback must be https://your-domain/api/webhooks/whatsapp",
     ],
   });
 }
