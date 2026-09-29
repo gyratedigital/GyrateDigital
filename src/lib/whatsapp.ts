@@ -7,7 +7,7 @@ export type WhatsAppSendResult =
 function getCredentials(phoneNumberId?: string) {
   // TEMP: hardcoded for local testing — remove before commit
   const token =
-    "EAAN6R9MH8ggBShnSsRr7hlTpqTnUCVPd5JX0lmrZAC6CACrSmnmZBViZB6jYWuyoXtGjHJUF39KxicCwcZAHCKkBJR36u8UPdZA5V0F73GbcEh0zoHQbGe6ldGZBPcXuFqnNVERbTdRVRQl4KXGAZAFgDbm6wvqf8miZB2885S3JTBsOtipJDTZCaArxj8ZC2zxoIJYZChjiODbu4jgmSxlJlqapeugsIZBzyevD0afndeBsqiLV5WFG38H6EhZBucEQLZBpgqFOjzDoRmrZBuX9ZBCE0oyhn9X4";
+    "EAAN6R9MH8ggBSk7OWzZADw5juWuZA8TOZBQJpNYn11ZCJlyRFvfgUChTZAArI85ZC2EY2ry7ZC5hYJpcyrUEqq8h4f3eRfkMbxEUDFiET3G5GzbjXhPUFLfJ0C88SdaZCw6I9JIDgWmo8qBsUlOXj6NEVMz3wzwHlkjktpC7fkbqNQJNnlp7mysgeSlSqkBMihdZAOZAA4ZCwoaXur7ErUfZA917JnOWwYl0iiWiFeeNlBTLM3n6lEgOoYMjgekuFoGR3LnvvTDQZCa1iotQA3EIsA5OcfzS0QwZDZD";
   const fromId = phoneNumberId ?? "1332922439908653";
   return { token, fromId };
 }
