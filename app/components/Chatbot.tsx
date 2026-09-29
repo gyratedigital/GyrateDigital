@@ -28,7 +28,7 @@ export default function Chatbot() {
 
   useEffect(() => {
     if (isOpen && messages.length === 0 && !isTyping && !typingMessage) {
-      const welcomeMessage = 'Hello! 👋 Welcome to Gyrate Digital - your all-in-one trusted Digital Agency.\nI\'m here to help you learn about our services, answer your questions, or assist with scheduling a consultation. How can I help you today?';
+      const welcomeMessage = 'Hello! Welcome to Gyrate Digital LTD — \nI can help you explore our AI services (agents, fine-tuning, generative AI, chatbots, data integration, and MVPs), answer questions, or book a consultation. How can I help you today?';
       // Show typing animation for welcome message
       typeMessage(welcomeMessage, () => {
         setMessages([
