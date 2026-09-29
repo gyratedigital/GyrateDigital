@@ -1,11 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
-import {
-  getMenuOptionLabel,
-  sendMenuSelectionAck,
-  sendTextMessage,
-  sendWelcomeServiceMenu,
-} from "@/lib/whatsapp";
+import { sendTextMessage } from "@/lib/whatsapp";
 
 export const runtime = "nodejs";
 
@@ -94,29 +89,11 @@ export async function POST(request: NextRequest) {
 
     for (const entry of body.entry ?? []) {
       for (const change of entry.changes ?? []) {
-        console.log("[whatsapp webhook] change.field", change.field);
-
         if (change.field !== "messages") continue;
 
         const value = change.value;
         const messages = value?.messages ?? [];
-        const contacts = value?.contacts ?? [];
         const phoneNumberId = value?.metadata?.phone_number_id;
-
-        console.log("[whatsapp webhook] inbound batch", {
-          phoneNumberId,
-          display: value?.metadata?.display_phone_number,
-          messageCount: messages.length,
-        });
-
-        for (const status of value?.statuses ?? []) {
-          console.log("[whatsapp webhook] status", {
-            id: status.id,
-            status: status.status,
-            recipient: status.recipient_id,
-            errors: status.errors,
-          });
-        }
 
         for (const message of messages) {
           if (!markMessageProcessed(message.id)) {
@@ -124,18 +101,14 @@ export async function POST(request: NextRequest) {
             continue;
           }
 
-          const contact = contacts.find((c) => c.wa_id === message.from);
-
           console.log("[whatsapp webhook] message", {
             from: message.from,
-            name: contact?.profile?.name,
             type: message.type,
             id: message.id,
           });
 
           await handleIncomingMessage({
             from: message.from,
-            name: contact?.profile?.name,
             message,
             phoneNumberId,
           });
@@ -152,48 +125,21 @@ export async function POST(request: NextRequest) {
 
 async function handleIncomingMessage(payload: {
   from: string;
-  name?: string;
   message: WhatsAppMessage;
   phoneNumberId?: string;
 }) {
   const { from, message, phoneNumberId } = payload;
 
-  if (message.type === "text") {
-    const text = (message.text?.body ?? "").trim();
-    const normalized = text.toLowerCase();
+  if (message.type !== "text") return;
 
-    // Simple test reply: "hi" / "Hi" → "Hi"
-    if (normalized === "hi") {
-      console.log("[whatsapp webhook] hi test reply →", from);
-      const result = await sendTextMessage(from, "Hi", phoneNumberId);
-      if (!result.ok) {
-        console.error("[whatsapp webhook] hi reply failed", result.error);
-      }
-      return;
-    }
+  const text = (message.text?.body ?? "").trim().toLowerCase();
+  if (text !== "hi") return;
 
-    const result = await sendWelcomeServiceMenu(from, phoneNumberId);
-    if (!result.ok) {
-      console.error("[whatsapp webhook] welcome send failed", result.error);
-    }
-    return;
+  console.log("[whatsapp webhook] hi reply →", from);
+  const result = await sendTextMessage(from, "Hi", phoneNumberId);
+  if (!result.ok) {
+    console.error("[whatsapp webhook] hi reply failed", result.error);
   }
-
-  if (message.type === "interactive") {
-    const listReply = message.interactive?.list_reply;
-    const buttonReply = message.interactive?.button_reply;
-    const selectedId = listReply?.id ?? buttonReply?.id;
-
-    if (selectedId && getMenuOptionLabel(selectedId)) {
-      const result = await sendMenuSelectionAck(from, selectedId, phoneNumberId);
-      if (!result.ok) {
-        console.error("[whatsapp webhook] ack send failed", result.error);
-      }
-    }
-    return;
-  }
-
-  console.log("[whatsapp webhook] unhandled message type", message.type);
 }
 
 function verifySignature(
@@ -231,18 +177,7 @@ type WhatsAppWebhookPayload = {
           display_phone_number?: string;
           phone_number_id?: string;
         };
-        contacts?: Array<{
-          profile?: { name?: string };
-          wa_id?: string;
-        }>;
         messages?: WhatsAppMessage[];
-        statuses?: Array<{
-          id?: string;
-          status?: string;
-          timestamp?: string;
-          recipient_id?: string;
-          errors?: unknown;
-        }>;
       };
     }>;
   }>;
@@ -254,9 +189,4 @@ type WhatsAppMessage = {
   timestamp: string;
   type: string;
   text?: { body?: string };
-  interactive?: {
-    type?: string;
-    list_reply?: { id?: string; title?: string };
-    button_reply?: { id?: string; title?: string };
-  };
 };
