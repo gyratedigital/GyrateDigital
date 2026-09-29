@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
+import WhatsAppIcon from "./WhatsAppIcon";
 import { useRippleEffect } from "@/hooks/useRippleEffect";
 
 const navLinks = [
@@ -19,11 +20,16 @@ const navLinks = [
   // { href: "/contact", label: "Contact" },
 ];
 
+const WHATSAPP_URL =
+  "https://wa.me/923708890864?text=" +
+  encodeURIComponent("Hi, I am interested in AI integration");
+
 export default function AnimatedNav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { ripples: contactRipples, addRipple: addContactRipple } = useRippleEffect();
+  const { ripples: whatsappRipples, addRipple: addWhatsappRipple } = useRippleEffect();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 0);
@@ -47,7 +53,34 @@ export default function AnimatedNav() {
             <Logo />
           </Link>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-slot="button"
+              onClick={addWhatsappRipple}
+              aria-label="Message us on WhatsApp"
+              className="inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl border-2 border-foreground bg-transparent px-3 sm:px-4 py-1 text-sm sm:text-md font-medium text-foreground hover:bg-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden button-wave"
+            >
+              <span className="relative z-10 inline-flex items-center gap-1.5">
+                <WhatsAppIcon />
+                WhatsApp
+              </span>
+              {whatsappRipples.map((ripple) => (
+                <span
+                  key={ripple.id}
+                  className="absolute rounded-full bg-primary/30 pointer-events-none animate-ripple"
+                  style={{
+                    left: `${ripple.x}px`,
+                    top: `${ripple.y}px`,
+                    transform: "translate(-50%, -50%)",
+                    zIndex: 1,
+                  }}
+                />
+              ))}
+            </a>
+
             <Link
               href="/contact"
               data-slot="button"
@@ -173,8 +206,19 @@ export default function AnimatedNav() {
                           duration: 0.5,
                           ease: "easeOut"
                         }}
-                        className="w-full"
+                        className="w-full flex flex-col gap-3"
                       >
+                        <a
+                          href={WHATSAPP_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all duration-300"
+                          onClick={() => setOpen(false)}
+                        >
+                          <WhatsAppIcon className="size-[18px]" />
+                          WhatsApp
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
                         <Link
                           href="/contact"
                           className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-foreground rounded-full text-foreground font-medium hover:bg-black hover:text-primary transition-all duration-300"

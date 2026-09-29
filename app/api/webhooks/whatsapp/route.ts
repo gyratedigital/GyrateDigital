@@ -1,15 +1,44 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
+import {
+  getMenuOptionLabel,
+  sendMenuSelectionAck,
+  sendWelcomeServiceMenu,
+} from "@/lib/whatsapp";
 
 /**
  * WhatsApp Cloud API webhook
  * Meta App Dashboard → WhatsApp → Configuration → Callback URL:
  *   https://your-domain.com/api/webhooks/whatsapp
- * Verify token must match WHATSAPP_VERIFY_TOKEN in env.
+ *
+ * Env:
+ *   WHATSAPP_VERIFY_TOKEN
+ *   WHATSAPP_ACCESS_TOKEN
+ *   WHATSAPP_PHONE_NUMBER_ID
+ *   WHATSAPP_APP_SECRET (optional, signature validation)
  */
 
 const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN;
 const APP_SECRET = process.env.WHATSAPP_APP_SECRET;
+
+const globalForWa = globalThis as typeof globalThis & {
+  whatsappProcessedMessageIds?: Set<string>;
+};
+
+function markMessageProcessed(messageId: string): boolean {
+  if (!globalForWa.whatsappProcessedMessageIds) {
+    globalForWa.whatsappProcessedMessageIds = new Set();
+  }
+  if (globalForWa.whatsappProcessedMessageIds.has(messageId)) {
+    return false;
+  }
+  globalForWa.whatsappProcessedMessageIds.add(messageId);
+  // Prevent unbounded growth in long-running dev servers
+  if (globalForWa.whatsappProcessedMessageIds.size > 5000) {
+    globalForWa.whatsappProcessedMessageIds.clear();
+  }
+  return true;
+}
 
 /** GET — Meta verification challenge when you first subscribe the webhook. */
 export async function GET(request: NextRequest) {
@@ -25,7 +54,6 @@ export async function GET(request: NextRequest) {
     }
 
     if (token === VERIFY_TOKEN) {
-      // Meta expects the raw challenge string as the response body
       return new NextResponse(challenge, {
         status: 200,
         headers: { "Content-Type": "text/plain" },
@@ -44,7 +72,6 @@ export async function POST(request: NextRequest) {
   try {
     const rawBody = await request.text();
 
-    // Optional: validate X-Hub-Signature-256 when WHATSAPP_APP_SECRET is set
     if (APP_SECRET) {
       const signature = request.headers.get("x-hub-signature-256");
       if (!verifySignature(rawBody, signature, APP_SECRET)) {
@@ -66,9 +93,9 @@ export async function POST(request: NextRequest) {
         const value = change.value;
         const messages = value?.messages ?? [];
         const contacts = value?.contacts ?? [];
-        const statuses = value?.statuses ?? [];
+        const phoneNumberId = value?.metadata?.phone_number_id;
 
-        for (const status of statuses) {
+        for (const status of value?.statuses ?? []) {
           console.log("[whatsapp webhook] status", {
             id: status.id,
             status: status.status,
@@ -77,35 +104,32 @@ export async function POST(request: NextRequest) {
         }
 
         for (const message of messages) {
+          if (!markMessageProcessed(message.id)) {
+            continue;
+          }
+
           const contact = contacts.find((c) => c.wa_id === message.from);
-          const text =
-            message.type === "text" ? message.text?.body : `[${message.type}]`;
 
           console.log("[whatsapp webhook] message", {
             from: message.from,
             name: contact?.profile?.name,
             type: message.type,
             id: message.id,
-            text,
           });
 
-          // Hook for automation: reply / CRM / AI agent, etc.
           await handleIncomingMessage({
             from: message.from,
             name: contact?.profile?.name,
             message,
-            phoneNumberId: value?.metadata?.phone_number_id,
+            phoneNumberId,
           });
         }
       }
     }
 
-    // Always acknowledge quickly so Meta does not retry
     return NextResponse.json({ status: "ok" }, { status: 200 });
   } catch (error) {
     console.error("[whatsapp webhook] POST error", error);
-    // Still return 200 for parse issues after accept to avoid retry storms;
-    // return 500 only for unexpected failures Meta should retry.
     return NextResponse.json({ status: "error" }, { status: 500 });
   }
 }
@@ -116,8 +140,22 @@ async function handleIncomingMessage(payload: {
   message: WhatsAppMessage;
   phoneNumberId?: string;
 }) {
-  // Placeholder for your automation pipeline (auto-reply, queue, AI, etc.)
-  void payload;
+  const { from, message, phoneNumberId } = payload;
+
+  if (message.type === "text") {
+    await sendWelcomeServiceMenu(from, phoneNumberId);
+    return;
+  }
+
+  if (message.type === "interactive") {
+    const listReply = message.interactive?.list_reply;
+    const buttonReply = message.interactive?.button_reply;
+    const selectedId = listReply?.id ?? buttonReply?.id;
+
+    if (selectedId && getMenuOptionLabel(selectedId)) {
+      await sendMenuSelectionAck(from, selectedId, phoneNumberId);
+    }
+  }
 }
 
 function verifySignature(
@@ -177,4 +215,9 @@ type WhatsAppMessage = {
   timestamp: string;
   type: string;
   text?: { body?: string };
+  interactive?: {
+    type?: string;
+    list_reply?: { id?: string; title?: string };
+    button_reply?: { id?: string; title?: string };
+  };
 };
