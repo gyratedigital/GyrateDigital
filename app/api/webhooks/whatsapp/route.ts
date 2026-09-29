@@ -6,16 +6,11 @@ import {
   sendWelcomeServiceMenu,
 } from "@/lib/whatsapp";
 
+export const runtime = "nodejs";
+
 /**
  * WhatsApp Cloud API webhook
- * Meta App Dashboard → WhatsApp → Configuration → Callback URL:
- *   https://your-domain.com/api/webhooks/whatsapp
- *
- * Env:
- *   WHATSAPP_VERIFY_TOKEN
- *   WHATSAPP_ACCESS_TOKEN
- *   WHATSAPP_PHONE_NUMBER_ID
- *   WHATSAPP_APP_SECRET (optional, signature validation)
+ * Health: GET /api/webhooks/whatsapp/health
  */
 
 const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN;
@@ -33,14 +28,13 @@ function markMessageProcessed(messageId: string): boolean {
     return false;
   }
   globalForWa.whatsappProcessedMessageIds.add(messageId);
-  // Prevent unbounded growth in long-running dev servers
   if (globalForWa.whatsappProcessedMessageIds.size > 5000) {
     globalForWa.whatsappProcessedMessageIds.clear();
   }
   return true;
 }
 
-/** GET — Meta verification challenge when you first subscribe the webhook. */
+/** GET — Meta verification challenge (or 400 if not a verify request). */
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const mode = searchParams.get("hub.mode");
@@ -74,13 +68,24 @@ export async function POST(request: NextRequest) {
 
     if (APP_SECRET) {
       const signature = request.headers.get("x-hub-signature-256");
-      if (!verifySignature(rawBody, signature, APP_SECRET)) {
-        console.warn("[whatsapp webhook] Invalid signature");
+      if (!signature) {
+        console.warn(
+          "[whatsapp webhook] WHATSAPP_APP_SECRET is set but X-Hub-Signature-256 is missing"
+        );
+      } else if (!verifySignature(rawBody, signature, APP_SECRET)) {
+        console.warn(
+          "[whatsapp webhook] Invalid signature — check WHATSAPP_APP_SECRET (App Settings → Basic → App Secret, not verify token)"
+        );
         return new NextResponse("Invalid signature", { status: 401 });
       }
     }
 
     const body = JSON.parse(rawBody) as WhatsAppWebhookPayload;
+
+    console.log("[whatsapp webhook] POST", {
+      object: body.object,
+      entries: body.entry?.length ?? 0,
+    });
 
     if (body.object !== "whatsapp_business_account") {
       return NextResponse.json({ status: "ignored" }, { status: 200 });
@@ -88,6 +93,8 @@ export async function POST(request: NextRequest) {
 
     for (const entry of body.entry ?? []) {
       for (const change of entry.changes ?? []) {
+        console.log("[whatsapp webhook] change.field", change.field);
+
         if (change.field !== "messages") continue;
 
         const value = change.value;
@@ -95,16 +102,24 @@ export async function POST(request: NextRequest) {
         const contacts = value?.contacts ?? [];
         const phoneNumberId = value?.metadata?.phone_number_id;
 
+        console.log("[whatsapp webhook] inbound batch", {
+          phoneNumberId,
+          display: value?.metadata?.display_phone_number,
+          messageCount: messages.length,
+        });
+
         for (const status of value?.statuses ?? []) {
           console.log("[whatsapp webhook] status", {
             id: status.id,
             status: status.status,
             recipient: status.recipient_id,
+            errors: status.errors,
           });
         }
 
         for (const message of messages) {
           if (!markMessageProcessed(message.id)) {
+            console.log("[whatsapp webhook] skip duplicate", message.id);
             continue;
           }
 
@@ -143,7 +158,10 @@ async function handleIncomingMessage(payload: {
   const { from, message, phoneNumberId } = payload;
 
   if (message.type === "text") {
-    await sendWelcomeServiceMenu(from, phoneNumberId);
+    const result = await sendWelcomeServiceMenu(from, phoneNumberId);
+    if (!result.ok) {
+      console.error("[whatsapp webhook] welcome send failed", result.error);
+    }
     return;
   }
 
@@ -153,17 +171,23 @@ async function handleIncomingMessage(payload: {
     const selectedId = listReply?.id ?? buttonReply?.id;
 
     if (selectedId && getMenuOptionLabel(selectedId)) {
-      await sendMenuSelectionAck(from, selectedId, phoneNumberId);
+      const result = await sendMenuSelectionAck(from, selectedId, phoneNumberId);
+      if (!result.ok) {
+        console.error("[whatsapp webhook] ack send failed", result.error);
+      }
     }
+    return;
   }
+
+  console.log("[whatsapp webhook] unhandled message type", message.type);
 }
 
 function verifySignature(
   rawBody: string,
-  signatureHeader: string | null,
+  signatureHeader: string,
   appSecret: string
 ): boolean {
-  if (!signatureHeader?.startsWith("sha256=")) return false;
+  if (!signatureHeader.startsWith("sha256=")) return false;
 
   const expected = signatureHeader.slice("sha256=".length);
   const digest = crypto
@@ -203,6 +227,7 @@ type WhatsAppWebhookPayload = {
           status?: string;
           timestamp?: string;
           recipient_id?: string;
+          errors?: unknown;
         }>;
       };
     }>;

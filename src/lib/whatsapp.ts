@@ -1,5 +1,10 @@
 const GRAPH_API_VERSION = "v21.0";
 
+export const WELCOME_BODY =
+  "Thanks for contacting Gyrate Digital!\n" +
+  "Let's understand what you're looking to automate.\n\n" +
+  "What would you like to do?";
+
 export const WHATSAPP_MENU_OPTIONS = [
   {
     id: "build_ai_agent",
@@ -30,6 +35,10 @@ export const WHATSAPP_MENU_OPTIONS = [
 
 export type WhatsAppMenuOptionId = (typeof WHATSAPP_MENU_OPTIONS)[number]["id"];
 
+export type WhatsAppSendResult =
+  | { ok: true; data: unknown }
+  | { ok: false; error: unknown; status?: number };
+
 function getCredentials(phoneNumberId?: string) {
   const token = process.env.WHATSAPP_ACCESS_TOKEN;
   const fromId = phoneNumberId ?? process.env.WHATSAPP_PHONE_NUMBER_ID;
@@ -39,14 +48,14 @@ function getCredentials(phoneNumberId?: string) {
 async function postWhatsAppMessage(
   phoneNumberId: string | undefined,
   payload: Record<string, unknown>
-) {
+): Promise<WhatsAppSendResult> {
   const { token, fromId } = getCredentials(phoneNumberId);
 
   if (!token || !fromId) {
     console.error(
       "[whatsapp] Missing WHATSAPP_ACCESS_TOKEN or WHATSAPP_PHONE_NUMBER_ID"
     );
-    return { ok: false as const, error: "not_configured" };
+    return { ok: false, error: "not_configured" };
   }
 
   const res = await fetch(
@@ -68,26 +77,37 @@ async function postWhatsAppMessage(
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
-    console.error("[whatsapp] Send failed", res.status, data);
-    return { ok: false as const, error: data };
+    console.error("[whatsapp] Send failed", {
+      status: res.status,
+      phoneNumberId: fromId,
+      to: payload.to,
+      error: data,
+    });
+    return { ok: false, error: data, status: res.status };
   }
 
-  return { ok: true as const, data };
+  console.log("[whatsapp] Send ok", { to: payload.to, type: payload.type });
+  return { ok: true, data };
 }
 
-/** Welcome + service menu (list — WhatsApp allows max 3 reply buttons; list supports 5 options). */
-export async function sendWelcomeServiceMenu(to: string, phoneNumberId?: string) {
-  return postWhatsAppMessage(phoneNumberId, {
+function welcomeTextFallback(): string {
+  const lines = WHATSAPP_MENU_OPTIONS.map(
+    (o, i) => `${i + 1}. ${o.title}`
+  ).join("\n");
+  return `${WELCOME_BODY}\n\n${lines}\n\nTap *View options* when available, or reply with a number.`;
+}
+
+/** Welcome + service menu; falls back to plain text if interactive list is rejected. */
+export async function sendWelcomeServiceMenu(
+  to: string,
+  phoneNumberId?: string
+): Promise<WhatsAppSendResult> {
+  const listResult = await postWhatsAppMessage(phoneNumberId, {
     to,
     type: "interactive",
     interactive: {
       type: "list",
-      body: {
-        text:
-          "Thanks for contacting Gyrate Digital!\n" +
-          "Let's understand what you're looking to automate.\n\n" +
-          "What would you like to do?",
-      },
+      body: { text: WELCOME_BODY },
       action: {
         button: "View options",
         sections: [
@@ -103,13 +123,18 @@ export async function sendWelcomeServiceMenu(to: string, phoneNumberId?: string)
       },
     },
   });
+
+  if (listResult.ok) return listResult;
+
+  console.warn("[whatsapp] List menu failed, sending text fallback");
+  return sendTextMessage(to, welcomeTextFallback(), phoneNumberId);
 }
 
 export async function sendTextMessage(
   to: string,
   text: string,
   phoneNumberId?: string
-) {
+): Promise<WhatsAppSendResult> {
   return postWhatsAppMessage(phoneNumberId, {
     to,
     type: "text",
@@ -125,7 +150,7 @@ export async function sendMenuSelectionAck(
   to: string,
   optionId: WhatsAppMenuOptionId | string,
   phoneNumberId?: string
-) {
+): Promise<WhatsAppSendResult> {
   const label = getMenuOptionLabel(optionId) ?? "your selection";
 
   return sendTextMessage(
