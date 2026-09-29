@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import {
-  getMenuOptionLabel,
-  sendMenuSelectionAck,
+  getMenuOption,
+  handleFlowInteractiveReply,
+  handleFlowTextReply,
+  handleMenuSelection,
   sendWelcomeServiceMenu,
 } from "@/lib/whatsapp";
 
@@ -163,6 +165,15 @@ async function handleIncomingMessage(payload: {
   if (message.type === "text") {
     const text = (message.text?.body ?? "").trim();
 
+    // Continue an active flow (e.g. name + company)
+    const flowTextResult = await handleFlowTextReply(from, text, phoneNumberId);
+    if (flowTextResult) {
+      if (!flowTextResult.ok) {
+        console.error("[whatsapp webhook] flow text failed", flowTextResult.error);
+      }
+      return;
+    }
+
     // Welcome menu when the message contains the word "hi"
     if (!/\bhi\b/i.test(text)) return;
 
@@ -178,11 +189,27 @@ async function handleIncomingMessage(payload: {
     const listReply = message.interactive?.list_reply;
     const buttonReply = message.interactive?.button_reply;
     const selectedId = listReply?.id ?? buttonReply?.id;
+    if (!selectedId) return;
 
-    if (selectedId && getMenuOptionLabel(selectedId)) {
-      const result = await sendMenuSelectionAck(from, selectedId, phoneNumberId);
+    // Answer within an active flow step
+    const flowResult = await handleFlowInteractiveReply(
+      from,
+      selectedId,
+      phoneNumberId
+    );
+    if (flowResult) {
+      if (!flowResult.ok) {
+        console.error("[whatsapp webhook] flow reply failed", flowResult.error);
+      }
+      return;
+    }
+
+    // Top-level service menu selection
+    if (getMenuOption(selectedId)) {
+      console.log("[whatsapp webhook] menu selection →", selectedId);
+      const result = await handleMenuSelection(from, selectedId, phoneNumberId);
       if (!result.ok) {
-        console.error("[whatsapp webhook] ack send failed", result.error);
+        console.error("[whatsapp webhook] menu selection failed", result.error);
       }
     }
     return;
