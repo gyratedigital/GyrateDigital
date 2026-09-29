@@ -40,8 +40,10 @@ export type WhatsAppSendResult =
   | { ok: false; error: unknown; status?: number };
 
 function getCredentials(phoneNumberId?: string) {
-  const token = process.env.WHATSAPP_ACCESS_TOKEN;
-  const fromId = phoneNumberId ?? process.env.WHATSAPP_PHONE_NUMBER_ID;
+  // TEMP: hardcoded for local testing — remove before commit
+  const token =
+    "EAAN6R9MH8ggBShnSsRr7hlTpqTnUCVPd5JX0lmrZAC6CACrSmnmZBViZB6jYWuyoXtGjHJUF39KxicCwcZAHCKkBJR36u8UPdZA5V0F73GbcEh0zoHQbGe6ldGZBPcXuFqnNVERbTdRVRQl4KXGAZAFgDbm6wvqf8miZB2885S3JTBsOtipJDTZCaArxj8ZC2zxoIJYZChjiODbu4jgmSxlJlqapeugsIZBzyevD0afndeBsqiLV5WFG38H6EhZBucEQLZBpgqFOjzDoRmrZBuX9ZBCE0oyhn9X4";
+  const fromId = phoneNumberId ?? "1332922439908653";
   return { token, fromId };
 }
 
