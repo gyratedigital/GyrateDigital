@@ -1,5 +1,40 @@
 const GRAPH_API_VERSION = "v21.0";
 
+export const WELCOME_BODY =
+  "Thanks for contacting Gyrate Digital!\n" +
+  "Let's understand what you're looking to automate.\n\n" +
+  "What would you like to do?";
+
+export const WHATSAPP_MENU_OPTIONS = [
+  {
+    id: "build_ai_agent",
+    title: "Build an AI Agent",
+    description: "Custom agents for your workflows",
+  },
+  {
+    id: "automate_process",
+    title: "Automate a Process",
+    description: "Streamline repetitive work",
+  },
+  {
+    id: "ai_customer_support",
+    title: "AI Customer Support",
+    description: "Smart support automation",
+  },
+  {
+    id: "fine_tune_model",
+    title: "Fine-tune model",
+    description: "Models trained on your data",
+  },
+  {
+    id: "generative_ai",
+    title: "Generative AI",
+    description: "Content and GenAI products",
+  },
+] as const;
+
+export type WhatsAppMenuOptionId = (typeof WHATSAPP_MENU_OPTIONS)[number]["id"];
+
 export type WhatsAppSendResult =
   | { ok: true; data: unknown }
   | { ok: false; error: unknown; status?: number };
@@ -10,10 +45,9 @@ function getCredentials(phoneNumberId?: string) {
   return { token, fromId };
 }
 
-export async function sendTextMessage(
-  to: string,
-  text: string,
-  phoneNumberId?: string
+async function postWhatsAppMessage(
+  phoneNumberId: string | undefined,
+  payload: Record<string, unknown>
 ): Promise<WhatsAppSendResult> {
   const { token, fromId } = getCredentials(phoneNumberId);
 
@@ -35,9 +69,7 @@ export async function sendTextMessage(
       body: JSON.stringify({
         messaging_product: "whatsapp",
         recipient_type: "individual",
-        to,
-        type: "text",
-        text: { body: text },
+        ...payload,
       }),
     }
   );
@@ -48,12 +80,85 @@ export async function sendTextMessage(
     console.error("[whatsapp] Send failed", {
       status: res.status,
       phoneNumberId: fromId,
-      to,
+      to: payload.to,
       error: data,
     });
     return { ok: false, error: data, status: res.status };
   }
 
-  console.log("[whatsapp] Send ok", { to, type: "text" });
+  console.log("[whatsapp] Send ok", { to: payload.to, type: payload.type });
   return { ok: true, data };
+}
+
+function welcomeTextFallback(): string {
+  const lines = WHATSAPP_MENU_OPTIONS.map(
+    (o, i) => `${i + 1}. ${o.title}`
+  ).join("\n");
+  return `${WELCOME_BODY}\n\n${lines}\n\nTap *View options* when available, or reply with a number.`;
+}
+
+/** Welcome + service menu; falls back to plain text if interactive list is rejected. */
+export async function sendWelcomeServiceMenu(
+  to: string,
+  phoneNumberId?: string
+): Promise<WhatsAppSendResult> {
+  const listResult = await postWhatsAppMessage(phoneNumberId, {
+    to,
+    type: "interactive",
+    interactive: {
+      type: "list",
+      body: { text: WELCOME_BODY },
+      action: {
+        button: "View options",
+        sections: [
+          {
+            title: "AI services",
+            rows: WHATSAPP_MENU_OPTIONS.map((option) => ({
+              id: option.id,
+              title: option.title,
+              description: option.description,
+            })),
+          },
+        ],
+      },
+    },
+  });
+
+  if (listResult.ok) return listResult;
+
+  console.warn("[whatsapp] List menu failed, sending text fallback");
+  return sendTextMessage(to, welcomeTextFallback(), phoneNumberId);
+}
+
+export async function sendTextMessage(
+  to: string,
+  text: string,
+  phoneNumberId?: string
+): Promise<WhatsAppSendResult> {
+  return postWhatsAppMessage(phoneNumberId, {
+    to,
+    type: "text",
+    text: { body: text },
+  });
+}
+
+export function getMenuOptionLabel(id: string): string | undefined {
+  return WHATSAPP_MENU_OPTIONS.find((o) => o.id === id)?.title;
+}
+
+export async function sendMenuSelectionAck(
+  to: string,
+  optionId: WhatsAppMenuOptionId | string,
+  phoneNumberId?: string
+): Promise<WhatsAppSendResult> {
+  const label = getMenuOptionLabel(optionId) ?? "your selection";
+
+  return sendTextMessage(
+    to,
+    `Great — you chose *${label}*.\n\n` +
+      "Our team will follow up with next steps. " +
+      "You can also book a call anytime:\n" +
+      "https://calendly.com/gyratedigital/30min",
+    phoneNumberId
+  );
 }
