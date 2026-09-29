@@ -3,6 +3,7 @@ import crypto from "crypto";
 import {
   getMenuOptionLabel,
   sendMenuSelectionAck,
+  sendTextMessage,
   sendWelcomeServiceMenu,
 } from "@/lib/whatsapp";
 
@@ -158,6 +159,19 @@ async function handleIncomingMessage(payload: {
   const { from, message, phoneNumberId } = payload;
 
   if (message.type === "text") {
+    const text = (message.text?.body ?? "").trim();
+    const normalized = text.toLowerCase();
+
+    // Simple test reply: "hi" / "Hi" → "Hi"
+    if (normalized === "hi") {
+      console.log("[whatsapp webhook] hi test reply →", from);
+      const result = await sendTextMessage(from, "Hi", phoneNumberId);
+      if (!result.ok) {
+        console.error("[whatsapp webhook] hi reply failed", result.error);
+      }
+      return;
+    }
+
     const result = await sendWelcomeServiceMenu(from, phoneNumberId);
     if (!result.ok) {
       console.error("[whatsapp webhook] welcome send failed", result.error);
