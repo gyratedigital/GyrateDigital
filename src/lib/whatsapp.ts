@@ -5,10 +5,8 @@ export type WhatsAppSendResult =
   | { ok: false; error: unknown; status?: number };
 
 function getCredentials(phoneNumberId?: string) {
-  // TEMP: hardcoded for local testing — remove before commit
-  const token =
-    "EAAN6R9MH8ggBSk7OWzZADw5juWuZA8TOZBQJpNYn11ZCJlyRFvfgUChTZAArI85ZC2EY2ry7ZC5hYJpcyrUEqq8h4f3eRfkMbxEUDFiET3G5GzbjXhPUFLfJ0C88SdaZCw6I9JIDgWmo8qBsUlOXj6NEVMz3wzwHlkjktpC7fkbqNQJNnlp7mysgeSlSqkBMihdZAOZAA4ZCwoaXur7ErUfZA917JnOWwYl0iiWiFeeNlBTLM3n6lEgOoYMjgekuFoGR3LnvvTDQZCa1iotQA3EIsA5OcfzS0QwZDZD";
-  const fromId = phoneNumberId ?? "1332922439908653";
+  const token = process.env.WHATSAPP_ACCESS_TOKEN;
+  const fromId = phoneNumberId ?? process.env.WHATSAPP_PHONE_NUMBER_ID;
   return { token, fromId };
 }
 
