@@ -7,7 +7,7 @@ const coreValues = [
         icon: Lightbulb,
         title: "Innovation",
         description:
-            "We continuously evolve with technology, creativity, and AI-enabled thinking to deliver solutions that are future-ready and relevant.",
+            "We stay close to advances in ML, agents, and generative AI — turning new capability into practical systems that are production-ready and relevant.",
     },
     {
         icon: Shield,
@@ -19,7 +19,7 @@ const coreValues = [
         icon: Target,
         title: "Impact",
         description:
-            "Every solution we build is aligned with real business outcomes. We focus on work that delivers measurable, long-term value.",
+            "Every solution we build is aligned with real business outcomes. We focus on AI that delivers measurable, long-term value — not demos that fade.",
     },
 ];
 
@@ -84,7 +84,7 @@ export default function CoreValuesMissionVision() {
                                 Our Mission
                             </h3>
                             <p className="text-background/80 leading-relaxed">
-                                To help businesses build digital solutions that perform over time — by combining strategy, design, technology, marketing, and AI to create systems that are practical, scalable, and built for real-world impact.
+                                To help businesses build and operationalize AI that drives real outcomes — by combining agentic systems, fine-tuned models, generative AI, and reliable data integrations into solutions that are practical, scalable, and built for production.
                             </p>
                         </div>
                     </div>
@@ -105,7 +105,7 @@ export default function CoreValuesMissionVision() {
                                 Our Vision
                             </h3>
                             <p className="text-white/90 leading-relaxed">
-                                To become a trusted long-term digital partner for businesses worldwide — empowering growth through thoughtful innovation, reliable software, and continuously evolving digital solutions.
+                                To become a trusted AI engineering partner for businesses worldwide — empowering growth through intelligent systems, custom models, autonomous agents, and continuously evolving AI products.
                             </p>
                         </div>
                     </div>

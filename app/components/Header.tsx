@@ -61,11 +61,11 @@ export default function AnimatedNav() {
               data-slot="button"
               onClick={addWhatsappRipple}
               aria-label="Message us on WhatsApp"
-              className="inline-flex h-[40px] items-center justify-center gap-1.5 rounded-xl border-2 border-foreground bg-transparent px-3 sm:px-4 py-1 text-sm sm:text-md font-medium text-foreground hover:bg-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 transition-all relative overflow-hidden button-wave"
+              className="relative inline-flex h-[40px] w-[40px] items-center justify-center overflow-hidden rounded-full border-2 border-foreground bg-transparent text-foreground transition-all hover:bg-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 sm:w-auto sm:gap-1.5 sm:rounded-xl sm:px-3 sm:py-1 sm:text-sm md:px-4 md:text-md button-wave"
             >
               <span className="relative z-10 inline-flex items-center gap-1.5">
                 <WhatsAppIcon />
-                WhatsApp
+                <span className="hidden sm:inline">WhatsApp</span>
               </span>
               {whatsappRipples.map((ripple) => (
                 <span

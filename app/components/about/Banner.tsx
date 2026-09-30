@@ -10,14 +10,13 @@ export default function AboutBanner() {
             Who we are
 
           <h1 className="text-4xl font-semibold leading-tight text-foreground md:text-5xl">
-            Digital Marketing Agency
+            AI Engineers Building Intelligent Systems
           </h1>
 
           <p className="text-lg text-gray-600 leading-relaxed text-muted-foreground">
-            We partner with ambitious brands to transform ideas into measurable 
-            results. Through innovative design, data-driven marketing, and the 
-            latest technology, we deliver strategies that connect with audiences 
-            and accelerate success.
+            We partner with ambitious teams to turn AI ideas into production systems —
+            agentic workflows, fine-tuned models, generative products, and chatbots
+            grounded in real business data and outcomes.
           </p>
         </div>
 

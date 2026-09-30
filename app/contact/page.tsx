@@ -153,8 +153,16 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-foreground text-lg font-semibold mb-1">Email Us</h3>
-                  <p className="text-foreground/70">info@gyratedigital.com</p>
-                  <p className="text-foreground/70">support@gyratedigital.com</p>
+                  <p className="text-foreground/70">
+                    <a href="mailto:info@gyratedigital.com" className="underline hover:no-underline">
+                      info@gyratedigital.com
+                    </a>
+                  </p>
+                  <p className="text-foreground/70">
+                    <a href="mailto:support@gyratedigital.com" className="underline hover:no-underline">
+                      support@gyratedigital.com
+                    </a>
+                  </p>
                 </div>
               </div>
 
@@ -164,7 +172,11 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-foreground text-lg font-semibold mb-1">Call Us</h3>
-                  <p className="text-foreground/70">+44 7943 939124</p>
+                  <p className="text-foreground/70">
+                    <a href="tel:+447943939124" className="underline hover:no-underline">
+                      +44 7943 939124
+                    </a>
+                  </p>
                   <p className="text-foreground/70">Mon - Fri 11am - 8pm EST</p>
                 </div>
               </div>

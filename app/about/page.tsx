@@ -38,7 +38,7 @@ export default function PortfolioPage() {
                             Who We Are
                         </h1>
                         <p className="text-foreground/70 text-lg leading-relaxed max-w-2xl mx-auto">
-                            Gyrate Digital is a one-stop digital and software solutions company. We help businesses plan, build, and grow meaningful digital experiences. From professional websites and digital platforms to custom web applications, SaaS products, and AI-enabled systems, we deliver solutions that scale.
+                            Gyrate Digital is an AI engineering company. We help businesses turn emerging AI capabilities into practical, scalable systems — from agentic AI and fine-tuned models to generative products, intelligent chatbots, and data integrations that connect AI to the tools you already use.
                         </p>
                     </div>
                 </div>
