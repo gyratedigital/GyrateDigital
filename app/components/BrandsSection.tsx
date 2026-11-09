@@ -25,6 +25,14 @@ const partners = [
     // Keep original brand colors — no dark-mode filter
     noFilter: true,
   },
+  {
+    src: "/client-slider-images/whatshandler.png",
+    alt: "WhatsHandler",
+    href: "https://whatshandler.com",
+    tall: true,
+    // Keep original brand colors — no dark-mode filter
+    noFilter: true,
+  },
 ];
 
 export default function BrandsSection() {
