@@ -1,5 +1,101 @@
 export const workSection = [
     {
+        id: "9",
+        slug: "whatshandler",
+        category: "WhatsApp AI Agent SaaS",
+        title: ["WhatsHandler"],
+        description:
+            "AI that automates your business WhatsApp — reply to customers, qualify leads, and book meetings on the official WhatsApp Cloud API.",
+        image: "/portfolio/visual-gallery/whatshandler/whatshandler.png",
+        imageGallery: [
+            "/portfolio/visual-gallery/whatshandler/whatshandler.png",
+            "/portfolio/visual-gallery/whatshandler/whatshandler-2.png",
+            "/portfolio/visual-gallery/whatshandler/whatshandler-3.png",
+            "/portfolio/visual-gallery/whatshandler/whatshandler-4.png",
+        ],
+        liveUrl: "https://whatshandler.com",
+        tags: [
+            "WhatsApp Cloud API",
+            "AI Agent",
+            "Lead Qualification",
+            "Knowledge Base",
+            "Multi-tenant SaaS",
+        ],
+        caseStudy: {
+            summary:
+                "Built WhatsHandler — a multi-tenant WhatsApp AI agent platform where businesses connect their WhatsApp Business number, hand chats to an AI agent grounded in their knowledge base, promote quality conversations into leads, book meetings, and get owner alerts by email or SMS.",
+            challenge:
+                "Business WhatsApp inboxes pile up with pricing questions, support FAQs, and unqualified interest. Teams either miss messages after hours or spend hours answering the same questions — while high-intent chats get buried and never become leads or booked meetings.",
+            solution: [
+                "Shipped a multi-tenant SaaS on Next.js + Supabase with Meta Embedded Signup and WhatsApp Coexistence so vendors connect Cloud API without pasting developer credentials.",
+                "Built an AI agent loop: inbound webhook → consent gate → Gemini replies grounded in company knowledge (FAQs, pricing, policies, documents, media) with human handover when needed.",
+                "Added conversations inbox, lead promotion from quality chats, owner email/SMS alerts, Calendly-style meeting booking, WhatsApp templates, and campaign management.",
+                "Integrated WooCommerce for live product/order context and knowledge media so the agent can retrieve and send the right images or document answers over WhatsApp.",
+                "Productized platform admin, vendor dashboards (settings, knowledge, integrations), and a public marketing site at whatshandler.com.",
+            ],
+            results: [
+                "Gave businesses a single WhatsApp front door for support, sales, and booking — without losing chat history.",
+                "Turned high-intent conversations into leads with owner alerts instead of buried inbox threads.",
+                "Launched a live multi-tenant product at whatshandler.com with Embedded Signup and AI handover.",
+            ],
+            metrics: [
+                {
+                    label: "Channel",
+                    value: "WhatsApp",
+                    description: "Official Meta Cloud API + Coexistence",
+                },
+                {
+                    label: "Core Loop",
+                    value: "3 steps",
+                    description: "Connect → chat / AI → lead & book",
+                },
+                {
+                    label: "Live Product",
+                    value: "Shipped",
+                    description: "Public SaaS at whatshandler.com",
+                },
+            ],
+            timeline: "Product build & launch",
+            platform:
+                "Next.js, Supabase, Gemini, WhatsApp Cloud API, Meta Embedded Signup, WooCommerce, Nodemailer",
+            services: [
+                "Product Strategy",
+                "UI/UX Design",
+                "Frontend Development",
+                "Backend / API",
+                "AI Agent Integration",
+                "WhatsApp / Meta Integration",
+                "Multi-tenant Architecture",
+            ],
+            deliverables: [
+                "WhatsApp webhook + AI agent runtime",
+                "Conversations inbox & lead pipeline",
+                "Knowledge base + media retrieval",
+                "Meta Embedded Signup & Coexistence",
+                "Templates, campaigns & WooCommerce sync",
+                "Vendor dashboard + marketing site",
+            ],
+            gallery: [
+                {
+                    src: "/portfolio/visual-gallery/whatshandler/whatshandler.png",
+                    caption: "WhatsHandler — AI that automates business WhatsApp",
+                },
+                {
+                    src: "/portfolio/visual-gallery/whatshandler/whatshandler-2.png",
+                    caption: "Conversations inbox and AI handover",
+                },
+                {
+                    src: "/portfolio/visual-gallery/whatshandler/whatshandler-3.png",
+                    caption: "Knowledge base and lead workflows",
+                },
+                {
+                    src: "/portfolio/visual-gallery/whatshandler/whatshandler-4.png",
+                    caption: "WhatsHandler product experience",
+                },
+            ],
+        },
+    },
+    {
         id: "8",
         slug: "codeturtle-ai",
         category: "AI Code Review SaaS",
